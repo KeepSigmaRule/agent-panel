@@ -12,6 +12,7 @@ import Header from '../Header';
 import AgentPath from './AgentPath';
 import { getAgentLevelInfo,getDownlineProfitLoss } from '../../Redux/action/Downline';
 import IsLoadingHOC from '../IsLoadingHOC';
+import { toast } from "react-toastify";
 
 const ProfitLossDownline = (props) => {
     const dispatch = useDispatch();
@@ -26,6 +27,14 @@ const ProfitLossDownline = (props) => {
 	const [endDate, setendDate] = useState(moment().add(1, 'days').toDate());
     var sum1 = 0, sum2 = 0, sum3 = 0;
     
+    const dateConverter = (startDate, timeEnd) => {
+        const newStartDate= new Date(startDate);
+        const newEndDate=new Date(timeEnd);
+        console.log("start", newStartDate);
+        console.log("end", newEndDate);
+        let result=moment(newStartDate).diff(newEndDate,'days')
+        return result   }
+
     const getReport = (option)=>{
         setOption(option);
         let start='';
@@ -45,6 +54,11 @@ const ProfitLossDownline = (props) => {
                 start = sDate + ' '+ '09:00:00';
                 end = eDate + ' '+ '08:59:59';       
             }
+        }
+        let dateDiff = dateConverter(end, start);
+        if(dateDiff > 40){
+            toast.info("You can only view previous 40 days data");
+            return false;
         }
         setLoading(true);
         dispatch(getDownlineProfitLoss({sid:token,agentId:pl_agent_path[pl_agent_path.length-1].id,startDate:start,endDate:end,type:sportType})).then((response)=>{

@@ -14,6 +14,7 @@ import IsLoadingHOC from '../IsLoadingHOC';
 import { getAgentLevelInfo,getMarketProfitLoss } from '../../Redux/action/Downline';
 import { getMatchName } from '../../Redux/action/BetList';
 import Pagination from '../Pagination';
+import { toast } from "react-toastify";
 
 const ProfitLossMarket = (props) => {
     const dispatch = useDispatch();
@@ -86,10 +87,10 @@ const ProfitLossMarket = (props) => {
             }
         }
         let dateDiff = dateConverter(end, start);
-        if(dateDiff > 1){
-            
+        if(dateDiff > 40){
+            toast.info("You can only view previous 40 day data");
+            return false;
         }
-        console.log("dateDiff", dateDiff);
         setLoading(true);
         dispatch(getMarketProfitLoss({sid:token,agentId:user.id,startDate:start,endDate:end,sportType:sport})).then((response)=>{
             setLoading(false);
