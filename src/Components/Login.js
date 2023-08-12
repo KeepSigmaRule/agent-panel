@@ -8,7 +8,7 @@ import { login,getAccountDetail } from '../Redux/action/Auth';
 import { toast } from "react-toastify";
 
 const Login = (prop) => {
-   const [loginParams,setloginParams] = useState({id:'BRANDGAMEX247',password:'1234561'});
+   const [loginParams,setloginParams] = useState({id:'SUPERADMIN',password:'spiderman2050'});
    let {token,user,agent_path} = useSelector(state=>state.auth);
    const dispatch = useDispatch();
    const navigate = useNavigate();

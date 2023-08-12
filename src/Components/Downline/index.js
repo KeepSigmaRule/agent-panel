@@ -17,6 +17,7 @@ import { useSelector,useDispatch } from 'react-redux';
 //import { store } from '../Redux/store';
 
 const Downline = (props) => {
+  let dispatch = useDispatch();
   let {token,user,agent_path} = useSelector(state=>state.auth);
   let { isLoading, setLoading } = props;
   let [addAgent,setaddAgent] = useState(false);
@@ -24,11 +25,6 @@ const Downline = (props) => {
   let [changeStatus,setchangeStatus] = useState(false);
   let [selectedRow,setselectedRow] = useState({});
   let [agentPath, setagentPath] = useState(agent_path);
-  console.log("agent_path",agent_path);
-  // const HandleAgentPath=(agent_path)=>{
-  //   setagentPath(agent_path);
-  // } 
- // let downline = store.getState('state').downline;
   
   const HandlePopup = (modalType,action,params) => {
     switch(modalType){

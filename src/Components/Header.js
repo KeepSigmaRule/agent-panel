@@ -52,7 +52,7 @@ const Header = () => {
                 <div className="main_wrap">
                     <ul className="menu">
                         <li>
-                            <NavLink id="menu_downline_list" className={({ isActive }) => (isActive ? 'select' : 'null')} to="/downline">Downline List</NavLink>
+                            <NavLink id="menu_downline_list" reloadDocument className={({ isActive }) => (isActive ? 'select' : 'null')} to="/downline">Downline List</NavLink>
                         </li>
                         <li>
                             <NavLink id="menu_my_account" className={({ isActive }) => (isActive ? 'select' : 'null')} to="/my-account">My Account</NavLink>

@@ -7,14 +7,18 @@ import Pagination from '../Pagination';
 
 const RelatedDownline = (props) => {
     let dispatch = useDispatch();
-    let {token,agent_path} = useSelector(state=>state.auth);
+    let {token,agent_path,user} = useSelector(state=>state.auth);
     let {puserBlocked,pbetBlocked,account_downlines} = useSelector(state=>state.downline);
     let downlineParam = {
-        "id": agent_path[agent_path.length-1].id,
+        //"id": agent_path[agent_path.length-1].id,
+        "id": agent_path[0].id,
         "puserBlocked": puserBlocked,
         "pbetBlocked": pbetBlocked,
         "searchvalue": ""
     }
+    
+    console.log("agent_path_2",agent_path);
+    
     const {
         agentPath,
         setagentPath
@@ -28,7 +32,6 @@ const RelatedDownline = (props) => {
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
     
     const HandleAgentPath = (agentBasicInfo)=>{
-        //setagentPath([...agentPath,agentBasicInfo]);
         dispatch({ type: "AGENT_PATH_PUSH", payload: agentBasicInfo });
         downlineParam.id = agentBasicInfo.id;
         props.setLoading(true);
@@ -36,15 +39,18 @@ const RelatedDownline = (props) => {
             props.setLoading(false);
         },(err)=>{
             console.log("getAccountDownlines err",err);
+            props.setLoading(false);
         });
     }
     
     useEffect(()=>{
         props.setLoading(true);
+        dispatch({ type: "AGENT_PATH_POP", payload:[user]});
         dispatch(getAccountDownlines(downlineParam)).then((response)=>{
             props.setLoading(false);
         },(err)=>{
           console.log("getAccountDownlines err",err);
+          props.setLoading(false);
         });
     },[]);
 
@@ -84,9 +90,10 @@ const RelatedDownline = (props) => {
         let agentBasicInfo ={id:item.clientid,level:agnetLevelInfo.level_no,balance:item.Balance,level_text:agnetLevelInfo.level_text,agent_level:agnetLevelInfo.agent_level};
         
         let cfBalance= (parseFloat(item.cfBalance).toFixed(2) >= 0)?parseFloat(item.cfBalance).toFixed(2):`(${parseFloat(Math.abs(item.cfBalance)).toFixed(2)})`;
+        let Balance = (parseFloat(item.Balance).toFixed(2) >= 0)?parseFloat(item.Balance).toFixed(2):`(${parseFloat(Math.abs(item.Balance)).toFixed(2)})`;
         let AvlBalance = (parseFloat(item.AvlBalance).toFixed(2) >= 0)?parseFloat(item.AvlBalance).toFixed(2):`(${parseFloat(Math.abs(item.AvlBalance)).toFixed(2)})`;
         let Exposure = (parseFloat(item.Exposure).toFixed(2) >= 0)?parseFloat(item.Exposure).toFixed(2):`(${parseFloat(Math.abs(item.Exposure)).toFixed(2)})`;
-        let Avail_Balance = parseFloat(item.AvlBalance).toFixed(2)-parseFloat(Math.abs(item.Exposure)).toFixed(2);
+        //let Avail_Balance = parseFloat(item.Balance).toFixed(2)-parseFloat(Math.abs(item.Exposure)).toFixed(2);
         let Reference_PL = (parseFloat(item.Reference_PL).toFixed(2) >= 0)?parseFloat(item.Reference_PL).toFixed(2):`(${parseFloat(Math.abs(item.Reference_PL)).toFixed(2)})`;
         return (
             <tr id="14" key={index} main_userid="wb77" style={{display:'table-row'}}>
@@ -100,13 +107,13 @@ const RelatedDownline = (props) => {
                 </NavLink>
             </td>
             <td id="balance14" style={{backgroundColor:'rgb(239, 239, 239)'}}>
-                {AvlBalance}
+                {Balance}
             </td>
             <td id="playerBalance14" className={`${(item.Exposure<0)?'red':''}`} style={{display:'table-cell',backgroundColor:'rgb(223, 223, 223)'}}>
                 {Exposure}
             </td>
             <td id="refPL2" className="" style={{backgroundColor:'rgb(239, 239, 239)'}}>
-                {Avail_Balance}
+                {AvlBalance}
             </td>
             <td id="refPL14" className="" style={{backgroundColor:'rgb(223, 223, 223)'}}>
                 {parseFloat(item.PlayerBalance).toFixed(2)}

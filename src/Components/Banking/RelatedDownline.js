@@ -17,7 +17,7 @@ const RelatedDownline = (props) => {
     const [itemsPerPage] = useState(20);
     const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
-    const [agents,setAgents] = useState(account_downlines);
+    const [agents,setAgents] = useState([]);
     let  [totalAvailableBalance,settotalAvailableBalance] = useState(0);
     let  [totalBalance,settotalBalance] = useState(0);
     let  [totalExposure,settotalExposure] = useState(0);
@@ -73,11 +73,11 @@ const RelatedDownline = (props) => {
     }
 
     const calculateTotal=()=>{
-        settotalAvailableBalance(account_downlines.reduce((a,v) =>  a = a + v.AvlBalance , 0 ));
-        settotalBalance(account_downlines.reduce((a,v) =>  a = a + v.Balance , 0 ));
-        settotalExposure(account_downlines.reduce((a,v) =>  a = a + v.Exposure , 0 ));
-        settotalcfBalance(account_downlines.reduce((a,v) =>  a = a + v.cfBalance , 0 ));
-        setReference_PL(account_downlines.reduce((a,v) =>  a = a + v.Reference_PL , 0 ));
+        settotalAvailableBalance(agents.reduce((a,v) =>  a = a + v.AvlBalance , 0 ));
+        settotalBalance(agents.reduce((a,v) =>  a = a + v.Balance , 0 ));
+        settotalExposure(agents.reduce((a,v) =>  a = a + v.Exposure , 0 ));
+        settotalcfBalance(agents.reduce((a,v) =>  a = a + v.cfBalance , 0 ));
+        setReference_PL(agents.reduce((a,v) =>  a = a + v.Reference_PL , 0 ));
     }
 
     useEffect(()=>{
@@ -86,26 +86,28 @@ const RelatedDownline = (props) => {
             "puserBlocked": puserBlocked,
             "pbetBlocked": pbetBlocked,
             "searchvalue": ""
-        }
-        dispatch(getAccountDownlines(downlineParam)).then((response)=>{},(err)=>{
+        };
+        props.setLoading(true);
+        dispatch(getAccountDownlines(downlineParam)).then((response)=>{
+            props.setLoading(false);
+            let start = (currentPage-1)*itemsPerPage;
+            let end = (currentPage)*(itemsPerPage);
+            let visibleItems = [];
+            visibleItems = response.filter((item,index)=>{
+            if(index>=start && index<end){
+                return item;
+            }
+            });
+           setItems(visibleItems);
+           settotelCount(response.length);
+           setAgents(response);
+           calculateTotal();
+        },(err)=>{
           console.log("getAccountDownlines err",err);
+          props.setLoading(false);
         });
-    },[]);
-
-    useEffect(()=>{
-        let start = (currentPage-1)*itemsPerPage;
-        let end = (currentPage)*(itemsPerPage);
-        let visibleItems = [];
-        visibleItems = account_downlines.filter((item,index)=>{
-        if(index>=start && index<end){
-            return item;
-        }
-        });
-        setItems(visibleItems);
-        settotelCount(account_downlines.length);
-        setAgents(account_downlines);
-        calculateTotal();
-    },[currentPage,account_downlines]);
+        console.log("items",items);
+    },[currentPage]);
   return (
         <>
         <table id="table_transfer" class="table01 tab-transfer tab-banking">
@@ -126,7 +128,7 @@ const RelatedDownline = (props) => {
         </tbody>
         <tbody id="content">
         {   
-        agents.map((item, index)=>{
+        items.map((item, index)=>{
         let agnetLevelInfo = {};
         agnetLevelInfo = getAgentLevelInfo(item.level);
         let cfBalance= (parseFloat(item.cfBalance).toFixed(2) >= 0)?parseFloat(item.cfBalance).toFixed(2):`(${parseFloat(Math.abs(item.cfBalance)).toFixed(2)})`;
