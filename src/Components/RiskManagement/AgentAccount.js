@@ -15,8 +15,8 @@ const AgentAccount = (props) => {
     let [select,setselect] = useState(1);  
     let {selectedItem,setLoading,setshowLogs} = props;
     let item = selectedItem;
-    delete item.exposure;
-    delete item.match_amount;
+    // delete item.exposure;
+    // delete item.match_amount;
     let [agentList,setagentList] = useState(item);
 
     

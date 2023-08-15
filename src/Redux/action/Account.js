@@ -100,6 +100,31 @@ export const getActivityLog = data => async _dispatch => {
     })
 }
 
+export const getOtherActivityLog = data => async _dispatch => {
+    return new Promise(async (resolve, reject) => {
+        await withoutAuthAxios().post("/api/agent/OtherActivityLog", data)
+            .then(
+                response => {
+                    if (response.status === 200) {
+                       resolve(response.data);
+                    }
+                    else{
+                        reject(response.data);
+                    }
+                },
+                error => {
+                    reject(error);
+                }
+            )
+            .catch(
+                error => {
+                    console.log("errorrrr", error);
+                    reject(error.message);
+                }
+            )
+    })
+}
+
 export const getAgentAccountSummary = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
         let url = (data.agentLevel<6)?'/api/agent/newagentAccountSummary':'/api/agent/newclientAccountSummary';
@@ -334,13 +359,16 @@ export const getAgentLevelText = level =>{
 export const getFilterAgentList = agentList => {
     let agentArray = [];
     for (var key in agentList) {
-        let level = key.split("level");
-        level = level[1];
-        let agent = {};
-        agent['level'] = (level)?parseInt(level):6;
-        agent['level_text'] = getAgentLevelText(agent['level']);
-        agent['id'] = agentList[key];
-        agentArray.push(agent);
+        if(!['match_amount','exposure'].includes(key)){
+            console.log(key);
+            let level = key.split("level");
+            level = level[1];
+            let agent = {};
+            agent['level'] = (level)?parseInt(level):6;
+            agent['level_text'] = getAgentLevelText(agent['level']);
+            agent['id'] = agentList[key];
+            agentArray.push(agent);
+        }
     }
     agentArray.reverse();
     return agentArray;

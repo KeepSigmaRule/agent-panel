@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import { getActivityLog } from '../../Redux/action/Account';
+import { getOtherActivityLog } from '../../Redux/action/Account';
 import Pagination from '../Pagination';
 
-const ActivityLog = () => {
+const ActivityLog = (props) => {
     const dispatch = useDispatch();
     let {token} = useSelector(state=>state.auth);
     let [itemsBucket,setitemsBucket] = useState([]);
@@ -13,17 +13,19 @@ const ActivityLog = () => {
     const [itemsPerPage] = useState(20);
     const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+    let agent = props.agent;
 
-    // useEffect(()=>{
-    //     props.setLoading(false);
-    //     dispatch(getActivityLog({sid:token})).then((response)=>{
-    //         props.setLoading(true);
-    //         setitemsBucket(response);
-    //         settotelCount(response.length);
-    //     },(err)=>{
-    //       console.log("getAccountDownlines err",err);
-    //     });
-    //   });
+    useEffect(()=>{
+        props.setLoading(true);
+        dispatch(getOtherActivityLog({id:agent.id,level:agent.level})).then((response)=>{
+            props.setLoading(false);
+            setitemsBucket(response);
+            settotelCount(response.length);
+        },(err)=>{
+          props.setLoading(false);
+          console.log("getAccountDownlines err",err);
+        });
+      },[props.agent]);
       
     useEffect(()=>{
         let start = (currentPage-1)*itemsPerPage;

@@ -26,7 +26,6 @@ const SelfDownline = () => {
             setAvailableBalance(TotalAllBalance);
             settransferablePL(item.Transferable_Balance);
             setuserCount(item.UserCount);
-            console.log("getAccountSelfDownlines",item);
           },(err)=>{
             console.log("getAccountDownlines err",err);
           });

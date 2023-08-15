@@ -25,33 +25,32 @@ const RiskManagement = (props) => {
     let [selectedItem, setselectedItem] = useState({});
     let [riskAgentPath,setRiskAgentPath] = useState([]);
  
-    
-
-  
- 
     const getTop10Listings = () => {
-      // setLoading(true);
-      // dispatch(getTopTenMatchAmount({sid:token})).then((response)=>{
-      //   if(response.items.length>0){
-      //     setLoading(false);
-      //     setmatchAmountData(response.items);
-      //   }
-      // },(err)=>{
-      //     setLoading(false);
-      //     toast.danger(err);
-      // });
+      setLoading(true);
+      dispatch(getTopTenMatchAmount({sid:token})).then((response)=>{
+        if(response.items.length>0){
+          setLoading(false);
+          setmatchAmountData(response.items);
+        }
+      },(err)=>{
+          setLoading(false);
+          toast.danger(err);
+      });
       
-      // dispatch(getTopTenExposure({sid:token})).then((response)=>{
-      //   if(response.items.length>0){
-      //     setLoading(false);
-      //     setexposureData(response.items);
-      //   }
-      // },(err)=>{
-      //     setLoading(false);
-      //     toast.danger(err);
-      // });
+      dispatch(getTopTenExposure({sid:token})).then((response)=>{
+        if(response.items.length>0){
+          setLoading(false);
+          setexposureData(response.items);
+        }
+      },(err)=>{
+          setLoading(false);
+          toast.danger(err);
+      });
     }
 
+    useEffect(() => {
+      getTop10Listings();
+   },[]);
    
     return (
       <>
@@ -200,7 +199,7 @@ const RiskManagement = (props) => {
 				</div>
 				</div>
 			</div>
-  <MatchOdds token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
+   <MatchOdds token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
   <BookMaker token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
   <FancyBet token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
 </div>

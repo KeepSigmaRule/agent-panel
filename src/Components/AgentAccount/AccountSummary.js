@@ -6,9 +6,8 @@ import { NavLink,useLocation } from 'react-router-dom';
 const AccountSummary = (props) => {
   const dispatch = useDispatch(); 
   let [profile,setProfile] = useState({});
-  let {token} = useSelector(state=>state.auth); 
+  let {token,user} = useSelector(state=>state.auth); 
   let agent = props.agent;
-  console.log("agent",agent);
   useEffect(()=>{
     props.setLoading(true);
     dispatch(getAgentAccountSummary({sid:token,agentId:agent.id,agentLevel:agent.level})).then((response)=>{
@@ -58,7 +57,7 @@ const AccountSummary = (props) => {
               <dd>-</dd>
               <dt>Password</dt>
               <dd>********************************
-                <a onClick={()=>props.HandlePopup('change_password',true)} href="#"  className="favor-set" >Edit</a>
+                {user.level+1==agent.level && <a onClick={()=>props.HandlePopup('change_password',true)} href="#"  className="favor-set" >Edit</a>}
               </dd>
               <dt>Time Zone</dt>
               <dd>IST</dd>

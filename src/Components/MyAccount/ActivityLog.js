@@ -16,14 +16,15 @@ const ActivityLog = (props) => {
 
     useEffect(()=>{
         props.setLoading(true);
-        props.setLoading(false);
         dispatch(getActivityLog({sid:token})).then((response)=>{
+          props.setLoading(false);
             setitemsBucket(response);
             settotelCount(response.length);
         },(err)=>{
+          props.setLoading(false);
           console.log("getAccountDownlines err",err);
         });
-      });
+      },[]);
       
     useEffect(()=>{
         let start = (currentPage-1)*itemsPerPage;

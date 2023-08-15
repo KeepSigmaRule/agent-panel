@@ -56,7 +56,7 @@ const AgentAccount = (props) => {
         <div className="col-center report">
             {selectedMenu===1 && <AccountSummary  setLoading={setLoading} agent={agent} HandlePopup={HandlePopup}/>}
             {selectedMenu===2 && <TransactionHistory setLoading={setLoading} agent={agent}/>}
-            {selectedMenu===3 && <ActivityLog setLoading={setLoading}/>}
+            {selectedMenu===3 && <ActivityLog setLoading={setLoading} agent={agent}/>}
             {selectedMenu===5 && <BettingProfitLoss setLoading={setLoading} agent={agent} />}
             {selectedMenu===4 && <BettingHistory setLoading={setLoading} agent={agent} />}
             <div></div>

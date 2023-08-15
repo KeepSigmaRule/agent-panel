@@ -20,10 +20,10 @@ const MatchOdds = (props) => {
     },[]);
 
     const getMatchOdds = () => {
-        //setLoading(true);
+        setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:4,marketName:'Match Odds',is_runnerId3_exist:0})).then((response)=>{
             if(response.items.length>0){
-                //setLoading(false);
+                setLoading(false);
                 let cricketData = response.items.reduce(function (r, item) {
                     r[item.market_start_time] = r[item.market_start_time] || [];
                     r[item.market_start_time].push(item);
@@ -33,12 +33,14 @@ const MatchOdds = (props) => {
                 setcricketData(cricketData);
             }
         },(err)=>{
-            //setLoading(false);
+            setLoading(false);
             toast.danger(err);
         });
+
+        setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:4,marketName:'Match Odds',is_runnerId3_exist:1})).then((response)=>{
             if(response.items.length>0){
-                //setLoading(false);
+                setLoading(false);
                 let cricketData = response.items.reduce(function (r, item) {
                     r[item.market_start_time] = r[item.market_start_time] || [];
                     r[item.market_start_time].push(item);
@@ -49,13 +51,14 @@ const MatchOdds = (props) => {
                 console.log("setcricketDataRunner3",cricketData);
             }
         },(err)=>{
-            //setLoading(false);
+            setLoading(false);
             toast.danger(err);
         });
 
+        setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:2,marketName:'Match Odds',is_runnerId3_exist:0})).then((response)=>{
             if(response.items.length>0){
-                //setLoading(false);
+                setLoading(false);
                 let tennisData = response.items.reduce(function (r, item) {
                     r[item.market_start_time] = r[item.market_start_time] || [];
                     r[item.market_start_time].push(item);
@@ -65,13 +68,14 @@ const MatchOdds = (props) => {
                 settennisData(tennisData);
             }
         },(err)=>{
-            //setLoading(false);
+            setLoading(false);
             toast.danger(err);
         });
 
+        setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Match Odds',is_runnerId3_exist:1})).then((response)=>{
             if(response.items.length>0){
-                //setLoading(false);
+                setLoading(false);
                 let tennisData = response.items.reduce(function (r, item) {
                     r[item.market_start_time] = r[item.market_start_time] || [];
                     r[item.market_start_time].push(item);
@@ -81,7 +85,7 @@ const MatchOdds = (props) => {
                 setsoccerDataRunner3(tennisData);
             }
         },(err)=>{
-            //setLoading(false);
+            setLoading(false);
             toast.danger(err);
         });
     }

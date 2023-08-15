@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 const DownlineBetListing = (props) => {
     const dispatch = useDispatch();
     let {token,user,pl_agent_path} = useSelector(state=>state.auth);
-    let {selectedItem,setshowLogs} = props;
+    let {selectedItem,setshowLogs,setLoading} = props;
     let [agents,setagents] = useState([]);
     let [teamA_total_sum,set_teamA_total_sum] = useState(0);
     let [teamB_total_sum,set_teamB_total_sum] = useState(0);
@@ -27,7 +27,6 @@ const DownlineBetListing = (props) => {
     let [selectedPlayer,setselectedPlayer] = useState('');
     console.log("selectedItem",selectedItem);
     useEffect(() => {
-      console.log(selectedItem);
       let requestPayload = {};
       requestPayload['sid'] = token;
       requestPayload['sportId'] = sportId;
@@ -35,9 +34,10 @@ const DownlineBetListing = (props) => {
       requestPayload['is_runnerId3_exist'] = (selectedItem.runnerId3!=="")?1:0;
       requestPayload['userId'] = pl_agent_path[pl_agent_path.length-1].id;
       requestPayload['eventId'] = event;
-      console.log("requestPayload",requestPayload);
+      setLoading(true);
       dispatch(getRiskEventListDownline(requestPayload)).then((response)=>{
         if(response.items.length>0){
+          setLoading(false);
           let items = response.items;
           setagents(items);
           set_teamA_total_sum(items.reduce((a,v) =>  a = a + v.teamA_total, 0));
@@ -45,6 +45,7 @@ const DownlineBetListing = (props) => {
           set_draw_total_sum(items.reduce((a,v) =>  a = a + v.draw_total, 0));
         }
       },(err)=>{
+        setLoading(false);
         toast.danger(err);
       });
       
@@ -67,8 +68,10 @@ const DownlineBetListing = (props) => {
         setsection(0);
       }
       
+      setLoading(true);
       dispatch(getRiskEventListDownline(requestPayload)).then((response)=>{
         if(response.items.length>0){
+          setLoading(false);
           let items = response.items;
           setagents(items);
           set_teamA_total_sum(items.reduce((a,v) =>  a = a + v.teamA_total, 0));
@@ -77,6 +80,7 @@ const DownlineBetListing = (props) => {
           dispatch({ type: "PL_AGENT_PATH_PUSH", payload: agentBasicInfo });
         }
       },(err)=>{
+        setLoading(false);
         toast.danger(err);
       });
   }

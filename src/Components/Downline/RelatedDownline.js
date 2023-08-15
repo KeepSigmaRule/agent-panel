@@ -7,23 +7,15 @@ import Pagination from '../Pagination';
 
 const RelatedDownline = (props) => {
     let dispatch = useDispatch();
-    let {token,agent_path,user} = useSelector(state=>state.auth);
+    let {agent_path,user} = useSelector(state=>state.auth);
     let {puserBlocked,pbetBlocked,account_downlines} = useSelector(state=>state.downline);
     let downlineParam = {
-        //"id": agent_path[agent_path.length-1].id,
         "id": agent_path[0].id,
         "puserBlocked": puserBlocked,
         "pbetBlocked": pbetBlocked,
         "searchvalue": ""
     }
     
-    console.log("agent_path_2",agent_path);
-    
-    const {
-        agentPath,
-        setagentPath
-    } = props;
-
     let [items,setItems] = useState([]);
     let [totelCount,settotelCount] = useState(0);
     const [currentPage, setcurrentPage] = useState(1);
@@ -93,7 +85,6 @@ const RelatedDownline = (props) => {
         let Balance = (parseFloat(item.Balance).toFixed(2) >= 0)?parseFloat(item.Balance).toFixed(2):`(${parseFloat(Math.abs(item.Balance)).toFixed(2)})`;
         let AvlBalance = (parseFloat(item.AvlBalance).toFixed(2) >= 0)?parseFloat(item.AvlBalance).toFixed(2):`(${parseFloat(Math.abs(item.AvlBalance)).toFixed(2)})`;
         let Exposure = (parseFloat(item.Exposure).toFixed(2) >= 0)?parseFloat(item.Exposure).toFixed(2):`(${parseFloat(Math.abs(item.Exposure)).toFixed(2)})`;
-        //let Avail_Balance = parseFloat(item.Balance).toFixed(2)-parseFloat(Math.abs(item.Exposure)).toFixed(2);
         let Reference_PL = (parseFloat(item.Reference_PL).toFixed(2) >= 0)?parseFloat(item.Reference_PL).toFixed(2):`(${parseFloat(Math.abs(item.Reference_PL)).toFixed(2)})`;
         return (
             <tr id="14" key={index} main_userid="wb77" style={{display:'table-row'}}>
@@ -102,9 +93,10 @@ const RelatedDownline = (props) => {
                 <span className={`lv_${(item.level<6)?item.level:0}`} style={{marginRight:'3px'}}>{agnetLevelInfo.level_text}</span>{item.clientid}</NavLink>
             </td>
             <td id="creditRef14" className="credit-amount-member" style={{backgroundColor:'rgb(223, 223, 223)'}}>
-                <NavLink to="" onClick={()=>{props.HandlePopup('credit_ref_modal',true,item)}} id="creditRefBtn" className="favor-set">
+                {user.level+1==item.level && <NavLink to="" onClick={()=>{props.HandlePopup('credit_ref_modal',true,item)}} id="creditRefBtn" className="favor-set">
                     {cfBalance}
-                </NavLink>
+                </NavLink>}
+                {user.level+1<item.level && `${cfBalance}`}
             </td>
             <td id="balance14" style={{backgroundColor:'rgb(239, 239, 239)'}}>
                 {Balance}

@@ -28,7 +28,7 @@ function App() {
         <Route path='/my-report/profit-loss-market' element={<ProfitLossMarket/>}></Route>
         <Route path='/risk-management' element={<RiskManagement/>}></Route>
       </Routes>
-      <ToastContainer autoClose={6000} position="top-center"/>
+      <ToastContainer autoClose={5000} position="top-right"/>
     </>
   );
 }
