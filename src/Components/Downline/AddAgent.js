@@ -34,35 +34,35 @@ const AddAgent = (props) => {
           <ul className="half_box add-member-box">
             <li className="add_account_box">
               <dl className="border_b">
-                <dt>E-mail{" :-"}</dt>
+                <dt>E-mail*{" :-"}</dt>
                 <dd>
                   <input id="email" onChange={(e) => { setAgentParams({...agentParams, email:e.target.value}) }} value={agentParams.email} type="text" placeholder="Enter" maxLength="30" />
                   <span id="userNameErrorText" className="error-text"></span>
                 </dd>
-                <dt>Username{" :-"}</dt>
+                <dt>Username*{" :-"}</dt>
                 <dd>
                   <input id="userName" onChange={(e) => { setAgentParams({...agentParams, username:e.target.value}) }} value={agentParams.username} type="text" placeholder="Enter" maxLength="16" />
                   <span id="userNameErrorText" className="error-text"></span>
                 </dd>
-                <dt>Password {" :-"}</dt>
+                <dt>Password* {" :-"}</dt>
                 <dd>
                   <input id="userPassword" onChange={(e) => { setAgentParams({...agentParams, agentpass:e.target.value}) }} value={agentParams.agentpass} type="password" placeholder="Enter" />
 
                   <span id="passwordErrorText" className="error-text"></span>
                 </dd>
-                <dt>Confirm Password {" :-"}</dt>
+                <dt>Confirm Password* {" :-"}</dt>
                 <dd>
                   <input id="repeatPassword" onChange={(e) => { setAgentParams({...agentParams, confirmpass:e.target.value}) }} value={agentParams.confirmpass} type="password" placeholder="Enter" />
                   <span id="repeatPasswordErrorText" className="error-text"></span>
                 </dd>
               </dl>
               <dl className="">
-                <dt>First Name {" :-"}</dt>
+                <dt>First Name* {" :-"}</dt>
                 <dd>
                   <input id="firstName" onChange={(e) => { setAgentParams({...agentParams, firstname:e.target.value}) }} value={agentParams.firstname} type="text" placeholder="Enter" maxLength="16" />
                   <span id="firstErrorText" className="error-text"></span>
                 </dd>
-                <dt>Last Name {" :-"}</dt>
+                <dt>Last Name* {" :-"}</dt>
                 <dd>
                   <input id="lastName" onChange={(e) => { setAgentParams({...agentParams, lastname:e.target.value}) }} value={agentParams.lastname} type="text" placeholder="Enter" maxLength="16" />
                 </dd>

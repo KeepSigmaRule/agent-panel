@@ -1,5 +1,5 @@
 import { withoutAuthAxios } from "../../Config/axios"
-
+import CryptoJS from 'crypto-js';
 
 export const login = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
@@ -128,4 +128,12 @@ export const logOut = () => _dispatch => {
     return (
         _dispatch({ type: "LOGOUT" })
     )
+}
+
+
+export const decrypteData = (data) => {
+    const secretKey = '2T26zVMP8pckeWY5';
+    var bytes = CryptoJS.AES.decrypt(data, secretKey);
+    var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    return decryptedData;
 }

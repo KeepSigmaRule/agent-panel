@@ -78,8 +78,10 @@ export const getRiskFancyEventList = data => async _dispatch => {
 export const getMinMaxFromObject =  (obj) =>{
     let min = 0;
     let max = 0;
-    let arr = Object.keys( obj ).map(function ( key ) { return obj[key]; });
-    min = Math.min.apply( null, arr );
-    max = Math.max.apply( null, arr );
+    if(Object.keys(obj).length > 0){
+        let arr = Object.keys( obj ).map(function ( key ) { return obj[key]; });
+        min = Math.min.apply( null, arr );
+        max = Math.max.apply( null, arr );   
+    }
     return {min:min,max:max};
 }

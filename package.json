@@ -6,7 +6,9 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "any-text": "^1.2.0",
     "axios": "^1.2.6",
+    "crypto-js": "^4.1.1",
     "css-loader": "^6.7.1",
     "jquery": "^3.6.4",
     "moment": "^2.29.4",
@@ -51,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/socket.io-client": "^3.0.0"
   }
 }

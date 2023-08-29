@@ -10,6 +10,7 @@ import AgentAccount from './Components/AgentAccount';
 import ProfitLossDownline from './Components/ProfitLossDownline';
 import ProfitLossMarket from './Components/ProfitLossMarket';
 import BetList from './Components/BetList';
+import Socket from './Components/Socket';
 import BetListLive from './Components/BetListLive';
 import RiskManagement from './Components/RiskManagement';
 import Login from './Components/Login';
@@ -27,6 +28,7 @@ function App() {
         <Route path='/my-report/profit-loss-downline' element={<ProfitLossDownline/>}></Route>
         <Route path='/my-report/profit-loss-market' element={<ProfitLossMarket/>}></Route>
         <Route path='/risk-management' element={<RiskManagement/>}></Route>
+        <Route path='/socket' element={<Socket/>}></Route>
       </Routes>
       <ToastContainer autoClose={5000} position="top-right"/>
     </>

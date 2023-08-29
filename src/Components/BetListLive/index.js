@@ -38,12 +38,13 @@ const BetListLive = (props) => {
     }
 
     const  refresh = ()=>{
-        //setLoading(true);
+        setLoading(true);
         dispatch(getLiveBetList(params)).then((response)=>{
-            //setLoading(false);
+            setLoading(false);
             setitemsBucket(response);
             settotelCount(response.length);
         },(err)=>{
+          setLoading(false);
           console.log("getAccountDownlines err",err);
         });
     }

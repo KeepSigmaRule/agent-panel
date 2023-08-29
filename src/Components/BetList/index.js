@@ -63,13 +63,14 @@ const BetList = (props) => {
             searchLevel:searchLevel,
             searchUserId:searchUserId
         }
-        console.log(params);
+       
         setLoading(true);
         dispatch(getBetList(params)).then((response)=>{
             setLoading(false);
             setitemsBucket(response);
             settotelCount(response.length);
         },(err)=>{
+           setLoading(false);  
           console.log("getAccountDownlines err",err);
         });
     }
@@ -85,7 +86,10 @@ const BetList = (props) => {
         });
         setItems(visibleItems);
     },[currentPage,itemsBucket]);
-    var futureDate = new Date();
+
+    useEffect(()=>{
+        getHistory();
+    },[]);
 
   return (
     <>
@@ -135,10 +139,10 @@ const BetList = (props) => {
                         <option value={6} selected={betStatus === 6}>Player</option>
                         </select>
                     </li>
-                    <li>
+                    {searchLevel > 0 && <li>
                         <label>UserId:</label>
                         <input type="text" value={searchUserId} onChange={(e)=>{setsearchUserId(e.target.value)}} />
-                    </li>
+                    </li>}
                     <li>
                         <label>Last:</label>
                         <select  name="limit" id="limit" onChange={(e)=>{setitemsPerPage(e.target.value)}}>
@@ -212,7 +216,7 @@ const BetList = (props) => {
                             <th width="5%" id="matchedLastPrice_title" className="text-right">MatchedLastPrice</th>
                             <th width="5%" id="oddsDifferential_title" className="text-right">OddsDifferential</th> */}
                         </tr>
-                        {items.length > 0 && items.map((item,index)=>{
+                        {items.length > 0 ? items.map((item,index)=>{
                             let matchName = getMatchName(item.sportId);
                             let itemInfo = getRunnerOddsLiability(item);
                             return (
@@ -237,10 +241,9 @@ const BetList = (props) => {
                                 <td id="agentUserId1" className="align-L" >OddsDifferential</td>  */}
                                 </tr>
                             )
-                        })}
-                        {items.length === 0 && <tr className="total">
-                            <td colSpan={11} className="align-L">Sorry, there is no data to display.</td>
-                        </tr>}
+                        }):<tr className="total">
+                        <td colSpan={11} className="align-L">Sorry, there is no data to display.</td>
+                    </tr>}
                     </tbody>
                 </table>
             </table>

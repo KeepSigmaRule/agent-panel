@@ -1,11 +1,13 @@
 import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+import { decrypteData } from '../../Redux/action/Auth';
 import $ from 'jquery';
 
 const RowCricketMatchFancyBet = (props) => {
   const io = require('socket.io-client');
   const ranNum = Math.floor(Math.random() * 4) + 1;
-  var ENDPOINT = "https://betplace247.com:2096";
+  var ENDPOINT = "https://millionbet247.com:2096";
   // if(ranNum == 1){
   //   ENDPOINT = "https://betplace247.com:2053";
   // }
@@ -36,7 +38,6 @@ const RowCricketMatchFancyBet = (props) => {
   let [maxStack ,setmaxStack ] = useState(0);    
   useEffect(() => {
     socket = io(ENDPOINT);
-    console.log("ENDPOINT",ENDPOINT);
     socket.on('connect', function (data) {
         console.log('socket connected');
         socket.emit('room1', eventid);
@@ -50,21 +51,22 @@ const RowCricketMatchFancyBet = (props) => {
   useEffect(() => {
     socket.on(eventid, (val) => {
       var value = JSON.parse(val);
-      console.log(ENDPOINT);
       // 
       if(Array.isArray(value)){
-        console.log(value);
           for(const item of value) {
             if(item.messageType==="session_rate"){
-              if(item.eventId==eventid && item.selectionId==selectionid){
-                setgameStatus(item.gameStatus);
-                setrunnerName(item.runnerName);
-                setlayPrice(item.layPrice);
-                setbackPrice(item.backPrice);
-                setlaySize(item.laySize);
-                setbackSize(item.backSize);   
-                setminStack(item.minStack); 
-                setmaxStack(item.maxStack);  
+              let timestamp = decrypteData(item.TimeST);
+              if(moment(timestamp.messageST).format('YYYYMMDDHms') > moment().subtract(5, 'seconds').format("YYYYMMDDHms")){
+                if(item.eventId==eventid && item.selectionId==selectionid){
+                  setgameStatus(item.gameStatus);
+                  setrunnerName(item.runnerName);
+                  setlayPrice(item.layPrice);
+                  setbackPrice(item.backPrice);
+                  setlaySize(item.laySize);
+                  setbackSize(item.backSize);   
+                  setminStack(item.minStack); 
+                  setmaxStack(item.maxStack);  
+                }
               }
             }
           }
@@ -79,7 +81,7 @@ const RowCricketMatchFancyBet = (props) => {
     });
     return () => {
       socket.close();
-      console.log('socket eventid disconnected');
+      console.log(`socket eventid:${eventid} disconnected`);
   }
 }, [])
   
