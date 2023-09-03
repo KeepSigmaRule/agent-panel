@@ -11,6 +11,7 @@ import BookMaker from './BookMaker';
 import FancyBet from './FancyBet';
 import DownlineBetListing from './DownlineBetListing';
 import FancyBooking from './FancyBooking';
+import { getRiskEventListDownline } from '../../Redux/action/Risk';
 import { toast } from "react-toastify";
 import './RiskManagement.css';
 const RiskManagement = (props) => {
@@ -49,7 +50,7 @@ const RiskManagement = (props) => {
     }
 
     useEffect(() => {
-      getTop10Listings();
+     getTop10Listings();
    },[]);
    
     return (

@@ -28,13 +28,13 @@ const BettingHistory = (props) => {
         switch(option){
             case 'today':{
                 let now = moment();
-                start = now.startOf('day').format("YYYY-MM-DD HH:mm:ss");
-                end = now.endOf('day').format("YYYY-MM-DD HH:mm:ss");
+                start = now.format("YYYY-MM-DD 09:00:00");
+                end = now.add(1, 'days').format("YYYY-MM-DD 08:59:00");
             } break;
             case 'yesterday':{
-                let now = moment().subtract(1, 'days');
-                start = now.startOf('day').format("YYYY-MM-DD HH:mm:ss");
-                end = moment().endOf('day').format("YYYY-MM-DD HH:mm:ss");
+                let now = moment();
+                start = now.subtract(1, 'days').format("YYYY-MM-DD 09:00:00");
+                end = now.add(2, 'days').format("YYYY-MM-DD 08:59:00");
             } break;
             default: {
                 start = sDate + ' '+ '09:00:00';

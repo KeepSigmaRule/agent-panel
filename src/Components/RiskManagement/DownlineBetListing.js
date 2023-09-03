@@ -31,9 +31,10 @@ const DownlineBetListing = (props) => {
       requestPayload['sid'] = token;
       requestPayload['sportId'] = sportId;
       requestPayload['marketName'] = marketName;
-      requestPayload['is_runnerId3_exist'] = (selectedItem.runnerId3!=="")?1:0;
+      requestPayload['is_runnerId3_exist'] = (selectedItem.runnerId3.trim()!=="")?1:0;
       requestPayload['userId'] = pl_agent_path[pl_agent_path.length-1].id;
       requestPayload['eventId'] = event;
+      console.log("requestPayload", requestPayload);
       setLoading(true);
       dispatch(getRiskEventListDownline(requestPayload)).then((response)=>{
         if(response.items.length>0){
@@ -56,7 +57,7 @@ const DownlineBetListing = (props) => {
       requestPayload['sid'] = token;
       requestPayload['sportId'] = sportId;
       requestPayload['marketName'] = marketName;
-      requestPayload['is_runnerId3_exist'] = (selectedItem.runnerId3!=="")?1:0;
+      requestPayload['is_runnerId3_exist'] = (selectedItem.runnerId3.trim()!=="")?1:0;
       requestPayload['userId'] = agentBasicInfo.id;
       requestPayload['eventId'] = event;
       console.log("requestPayload",requestPayload);
@@ -66,9 +67,7 @@ const DownlineBetListing = (props) => {
       }
       else{
         setsection(0);
-      }
-      
-      setLoading(true);
+        setLoading(true);
       dispatch(getRiskEventListDownline(requestPayload)).then((response)=>{
         if(response.items.length>0){
           setLoading(false);
@@ -83,6 +82,7 @@ const DownlineBetListing = (props) => {
         setLoading(false);
         toast.danger(err);
       });
+      }
   }
 
   const HandelCloseModal = ()=>{

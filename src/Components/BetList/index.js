@@ -40,13 +40,13 @@ const BetList = (props) => {
         switch(option){
             case 'today':{
                 let now = moment();
-                start = now.startOf('day').format("YYYY-MM-DD 09:00:00");
-                end = now.endOf('day').format("YYYY-MM-DD 08:59:00");
+                start = now.format("YYYY-MM-DD 09:00:00");
+                end = now.add(1, 'days').format("YYYY-MM-DD 08:59:00");
             } break;
             case 'yesterday':{
-                let now = moment().subtract(1, 'days');
-                start = now.startOf('day').format("YYYY-MM-DD 09:00:00");
-                end = moment().endOf('day').format("YYYY-MM-DD 08:59:00");
+                let now = moment();
+                start = now.subtract(1, 'days').format("YYYY-MM-DD 09:00:00");
+                end = now.add(2, 'days').format("YYYY-MM-DD 08:59:00");
             } break;
             default: {
                 start = sDate + ' '+ '09:00:00';
