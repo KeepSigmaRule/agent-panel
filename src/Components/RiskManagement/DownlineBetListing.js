@@ -25,7 +25,6 @@ const DownlineBetListing = (props) => {
     let [select,setselect] = useState(1);
     let [section,setsection] = useState(0);
     let [selectedPlayer,setselectedPlayer] = useState('');
-    console.log("selectedItem",selectedItem);
     useEffect(() => {
       let requestPayload = {};
       requestPayload['sid'] = token;
@@ -53,6 +52,7 @@ const DownlineBetListing = (props) => {
     },[]);
 
     const HandleAgentPath = (agentBasicInfo)=>{
+      console.log("agentBasicInfo cost", agentBasicInfo);
       let requestPayload = {};
       requestPayload['sid'] = token;
       requestPayload['sportId'] = sportId;
@@ -76,7 +76,17 @@ const DownlineBetListing = (props) => {
           set_teamA_total_sum(items.reduce((a,v) =>  a = a + v.teamA_total, 0));
           set_teamB_total_sum(items.reduce((a,v) =>  a = a + v.teamB_total, 0));
           set_draw_total_sum(items.reduce((a,v) =>  a = a + v.draw_total, 0));
-          dispatch({ type: "PL_AGENT_PATH_PUSH", payload: agentBasicInfo });
+          if(!agentBasicInfo.action){
+            dispatch({ type: "PL_AGENT_PATH_PUSH", payload: agentBasicInfo });
+          }
+          else{
+            let update_agent_path = pl_agent_path.filter((item,index)=>{
+              if(item.level<=agentBasicInfo.level){
+                return item;
+              }
+            });
+            dispatch({ type: "PL_AGENT_PATH_POP", payload: update_agent_path });
+          }
         }
       },(err)=>{
         setLoading(false);
@@ -106,7 +116,7 @@ const DownlineBetListing = (props) => {
               </tbody>
             </table>
             <div className="pop-content">
-            <AgentPath/>
+            <AgentPath HandleAgentPath={HandleAgentPath}/>
             {section === 0 && <div className="pop-title"> 
               <table className="table01">
                 <tbody>

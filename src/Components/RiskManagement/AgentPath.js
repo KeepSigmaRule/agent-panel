@@ -5,13 +5,20 @@ import { getFilterAgentList } from '../../Redux/action/Account';
 const AgentPath = (props) => {
     let dispatch = useDispatch();
     let {user,agent_path,pl_agent_path} = useSelector(state=>state.auth);
-    let {agentList} = props;
+    let {agentList,HandleAgentPath} = props;
     let agentArray = [];
     if(agentList){
         agentArray = getFilterAgentList(agentList);
     }
     else{
         agentArray = pl_agent_path;
+    }
+
+    const handleClick = async(user)=>{
+        if(HandleAgentPath){
+            user.action = 'reverse';
+            HandleAgentPath(user);
+        }
     }
   return (
     <>
@@ -20,11 +27,13 @@ const AgentPath = (props) => {
                 {
                     agentArray.length > 0 && agentArray.map((item,index)=>{
                         return (
-                            <li id="path5" key={index} className={index===(agentArray.length-1)?'last_li drop_down_li':''}>
+                            <li id="path5" key={index} className={index===(agentArray.length-1)?'last_li':''}>
+                            <NavLink to="#" onClick={(e)=>handleClick(item)}>
                             <span className={`lv_${(item.level<6)?item.level:0}`}>
                             {item.level_text}
                             </span>
                             <strong>{item.id}</strong>
+                            </NavLink>
                             </li>
                         );
                     })

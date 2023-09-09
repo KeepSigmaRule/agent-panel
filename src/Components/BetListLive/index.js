@@ -15,7 +15,7 @@ const BetListLive = (props) => {
     let [nTran,setnTran] = useState('100');
     let [sortValue,setsortValue] = useState('stake');
     let [sortType,setsortType] = useState('asc');
-    let [eventType,seteventType] = useState('100');
+    let [eventType,seteventType] = useState('4');
     let [betStatus,setbetStatus] = useState('1');
     let [refreshInterval,setrefreshInterval] = useState(15);
     let [refreshStatus,setrefreshStatus] = useState(false);

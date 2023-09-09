@@ -15,7 +15,7 @@ const BetList = (props) => {
     let {token,user} = useSelector(state=>state.auth);
     let { isLoading, setLoading } = props;
     //let [betList,setbetList] = useState([]);
-    let [eventType,seteventType] = useState('100');
+    let [eventType,seteventType] = useState('4|match');
     let [betStatus,setbetStatus] = useState('1');
     let [searchLevel,setsearchLevel] = useState(user.level);
     let [searchUserId,setsearchUserId] = useState('');
