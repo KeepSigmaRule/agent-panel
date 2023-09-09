@@ -13,6 +13,7 @@ const BettingHistory = (props) => {
     const dispatch = useDispatch();
     let {token,user,agent_path} = useSelector(state=>state.auth);
     let [select,setselect] = useState(0);
+    let [betStatus,setbetStatus] = useState("1");
     let [bethistory, setbethistory] = useState([]);
     let [option, setOption] = useState('default');
     let [sDate, setsDate] = useState(moment().format("YYYY-MM-DD"));
@@ -42,7 +43,7 @@ const BettingHistory = (props) => {
             }
         }
         //(setLoading)?setLoading(true):'';
-        dispatch(getClientBetHistory({sid:token,clientId:selectedItem.clientId,startDate:start,endDate:end,view:1})).then((response)=>{
+        dispatch(getClientBetHistory({sid:token,clientId:selectedItem.clientId,betStatus:betStatus,startDate:start,endDate:end,view:1})).then((response)=>{
             //(setLoading)?setLoading(false):'';
             setbethistory(response);
             if(response.length==0){
@@ -75,12 +76,12 @@ const BettingHistory = (props) => {
                 <div id="statusCondition">
                 <li><label>Bet Status:</label></li>
                 <li>
-                <select name="betStatus" id="betStatus">
-                    <option value="0">Unmatched</option>
-                    <option value="1">Matched</option>
-                    <option value="2">Settled</option>
-                    <option value="3">Cancelled</option>
-                    <option value="4">Voided</option>
+                <select name="betStatus" id="betStatus" onChange={(e)=>{setbetStatus(e.target.value)}}>
+                    <option value="0" selected={betStatus === "0"}>Unmatched</option>
+                    <option value="1" selected={betStatus === "1"}>Matched</option>
+                    <option value="2" selected={betStatus === "2"}>Settled</option>
+                    <option value="3" selected={betStatus === "3"}>Cancelled</option>
+                    <option value="4" selected={betStatus === "4"}>Voided</option>
                 </select>
                 </li>
                 </div> 
