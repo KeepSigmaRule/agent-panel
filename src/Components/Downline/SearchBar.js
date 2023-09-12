@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 import Transparent from '../../images/transparent.gif';
 import SearchIconImage from '../../images/search-icon.svg';
-import {getAccountDownlines,getStatusSearchParams,searchDowlineByStatus,searchDowlineByValue}  from '../../Redux/action/Downline';
+import {getAccountDownlines,getStatusSearchParams,searchDowlineByStatus,searchDowlineByStatusV2,searchDowlineByValue}  from '../../Redux/action/Downline';
 import { toast } from "react-toastify";
 const SearchBar = (props) => {
     let dispatch = useDispatch();
     let {token,user,agent_path} = useSelector(state=>state.auth);
-    let {puserBlocked,pbetBlocked} = useSelector(state=>state.downline);
+    let {puserBlocked,pbetBlocked,account_downlines} = useSelector(state=>state.downline);
     let [selectedStatus,setSelectedStatus] = useState({puserBlocked:0,pbetBlocked:0});
     let [searchValue,setSearchValue] = useState("");
     const {
@@ -20,8 +20,9 @@ const SearchBar = (props) => {
         searchParams = getStatusSearchParams(e.target.value);
         setSelectedStatus(searchParams);
         searchParams['sid']=token;
+        searchParams['id']=agent_path[agent_path.length-1].id;
         props.setLoading(true);
-       await dispatch(searchDowlineByStatus(searchParams)).then(async(response)=>{
+       await dispatch(searchDowlineByStatusV2(searchParams)).then(async(response)=>{
         props.setLoading(false);
       },(err)=>{
         toast.error(err);
@@ -31,7 +32,16 @@ const SearchBar = (props) => {
     const searchWithValue =async()=>{
       await dispatch(searchDowlineByValue({puserBlocked:selectedStatus.puserBlocked,pbetBlocked:selectedStatus.pbetBlocked,searchvalue:searchValue,id:user.id})).then(async(response)=>{
           console.log("searchDowlineByValue",response);
-          props.updateAccountDownlines(response);
+          //props.updateAccountDownlines(response);
+          let downlines = [];
+          downlines = account_downlines.filter((downline)=>downline.clientid==searchValue);
+          if(downlines.length > 0){
+            downlines  = downlines.concat(response);
+          }
+          else{
+            downlines = response;
+          }
+          dispatch({ type: "ACCOUNT_DOWNLINE_UPDATE", payload: response ? Object.values(downlines) : [] });
           toast.success("Search result found!");
         },(err)=>{
           toast.error(err);

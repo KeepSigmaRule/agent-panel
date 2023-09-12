@@ -9,6 +9,7 @@ export const getAgentLevelInfo = (account_level) => {
         {level_text:'SUP',agent_level:5,level_no:4},
         {level_text:'MA',agent_level:6,level_no:5},
         {level_text:'PL',agent_level:6,level_no:6},
+        {level_text:'PL',agent_level:6,level_no:6},
     ];
     return level_info_array[account_level];
 }
@@ -202,13 +203,40 @@ export const searchDowlineByStatus = data => async _dispatch => {
     })
 }
 
+export const searchDowlineByStatusV2 = data => async _dispatch => {
+    return new Promise(async (resolve, reject) => {
+        await withoutAuthAxios().post("/api/agent/NewOnegetDownlineBelowDetaliInfo", data)
+            .then(async (response) => {
+                    if (response.status === 200) {
+                        _dispatch({ type: "ACCOUNT_DOWNLINE_UPDATE", payload: response.data ? Object.values(response.data) : [] });
+                        _dispatch({ type: "PUSERBLOCKED_UPDATE", payload: data.puserBlocked });
+                        _dispatch({ type: "PBETBLOCKED_UPDATE", payload: data.pbetBlocked });
+                       resolve(Object.values(response.data));
+                    }
+                    else{
+                        reject(response.data);
+                    }
+                },
+                error => {
+                    reject(error);
+                }
+            )
+            .catch(
+                error => {
+                    console.log("errorrrr", error);
+                    reject(error.message);
+                }
+            )
+    })
+}
+
 export const searchDowlineByValue = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
         console.log(data);
         await withoutAuthAxios().post("/api/agent/searchvalueDownlineList", data)
             .then(async (response) => {
                     if (response.status === 200) {
-                        _dispatch({ type: "ACCOUNT_DOWNLINE_UPDATE", payload: response.data ? Object.values(response.data) : [] });
+                       // _dispatch({ type: "ACCOUNT_DOWNLINE_UPDATE", payload: response.data ? Object.values(response.data) : [] });
                        resolve(Object.values(response.data));
                     }
                     else{
