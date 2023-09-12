@@ -37,12 +37,12 @@ const DownlineBetListing = (props) => {
       setLoading(true);
       dispatch(getRiskEventListDownline(requestPayload)).then((response)=>{
         if(response.items.length>0){
-          setLoading(false);
           let items = response.items;
           setagents(items);
           set_teamA_total_sum(items.reduce((a,v) =>  a = a + v.teamA_total, 0));
           set_teamB_total_sum(items.reduce((a,v) =>  a = a + v.teamB_total, 0));
           set_draw_total_sum(items.reduce((a,v) =>  a = a + v.draw_total, 0));
+          setLoading(false);
         }
       },(err)=>{
         setLoading(false);
@@ -70,7 +70,6 @@ const DownlineBetListing = (props) => {
         setLoading(true);
       dispatch(getRiskEventListDownline(requestPayload)).then((response)=>{
         if(response.items.length>0){
-          setLoading(false);
           let items = response.items;
           setagents(items);
           set_teamA_total_sum(items.reduce((a,v) =>  a = a + v.teamA_total, 0));
@@ -87,6 +86,7 @@ const DownlineBetListing = (props) => {
             });
             dispatch({ type: "PL_AGENT_PATH_POP", payload: update_agent_path });
           }
+          setLoading(false);
         }
       },(err)=>{
         setLoading(false);
