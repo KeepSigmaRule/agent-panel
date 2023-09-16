@@ -305,7 +305,7 @@ const RowCricketMatchOdds = (props) => {
         <td className="lay-2"><a>{runner2LayRate2}<span>{runner2LaySize2}</span></a></td>
         <td className="lay-3"><a>{runner2LayRate3}<span>{runner2LaySize3}</span></a></td>
         </tr>
-        {subItem.runnerId3 !== 0 && 
+        {subItem.runnerId3 !== " " && 
         <tr>
         <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>The Draw</p>
         </th>

@@ -140,8 +140,8 @@ const BettingProfitLoss = (props) => {
         <p>Betting Profit &amp; Loss is available online for the past 2 months.</p></div>
         {select === 0 && <div id="report" data-report="profitAndLossReport">
       <ul id="spotsUl" className="total-show">
-      <li id="totalPL">Total P/L: PBU {netpl}</li>
-      <li id="sumOfQuery" className="sports-switch">PBU {netpl}</li>
+      <li id="totalPL">Total P/L: PBU {parseFloat(netpl).toFixed(2)}</li>
+      <li id="sumOfQuery" className="sports-switch">PBU {parseFloat(netpl).toFixed(2)}</li>
       <li className="sports-switch">
       <select name="sports" id="sportsevent" onChange={(e)=>{seteventType(e.target.value);}}>
       <option value="0" selected="selected">ALL</option>

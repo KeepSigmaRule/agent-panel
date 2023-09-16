@@ -57,7 +57,7 @@ const RelatedDownline = (props) => {
 
     const copyAvailableBalance = (index) => {
         if(agents[index].banking_type=="W"){
-            agents[index].banking_amount = agents[index].AvlBalance.toString();
+            agents[index].banking_amount = agents[index].Balance.toString();
             dispatch({ type: "ACCOUNT_DOWNLINE_UPDATE", payload: agents});
             countActiveRow();
         }

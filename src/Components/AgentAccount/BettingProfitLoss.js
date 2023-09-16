@@ -60,11 +60,11 @@ const BettingProfitLoss = (props) => {
     switch(select){
       case 0:{
           dispatch(getClientProfitLoss({sid:token,clientId:agent.id,startDate:start,endDate:end,view:1,eventType:eventType})).then((response)=>{
-            setLoading(false);
             setprofitLoss(response);
             if(response.length>0){
               setnetpl(response.reduce((a,v) =>  a = a + v.pl, 0));
             }
+            setLoading(false);
           },(err)=>{
               setLoading(false);
               toast.danger(err);
@@ -72,11 +72,11 @@ const BettingProfitLoss = (props) => {
       }break;
       case 1:{
           dispatch(getClientCasinoProfitLoss({id:agent.id,startDate:sDate,endDate:eDate})).then((response)=>{
-            setLoading(false);
             setcasinoPL(response);
             if(response.length>0){
               setcasinonetpl(response.reduce((a,v) =>  a = a + parseFloat(v.netPL), 0));
             }
+            setLoading(false);
         },(err)=>{
             setLoading(false);
             toast.danger(err);

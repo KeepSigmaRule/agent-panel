@@ -8,6 +8,8 @@ import RelatedDownline from './RelatedDownline';
 import Logs from './Logs';
 import DownlineLogs from './DownlineLogs';
 import { useSelector,useDispatch } from 'react-redux';
+import { getAccountDetail } from '../../Redux/action/Auth';
+import { toast } from "react-toastify";
 import IsLoadingHOC from '../IsLoadingHOC';
 const Banking = (props) => {
     let dispatch = useDispatch();
@@ -69,6 +71,12 @@ const Banking = (props) => {
                         },(err)=>{
                           console.log("getAccountDownlines err",err);
                         });
+
+                        dispatch(getAccountDetail({sid:token})).then((response)=>{
+                            console.log("getAccountDetail",response);
+                          },(err)=>{
+                            toast.error(err);
+                          });
                     }
                 },(err)=>{
                   console.log("getAccountDownlines err",err);
