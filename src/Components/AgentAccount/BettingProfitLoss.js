@@ -24,6 +24,7 @@ const BettingProfitLoss = (props) => {
   let [startDate, setStartDate] = useState(moment().toDate());
   let [endDate, setendDate] = useState(moment().add(1, 'days').toDate());
   let [time, setDate] = useState(moment().format('YYYY-MM-DD HH:mm:ss'));
+  let [dataExist, setdataExist] = useState(false);
   let {agent,setLoading} = props;
   useEffect(() => {
   var timerID = setInterval( () => tick(), 1000 );
@@ -64,6 +65,9 @@ const BettingProfitLoss = (props) => {
             if(response.length>0){
               setnetpl(response.reduce((a,v) =>  a = a + v.pl, 0));
             }
+            else{
+              setdataExist(true);
+            }
             setLoading(false);
           },(err)=>{
               setLoading(false);
@@ -75,6 +79,9 @@ const BettingProfitLoss = (props) => {
             setcasinoPL(response);
             if(response.length>0){
               setcasinonetpl(response.reduce((a,v) =>  a = a + parseFloat(v.netPL), 0));
+            }
+            else{
+              setdataExist(true);
             }
             setLoading(false);
         },(err)=>{
@@ -92,7 +99,7 @@ useEffect(()=>{
 
   return (
     <>
-      <h2>Profit & Loss - Main wallet</h2>
+      <h2>Profit & Loss - Main wallet {dataExist}</h2>
       <div className="white-wrap">
       <ul className="acc-info">
       <li className="user">{agent.id}</li>
@@ -157,9 +164,9 @@ useEffect(()=>{
       <li><Link to="" id="getPL"  className="btn-send" onClick = {()=>{getProfitLoss('default')}}>Get P & L</Link></li>
       </ul>
       </div>
-      <div id="noReportMessage"><p>Betting Profit & Loss enables you to review the bets you have placed. <br />
+      {!dataExist && <div id="noReportMessage"><p>Betting Profit & Loss enables you to review the bets you have placed. <br />
       Specify the time period during which your bets were placed, the type of markets on which the bets were placed, and the sport.</p>
-      <p>Betting Profit &amp; Loss is available online for the past 2 months.</p></div>
+      <p>Betting Profit &amp; Loss is available online for the past 2 months.</p></div>}
       </div>
     {select === 0 && <div id="report" data-report="profitAndLossReport">
       <ul id="spotsUl" className="total-show">
@@ -206,7 +213,7 @@ useEffect(()=>{
   <li id="totalPL">Total P/L: USD <span className={`${casinonetpl >= 0 ? "":"red"}`}>{casinonetpl >= 0 ? parseFloat(casinonetpl).toFixed(2) : '('+ Math.abs(casinonetpl).toFixed(2) +')'}</span></li>
   <li id="sumOfQuery" class="sports-switch">USD  <span className={`${casinonetpl >= 0 ? "":"red"}`}>{casinonetpl >= 0 ? parseFloat(casinonetpl).toFixed(2) : '('+ Math.abs(casinonetpl).toFixed(2) +')'}</span></li>
   </ul>
-    <table id="reportTable" class="table01 table-pnl" style={{display:'table'}}>
+  {dataExist && <table id="reportTable" class="table01 table-pnl" style={{display:'table'}}>
       <tbody>
         <tr>
           <th width="" class="align-L">Date</th>
@@ -225,7 +232,7 @@ useEffect(()=>{
         )})}
         {casinoPL.length===0 && <tr><td colSpan={2} className="align-L">Sorry, there is no data to display.</td></tr>}
       </tbody>
-    </table>
+    </table>}
   </div>}
     </>
   )

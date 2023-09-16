@@ -9,7 +9,7 @@ const RelatedDownline = (props) => {
     let {user} = useSelector(state=>state.auth);
     let {puserBlocked,pbetBlocked,account_downlines} = useSelector(state=>state.downline);
     
-    const {setactiveRows,refreshDownline} = props;
+    const {setactiveRows,refreshDownline,itemsBucket,setitemsBucket,agents,setAgents} = props;
 
     let [items,setItems] = useState([]);
     let [totelCount,settotelCount] = useState(0);
@@ -17,7 +17,7 @@ const RelatedDownline = (props) => {
     const [itemsPerPage] = useState(20);
     const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
-    const [agents,setAgents] = useState([]);
+    
     let  [totalAvailableBalance,settotalAvailableBalance] = useState(0);
     let  [totalBalance,settotalBalance] = useState(0);
     let  [totalExposure,settotalExposure] = useState(0);
@@ -91,28 +91,30 @@ const RelatedDownline = (props) => {
         props.setLoading(true);
         dispatch(getAccountDownlines(downlineParam)).then((response)=>{
             props.setLoading(false);
-            let start = (currentPage-1)*itemsPerPage;
-            let end = (currentPage)*(itemsPerPage);
-            let visibleItems = [];
-            visibleItems = response.filter((item,index)=>{
-            if(index>=start && index<end){
-                return item;
-            }
-            });
-           setItems(visibleItems);
-           settotelCount(response.length);
-           setAgents(response);
-           calculateTotal();
+            setitemsBucket(response);
+            settotelCount(response.length);
+            setAgents(response);
+            calculateTotal();
         },(err)=>{
-          console.log("getAccountDownlines err",err);
           props.setLoading(false);
         });
-        console.log("items",items);
     }
 
     useEffect(()=>{
+        let start = (currentPage-1)*itemsPerPage;
+        let end = (currentPage)*(itemsPerPage);
+        let visibleItems = [];
+        visibleItems = itemsBucket.filter((item,index)=>{
+        if(index>=start && index<end){
+            return item;
+        }
+        });
+        setItems(visibleItems);
+    },[currentPage,itemsBucket]);
+
+    useEffect(()=>{
         getAccountDownlineList();
-    },[currentPage,refreshDownline]);
+    },[refreshDownline]);
   return (
         <>
         <table id="table_transfer" class="table01 tab-transfer tab-banking">

@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 const BettingProfitLoss = (props) => {
     const dispatch = useDispatch();
     let {token} = useSelector(state=>state.auth);
+    let [dataExist, setdataExist] = useState(false);
     let [select,setselect] = useState(0);  
     let [profitLoss,setprofitLoss] = useState([]);  
     let [casinoPL, setcasinoPL] = useState([])
@@ -53,6 +54,7 @@ const BettingProfitLoss = (props) => {
                 setprofitLoss(response);
                 if(response.length>0){
                   setnetpl(response.reduce((a,v) =>  a = parseFloat(a) + parseFloat(v.pl), 0));
+                  setdataExist(true);
                 }
               },(err)=>{
                 //(setLoading)?setLoading(false):'';
@@ -65,6 +67,7 @@ const BettingProfitLoss = (props) => {
                 setcasinoPL(response);
                 if(response.length>0){
                   setcasinonetpl(response.reduce((a,v) =>  a = a + parseFloat(v.netPL), 0));
+                  setdataExist(true);
                 }
             },(err)=>{
                 //setLoading(false);
@@ -135,9 +138,10 @@ const BettingProfitLoss = (props) => {
       <li><Link to="" id="getPL"  className="btn-send" onClick = {()=>{getProfitLoss('default')}}>Get P & L</Link></li>
       </ul>
       </div>
-        <div id="noReportMessage"><p>Betting Profit & Loss enables you to review the bets you have placed. <br />
+      {!dataExist && <div id="noReportMessage"><p>Betting Profit & Loss enables you to review the bets you have placed. <br />
         Specify the time period during which your bets were placed, the type of markets on which the bets were placed, and the sport.</p>
-        <p>Betting Profit &amp; Loss is available online for the past 2 months.</p></div>
+        <p>Betting Profit &amp; Loss is available online for the past 2 months.</p></div>}
+        
         {select === 0 && <div id="report" data-report="profitAndLossReport">
       <ul id="spotsUl" className="total-show">
       <li id="totalPL">Total P/L: PBU {parseFloat(netpl).toFixed(2)}</li>
@@ -151,7 +155,8 @@ const BettingProfitLoss = (props) => {
       </select>
       </li>
       </ul>
-      <table id="reportTable" className="table01 table-pnl" style={{ display: 'table' }}>
+      {dataExist &&
+        <table id="reportTable" className="table01 table-pnl" style={{ display: 'table' }}>
       <tbody>
       <tr>
       <th width="" className="align-L">Market</th>
@@ -175,6 +180,7 @@ const BettingProfitLoss = (props) => {
       {profitLoss.length===0 && <tr><td colSpan={3} className="align-L">Sorry, there is no data to display.</td></tr>}
       </tbody>
     </table>
+    }
     <p className="table-other">Profit and Loss is shown net of commission.</p>
     </div>}
 
@@ -183,7 +189,7 @@ const BettingProfitLoss = (props) => {
   <li id="totalPL">Total P/L: USD <span className={`${casinonetpl >= 0 ? "":"red"}`}>{casinonetpl >= 0 ? parseFloat(casinonetpl).toFixed(2) : '('+ Math.abs(casinonetpl).toFixed(2) +')'}</span></li>
   <li id="sumOfQuery" class="sports-switch">USD  <span className={`${casinonetpl >= 0 ? "":"red"}`}>{casinonetpl >= 0 ? parseFloat(casinonetpl).toFixed(2) : '('+ Math.abs(casinonetpl).toFixed(2) +')'}</span></li>
   </ul>
-    <table id="reportTable" class="table01 table-pnl" style={{display:'table'}}>
+  {dataExist && <table id="reportTable" class="table01 table-pnl" style={{display:'table'}}>
       <tbody>
         <tr>
           <th width="" class="align-L">Date</th>
@@ -202,7 +208,7 @@ const BettingProfitLoss = (props) => {
         )})}
         {casinoPL.length===0 && <tr><td colSpan={2} className="align-L">Sorry, there is no data to display.</td></tr>}
       </tbody>
-    </table>
+    </table>}
   </div>}
   </>
   )

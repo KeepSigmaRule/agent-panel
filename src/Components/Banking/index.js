@@ -23,6 +23,8 @@ const Banking = (props) => {
     let [activeRows, setactiveRows] = useState(0);
     let [agentPassword, setagentPassword] = useState();
     let [refreshDownline, setrefreshDownline] = useState(false);
+    let [itemsBucket,setitemsBucket] = useState([]);
+    const [agents,setAgents] = useState([]);
 
     const clearAllRows = ()=>{
         account_downlines.map((item)=>{
@@ -85,7 +87,7 @@ const Banking = (props) => {
     {showDownlineLogs && <DownlineLogs setLoading={setLoading} setshowDownlineLogs={setshowDownlineLogs} selectedAgentId={selectedAgentId} selectedAgentLevel={selectedAgentLevel}/>}
     <div id="mainWrap" className="main_wrap risk-responsive">
         <h2>Banking</h2>
-        <SearchBar setLoading={setLoading}/>
+        <SearchBar agents={agents} setAgents={setAgents} itemsBucket={itemsBucket} setitemsBucket={setitemsBucket} setLoading={setLoading}/>
         <div class="over-wrap white-wrap" style={{ maxHeight:'460px',overflow:'auto'}}>
         <div class="function-wrap clearfix">
             <dl class="banking-head float-L">
@@ -93,7 +95,7 @@ const Banking = (props) => {
                 <dd id="yourBalance"><span>PTH</span>{parseFloat(user.balance).toFixed(2)}</dd>
             </dl>
         </div>
-        <RelatedDownline refreshDownline={refreshDownline} setLoading={setLoading} setshowLogs={setshowLogs} setshowDownlineLogs={setshowDownlineLogs}  setselectedAgentId={setselectedAgentId} setselectedAgentLevel={setselectedAgentLevel} setactiveRows={setactiveRows}/>
+        <RelatedDownline agents={agents} setAgents={setAgents} itemsBucket={itemsBucket} setitemsBucket={setitemsBucket} refreshDownline={refreshDownline} setLoading={setLoading} setshowLogs={setshowLogs} setshowDownlineLogs={setshowDownlineLogs}  setselectedAgentId={setselectedAgentId} setselectedAgentLevel={setselectedAgentLevel} setactiveRows={setactiveRows}/>
         </div>
         <div class="submit-wrap" id="settlementBar">
         <ul>

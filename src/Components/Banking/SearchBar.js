@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 import Transparent from '../../images/transparent.gif';
 import SearchIconImage from '../../images/search-icon.svg';
-import {getAccountDownlines,getStatusSearchParams,searchDowlineByStatus,searchDowlineByValue}  from '../../Redux/action/Downline';
+import {getAccountDownlines,getStatusSearchParams,searchDowlineByStatus,searchDowlineByStatusV2,searchDowlineByValue}  from '../../Redux/action/Downline';
 import { toast } from "react-toastify";
 const SearchBar = (props) => {
     let dispatch = useDispatch();
@@ -13,7 +13,10 @@ const SearchBar = (props) => {
     let [searchValue,setSearchValue] = useState("");
     const {
       agentPath,
-      setagentPath
+      setagentPath,
+      itemsBucket,
+      setitemsBucket,
+      agents
     } = props;
     const handelSearch = async(e)=>{
         let searchParams = {};
@@ -21,7 +24,7 @@ const SearchBar = (props) => {
         setSelectedStatus(searchParams);
         searchParams['sid']=token;
         props.setLoading(true);
-       await dispatch(searchDowlineByStatus(searchParams)).then(async(response)=>{
+       await dispatch(searchDowlineByStatusV2(searchParams)).then(async(response)=>{
         props.setLoading(false);
       },(err)=>{
         toast.error(err);
@@ -30,15 +33,15 @@ const SearchBar = (props) => {
     
     const searchWithValue =async()=>{
       props.setLoading(true);
-      await dispatch(searchDowlineByValue({puserBlocked:selectedStatus.puserBlocked,pbetBlocked:selectedStatus.pbetBlocked,searchvalue:searchValue,id:user.id})).then(async(response)=>{
-          props.setLoading(false);
-          console.log("searchDowlineByValue",response);
-          props.updateAccountDownlines(response);
-          toast.success("Search result found!");
-        },(err)=>{
-          toast.error(err);
-        }
-      );
+      let downlines = [];
+      if(searchValue!=""){
+        downlines = itemsBucket.filter((item)=>item.clientid.includes(searchValue));
+      }
+      else{
+        downlines = agents;
+      }
+      setitemsBucket(downlines);
+      props.setLoading(false);
     }
     const getAgentDownlineById = async(user)=>{
       let downlineParam = {
@@ -93,9 +96,6 @@ const SearchBar = (props) => {
         <li>
         <select name="accountStatus" id="accountStatus" onChange={handelSearch}>
         <option value="1">ACTIVE</option>
-        <option value="2">SUSPENDED</option>
-        <option value="3">LOCKED</option>
-        <option value="0">ALL</option>
         </select>
         </li>
         </ul>

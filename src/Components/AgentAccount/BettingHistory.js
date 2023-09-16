@@ -14,6 +14,7 @@ const BettingHistory = (props) => {
     let [select,setselect] = useState(0);
     let [betStatus,setbetStatus] = useState("1");
     let [bethistory, setbethistory] = useState([]);
+    let [dataExist, setdataExist] = useState(false);
     let [option, setOption] = useState('default');
     let [sDate, setsDate] = useState(moment().format("YYYY-MM-DD"));
     let [eDate, seteDate] = useState(moment().add(1, 'days').format("YYYY-MM-DD"));
@@ -46,6 +47,9 @@ const BettingHistory = (props) => {
             setbethistory(response);
             if(response.length==0){
                 toast.info("Sorry, there is no data to display.");
+            }
+            else{
+                setdataExist(true);
             }
         },(err)=>{
             setLoading(false);
@@ -124,11 +128,11 @@ const BettingHistory = (props) => {
                 <li><Link to="" id="getPL"  className="btn-send" onClick = {()=>{getBetHistory('default')}}>Get History</Link></li>
                 </ul>
             </div>
-            <div id="noReportMessage">
+            {!dataExist && <div id="noReportMessage">
                 <p>Betting History enables you to review the bets you have placed. <br/>Specify the time period during which your bets were placed, the type of markets on which the bets were placed, and the sport.</p>
                 <p>Betting History is available online for the past 30 days.</p>
-            </div>
-            <div id="report">
+            </div>}
+            {dataExist && <div id="report">
                 <table id="matchTable" className="table-s" style={{display:'table'}}>
                 <tbody><tr>
                     <th width="9%" className="align-L">Bet ID</th>
@@ -241,7 +245,7 @@ const BettingHistory = (props) => {
                 {bethistory.length===0 && <td colSpan={10} className="align-L">Sorry, there is no data to display.</td>}
                 </tbody>
                 </table>
-            </div>
+            </div>}
         </div>
         </>
     )
