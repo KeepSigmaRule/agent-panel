@@ -9,7 +9,7 @@ const RelatedDownline = (props) => {
     let {user} = useSelector(state=>state.auth);
     let {puserBlocked,pbetBlocked,account_downlines} = useSelector(state=>state.downline);
     
-    const {setactiveRows} = props;
+    const {setactiveRows,refreshDownline} = props;
 
     let [items,setItems] = useState([]);
     let [totelCount,settotelCount] = useState(0);
@@ -80,7 +80,8 @@ const RelatedDownline = (props) => {
         setReference_PL(agents.reduce((a,v) =>  a = a + v.Reference_PL , 0 ));
     }
 
-    useEffect(()=>{
+
+    const getAccountDownlineList = () =>{
         let downlineParam = {
             "id": user.id,
             "puserBlocked": puserBlocked,
@@ -107,7 +108,11 @@ const RelatedDownline = (props) => {
           props.setLoading(false);
         });
         console.log("items",items);
-    },[currentPage]);
+    }
+
+    useEffect(()=>{
+        getAccountDownlineList();
+    },[currentPage,refreshDownline]);
   return (
         <>
         <table id="table_transfer" class="table01 tab-transfer tab-banking">

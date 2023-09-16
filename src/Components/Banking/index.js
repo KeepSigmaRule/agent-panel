@@ -22,6 +22,7 @@ const Banking = (props) => {
     let [selectedAgentLevel,setselectedAgentLevel] = useState();
     let [activeRows, setactiveRows] = useState(0);
     let [agentPassword, setagentPassword] = useState();
+    let [refreshDownline, setrefreshDownline] = useState(false);
 
     const clearAllRows = ()=>{
         account_downlines.map((item)=>{
@@ -63,15 +64,7 @@ const Banking = (props) => {
                 console.log("requestPayload",requestPayload);
                 dispatch(makeBankingPayment(requestPayload)).then((response)=>{
                     if(bankingRequestPayload.length===(index+1)){
-                        console.log("finish");
-                        let downlineParam = {"id": user.id,"puserBlocked": puserBlocked,"pbetBlocked": pbetBlocked,"searchvalue": ""}
-                        dispatch(getAccountDownlines(downlineParam)).then((response)=>{
-                            setLoading(false);
-                            console.log("getAccountDownlines",response);
-                        },(err)=>{
-                          console.log("getAccountDownlines err",err);
-                        });
-
+                        setrefreshDownline(!refreshDownline);
                         dispatch(getAccountDetail({sid:token})).then((response)=>{
                             console.log("getAccountDetail",response);
                           },(err)=>{
@@ -100,7 +93,7 @@ const Banking = (props) => {
                 <dd id="yourBalance"><span>PTH</span>{parseFloat(user.balance).toFixed(2)}</dd>
             </dl>
         </div>
-        <RelatedDownline setLoading={setLoading} setshowLogs={setshowLogs} setshowDownlineLogs={setshowDownlineLogs}  setselectedAgentId={setselectedAgentId} setselectedAgentLevel={setselectedAgentLevel} setactiveRows={setactiveRows}/>
+        <RelatedDownline refreshDownline={refreshDownline} setLoading={setLoading} setshowLogs={setshowLogs} setshowDownlineLogs={setshowDownlineLogs}  setselectedAgentId={setselectedAgentId} setselectedAgentLevel={setselectedAgentLevel} setactiveRows={setactiveRows}/>
         </div>
         <div class="submit-wrap" id="settlementBar">
         <ul>

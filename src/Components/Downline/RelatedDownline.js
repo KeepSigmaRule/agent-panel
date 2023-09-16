@@ -11,8 +11,8 @@ const RelatedDownline = (props) => {
     let {puserBlocked,pbetBlocked,account_downlines} = useSelector(state=>state.downline);
     let downlineParam = {
         "id": agent_path[0].id,
-        "puserBlocked": puserBlocked,
-        "pbetBlocked": pbetBlocked,
+        "puserBlocked": 0,
+        "pbetBlocked": 0,
         "searchvalue": ""
     }
     
