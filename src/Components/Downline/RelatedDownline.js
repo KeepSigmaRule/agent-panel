@@ -15,7 +15,7 @@ const RelatedDownline = (props) => {
         "pbetBlocked": 0,
         "searchvalue": ""
     }
-    
+    console.log("user",user);
     let [items,setItems] = useState([]);
     let [totelCount,settotelCount] = useState(0);
     const [currentPage, setcurrentPage] = useState(1);
@@ -121,6 +121,9 @@ const RelatedDownline = (props) => {
             </td>
             <td id="actionCol" style={{backgroundColor:'rgb(239, 239, 239)'}}>
                 <ul className="action">
+                {[0,1].includes(user.level) && <li>
+                        <NavLink to="" onClick={()=>{props.HandlePopup('display_password',true,item)}}  id="profile14" className="password">password</NavLink>
+                    </li>}
                     {item.level<6 && <li>
                         <NavLink to="" onClick={()=>{props.HandlePopup('change_status_modal',true,item)}}  id="change14" className="status">Change Status</NavLink>
                     </li>}

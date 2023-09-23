@@ -10,6 +10,7 @@ import SearchBar from './SearchBar';
 import AddAgent from './AddAgent';
 import RelatedDownline from './RelatedDownline'
 import UpdateCreditRef from './UpdateCreditRef';
+import DisplayPassword from './DisplayPassword';
 import ChangeStatus from './ChangeStatus';
 import IsLoadingHOC from '../IsLoadingHOC';
 import { useSelector,useDispatch } from 'react-redux';
@@ -23,6 +24,7 @@ const Downline = (props) => {
   let [addAgent,setaddAgent] = useState(false);
   let [updateCrediRef,setupdateCrediRef] = useState(false);
   let [changeStatus,setchangeStatus] = useState(false);
+  let [displayPassword,setdisplayPassword] = useState(false);
   let [selectedRow,setselectedRow] = useState({});
   let [agentPath, setagentPath] = useState(agent_path);
   
@@ -39,6 +41,10 @@ const Downline = (props) => {
         setselectedRow(params);
         setchangeStatus(action);
       } break;
+      case 'display_password':{
+        setselectedRow(params);
+        setdisplayPassword(action);
+      } break;
     }
   }
 
@@ -50,6 +56,7 @@ const Downline = (props) => {
         {addAgent && <AddAgent setLoading={setLoading} HandlePopup={HandlePopup}/>}
         {updateCrediRef && <UpdateCreditRef HandlePopup={HandlePopup} selectedRow={selectedRow}/>}
         {changeStatus && <ChangeStatus  setLoading={setLoading} HandlePopup={HandlePopup} selectedRow={selectedRow}/>}
+        {displayPassword && <DisplayPassword HandlePopup={HandlePopup} selectedRow={selectedRow}/>}
         <div id="mainWrap" className="main_wrap risk-responsive">
         <SearchBar setLoading={setLoading} HandlePopup={HandlePopup} agentPath={agentPath} setagentPath={setagentPath}/>
         <SelfDownline />
