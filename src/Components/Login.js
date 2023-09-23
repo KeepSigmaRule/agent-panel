@@ -8,7 +8,7 @@ import { login,getAccountDetail } from '../Redux/action/Auth';
 import { toast } from "react-toastify";
 
 const Login = (prop) => {
-   const [loginParams,setloginParams] = useState({id:'BRANDGAMEX247',password:'Play@6677'});
+   const [loginParams,setloginParams] = useState({id:'',password:''});
    let {token,user,agent_path} = useSelector(state=>state.auth);
    const dispatch = useDispatch();
    const navigate = useNavigate();
@@ -21,6 +21,7 @@ const Login = (prop) => {
    }
 
    useEffect(()=>{
+    console.log("loginParams",loginParams);
     dispatch(getAccountDetail({sid:token})).then((response)=>{
       if(agent_path.length==0){
         dispatch({ type: "AGENT_PATH_PUSH", payload: response });
