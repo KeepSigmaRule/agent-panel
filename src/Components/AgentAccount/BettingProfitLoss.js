@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import Transparent from '../../images/transparent.gif';
 import { Link } from 'react-router-dom';
-import { getClientProfitLoss,getClientCasinoProfitLoss } from '../../Redux/action/Account';
+import { getClientProfitLoss,getClientCasinoProfitLoss,neweventProfitLossClient } from '../../Redux/action/Account';
 import { getMatchName } from '../../Redux/action/BetList';
 import moment from 'moment';
 import DatePicker from "react-datepicker";
@@ -18,7 +18,7 @@ const BettingProfitLoss = (props) => {
   let [casinonetpl, setcasinonetpl] = useState(0);
   let [eventType,seteventType] = useState("0");
   let [option, setOption] = useState('default');
-  let [eventProfitLoss,seteventProfitLoss] = useState([]);
+  let [eventIds,seteventIds] = useState([]);
   let [sDate, setsDate] = useState(moment().subtract(7, 'days').format("YYYY-MM-DD"));
   let [eDate, seteDate] = useState(moment().add(1, 'days').format("YYYY-MM-DD"));
   let [startDate, setStartDate] = useState(moment().subtract(7, 'days').toDate());
@@ -63,7 +63,9 @@ const BettingProfitLoss = (props) => {
           dispatch(getClientProfitLoss({sid:token,clientId:agent.id,startDate:start,endDate:end,view:1,eventType:eventType})).then((response)=>{
             setprofitLoss(response);
             if(response.length>0){
-              setnetpl(response.reduce((a,v) =>  a = a + v.pl, 0));
+              let eventIdAarray = response.map((event)=>event.eventId);
+              seteventIds(eventIdAarray);
+              setnetpl(response.reduce((a,v) =>  a = parseFloat(a) + parseFloat(v.pl), 0));
             }
             else{
               setdataExist(true);
@@ -78,7 +80,7 @@ const BettingProfitLoss = (props) => {
           dispatch(getClientCasinoProfitLoss({id:agent.id,startDate:sDate,endDate:eDate})).then((response)=>{
             setcasinoPL(response);
             if(response.length>0){
-              setcasinonetpl(response.reduce((a,v) =>  a = a + parseFloat(v.netPL), 0));
+              setcasinonetpl(response.reduce((a,v) =>  a = parseFloat(a) + parseFloat(v.netPL), 0));
             }
             else{
               setdataExist(true);
@@ -97,6 +99,15 @@ useEffect(()=>{
   getProfitLoss(option);
 },[eventType]);
 
+useEffect(() => {
+  dispatch(neweventProfitLossClient({sid:token,eventId:eventIds,clientId:agent_path[agent_path.length-1].id,})).then((response)=>{
+    if(response.length>0){
+      console.log("neweventProfitLossClient: ", response);
+    }
+  },(err)=>{
+      toast.danger(err);
+  });
+  },[eventIds]);
   return (
     <>
       <h2>Profit & Loss - Main wallet {dataExist}</h2>
@@ -170,8 +181,8 @@ useEffect(()=>{
       </div>
     {select === 0 && <div id="report" data-report="profitAndLossReport">
       <ul id="spotsUl" className="total-show">
-      <li id="totalPL">Total P/L: PBU {netpl}</li>
-      <li id="sumOfQuery" className="sports-switch">PBU {netpl}</li>
+      <li id="totalPL">Total P/L: PBU {parseFloat(netpl).toFixed(2)}</li>
+      <li id="sumOfQuery" className="sports-switch">PBU {parseFloat(netpl).toFixed(2)}</li>
       <li className="sports-switch">
       <select name="sports" id="sportsevent" onChange={(e)=>{seteventType(e.target.value);}}>
       <option value="0" selected="selected">ALL</option>

@@ -65,7 +65,7 @@ const BettingProfitLoss = (props) => {
               dispatch(getClientCasinoProfitLoss({id:selectedItem.clientId,startDate:sDate,endDate:eDate})).then((response)=>{
                 setcasinoPL(response);
                 if(response.length>0){
-                  setcasinonetpl(response.reduce((a,v) =>  a = a + parseFloat(v.netPL), 0));
+                  setcasinonetpl(response.reduce((a,v) =>  a = parseFloat(a) + parseFloat(v.netPL), 0));
                   setdataExist(true);
                 }
                 setLoading(false);

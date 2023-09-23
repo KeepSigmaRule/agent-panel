@@ -227,6 +227,31 @@ export const getClientProfitLoss = data => async _dispatch => {
     })
 }
 
+export const neweventProfitLossClient = data => async _dispatch => {
+    return new Promise(async (resolve, reject) => {
+        await withoutAuthAxios().post("/api/agent/neweventProfitLossClient", data)
+            .then(
+                response => {
+                    if (response.status === 200) {
+                       resolve(response.data);
+                    }
+                    else{
+                        reject(response.data);
+                    }
+                },
+                error => {
+                    reject(error);
+                }
+            )
+            .catch(
+                error => {
+                    console.log("errorrrr", error);
+                    reject(error.message);
+                }
+            )
+    })
+}
+
 export const getClientCasinoProfitLoss = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
         await withoutAuthAxios().post("/api/agent/clientcasinoProfitLoss", data)
