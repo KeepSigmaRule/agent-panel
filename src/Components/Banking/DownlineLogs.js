@@ -69,12 +69,12 @@ const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
                         let deposit;
                         let withdraw;
                         if(item.amount >= 0){
-                            deposit = parseFloat(item.amount).toFixed(2);
-                            withdraw = '-';
-                        }
-                        if(item.amount < 0){
                             deposit = '-';
                             withdraw = `(${parseFloat(Math.abs(item.amount)).toFixed(2)})`;
+                        }
+                        if(item.amount < 0){
+                            deposit = `${parseFloat(Math.abs(item.amount)).toFixed(2)}`;
+                            withdraw = '-';
                         }
                     return(
                     <tr id="tempTr" key = {index}>

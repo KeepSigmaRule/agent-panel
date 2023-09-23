@@ -11,8 +11,6 @@ const AgentPath = (props) => {
   let {account_downlines} = useSelector(state=>state.downline);
   let [showListing,setshowListing] = useState(false);
   let agentBreadcrumbs = props.agentBreadcrumbs;
-  console.log("agent_path",agent_path);
-  console.log("pl_agent_path",pl_agent_path);
   const handleClick = async(user)=>{
     let start='';
         let end='';
@@ -57,7 +55,6 @@ const AgentPath = (props) => {
         }
     })
     update_agent_breadcrums.push(agentBasicInfo);
-    //props.setagentBreadcrumbs(update_agent_breadcrums)
     dispatch({ type: "PL_AGENT_PATH_POP", payload: update_agent_breadcrums });
   }
 

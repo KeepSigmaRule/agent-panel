@@ -44,7 +44,7 @@ const BettingHistory = (props) => {
             }
         }
         setLoading(true);
-        dispatch(getClientBetHistory({sid:token,clientId:selectedItem.clientId,betStatus:betStatus,startDate:start,endDate:end,view:1})).then((response)=>{
+        dispatch(getClientBetHistory({sid:token,clientId:(selectedItem.clientId)?selectedItem.clientId:selectedItem.agentId,betStatus:betStatus,startDate:start,endDate:end,view:1})).then((response)=>{
             setbethistory(response);
             if(response.length==0){
                 toast.info("Sorry, there is no data to display.");

@@ -35,7 +35,7 @@ const SearchBar = (props) => {
       props.setLoading(true);
       let downlines = [];
       if(searchValue!=""){
-        downlines = itemsBucket.filter((item)=>item.clientid.includes(searchValue));
+        downlines = itemsBucket.filter((item)=>item.clientid.includes(searchValue.toUpperCase()));
       }
       else{
         downlines = agents;

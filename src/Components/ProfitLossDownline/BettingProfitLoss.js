@@ -57,20 +57,20 @@ const BettingProfitLoss = (props) => {
                 }
                 setLoading(false);
               },(err)=>{
-                 setLoading(false);
+                  setLoading(false);
                   toast.danger(err);
               });
           } break;
           case 1:{
               dispatch(getClientCasinoProfitLoss({id:selectedItem.clientId,startDate:sDate,endDate:eDate})).then((response)=>{
+                //setLoading(false);
                 setcasinoPL(response);
                 if(response.length>0){
                   setcasinonetpl(response.reduce((a,v) =>  a = a + parseFloat(v.netPL), 0));
                   setdataExist(true);
                 }
-                setLoading(false);
             },(err)=>{
-                setLoading(false);
+                //setLoading(false);
                 toast.danger(err);
             });
           } break;

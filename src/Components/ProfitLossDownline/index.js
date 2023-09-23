@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import moment from 'moment';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 // import '../../css/Login.css';
 // import '../../css/Indibet.css';
 // import '../../css/Fullmarket.css';
@@ -12,12 +12,16 @@ import Header from '../Header';
 import AgentPath from './AgentPath';
 import { getAgentLevelInfo,getDownlineProfitLoss } from '../../Redux/action/Downline';
 import IsLoadingHOC from '../IsLoadingHOC';
+import AgentAccount from './AgentAccount';
 import { toast } from "react-toastify";
 
 const ProfitLossDownline = (props) => {
     const dispatch = useDispatch();
     let { isLoading, setLoading } = props;
     let {token,user,pl_agent_path} = useSelector(state=>state.auth);
+    let [showLogs, setshowLogs] = useState(false);
+    let [logType, setlogType] = useState('');
+    let [selectedItem, setselectedItem] = useState({});
     const [agentList, setagentList] = useState([]);
     const [sportType, setsportType] = useState('ALL');
     const [option, setOption] = useState('default');
@@ -36,6 +40,7 @@ const ProfitLossDownline = (props) => {
         return result   }
 
     const getReport = (option)=>{
+        dispatch({ type: "PL_AGENT_PATH_POP", payload:[user]});
         setOption(option);
         let start='';
         let end='';
@@ -61,7 +66,7 @@ const ProfitLossDownline = (props) => {
             return false;
         }
         setLoading(true);
-        dispatch(getDownlineProfitLoss({sid:token,agentId:pl_agent_path[pl_agent_path.length-1].id,startDate:start,endDate:end,type:sportType})).then((response)=>{
+        dispatch(getDownlineProfitLoss({sid:token,agentId:user.id,startDate:start,endDate:end,type:sportType})).then((response)=>{
             setLoading(false);
             setagentList(response);
         },(err)=>{
@@ -210,7 +215,8 @@ const ProfitLossDownline = (props) => {
                     <tr key={index} id="main_ptt2020_1">
                     <td className="align-L" >
                         {item.sports && <Link to="" onClick={()=>{ShowRow(index)}} id="_bySport" className="expand-close">{item.show?'-':'+'}</Link>}
-                        <Link to="" onClick={()=>(item.level<6)?HandleAgentPath(agentBasicInfo):''} id="_userName" className="ico_account"><span className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.agentId}</Link>
+                        {item.level<6 && <Link to="" onClick={()=>(item.level<6)?HandleAgentPath(agentBasicInfo):''} id="_userName" className="ico_account"><span className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.agentId}</Link>}
+                        {item.level==6 && <Link to="" onClick={()=>{setlogType('AgentAccount');setshowLogs(true);setselectedItem(item);dispatch({ type: "PL_AGENT_PATH_PUSH", payload: agentBasicInfo });}} id="_userName" className="ico_account"><span className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.agentId}</Link>}
                     </td>
                     <td id="_stake">0.00</td>
                     <td id="_profitLoss" ><span style={(netPnl >= 0) ? { color: 'green' } : { color: 'red' }}>{(netPnl >= 0) ? parseFloat(Math.abs(netPnl)).toFixed(2) : '(' + parseFloat(Math.abs(netPnl)).toFixed(2) + ')'}</span></td>
@@ -258,6 +264,7 @@ const ProfitLossDownline = (props) => {
             </table>
         </div>
     </div>
+    {(logType==='AgentAccount' && showLogs)  && <AgentAccount setLoading={setLoading} selectedItem={selectedItem} setshowLogs={setshowLogs}/>}
     </>
   )
 }
