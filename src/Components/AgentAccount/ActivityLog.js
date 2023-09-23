@@ -44,11 +44,13 @@ const ActivityLog = (props) => {
     <table className="table01">
     <tbody>
     <tr>
-    <th width="15%" className="align-L">Login Date &amp; Time</th>
+    <th width="15%" className="align-L">Login Date & Time</th>
     <th width="15%" className="align-L">Login Status</th>
     <th width="12%">IP Address</th>
     <th width="15%">remark</th>
-    <th width>Device Type</th>
+    <th width="15%">ISP</th>
+    <th width="15%">City/State/Country</th>
+    <th width>User Agent Type</th>
     </tr>
     </tbody>
     <tbody id="content">
@@ -63,10 +65,12 @@ const ActivityLog = (props) => {
         return(
             <tr id="tempTr" key={index}>
             <td className="align-L" id="loginDate">{item.loginDateTime}</td>
-            <td className={`align-L ${item.status==='success'?'green':'red'}`} id="loginMessage">Login {item.status}</td>
+            <td className={`align-L ${item.status==='failed'?'red':'green'}`} id="loginMessage">Login {item.status}</td>
             <td id="ipAddress">{item.ipAdress}</td>
             <td id="userAgentType">{item.remark}</td>
-            <td id="userdevice">{item.deviceInfo}</td>
+            <td id="userAgentType">{item.platform}</td>
+            <td id="userAgentType">{item.city}, {item.regionName}, {item.countryName}</td>
+            <td id="userdevice">{item.device}, {item.browser}</td>
             </tr>
         )})}
     </tbody>

@@ -19,9 +19,9 @@ const BettingProfitLoss = (props) => {
   let [eventType,seteventType] = useState("0");
   let [option, setOption] = useState('default');
   let [eventProfitLoss,seteventProfitLoss] = useState([]);
-  let [sDate, setsDate] = useState(moment().format("YYYY-MM-DD"));
+  let [sDate, setsDate] = useState(moment().subtract(7, 'days').format("YYYY-MM-DD"));
   let [eDate, seteDate] = useState(moment().add(1, 'days').format("YYYY-MM-DD"));
-  let [startDate, setStartDate] = useState(moment().toDate());
+  let [startDate, setStartDate] = useState(moment().subtract(7, 'days').toDate());
   let [endDate, setendDate] = useState(moment().add(1, 'days').toDate());
   let [time, setDate] = useState(moment().format('YYYY-MM-DD HH:mm:ss'));
   let [dataExist, setdataExist] = useState(false);

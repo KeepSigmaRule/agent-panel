@@ -16,9 +16,9 @@ const BettingHistory = (props) => {
     let [bethistory, setbethistory] = useState([]);
     let [dataExist, setdataExist] = useState(false);
     let [option, setOption] = useState('default');
-    let [sDate, setsDate] = useState(moment().format("YYYY-MM-DD"));
+    let [sDate, setsDate] = useState(moment().subtract(7, 'days').format("YYYY-MM-DD"));
     let [eDate, seteDate] = useState(moment().add(1, 'days').format("YYYY-MM-DD"));
-    let [startDate, setStartDate] = useState(moment().toDate());
+    let [startDate, setStartDate] = useState(moment().subtract(7, 'days').toDate());
     let [endDate, setendDate] = useState(moment().add(1, 'days').toDate());
     let {agent,setLoading} = props;
     const getBetHistory = (option)=>{
@@ -238,7 +238,11 @@ const BettingHistory = (props) => {
 
                 <td id="matchStake">{item.amount}</td>
                 <td id="matchAvgOdds">{odds}</td>
-                <td><span id="pol" className="small-date"><span className={`${profit >= 0 ? "green":"red"}`}>{profit >= 0 ? profit : '('+ Math.abs(profit) +')'}</span></span></td>
+                {betStatus=='0' && <td><span id="pol" className="small-date"><span>Un Matched</span></span></td>}
+                {betStatus=='1' && <td><span id="pol" className="small-date"><span>Pending</span></span></td>}
+                {betStatus=='2' && <td><span id="pol" className="small-date"><span className={`${profit >= 0 ? "green":"red"}`}>{profit >= 0 ? profit : '('+ Math.abs(profit) +')'}</span></span></td>}
+                {betStatus=='3' && <td><span id="pol" className="small-date"><span>Cancel</span></span></td>}
+                {betStatus=='4' && <td><span id="pol" className="small-date"><span>Void</span></span></td>}
                 <td id="userCancel" style={{display:'none'}}></td>
                 </tr>
                 )})}
