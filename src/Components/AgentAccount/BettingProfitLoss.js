@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import Transparent from '../../images/transparent.gif';
 import { Link } from 'react-router-dom';
 import { getClientProfitLoss,getClientCasinoProfitLoss,neweventProfitLossClient } from '../../Redux/action/Account';
-import { getMatchName } from '../../Redux/action/BetList';
+import { getMatchName,getRunnerOddsLiability } from '../../Redux/action/BetList';
 import moment from 'moment';
 import DatePicker from "react-datepicker";
 import { toast } from "react-toastify";
@@ -19,6 +19,7 @@ const BettingProfitLoss = (props) => {
   let [eventType,seteventType] = useState("0");
   let [option, setOption] = useState('default');
   let [eventIds,seteventIds] = useState([]);
+  let [bets,setbets] = useState([]);
   let [sDate, setsDate] = useState(moment().subtract(7, 'days').format("YYYY-MM-DD"));
   let [eDate, seteDate] = useState(moment().add(1, 'days').format("YYYY-MM-DD"));
   let [startDate, setStartDate] = useState(moment().subtract(7, 'days').toDate());
@@ -42,20 +43,30 @@ const BettingProfitLoss = (props) => {
     let start='';
     let end='';
     switch(option){
-        case 'today':{
-          let now = moment();
-          start = now.format("YYYY-MM-DD 09:00:00");
-          end = now.add(1, 'days').format("YYYY-MM-DD 08:59:00");
-        } break;
-        case 'yesterday':{
-          let now = moment();
-          start = now.subtract(1, 'days').format("YYYY-MM-DD 09:00:00");
-          end = now.add(2, 'days').format("YYYY-MM-DD 08:59:00");
-        } break;
-        default: {
-            start = sDate + ' '+ '09:00:00';
-            end = eDate + ' '+ '08:59:00';       
-        }
+      case 'today':{
+        let now = moment();
+        start = now.format("YYYY-MM-DD 09:00:00");
+        end = now.add(1, 'days').format("YYYY-MM-DD 08:59:00");
+
+        setStartDate(moment().toDate());
+        setendDate(moment().add(1, 'days').toDate());
+        setsDate(moment().format("YYYY-MM-DD"));
+        seteDate(moment().add(1, 'days').format("YYYY-MM-DD"));
+    } break;
+    case 'yesterday':{
+        let now = moment();
+        start = now.subtract(1, 'days').format("YYYY-MM-DD 09:00:00");
+        end = now.add(2, 'days').format("YYYY-MM-DD 08:59:00");
+
+        setStartDate(moment().subtract(1, 'days').toDate());
+        setendDate(moment().add(1, 'days').toDate());
+        setsDate(moment().subtract(1, 'days').format("YYYY-MM-DD"));
+        seteDate(moment().add(1, 'days').format("YYYY-MM-DD"));
+    } break;
+    default: {
+        start = sDate + ' '+ '09:00:00';
+        end = eDate + ' '+ '08:59:00';       
+    }
     }
     setLoading(true);
     switch(select){
@@ -66,8 +77,6 @@ const BettingProfitLoss = (props) => {
               let eventIdAarray = response.map((event)=>event.eventId);
               seteventIds(eventIdAarray);
               setnetpl(response.reduce((a,v) =>  a = parseFloat(a) + parseFloat(v.pl), 0));
-            }
-            else{
               setdataExist(true);
             }
             setLoading(false);
@@ -81,8 +90,6 @@ const BettingProfitLoss = (props) => {
             setcasinoPL(response);
             if(response.length>0){
               setcasinonetpl(response.reduce((a,v) =>  a = parseFloat(a) + parseFloat(v.netPL), 0));
-            }
-            else{
               setdataExist(true);
             }
             setLoading(false);
@@ -99,9 +106,20 @@ useEffect(()=>{
   getProfitLoss(option);
 },[eventType]);
 
+const [click, setclick] = useState(-1);
+const handleSlip = (index) => {
+  if (click === index) {
+    setclick(-1);
+  }
+  else {
+    setclick(index);
+  }
+}
+
 useEffect(() => {
   dispatch(neweventProfitLossClient({sid:token,eventId:eventIds,clientId:agent_path[agent_path.length-1].id,})).then((response)=>{
     if(response.length>0){
+      setbets(response);
       console.log("neweventProfitLossClient: ", response);
     }
   },(err)=>{
@@ -110,7 +128,7 @@ useEffect(() => {
   },[eventIds]);
   return (
     <>
-      <h2>Profit & Loss - Main wallet {dataExist}</h2>
+      <h2>Profit & Loss - Main wallet</h2>
       <div className="white-wrap">
       <ul className="acc-info">
       <li className="user">{agent.id}</li>
@@ -202,15 +220,63 @@ useEffect(() => {
       </tr>
       {profitLoss.length > 0 && profitLoss.map((item, index) => {
       let matchName = getMatchName(item.eventType);
+      let eventId = item.eventId;
       return (
+        <React.Fragment key={index}>
         <tr key={index} id="summary0" style={{ display: 'table-row' }} >
         <td id="title" className="align-L">{matchName}<img className="fromto" src={Transparent} /><strong>{item.eventName}</strong></td>
         <td id="startTime">{item.startTime}</td>
         <td id="settledDate">{item.settledDate}</td>
         <td>
-        {parseFloat(item.pl).toFixed(2)}
+        <a id="pl0" className={`${click === index ? "expand-open" : "expand-close"}`} onClick={() => { handleSlip(index); }}>
+          {parseFloat(item.pl).toFixed(2)}
+        </a>
         </td>
         </tr>
+        {click === index && <tr id="detail0" className="expand-full" style={{ display: 'table-row' }}>
+        <td colspan="4">
+          <img className="expand-arrow-R" src={Transparent} />
+
+          <table className="table-commission">
+            <tbody><tr>
+              <th width="9%">Bet ID
+              </th>
+              <th width="">Selection
+              </th>
+              <th width="9%">Odds
+              </th>
+              <th width="13%">Stake
+              </th>
+              <th width="8%">Type
+              </th>
+              <th width="16%">Placed
+              </th>
+              <th width="23%">Profit/Loss
+              </th>
+            </tr>
+              
+              {bets.length > 0 && bets.map((bet, index) => {
+                let itemInfo = getRunnerOddsLiability(bet);
+                return (
+                  <React.Fragment key={index}>
+                    {eventId == bet.eventId && <tr id="txTemplate">
+                    <td id="betID">{bet.id}</td>
+                    <td id="matchSelection">{itemInfo.runner}</td>
+                    <td id="txOddsMatched">{itemInfo.odds}</td>
+                    <td id="txStake">{parseFloat(bet.amount).toFixed(2)}</td>
+                    <td><span id="matchType" className={`${item.type === 'LAGAI' || item.type === 'YES'? "back":"lay"}`}>{itemInfo.matchtype}</span></td>
+                    <td id="placed">{bet.betTime}</td>
+                    <td id="txLiability" className={`${itemInfo.profit >= 0 ? "" : "red"}`}>{itemInfo.profit >= 0 ? itemInfo.profit : '(' + Math.abs(itemInfo.profit).toFixed(2) + ')'}</td>
+                    </tr>}
+                  </React.Fragment>
+                )
+              })}
+            </tbody>
+          </table>
+        
+        </td>
+      </tr>}
+      </React.Fragment>
       )
       })}
       {profitLoss.length===0 && <tr><td colSpan={3} className="align-L">Sorry, there is no data to display.</td></tr>}

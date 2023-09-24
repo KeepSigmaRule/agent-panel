@@ -40,7 +40,7 @@ const BettingHistory = (props) => {
             } break;
             default: {
                 start = sDate + ' '+ '09:00:00';
-                end = eDate + ' '+ '08:59:00';       
+                end = eDate + ' '+ '08:59:00';    
             }
         }
         setLoading(true);

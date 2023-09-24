@@ -41,10 +41,10 @@ const BettingProfitLoss = (props) => {
             start = now.subtract(1, 'days').format("YYYY-MM-DD 09:00:00");
             end = now.add(2, 'days').format("YYYY-MM-DD 08:59:00");
         } break;
-            default: {
-                start = sDate + ' '+ '09:00:00';
-                end = eDate + ' '+ '08:59:00';       
-            }
+        default: {
+            start = sDate + ' '+ '09:00:00';
+            end = eDate + ' '+ '08:59:00';       
+        }
         }
         setLoading(true);
         switch(select){

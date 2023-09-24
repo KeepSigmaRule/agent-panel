@@ -18,27 +18,13 @@
     background-image:url("../images/sprite/main-s1aea395e8c.png");
     background-repeat:no-repeat
 }
-.report-sprite,.cal-input,.upcome dd,.filter-list .filter-content span,.filter-list.golf-list .compt img,.filter-list.golf-list .compt:hover img,.align-L .expand-close,.table01 caption .expand-close,.table-s caption .expand-close,.table_one caption .expand-close,.no-data .expand-close,.status-popup .expand-close,.access-popup .expand-close,.table_one thead th .expand-close,.table-pt .expand td.expand-event:first-child .expand-close,.pt_allowed dl dt .expand-close,.tab-transfer .full-amount .expand-close,.tab-transfer .remark .expand-close,.tips-popup .expand-close,.slip-head .col-playID .expand-close,.slip-head .col-type .expand-close,.slip-head .col-country .expand-close,.slip-head .col-local .expand-close,.table01 .td-type .expand-close,.table-s .td-type .expand-close,.table_one .td-type .expand-close,.table01 .td-UID .expand-close,.table-s .td-UID .expand-close,.table_one .td-UID .expand-close,.td-uid .expand-close,.DW-amount .expand-close,.pop_bg .form-wrap h1 .expand-close,.align-L .expand-open,.table01 caption .expand-open,.table-s caption .expand-open,.table_one caption .expand-open,.no-data .expand-open,.status-popup .expand-open,.access-popup .expand-open,.table_one thead th .expand-open,.table-pt .expand td.expand-event:first-child .expand-open,.pt_allowed dl dt .expand-open,.tab-transfer .full-amount .expand-open,.tab-transfer .remark .expand-open,.tips-popup .expand-open,.slip-head .col-playID .expand-open,.slip-head .col-type .expand-open,.slip-head .col-country .expand-open,.slip-head .col-local .expand-open,.table01 .td-type .expand-open,.table-s .td-type .expand-open,.table_one .td-type .expand-open,.table01 .td-UID .expand-open,.table-s .td-UID .expand-open,.table_one .td-UID .expand-open,.td-uid .expand-open,.DW-amount .expand-open,.pop_bg .form-wrap h1 .expand-open,.expand-arrow,.expand-arrow-R,.acc-info .user,.acc-info .time,.fromto,.prevMonth,.nextMonth,.selection,.trans-replay,.btn_expand:before,.btn_expand.close:before{
+.report-sprite,.cal-input,.upcome dd,.filter-list .filter-content span,.filter-list.golf-list .compt img,.filter-list.golf-list .compt:hover img,.expand-close,.expand-open,.align-L .expand-close,.table01 caption .expand-close,.table-s caption .expand-close,.table_one caption .expand-close,.no-data .expand-close,.status-popup .expand-close,.access-popup .expand-close,.table_one thead th .expand-close,.table-pt .expand td.expand-event:first-child .expand-close,.pt_allowed dl dt .expand-close,.tab-transfer .full-amount .expand-close,.tab-transfer .remark .expand-close,.tips-popup .expand-close,.slip-head .col-playID .expand-close,.slip-head .col-type .expand-close,.slip-head .col-country .expand-close,.slip-head .col-local .expand-close,.table01 .td-type .expand-close,.table-s .td-type .expand-close,.table_one .td-type .expand-close,.table01 .td-UID .expand-close,.table-s .td-UID .expand-close,.table_one .td-UID .expand-close,.td-uid .expand-close,.DW-amount .expand-close,.pop_bg .form-wrap h1 .expand-close,.align-L .expand-open,.table01 caption .expand-open,.table-s caption .expand-open,.table_one caption .expand-open,.no-data .expand-open,.status-popup .expand-open,.access-popup .expand-open,.table_one thead th .expand-open,.table-pt .expand td.expand-event:first-child .expand-open,.pt_allowed dl dt .expand-open,.tab-transfer .full-amount .expand-open,.tab-transfer .remark .expand-open,.tips-popup .expand-open,.slip-head .col-playID .expand-open,.slip-head .col-type .expand-open,.slip-head .col-country .expand-open,.slip-head .col-local .expand-open,.table01 .td-type .expand-open,.table-s .td-type .expand-open,.table_one .td-type .expand-open,.table01 .td-UID .expand-open,.table-s .td-UID .expand-open,.table_one .td-UID .expand-open,.td-uid .expand-open,.DW-amount .expand-open,.pop_bg .form-wrap h1 .expand-open,.expand-arrow,.expand-arrow-R,.acc-info .user,.acc-info .time,.fromto,.prevMonth,.nextMonth,.selection,.trans-replay,.btn_expand:before,.btn_expand.close:before{
     background-image:url("../images/12bet/Screenshot 2021-11-26 at 9.29.53 AM.png");
     background-position-y: 3px!important;
         /* background-position: bottom !important; */
         background-size: 19px;
         background-position-x: 150px!important;
     background-repeat:no-repeat
-}
-.expand-close{
-    background-image:url("../images/expand-close.png");
-    background-position-y: 0px!important;
-    background-size: 10px;
-    background-position-x: 175px!important;
-    background-repeat: no-repeat;
-}
-.expand-open{
-    background-image:url("../images/expand-open.png");
-    background-position-y: 0px!important;
-    background-size: 10px;
-    background-position-x: 175px!important;
-    background-repeat: no-repeat;
 }
 .bg-sprite,.top_player-wrap h3,.racing-wrap h3,.game-wrap h3,.game-highlight-wrap h3,.favor-wrap h3,.sub_path h3,.pop-title h3,.one_click,.one_click.select,.path,.upcome-head,.tab-highlight,.live-head h3,.live-channel,.change-channel,.tab-topplay a,.tab-topplay .select a,.o_12bet .path,.o_12bet .slip-wrap h3,.o_12bet .matched-wrap h3,.o_12bet .slider-bar span,.o_12bet .upcome-head,.o_12bet .tab-highlight,.o_12bet .one_click-setting,.o_dafabet .path,.o_dafabet .slip-wrap h3,.o_dafabet .matched-wrap h3,.o_dafabet .slider-bar span,.o_dafabet .upcome-head,.o_dafabet .tab-highlight,.o_dafabet .one_click-setting,.mazaplay .tab-highlight,.mazaplay .one_click-setting,.mysports247 .path,.mysports247 .tab-highlight,.mysports247 .one_click-setting,.betbuzz365 .one_click-setting,.o_spondemo .path,.o_spondemo .slip-wrap h3,.o_spondemo .matched-wrap h3,.o_spondemo .slider-bar span,.o_spondemo .upcome-head,.o_spondemo .one_click-setting,.skyinplay .path,.skyinplay .tab-highlight,.skyinplay .one_click-setting,.bigexch .path,.bigexch .tab-highlight,.bigexch .one_click-setting,.masterexchange .path,.masterexchange .tab-highlight,.masterexchange .one_click-setting,.matador .tab-highlight,.matador .one_click-setting,.fairenter .path,.fairenter .tab-highlight,.fairenter .one_click-setting,.lucky7 .path,.lucky7 .tab-highlight,.lucky7 .one_click-setting,.qexch .path,.qexch .tab-highlight,.qexch .one_click-setting,.betmygame .path,.betmygame .tab-highlight,.betmygame .one_click-setting,.fancyfair .one_click,.fancyfair .one_click.select,.fancyfair .path,.fancyfair .tab-highlight,.fancyfair .one_click-setting,.maruti .tab-highlight,.maruti .one_click-setting,.marutibook .one_click,.marutibook .one_click.select,.marutibook .tab-highlight,.marutibook .one_click-setting,.betbuzz365247 .one_click-setting,.oceanexch1 .path,.oceanexch1 .tab-highlight,.oceanbook1 .path,.oceanbook1 .tab-highlight,.probetx .path,.probetx .tab-highlight,.probetx .one_click-setting,.alphaexch .tab-highlight,.alphaexch .one_click-setting,.alphaexchlive .tab-highlight,.alphaexchlive .one_click-setting,.maxexch9 .path,.maxexch9 .tab-highlight,.maxexch9 .one_click-setting,.cftbet365 .one_click,.cftbet365 .one_click.select,.cftbet365 .tab-highlight,.cftbet365 .one_click-setting,.crickzoom .path,.crickzoom .tab-highlight,.crickzoom .one_click-setting,.crickzoomlive .path,.crickzoomlive .tab-highlight,.crickzoomlive .one_click-setting,.maxinplay .path,.maxinplay .tab-highlight,.maxinplay .one_click-setting,.betbarter .path,.betbarter .slip-wrap h3,.betbarter .matched-wrap h3,.betbarter .slider-bar span,.betbarter .upcome-head,.betbarter .tab-highlight,.betbarter .one_click-setting,.probet247 .path,.probet247 .tab-highlight,.probet247 .one_click-setting,.goexchange .one_click,.kingfair24 .tab-highlight,.kingfair24 .one_click-setting,.sgexch247 .path,.sgexch247 .tab-highlight,.sgexch247 .one_click-setting,.sixball .path,.sixball .tab-highlight,.sixball .one_click-setting,.sixballio .path,.sixballio .tab-highlight,.sixballio .one_click-setting,.wickets247 .one_click-setting,.crickex .tab-highlight,.crickex .one_click,.crickex .one_click.select,.crickex .one_click-setting,.iceEX .one_click,.iceinplay .path,.iceinplay .tab-highlight,.iceinplay .one_click-setting,.baji .one_click-setting,.baji365 .one_click-setting,.sportsexchlive .one_click-setting{
     background-image:url("../images/sprite/bg-s2ccfda7730.png");
@@ -7962,7 +7948,38 @@ body.o_dafabet{
 .o_dafabet .submit-wrap .btn-send span{
     background-color:#912F33
 }
-
+/* body.mazaplay{
+    background-color:#F8F9E9
+}
+.mazaplay .btn.select,.mazaplay .select.btn-send,.mazaplay .pages a.select,.pages .mazaplay a.select,.mazaplay .calendarTable_inputBox input.select,.calendarTable_inputBox .mazaplay input.select,.mazaplay .calendarTable_inputBox textarea.select,.calendarTable_inputBox .mazaplay textarea.select,.mazaplay .calendarTable_inputBox .member_select a.select,.calendarTable_inputBox .member_select .mazaplay a.select,.mazaplay .member_select .calendarTable_inputBox a.select,.member_select .calendarTable_inputBox .mazaplay a.select,.mazaplay .total_all .select.btn_replay,.total_all .mazaplay .select.btn_replay,.mazaplay .select.btn_expand,.mazaplay .select.add_member{
+    background:#7BB54C url(../images/mazaplay/btn-select-maza.jpg) repeat-x;
+    border-color:#32803A
+}
+.mazaplay .btn-send{
+    background:#38703D url(../images/mazaplay/bg-send-maza.png) repeat-x;
+    color:#fff;
+    border-color:#07571D
+}
+.mazaplay .btn-send:hover{
+    background:#48955B url(../images/mazaplay/bg-send_hover-maza.png) repeat-x
+}
+.mazaplay .btn-send.disable{
+    background:#C3D5C5 url(../images/mazaplay/bg-send-disable-maza.png) repeat-x;
+    border-color:#A2B4A7;
+    color:#EFFCF4
+}
+.mazaplay .kv{
+    background:#48955B url(../images/mazaplay/bg-login_wrap-mazaplay.jpg) no-repeat
+}
+.mazaplay .login-panel{
+    color:#fff
+}
+.mazaplay .login-panel dt{
+    color:#000
+}
+.mazaplay .top{
+    background:#307234 url(../images/mazaplay/bg-top-maza.jpg) repeat-x
+} */
 .mazaplay .header{
     color:#fff
 }
@@ -20017,7 +20034,4 @@ px
                     height: 8px;
                     width: 7px;
                 }
-                .expand-full table {
-                    width: 95%;
-                    margin: auto;
-                }
+                

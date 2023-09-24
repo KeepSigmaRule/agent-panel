@@ -84,6 +84,59 @@ export const getRunnerOddsLiability = item => {
         } break;
     }
     result['matchtype'] = (item.type === 'LAGAI')?'BACK':(item.type === 'KHAI')?'LAY':item.type;
-
+    /**
+     * Calculate profit & loss
+     */
+    let profit = 0;
+    if (item.betType == 'fancy' && item.result) {
+        if (item.type == "YES") {
+            if (parseFloat(item.rate) <= parseFloat(item.result)) {
+                profit = parseFloat(item.amount * item.teamName).toFixed(2);
+            }
+            else profit = parseFloat(item.amount * (-1)).toFixed(2);
+        }
+        else {
+            if (parseFloat(item.rate) > parseFloat(item.result)) {
+                profit = parseFloat(item.amount).toFixed(2);
+            }
+            else profit = parseFloat((item.amount * item.teamName) * (-1)).toFixed(2);
+        }
+    }
+    else if (item.betType == 'match' && item.winner) {
+        if (item.type == "LAGAI") {
+            if (item.teamName == 'A') {
+                if (item.winner == "A") profit = parseFloat(item.rate * item.amount).toFixed(2);
+                else profit = parseFloat(item.amount * (-1)).toFixed(2);
+            }
+            else if (item.teamName == "B") {
+                if (item.winner == "B") profit = parseFloat(item.rate * item.amount).toFixed(2);
+                else profit = parseFloat(item.amount * (-1)).toFixed(2);
+            }
+            else if (item.teamName == "T") {
+                if (item.winner == "T") profit = parseFloat(item.rate * item.amount).toFixed(2);
+                else profit = parseFloat(item.amount * (-1)).toFixed(2);
+            }
+        }
+        else if (item.type == "KHAI") {
+            if (item.teamName == 'A') {
+                if (item.winner != "A") profit = parseFloat(item.amount).toFixed(2);
+                else profit = parseFloat(item.rate * item.amount * -1).toFixed(2);
+            }
+            else if (item.teamName == "B") {
+                if (item.winner != "B") profit = parseFloat(item.amount).toFixed(2);
+                else profit = parseFloat(item.rate * item.amount * -1).toFixed(2);
+            }
+            else if (item.teamName == "T") {
+                if (item.winner != "T") profit = parseFloat(item.amount).toFixed(2);
+                else profit = parseFloat(item.rate * item.amount * -1).toFixed(2);
+            }
+        }
+    
+        if ((item.selectionIdTie == null || item.selectionIdTie == '' || item.selectionIdTie == ' ') && item.winner == "T") {
+            profit = 0;
+        }
+    }
+    result['profit'] = profit;
     return result;
 }
+

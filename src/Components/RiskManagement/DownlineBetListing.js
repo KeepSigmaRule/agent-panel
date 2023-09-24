@@ -168,8 +168,8 @@ const DownlineBetListing = (props) => {
               <li className="bet-histo"><a onClick={() => { setselect(1) }} className={`${(select === 1) ? "select" : ""}`}>Bets History </a> </li>
               <li className="bet-histo"><a onClick={() => { setselect(2) }} className={`${(select === 2) ? "select" : ""}`}>Profit & Loss </a></li>
               </ul>
-              {select === 1 && <BettingHistory  selectedItem={selectedPlayer}/>}
-              {select === 2 && <BettingProfitLoss  selectedItem={selectedPlayer}/>}
+              {select === 1 && <BettingHistory  setLoading={setLoading} selectedItem={selectedPlayer}/>}
+              {select === 2 && <BettingProfitLoss  setLoading={setLoading} selectedItem={selectedPlayer}/>}
             </>}
           </div>
         </div>

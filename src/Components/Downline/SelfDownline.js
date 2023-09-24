@@ -39,7 +39,7 @@ const SelfDownline = () => {
         </dl>
         <dl id="totalExposureDL" className="total_dl">
         <dt>Total Exposure</dt>
-        <dd id="totalExposure">PTH {parseFloat(totalExposure).toFixed(2)}</dd>
+        <dd id="totalExposure">PTH <span className="red">{`(${parseFloat(totalExposure).toFixed(2)})`}</span></dd>
         </dl>
         <dl id="availableBalanceDL" className="total_dl">
         <dt>Total Avail. bal.</dt>
@@ -57,7 +57,7 @@ const SelfDownline = () => {
         </dl>
         {agent_path[agent_path.length-1].id==user.id && <dl id="transferablePLWithUplineDL" className="total_dl">
         <dt>Transferable P/L with Upline</dt>
-        <dd id="transferablePLWithUpline">PTH <span className={`${(transferablePL>0)?'':'red'}`}>{(transferablePL>0)?parseFloat(transferablePL).toFixed(2):`(${parseFloat(transferablePL).toFixed(2)})`}</span>
+        <dd id="transferablePLWithUpline">PTH <span className={`${(transferablePL>0)?'':'red'}`}>{(transferablePL>0)?parseFloat(transferablePL).toFixed(2):`(${parseFloat(Math.abs(transferablePL)).toFixed(2)})`}</span>
         </dd>
         </dl>}
         <dl id="transferablePLWithUplineDL" className="total_dl">

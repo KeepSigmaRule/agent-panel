@@ -47,6 +47,8 @@ const BetList = (props) => {
                 let now = moment();
                 start = now.subtract(1, 'days').format("YYYY-MM-DD 09:00:00");
                 end = now.add(2, 'days').format("YYYY-MM-DD 08:59:00");
+                setStartDate(moment().subtract(1, 'days').toDate());
+                setendDate(moment().add(1, 'days').toDate());
             } break;
             default: {
                 start = sDate + ' '+ '09:00:00';

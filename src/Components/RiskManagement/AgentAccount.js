@@ -19,8 +19,6 @@ const AgentAccount = (props) => {
     // delete item.match_amount;
     let [agentList,setagentList] = useState(item);
 
-    
-
   return (
     <div id="agentlog" className="pop_bg" style={{top:'0',display: 'block'}}>  
         <div className="log-wrap" style={{margin:'9vh', width: "1280px"}}>
