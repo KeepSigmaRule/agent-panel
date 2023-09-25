@@ -14,6 +14,7 @@ const AgentAccount = (props) => {
     let {pl_agent_path} = useSelector(state=>state.auth);
     let [select,setselect] = useState(1);  
     let {selectedItem,setLoading,setshowLogs} = props;
+    
     const closeModal = ()=>{
       let update_pl_agent_path = pl_agent_path.filter((item,index)=>{
         if(index<pl_agent_path.length-1){
