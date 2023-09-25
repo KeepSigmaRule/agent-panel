@@ -36,8 +36,8 @@ const AccountSummary = (props) => {
             </tr>
             <tr>
               <td className="align-L">Main wallet</td>
-              <td id="availableToBet">{profile.balance}</td>
-              <td id="availableToWithDraw">{profile.balance}</td>
+              <td id="availableToBet">{parseFloat(profile.balance).toFixed(2)}</td>
+              <td id="availableToWithDraw">{parseFloat(profile.balance).toFixed(2)}</td>
               <td id="currentExposure">0.00</td>
             </tr>
             </tbody>

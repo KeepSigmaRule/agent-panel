@@ -26,12 +26,13 @@ const DownlineBetListing = (props) => {
     let [section,setsection] = useState(0);
     let [selectedPlayer,setselectedPlayer] = useState('');
     useEffect(() => {
+      dispatch({ type: "PL_AGENT_PATH_POP", payload:[user]});
       let requestPayload = {};
       requestPayload['sid'] = token;
       requestPayload['sportId'] = sportId;
       requestPayload['marketName'] = marketName;
       requestPayload['is_runnerId3_exist'] = (selectedItem.runnerId3.trim()!=="")?1:0;
-      requestPayload['userId'] = pl_agent_path[pl_agent_path.length-1].id;
+      requestPayload['userId'] = user.id;
       requestPayload['eventId'] = event;
       console.log("requestPayload", requestPayload);
       setLoading(true);
@@ -52,7 +53,6 @@ const DownlineBetListing = (props) => {
     },[]);
 
     const HandleAgentPath = (agentBasicInfo)=>{
-      console.log("agentBasicInfo cost", agentBasicInfo);
       let requestPayload = {};
       requestPayload['sid'] = token;
       requestPayload['sportId'] = sportId;
@@ -60,7 +60,6 @@ const DownlineBetListing = (props) => {
       requestPayload['is_runnerId3_exist'] = (selectedItem.runnerId3.trim()!=="")?1:0;
       requestPayload['userId'] = agentBasicInfo.id;
       requestPayload['eventId'] = event;
-      console.log("requestPayload",requestPayload);
       if(agentBasicInfo.level>5){
         setsection(1);
         setselectedPlayer(agentBasicInfo);

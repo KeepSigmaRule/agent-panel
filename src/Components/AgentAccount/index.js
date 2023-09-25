@@ -10,6 +10,7 @@ import Header from '../Header';
 import AgentPath from './AgentPath';
 import AccountSummary from './AccountSummary';
 import TransactionHistory from './TransactionHistory';
+import BalanceOverview from './BalanceOverview';
 import ActivityLog from './ActivityLog';
 import ChangePassword from './ChangePassword';
 import BettingProfitLoss from './BettingProfitLoss';
@@ -46,6 +47,7 @@ const AgentAccount = (props) => {
                     <li className="class">Position</li>
                     <li><NavLink className={selectedMenu===1 && 'select'} onClick={()=>{setselectedMenu(1)}} to="" id="accountSummary">Account Summary</NavLink></li>
                     <li className="class">Performance</li>
+                    {agent.level===6 && <li><NavLink className={selectedMenu===6 && 'select'} onClick={()=>{setselectedMenu(6)}} to="" id="transactionHistory">Balance Overview</NavLink></li>}
                     {agent.level===6 && <li><NavLink className={selectedMenu===4 && 'select'} onClick={()=>{setselectedMenu(4)}} to="" id="transactionHistory">Betting History</NavLink></li>}
                     {agent.level===6 && <li><NavLink className={selectedMenu===5 && 'select'} onClick={()=>{setselectedMenu(5)}} to="" id="transactionHistory">Betting Profit & Loss</NavLink></li>}
                     <li><NavLink className={selectedMenu===2 && 'select'} onClick={()=>{setselectedMenu(2)}} to="" id="transactionHistory">Transaction History</NavLink></li>
@@ -54,6 +56,7 @@ const AgentAccount = (props) => {
             </div>
         </div>
         <div className="col-center report">
+            {selectedMenu===6 && <BalanceOverview setLoading={setLoading} agent={agent}/>}
             {selectedMenu===1 && <AccountSummary  setLoading={setLoading} agent={agent} HandlePopup={HandlePopup}/>}
             {selectedMenu===2 && <TransactionHistory setLoading={setLoading} agent={agent}/>}
             {selectedMenu===3 && <ActivityLog setLoading={setLoading} agent={agent}/>}

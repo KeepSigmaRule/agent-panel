@@ -17,7 +17,7 @@ const ActivityLog = (props) => {
 
     useEffect(()=>{
         props.setLoading(true);
-        dispatch(getOtherActivityLog({id:agent.id,level:agent.level})).then((response)=>{
+        dispatch(getOtherActivityLog({id:agent.id,level:String(agent.level)})).then((response)=>{
             props.setLoading(false);
             setitemsBucket(response);
             settotelCount(response.length);
