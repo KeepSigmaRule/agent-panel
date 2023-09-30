@@ -23,10 +23,8 @@ const BalanceOverview = (props) => {
     let [endDate, setendDate] = useState(moment().add(1, 'days').toDate());
   let agent = props.agent;
   const getLedugerReport = ()=>{
-    // let start = sDate + ' '+ '09:00:00';
-    // let end = eDate + ' '+ '08:59:00'; 
-    let start = sDate;
-    let end = eDate; 
+    let start = sDate + ' '+ '09:00:00';
+    let end = eDate + ' '+ '08:59:00';
     console.log({id:agent.id,fromdate:start,todate:end});
     props.setLoading(true);
     dispatch(getBalanceOverview({id:agent.id,fromdate:start,todate:end})).then((response)=>{
@@ -77,7 +75,7 @@ const BalanceOverview = (props) => {
         className="cal-input"
         onChange={(date) => { setStartDate(date); setsDate(moment(date).format("YYYY-MM-DD")); }}
       />
-      <input id="startTime" disabled="true" className="time-input disable" type="text" placeholder="09:00" maxLength="5" />
+      <input id="startTime" disabled={true} className="time-input disable" type="text" placeholder="09:00" maxLength="5" />
       <DatePicker
           selectsEnd
           showYearDropdown
@@ -91,7 +89,7 @@ const BalanceOverview = (props) => {
           onChange={(date) => { setendDate(date); seteDate(moment(date).format("YYYY-MM-DD")); }}
           className="cal-input"
       />
-      <input id="endTime" disabled="true" className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
+      <input id="endTime" disabled={true} className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
       </ul>
       </li>
       <li><Link to="" id="getPL"  className="btn-send margnsetbox" onClick = {()=>{getLedugerReport()}}>Get Data</Link></li>
@@ -101,10 +99,10 @@ const BalanceOverview = (props) => {
       </ul> */}
       </div>
       </div>
-    <table id="table_log" class="table01">
+    <table id="table_log" className="table01">
             <tbody>
                 <tr>
-                    <th width="15%" class="align-L">Date/Time</th>
+                    <th width="15%" className="align-L">Date/Time</th>
                     <th width="18%">Description</th>
                     <th width="18%">Debits</th>
                     <th width="18%">Credits</th>
@@ -115,7 +113,7 @@ const BalanceOverview = (props) => {
             <tbody id="content">
                 {items.length===0 && 
                     <tr id="noDataTempTr">
-                    <td class="no-data" colspan="5">
+                    <td className="no-data" colspan="5">
                         <p>No Data</p>
                     </td>
                     </tr>
@@ -124,15 +122,15 @@ const BalanceOverview = (props) => {
                  let val = item.amount*(-1);   
                 return(
                     <tr id="tempTr" key = {index}>
-                    <td id="createDate" class="align-L">{item.date}</td>
-                    <td id="remark">{item.eventName}</td>
-                    <td id="deposit">
-                    <span class="green">{item.Credit>0?Math.abs(item.Credit).toFixed(2):'-'}</span></td>
+                    <td id="createDate" className="align-L">{item.id}</td>
+                    <td id="remark">{item.EventName}</td>
                     <td id="withdraw">
-                    <span class="red">{item.Debit<0?'('+Math.abs(item.Debit).toFixed(2)+')':'-'}</span>
+                    <span className="red">{item.Debit>0?'('+Math.abs(item.Debit).toFixed(2)+')':'-'}</span>
                     </td>
-                    <td id="balance"> {parseFloat(item.balance).toFixed(2) }</td>
-                    <td id="remark">{item.comment}</td>
+                    <td id="deposit">
+                    <span className="green">{item.Credit>0?Math.abs(item.Credit).toFixed(2):'-'}</span></td>
+                    <td id="balance"> {parseFloat(item.Balance).toFixed(2) }</td>
+                    <td id="remark">{item.Commant}</td>
                     </tr>
                 )})} 
             </tbody>

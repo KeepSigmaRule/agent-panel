@@ -170,7 +170,7 @@ useEffect(() => {
         className="cal-input"
         onChange={(date) => { setStartDate(date); setsDate(moment(date).format("YYYY-MM-DD")); }}
       />
-      <input id="startTime" disabled="true" className="time-input disable" type="text" placeholder="09:00" maxLength="5" />
+      <input id="startTime" disabled={true} className="time-input disable" type="text" placeholder="09:00" maxLength="5" />
       <DatePicker
           selectsEnd
           showYearDropdown
@@ -184,7 +184,7 @@ useEffect(() => {
           onChange={(date) => { setendDate(date); seteDate(moment(date).format("YYYY-MM-DD")); }}
           className="cal-input"
       />
-      <input id="endTime" disabled="true" className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
+      <input id="endTime" disabled={true} className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
       </ul>
       </ul>
       <ul className="input-list ud-line">
@@ -286,20 +286,20 @@ useEffect(() => {
     </div>}
 
   {select === 1 && <div id="report" data-report="profitAndLossReport">
-  <ul id="spotsUl" class="total-show">
+  <ul id="spotsUl" className="total-show">
   <li id="totalPL">Total P/L: USD <span className={`${casinonetpl >= 0 ? "":"red"}`}>{casinonetpl >= 0 ? parseFloat(casinonetpl).toFixed(2) : '('+ Math.abs(casinonetpl).toFixed(2) +')'}</span></li>
-  <li id="sumOfQuery" class="sports-switch">USD  <span className={`${casinonetpl >= 0 ? "":"red"}`}>{casinonetpl >= 0 ? parseFloat(casinonetpl).toFixed(2) : '('+ Math.abs(casinonetpl).toFixed(2) +')'}</span></li>
+  <li id="sumOfQuery" className="sports-switch">USD  <span className={`${casinonetpl >= 0 ? "":"red"}`}>{casinonetpl >= 0 ? parseFloat(casinonetpl).toFixed(2) : '('+ Math.abs(casinonetpl).toFixed(2) +')'}</span></li>
   </ul>
-  {dataExist && <table id="reportTable" class="table01 table-pnl" style={{display:'table'}}>
+  {dataExist && <table id="reportTable" className="table01 table-pnl" style={{display:'table'}}>
       <tbody>
         <tr>
-          <th width="" class="align-L">Date</th>
+          <th width="" className="align-L">Date</th>
           <th width="18%">Profit/Loss</th>
         </tr>	
         {casinoPL.length > 0 &&  casinoPL.map((item,index) =>{
           return( 	
             <tr key = {index} id="summary0" style={{display: 'table-row'}} >
-              <td class="align-L">
+              <td className="align-L">
                 Casino<img className="fromto" src={Transparent} /><strong>LIVE</strong><img className="fromto" src={Transparent} />{item.currTime}
               </td>	
               <td>

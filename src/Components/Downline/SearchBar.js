@@ -84,7 +84,7 @@ const SearchBar = (props) => {
         </div>
         </div>
         <div className="agent_path"  style={{position:'relative',left:'21%'}}>
-        <div class="statuboxsetting">
+        <div className="statuboxsetting">
           <ul className="input-list boxsetting" id="accountStatusUl">
             <li>
               <strong>Status</strong>

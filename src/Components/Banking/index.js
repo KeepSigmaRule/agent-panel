@@ -88,21 +88,21 @@ const Banking = (props) => {
     <div id="mainWrap" className="main_wrap risk-responsive">
         <h2>Banking</h2>
         <SearchBar agents={agents} setAgents={setAgents} itemsBucket={itemsBucket} setitemsBucket={setitemsBucket} setLoading={setLoading}/>
-        <div class="over-wrap white-wrap" style={{ maxHeight:'460px',overflow:'auto'}}>
-        <div class="function-wrap clearfix">
-            <dl class="banking-head float-L">
+        <div className="over-wrap white-wrap" style={{ maxHeight:'460px',overflow:'auto'}}>
+        <div className="function-wrap clearfix">
+            <dl className="banking-head float-L">
                 <dt>Your Balance</dt>
                 <dd id="yourBalance"><span>PTH</span>{parseFloat(user.balance).toFixed(2)}</dd>
             </dl>
         </div>
         <RelatedDownline agents={agents} setAgents={setAgents} itemsBucket={itemsBucket} setitemsBucket={setitemsBucket} refreshDownline={refreshDownline} setLoading={setLoading} setshowLogs={setshowLogs} setshowDownlineLogs={setshowDownlineLogs}  setselectedAgentId={setselectedAgentId} setselectedAgentLevel={setselectedAgentLevel} setactiveRows={setactiveRows}/>
         </div>
-        <div class="submit-wrap" id="settlementBar">
+        <div className="submit-wrap" id="settlementBar">
         <ul>
-        <li><Link to="" onClick={()=>{clearAllRows()}} id="clearAllBtn" class="btn">Clear All</Link></li>
-        <li class="submit-payment">
+        <li><Link to="" onClick={()=>{clearAllRows()}} id="clearAllBtn" className="btn">Clear All</Link></li>
+        <li className="submit-payment">
         <input  id="paymentPassword" type="password" onChange={(e)=>setagentPassword(e.target.value)} value={agentPassword} placeholder="Password" />
-        <Link to="" onClick={()=>{submitBankingPayment()}} id="submit" class="btn-send">Submit <span id="submitCount">{activeRows}</span> Payment</Link>
+        <Link to="" onClick={()=>{submitBankingPayment()}} id="submit" className="btn-send">Submit <span id="submitCount">{activeRows}</span> Payment</Link>
         </li>
         </ul>
         </div>

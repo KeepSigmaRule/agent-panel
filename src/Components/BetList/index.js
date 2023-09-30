@@ -170,7 +170,7 @@ const BetList = (props) => {
                     className="cal-input"
                     onChange={(date) => { setStartDate(date); setsDate(moment(date).format("YYYY-MM-DD")); }}
                     />
-                    <input id="startTime" disabled="true" className="time-input disable" type="text" placeholder="09:00" maxLength="5" />
+                    <input id="startTime" disabled={true} className="time-input disable" type="text" placeholder="09:00" maxLength="5" />
                     <DatePicker
                     selectsEnd
                     showYearDropdown
@@ -184,7 +184,7 @@ const BetList = (props) => {
                     onChange={(date) => { setendDate(date); seteDate(moment(date).format("YYYY-MM-DD")); }}
                     className="cal-input"
                     />
-                    <input id="endTime" disabled="true" className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
+                    <input id="endTime" disabled={true} className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
                     </ul>
                     </li>
                 </ul>

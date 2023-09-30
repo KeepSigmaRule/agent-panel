@@ -124,7 +124,7 @@ const ProfitLossDownline = (props) => {
         <ul className="input-list boxsetting">
         {user.level<2 && <li><label>Sports</label></li>}
         {user.level<2 && <li>
-            <select id="func_sports"  onChange={(e)=>{setsportType(e.target.value)}}>
+            <select id="func_sports"  onChange={(e)=>{setsportType(e.target.value)}} >
                 <option value="ALL">All</option>
                 <option value="sport">sports</option>
                 <option value="casino">Casino</option>
@@ -135,8 +135,8 @@ const ProfitLossDownline = (props) => {
         <label>Time Zone</label>
         </li>
         <li>
-        <select name="timezone" id="timezone">
-            <option value="IST" selected="selected">IST(Bangalore / Bombay / New Delhi) (GMT+5:30)</option>
+        <select name="timezone" id="timezone" defaultValue='IST'>
+            <option value="IST">IST(Bangalore / Bombay / New Delhi) (GMT+5:30)</option>
         </select>
         </li>
         <li></li>
@@ -158,7 +158,7 @@ const ProfitLossDownline = (props) => {
             maxDate={moment().toDate()}
             onChange={(date) => { setStartDate(date); setsDate(moment(date).format("YYYY-MM-DD")); }}
         />
-        <input id="startTime" disabled="true" className="time-input disable" type="text" placeholder="09:00" maxLength="5" />
+        <input id="startTime" disabled={true} className="time-input disable" type="text" placeholder="09:00" maxLength="5" />
         <DatePicker
             selectsEnd
             showYearDropdown
@@ -172,7 +172,7 @@ const ProfitLossDownline = (props) => {
             onChange={(date) => { setendDate(date); seteDate(moment(date).format("YYYY-MM-DD")); }}
             className="cal-input"
         />
-        <input id="endTime" disabled="true" className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
+        <input id="endTime" disabled={true} className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
         </ul>
         </ul>
         <ul className="input-list boxsetting">

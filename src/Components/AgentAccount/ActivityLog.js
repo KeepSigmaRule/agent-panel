@@ -56,7 +56,7 @@ const ActivityLog = (props) => {
     <tbody id="content">
         {items.length===0 && 
           <tr id="noDataTempTr">
-            <td class="no-data" colspan="5">
+            <td className="no-data" colspan="5">
               <p>No Data</p>
             </td>
           </tr>

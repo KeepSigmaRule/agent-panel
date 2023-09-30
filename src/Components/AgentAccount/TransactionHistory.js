@@ -40,10 +40,10 @@ const TransactionHistory = (props) => {
   return (
     <>
     <h2>Transaction History</h2> 
-    <table id="table_log" class="table01">
+    <table id="table_log" className="table01">
             <tbody>
                 <tr>
-                    <th width="15%" class="align-L">Date/Time</th>
+                    <th width="15%" className="align-L">Date/Time</th>
                     <th width="18%">Deposit</th>
                     <th width="18%">Withdraw</th>
                     <th width="18%">Balance</th>
@@ -54,7 +54,7 @@ const TransactionHistory = (props) => {
             <tbody id="content">
                 {items.length===0 && 
                     <tr id="noDataTempTr">
-                    <td class="no-data" colspan="5">
+                    <td className="no-data" colspan="5">
                         <p>No Data</p>
                     </td>
                     </tr>
@@ -63,18 +63,18 @@ const TransactionHistory = (props) => {
                  let val = item.amount*(-1);   
                 return(
                     <tr id="tempTr" key = {index}>
-                    <td id="createDate" class="align-L">{item.time}</td>
+                    <td id="createDate" className="align-L">{item.time}</td>
                     <td id="deposit">
-                    <span class="green">{val>=0?Math.abs(val).toFixed(2):'-'}</span></td>
+                    <span className="green">{val>=0?Math.abs(val).toFixed(2):'-'}</span></td>
                     <td id="withdraw">
-                    <span class="red">{val<0?'('+Math.abs(val).toFixed(2)+')':'-'}</span>
+                    <span className="red">{val<0?'('+Math.abs(val).toFixed(2)+')':'-'}</span>
                     </td>
                     <td id="balance"> {parseFloat(item.balance).toFixed(2) }</td>
                     <td id="remark">{item.remark}</td>
                     <td>
-                    <spen id="from">{item.fromAgent}</spen>
-                    <img class="fromto" src={Transparent}/>
-                    <spen id="to">{item.toAgent}</spen>
+                    <span id="from">{item.fromAgent}</span>
+                    <img className="fromto" src={Transparent}/>
+                    <span id="to">{item.toAgent}</span>
                     </td>
                     </tr>
                 )})} 

@@ -37,25 +37,25 @@ const AddAgent = (props) => {
                 <dt>E-mail</dt>
                 <dd>
                   <input id="email" onChange={(e) => { setAgentParams({...agentParams, email:e.target.value}) }} value={agentParams.email} type="text" placeholder="Enter" maxLength="30" />
-                  <span class="redbox">*</span>
+                  <span className="redbox">*</span>
                   <span id="userNameErrorText" className="error-text"></span>
                 </dd>
                 <dt>Username</dt>
                 <dd>
                   <input id="userName" onChange={(e) => { setAgentParams({...agentParams, username:e.target.value}) }} value={agentParams.username} type="text" placeholder="Enter" maxLength="16" />
-                  <span class="redbox">*</span>
+                  <span className="redbox">*</span>
                   <span id="userNameErrorText" className="error-text"></span>
                 </dd>
                 <dt>Password</dt>
                 <dd>
                   <input id="userPassword" onChange={(e) => { setAgentParams({...agentParams, agentpass:e.target.value}) }} value={agentParams.agentpass} type="password" placeholder="Enter" />
-                  <span class="redbox">*</span>
+                  <span className="redbox">*</span>
                   <span id="passwordErrorText" className="error-text"></span>
                 </dd>
                 <dt>Confirm Password</dt>
                 <dd>
                   <input id="repeatPassword" onChange={(e) => { setAgentParams({...agentParams, confirmpass:e.target.value}) }} value={agentParams.confirmpass} type="password" placeholder="Enter" />
-                  <span class="redbox">*</span>
+                  <span className="redbox">*</span>
                   <span id="repeatPasswordErrorText" className="error-text"></span>
                 </dd>
               </dl>
@@ -63,13 +63,13 @@ const AddAgent = (props) => {
                 <dt>First Name</dt>
                 <dd>
                   <input id="firstName" onChange={(e) => { setAgentParams({...agentParams, firstname:e.target.value}) }} value={agentParams.firstname} type="text" placeholder="Enter" maxLength="16" />
-                  <span class="redbox">*</span>
+                  <span className="redbox">*</span>
                   <span id="firstErrorText" className="error-text"></span>
                 </dd>
                 <dt>Last Name</dt>
                 <dd>
                   <input id="lastName" onChange={(e) => { setAgentParams({...agentParams, lastname:e.target.value}) }} value={agentParams.lastname} type="text" placeholder="Enter" maxLength="16" />
-                  <span class="redbox">*</span>
+                  <span className="redbox">*</span>
                 </dd>
                 <dt>Phone</dt>
                 <dd>
@@ -78,7 +78,7 @@ const AddAgent = (props) => {
                 <dd className="logic"></dd>
                 <dt>Commission(%)</dt>
                 <dd>
-                  <input id="commission" onChange={(e)=>{}} value="" type="text" placeholder="Enter" readOnly="readonly" />
+                  <input id="commission" onChange={(e)=>{}} value="" type="text" placeholder="Enter" readOnly />
                 </dd>
               </dl>
             </li>

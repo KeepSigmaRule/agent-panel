@@ -46,8 +46,8 @@ const Login = (prop) => {
     <>
       {isMobile == false &&
         <div  className="login_blk" style={{ background: `url(${background})`, backgroundSize: 'cover' }}>
-          <div class="login-wrap">
-            <div class="kv"></div>
+          <div className="login-wrap">
+            <div className="kv"></div>
             <dl className='login-panel'>
               <dt>Agent login</dt>
               <div  className="login-container ng-dirty ng-touched ng-valid" noValidate>
@@ -57,47 +57,47 @@ const Login = (prop) => {
                     <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
                     <div  className="form-group mb-5">
                       <input  formcontrolname="text" placeholder="Validation Code" maxlength="4" type="text"  className="ng-dirty ng-valid ng-touched" />
-                      <span class="authenticateImage">7854</span>
+                      <span className="authenticateImage">7854</span>
                     </div>
-                  <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" class="btn-send-login"/></div>
+                  <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
               </div>
             </dl>
           </div>
-          <div class="moreinfo-wrap">
-            <div class="support-wrap extend-support">
-              <div class="extend-wrap">
-                <div class="extend-btn">
-                  <img src={transprnt} title="customer" class="support-customer"/>
+          <div className="moreinfo-wrap">
+            <div className="support-wrap extend-support">
+              <div className="extend-wrap">
+                <div className="extend-btn">
+                  <img src={transprnt} title="customer" className="support-customer"/>
                     <a href="https://wa.me/260767320392" target="_blank">Customer support1</a>
-                    <a href="https://wa.me/919833385310" target="_blank" class="split-line">support2</a>
+                    <a href="https://wa.me/919833385310" target="_blank" className="split-line">support2</a>
                 </div>
-                <div class="extend-btn">
-                  <img src={transprnt} title="WhatsApp" class="support-whatsapp"/>
+                <div className="extend-btn">
+                  <img src={transprnt} title="WhatsApp" className="support-whatsapp"/>
                     <a href="https://wa.link/skyfair" target="_blank">WhatsApp 3</a>
-                    <a href="https://wa.link/skyfair" target="_blank" class="split-line">WhatsApp 4</a>
+                    <a href="https://wa.link/skyfair" target="_blank" className="split-line">WhatsApp 4</a>
                 </div>
               </div>
-              <div class="extend-btn">
-                <img src={transprnt} title="Telegram" class="support-telegram"/>
+              <div className="extend-btn">
+                <img src={transprnt} title="Telegram" className="support-telegram"/>
                 <a href="http://www.t.me/+917900007566" target="_blank">+917900007566</a>
-                <a href="http://www.t.me/+917900007644" target="_blank" class="split-line">+917900007644</a>
+                <a href="http://www.t.me/+917900007644" target="_blank" className="split-line">+917900007644</a>
               </div>
-              <div class="extend-wrap">
-                <div class="support-social">
-                  <img src={transprnt} title="Skype" class="support-skype"/>
+              <div className="extend-wrap">
+                <div className="support-social">
+                  <img src={transprnt} title="Skype" className="support-skype"/>
                   <a href="skype:skyexchangeofficial?chat" target="_blank">skyexchangeofficial</a>
                 </div>
-                <div class="support-social">
-                  <img src={transprnt} title="Email" class="support-mail"/>
+                <div className="support-social">
+                  <img src={transprnt} title="Email" className="support-mail"/>
                   <a href="mailto:info@skyexchange.com" target="_blank">info@skyexchange.com</a>
                 </div>
-                <div class="support-social">
-                  <img src={transprnt} title="Instagram" class="support-ig"/>
+                <div className="support-social">
+                  <img src={transprnt} title="Instagram" className="support-ig"/>
                     <a href="https://www.instagram.com/officialskyfair/" target="_blank">officialskyexchange</a>
                 </div>
               </div>
             </div>
-            <div class="browser-wrap">
+            <div className="browser-wrap">
               <img src={bottombrowswe}/><br/>
               Our website works best in the newest and last prior version of these browsers: <br/>Google Chrome. Firefox
             </div>
@@ -105,8 +105,8 @@ const Login = (prop) => {
         </div>
       }
       {isMobile == true &&
-      <div class="loginformmb">
-        <header class="login-head">
+      <div className="loginformmb">
+        <header className="login-head">
           <h1>SKYFAIR</h1>
         </header>
         <dl className='form-login'>
@@ -114,39 +114,39 @@ const Login = (prop) => {
             <input  formcontrolname="email" onChange={(e) => { setloginParams({...loginParams, id:e.target.value}) }} value={loginParams.id} placeholder="Username" type="text" className="ng-dirty ng-valid ng-touched" /></div>
             <div  className="form-group">
               <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
-            <dd class="valid-code">
+            <dd className="valid-code">
 							<input id="validCode" type="text" placeholder="Validation Code" maxLength="4" />
 							<div id="popupcaptcha" style={{ position: 'absolute', right: '5px', width: '44px', top: '5px' }}></div>
 						</dd>
-            <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" class="btn-send-login"/></div>
+            <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
         </dl>
-        <div class="support-wrap extend-support">
-          <div class="extend-btn">
-            <img src={transprnt} title="customer" class="support-customer"/>
+        <div className="support-wrap extend-support">
+          <div className="extend-btn">
+            <img src={transprnt} title="customer" className="support-customer"/>
               <a href="https://wa.me/260767320392" target="_blank">Customer support1</a>
-              <a href="https://wa.me/919833385310" target="_blank" class="split-line">support2</a>
+              <a href="https://wa.me/919833385310" target="_blank" className="split-line">support2</a>
           </div>
-          <div class="extend-btn">
-            <img src={transprnt} title="WhatsApp" class="support-whatsapp"/>
+          <div className="extend-btn">
+            <img src={transprnt} title="WhatsApp" className="support-whatsapp"/>
               <a href="https://wa.link/skyfair" target="_blank">WhatsApp 3</a>
-              <a href="https://wa.link/skyfair" target="_blank" class="split-line">WhatsApp 4</a>
+              <a href="https://wa.link/skyfair" target="_blank" className="split-line">WhatsApp 4</a>
           </div>
-          <div class="extend-btn">
-            <img src={transprnt} title="Telegram" class="support-telegram"/>
+          <div className="extend-btn">
+            <img src={transprnt} title="Telegram" className="support-telegram"/>
             <a href="http://www.t.me/+917900007566" target="_blank">+917900007566</a>
-            <a href="http://www.t.me/+917900007644" target="_blank" class="split-line">+917900007644</a>
+            <a href="http://www.t.me/+917900007644" target="_blank" className="split-line">+917900007644</a>
           </div>
-          <div class="support-social">
-            <div class="social-btn">
-              <img src={transprnt} title="Skype" class="support-skype"/>
+          <div className="support-social">
+            <div className="social-btn">
+              <img src={transprnt} title="Skype" className="support-skype"/>
               <a href="skype:skyexchangeofficial?chat" target="_blank">Skype</a>
             </div>
-            <div class="social-btn">
-              <img src={transprnt} title="Email" class="support-mail"/>
+            <div className="social-btn">
+              <img src={transprnt} title="Email" className="support-mail"/>
               <a href="mailto:info@skyexchange.com" target="_blank">Email</a>
             </div>
-            <div class="social-btn">
-              <img src={transprnt} title="Instagram" class="support-ig"/>
+            <div className="social-btn">
+              <img src={transprnt} title="Instagram" className="support-ig"/>
                 <a href="https://www.instagram.com/officialskyfair/" target="_blank">Instagram</a>
             </div>
           </div>

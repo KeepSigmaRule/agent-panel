@@ -7,8 +7,8 @@ const AccountSummary = () => {
   return (
     <>
         <h2>Account Summary</h2>
-        <div class="white-wrap">
-			<dl class="head-balance">
+        <div className="white-wrap">
+			<dl className="head-balance">
 				<dt>Your Balances</dt>
 				<dd id="yourBalance">{user.balance} <span>PHK</span></dd>
 			</dl>

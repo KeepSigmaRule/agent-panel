@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { decrypteData } from '../../Redux/action/Auth';
 import $ from 'jquery';
-// import './RiskManagement.css';
-const RowCricketMatchOdds = (props) => {
+import './RiskManagement.css';
+const RowGoal = (props) => {
   const io = require('socket.io-client');
   const ranNum = Math.floor(Math.random() * 4) + 1;
-  //var ENDPOINT = "https://betplace247.com:2096";
-  //var ENDPOINT = "https://millionbet247.com:2096";
   var ENDPOINT = "https://millionbet247.com:2096";
   // if(ranNum == 1){
   //   ENDPOINT = "https://betplace247.com:2053";
@@ -23,6 +21,7 @@ const RowCricketMatchOdds = (props) => {
   //   ENDPOINT = "https://betplace247.com:2096";
   // }
   let {eventDate,subItem,teamA_total,teamB_total,draw_total,setshowLogs,setlogType,setselectedItem} = props;
+  
   let eventid = subItem.event_id;
   let runners = subItem.event_name.split(' v ');
   let socket;
@@ -70,6 +69,7 @@ const RowCricketMatchOdds = (props) => {
        
   useEffect(() => {
     socket = io(ENDPOINT);
+    console.log("ENDPOINT",ENDPOINT);
     socket.on('connect', function (data) {
         console.log('socket connected');
         socket.emit('room1', eventid);
@@ -84,7 +84,6 @@ const RowCricketMatchOdds = (props) => {
     socket.on(eventid, (val) => {
       var value = JSON.parse(val);
       if(value.messageType === 'betfair_match_rate'){
-        //console.log("betfair_match_rate",value);
         let timestamp = decrypteData(value.TimeST);
         if(moment(timestamp.messageST).format('YYYYMMDDHms') > moment().subtract(5, 'seconds').format("YYYYMMDDHms")){
           if(s1 !== value.runner1BackRate1  ){
@@ -230,21 +229,21 @@ const RowCricketMatchOdds = (props) => {
   }
 }, [])
   
-  const displayNextRow = (e,random) => {
+  const displayNextRow = (e,event_id,market_name) => {
     e.preventDefault();
    // $("#expand-showOddsBtn"+random).show();
-    $("#expand-showOddsBtn-"+random).toggle();;
-    console.log("#expand-showOddsBtn-"+random);
+    $("#expand-showOddsBtn-soccer-"+event_id+""+market_name).toggle();
+    console.log("#xpand-showOddsBtn-soccer-"+event_id+""+market_name);
   }
   let random = 1;
   return (
     <React.Fragment>
       <tr className="border-t">
-          <td className="align-L" rowSpan="1"><Link to="">Cricket</Link></td>
+          <td className="align-L" rowSpan="1"><Link to="">Soccer</Link></td>
           <td className="align-L border-l" rowSpan="1">{eventDate}</td>
           <td className="align-L border-l">
-          <Link to="" onClick={(e)=>{displayNextRow(e,subItem.event_id)}} className="btn open-odds" id="showOddsBtn">Open</Link>
-          <Link to="" className="risktitlebox">
+          <Link to="" onClick={(e)=>{displayNextRow(e,subItem.event_id,subItem.market_name.replace(" ","_").replace(" ", "_"))}} className="btn open-odds" id="showOddsBtn">Open</Link>
+          <Link to="">
               <strong id="eventName">{subItem.event_name}</strong>
               <img className="fromto" src="images/refresh2.png" />
               <span id="marketName">{subItem.market_name}</span>
@@ -260,7 +259,7 @@ const RowCricketMatchOdds = (props) => {
               <Link to="" onClick={(e)=>{ e.preventDefault();setlogType('DownlineBetListing');setshowLogs(true);setselectedItem(subItem);}} className="btn">View </Link>
           </td>
       </tr>
-        <tr id={`expand-showOddsBtn-${subItem.event_id}`}  className="expand iframe-table-design"  style={{display:'none'}}>
+        <tr id={`expand-showOddsBtn-soccer-${subItem.event_id}${subItem.market_name.replace(" ","_").replace(" ", "_")}`}  className="expand iframe-table-design"  style={{display:'none'}}>
         <td className="border-l align-L" colSpan={`${(draw_total)?'7':'6'}`}><img className="expand-arrow" src="images/transparent.gif" />
         <div className="for-agent">
         <div className="head-bets-agent">
@@ -306,7 +305,7 @@ const RowCricketMatchOdds = (props) => {
         <td className="lay-2"><a>{runner2LayRate2}<span>{runner2LaySize2}</span></a></td>
         <td className="lay-3"><a>{runner2LayRate3}<span>{runner2LaySize3}</span></a></td>
         </tr>
-        {subItem.runnerId3 !==" " && 
+        {subItem.runnerId3 !== " " && 
         <tr>
         <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>The Draw</p>
         </th>
@@ -327,4 +326,4 @@ const RowCricketMatchOdds = (props) => {
   )
 }
 
-export default RowCricketMatchOdds
+export default RowGoal

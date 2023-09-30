@@ -401,7 +401,7 @@ export const getFilterAgentList = agentList => {
 
 export const getBalanceOverview = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
-        let url = '/api/agent/LedugerReport';
+        let url = '/api/agent/clientbalanceoverview';
         await withoutAuthAxios().post(url, data)
             .then(
                 response => {

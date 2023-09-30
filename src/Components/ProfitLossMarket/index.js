@@ -138,8 +138,8 @@ const ProfitLossMarket = (props) => {
         <label>Time Zone</label>
         </li>
         <li>
-        <select name="timezone" id="timezone">
-            <option value="IST" selected="selected">IST(Bangalore / Bombay / New Delhi) (GMT+5:30)</option>
+        <select name="timezone" id="timezone" defaultValue='IST'>
+            <option value="IST" >IST(Bangalore / Bombay / New Delhi) (GMT+5:30)</option>
         </select>
         </li>
         <li></li>
@@ -161,7 +161,7 @@ const ProfitLossMarket = (props) => {
             maxDate={moment().toDate()}
             onChange={(date) => { setStartDate(date); setsDate(moment(date).format("YYYY-MM-DD")); }}
         />
-        <input id="startTime" disabled="true" className="time-input disable" type="text" placeholder="09:00" maxLength="5" />
+        <input id="startTime" disabled={true} className="time-input disable" type="text" placeholder="09:00" maxLength="5" />
         <DatePicker
             selectsEnd
             showYearDropdown
@@ -175,7 +175,7 @@ const ProfitLossMarket = (props) => {
             onChange={(date) => { setendDate(date); seteDate(moment(date).format("YYYY-MM-DD")); }}
             className="cal-input"
         />
-        <input id="endTime" disabled="true" className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
+        <input id="endTime" disabled={true} className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
         </ul>
         </ul>
         <ul className="input-list boxsetting">

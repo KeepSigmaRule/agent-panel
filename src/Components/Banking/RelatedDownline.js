@@ -117,19 +117,19 @@ const RelatedDownline = (props) => {
     },[refreshDownline]);
   return (
         <>
-        <table id="table_transfer" class="table01 tab-transfer tab-banking">
+        <table id="table_transfer" className="table01 tab-transfer tab-banking">
         <tbody>
             <tr>
-                <th id="userIdTH" width="" class="align-L sort-this">UID</th>
+                <th id="userIdTH" width="" className="align-L sort-this">UID</th>
                 <th width="9%">Balance</th>
                 <th width="9%">Available D/W</th>
                 <th width="9%">Exposure</th>
-                <th width="230" class="align-C border-l" style={{ borderRight: "1px solid #7E97A7", borderLeft: "1px solid #7E97A7" }}>Deposit / Withdraw</th>
-                <th class="border-l">Credit Reference</th>
-                <th class="">Reference P/L</th>
-                <th width="10%" class="border-l" style={{ border: "1px solid #7E97A7" }}>Remark</th>
-                <th width="47" class="full-amount">
-                <Link to="" onClick={()=>props.setshowLogs(true)} id="allLog" class="btn-send">All Log</Link>
+                <th width="230" className="align-C border-l" style={{ borderRight: "1px solid #7E97A7", borderLeft: "1px solid #7E97A7" }}>Deposit / Withdraw</th>
+                <th className="border-l">Credit Reference</th>
+                <th className="">Reference P/L</th>
+                <th width="10%" className="border-l" style={{ border: "1px solid #7E97A7" }}>Remark</th>
+                <th width="47" className="full-amount">
+                <Link to="" onClick={()=>props.setshowLogs(true)} id="allLog" className="btn-send">All Log</Link>
                 </th>
             </tr>
         </tbody>
@@ -145,32 +145,32 @@ const RelatedDownline = (props) => {
         
         return (
             <tr key={index} id="akshayddl" main_userid="akshayddl">
-                <td class="td-uid" style={{ backgroundColor: "rgb(239, 239, 239)" }} id="userId"><span class="order">{index + 1}.</span><span style={{ marginTop: '4px' }} className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.clientid}</td>
+                <td className="td-uid" style={{ backgroundColor: "rgb(239, 239, 239)" }} id="userId"><span className="order">{index + 1}.</span><span style={{ marginTop: '4px' }} className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.clientid}</td>
                 <td id="balance" style={{ backgroundColor: "rgb(223, 223, 223)" }}>{AvlBalance}</td>
                 <td id="availableBalance" style={{ backgroundColor: "rgb(239, 239, 239)" }}>{parseFloat(item.Balance).toFixed(2)}</td>
-                <td id="userExposure" class="red" style={{ backgroundColor: "rgb(223, 223, 223)" }} >{Exposure}</td>
-                <td class="DW-amount" style={{ backgroundColor: "rgb(239, 239, 239)" }}>
+                <td id="userExposure" className="red" style={{ backgroundColor: "rgb(223, 223, 223)" }} >{Exposure}</td>
+                <td className="DW-amount" style={{ backgroundColor: "rgb(239, 239, 239)" }}>
                 <ul className={`btn_list-DW select-${item.banking_type}`}>
-                    <li><Link to="" onClick={()=>selectBanking(index,'D')} id="dBtn" class="btn" >D</Link></li>
-                    <li><Link to="" onClick={()=>selectBanking(index,'W')} id="wBtn" class="btn" >W</Link></li>
+                    <li><Link to="" onClick={()=>selectBanking(index,'D')} id="dBtn" className="btn" >D</Link></li>
+                    <li><Link to="" onClick={()=>selectBanking(index,'W')} id="wBtn" className="btn" >W</Link></li>
                 </ul>
                 <input id={"amount" + index}  onChange={(e)=>setBankingAmount(index,e.target.value)} className={`type-${(item.banking_type=="W")?'w':''}`} name="amount"  value={(item.banking_amount)?item.banking_amount:''} type="number" placeholder="0" maxLength="18" />
                 <Link to="" id="fullBtn"  onClick={()=>copyAvailableBalance(index)}  className={`btn float-L ${(item.banking_type=="W")?'':'disable'}`} >Full</Link>
                 </td>
-                <td class="credit-amount" style={{ width: '170px', backgroundColor: "rgb(239, 239, 239)" }}>{cfBalance}</td>
+                <td className="credit-amount" style={{ width: '170px', backgroundColor: "rgb(239, 239, 239)" }}>{cfBalance}</td>
                 <td id="userReferencePL" style={{ backgroundColor: "rgb(223, 223, 223)" }} className={`${(item.Reference_PL<0)?'red':''}`}>{Reference_PL}</td>
-                <td class="border-l" style={{ backgroundColor: "rgb(239, 239, 239)", borderLeft: "1px solid #7E97A7" }} >
-                    <input onChange={(e)=>setBankingRemark(index,e.target.value)} id={"remark" + index} value={(item.banking_remark)?item.banking_remark:''} class="" type="text" placeholder="Remark" />
+                <td className="border-l" style={{ backgroundColor: "rgb(239, 239, 239)", borderLeft: "1px solid #7E97A7" }} >
+                    <input onChange={(e)=>setBankingRemark(index,e.target.value)} id={"remark" + index} value={(item.banking_remark)?item.banking_remark:''} className="" type="text" placeholder="Remark" />
                 </td>
-                <td class="full-amount" style={{ backgroundColor: "rgb(223, 223, 223)" }}  >
-                    <Link to="" onClick={()=>{props.setselectedAgentId(item.clientid); props.setselectedAgentLevel(item.level); props.setshowDownlineLogs(true)}} id="log" class="btn">Log</Link>
+                <td className="full-amount" style={{ backgroundColor: "rgb(223, 223, 223)" }}  >
+                    <Link to="" onClick={()=>{props.setselectedAgentId(item.clientid); props.setselectedAgentLevel(item.level); props.setshowDownlineLogs(true)}} id="log" className="btn">Log</Link>
                 </td>
             </tr>
             );
         })
         }
-        <tr id="totalTempTr" style={{ backgroundColor: "#e5e7e8" }} class="total">
-        <td class="align-L">Total</td>
+        <tr id="totalTempTr" style={{ backgroundColor: "#e5e7e8" }} className="total">
+        <td className="align-L">Total</td>
         <td id="totalBalance">{parseFloat(totalAvailableBalance).toFixed(2)}</td>
         <td id="totalAvailableBalance">{parseFloat(totalBalance).toFixed(2)}</td>
         <td id="totalExposure"><span className={`${(totalExposure<0)?'red':''}`}>{(totalExposure>0)?parseFloat(Math.abs(totalExposure)).toFixed(2):`(${parseFloat(Math.abs(totalExposure)).toFixed(2)})`}</span></td>
