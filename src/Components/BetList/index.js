@@ -99,7 +99,7 @@ const BetList = (props) => {
     <div id="mainWrap" className="main_wrap risk-responsive">
         <h2>Bet List Live</h2>
             <div className="function-wrap clearfix">
-                <ul className="input-list">
+                <ul className="input-list boxsetting">
                     <li id="eventRadioBtnList">
                         <label for="events_0" onClick={(e)=>{seteventType(e.target.value)}}>
                         <input  type="checkbox" name="events" id="events_0"  checked={eventType === '100'} value="100"/>All
@@ -122,7 +122,7 @@ const BetList = (props) => {
                         </label>
                     </li>
                 </ul>
-                <ul className="input-list">
+                <ul className="input-list boxsetting">
                     <li>
                         <label>Bet Status:</label>
                         <select name="sortCondition" id="sortCondition" onChange={(e)=>{setbetStatus(e.target.value)}}>
@@ -157,7 +157,7 @@ const BetList = (props) => {
                     </li>
                     <li><label>Period</label></li>
                     <li>
-                    <ul className="input-list" style={{ display: 'inline-flex',marginTop:'-10px'}}>
+                    <ul className="input-list boxsetting" style={{ display: 'inline-flex',marginTop:'-10px'}}>
                     <DatePicker
                     selectsStart
                     showYearDropdown
@@ -188,7 +188,7 @@ const BetList = (props) => {
                     </ul>
                     </li>
                 </ul>
-                <ul className="input-list">
+                <ul className="input-list boxsetting">
                     <li><Link to="" id="today"  onClick = {()=>{getHistory('today')}}  className="btn">Just For Today</Link></li>
                     <li><Link to="" id="yesterday"  onClick = {()=>{getHistory('yesterday')}} className="btn">From Yesterday</Link></li>
                     <li><Link to="" id="getPL"  onClick = {()=>{getHistory('defaut')}} className="btn-send">Get History</Link></li>

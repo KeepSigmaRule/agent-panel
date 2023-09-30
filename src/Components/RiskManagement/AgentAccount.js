@@ -21,7 +21,7 @@ const AgentAccount = (props) => {
 
   return (
     <div id="agentlog" className="pop_bg" style={{top:'0',display: 'block'}}>  
-        <div className="log-wrap" style={{margin:'9vh', width: "1280px"}}>
+        <div className="log-wrap" style={{margin:'auto', marginTop:'5%', width: "1280px"}}>
             <table className="game-team">
             <tbody>
                 <tr>

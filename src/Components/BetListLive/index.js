@@ -80,7 +80,7 @@ const BetListLive = (props) => {
     <div id="mainWrap" className="main_wrap risk-responsive">
         <h2>Bet List Live</h2>
             <div className="function-wrap clearfix">
-                <ul className="input-list">
+                <ul className="input-list boxsetting">
                     <li id="eventRadioBtnList">
                         <label for="events_0" onClick={(e)=>{seteventType(e.target.value)}}>
                         <input  type="checkbox" name="events" id="events_0"  checked={eventType === '100'} value="100"/>All
@@ -99,7 +99,7 @@ const BetListLive = (props) => {
                         </label>
                     </li>
                 </ul>
-                <ul className="input-list">
+                <ul className="input-list boxsetting">
                     <li>
                         <label>Order of display:</label>
                         <select name="sortCondition" id="sortCondition" onChange={(e)=>{setsortValue(e.target.value)}}>

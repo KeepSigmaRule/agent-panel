@@ -32,7 +32,7 @@ const FancyBooking = (props) => {
 
   return (
     <div id="agentlog" className="pop_bg" style={{top:'0',display: 'block'}}>  
-        <div className="log-wrap" style={{margin:'9vh', width: "1280px"}}>
+        <div className="log-wrap" style={{margin:'auto', marginTop:'5%', width: "1280px"}}>
             <table className="game-team">
               <tbody>
                   <tr>
@@ -46,7 +46,7 @@ const FancyBooking = (props) => {
             </table>
             <div className="pop-content">
             <div className="pop-title">
-              <h2>Run Position</h2>
+              {/* <h2>Run Position</h2> */}
               <div className="">
                 <table className="table01 tab-depth">
                   <thead>

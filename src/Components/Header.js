@@ -25,7 +25,7 @@ const Header = () => {
     <div className='top'>
             <div className="header">
                 <h1>
-                    <NavLink to="/" style={{ width: '180px', marginTop: '3px', backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }}>BETBUZZ365</NavLink>
+                    <NavLink to="/" style={{ width: '180px', marginTop: '13px', backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }}>BETBUZZ365</NavLink>
                 </h1>
                 <ul className="account-wrap" style={{marginTop:'12px'}}>
                     <li>

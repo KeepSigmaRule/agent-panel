@@ -23,7 +23,7 @@
     background-position-y: 3px!important;
         /* background-position: bottom !important; */
         background-size: 19px;
-        background-position-x: 150px!important;
+        background-position-x: 90px!important;
     background-repeat:no-repeat
 }
 .expand-close{
@@ -48,7 +48,7 @@
     background-image:url("../images/sprite/login-s28112929a1.png");
     background-repeat:no-repeat
 }
-.agent-sprite,.close_pop,.go-back img,.pop-close img,.bank,.betting_history,.p_l,.profile,.status,.total_all .btn_replay img,.add_member img,.status-active img,.status-suspend img,.status-lock img,.table01 .ico_account img,.table-s .ico_account img,.table_one .ico_account img,.table01 .status_all .icon_active img,.table-s .status_all .icon_active img,.table_one .status_all .icon_active img,.table01 .status_all .icon_locked img,.table-s .status_all .icon_locked img,.table_one .status_all .icon_locked img,.table01 .status_all .icon_suspend img,.table-s .status_all .icon_suspend img,.table_one .status_all .icon_suspend img,.table01 .action .bank:hover,.table-s .action .bank:hover,.table_one .action .bank:hover,.table01 .action .betting_history:hover,.table-s .action .betting_history:hover,.table_one .action .betting_history:hover,.table01 .action .p_l:hover,.table-s .action .p_l:hover,.table_one .action .p_l:hover,.table01 .action .profile:hover,.table-s .action .profile:hover,.table_one .action .profile:hover,.table01 .action .status:hover,.table-s .action .status:hover,.table_one .action .status:hover,.btn_open,.btn_close,.ico_dot1,.ico_dot2,.ico_dot3,.toggle_on,.toggle_off,.status_but .but_active img,.status_but .but_suspend img,.status_but .but_locked img,.status_but .but_active.open img,.status_but .open.but_suspend img,.status_but .open.but_locked img,.status_but .but_active.disable img,.status_but .disable.but_suspend img,.status_but .disable.but_locked img,.agent_path-L li,.agent_path-L img,.currency_tag_all li.currency_tag,.currency_tag_all li:first-child,.drop_down_li a,.col-center .acc-info .user,.tab-topplay li:before,.tab-topplay li:after,.tab-topplay .select:before,.tab-topplay .select:after,.sort-this:after,.open-odds:before,.close-odds:before,.icon-date,.agent-path li,.agent-path .point-agent-path,.credit-amount-member .btn,.credit-amount-member .btn-send,.credit-amount-member .pages a,.pages .credit-amount-member a,.credit-amount-member .calendarTable_inputBox input,.calendarTable_inputBox .credit-amount-member input,.credit-amount-member .calendarTable_inputBox textarea,.calendarTable_inputBox .credit-amount-member textarea,.credit-amount-member .calendarTable_inputBox .member_select a,.calendarTable_inputBox .member_select .credit-amount-member a,.credit-amount-member .member_select .calendarTable_inputBox a,.member_select .calendarTable_inputBox .credit-amount-member a,.credit-amount-member .total_all .btn_replay,.total_all .credit-amount-member .btn_replay,.credit-amount-member .btn_expand,.credit-amount-member .add_member,.credit-amount-member .btn:hover,.credit-amount-member .btn-send:hover,.credit-amount-member .pages a:hover,.pages .credit-amount-member a:hover,.credit-amount-member .calendarTable_inputBox input:hover,.calendarTable_inputBox .credit-amount-member input:hover,.credit-amount-member .calendarTable_inputBox textarea:hover,.calendarTable_inputBox .credit-amount-member textarea:hover,.credit-amount-member .calendarTable_inputBox .member_select a:hover,.calendarTable_inputBox .member_select .credit-amount-member a:hover,.credit-amount-member .member_select .calendarTable_inputBox a:hover,.member_select .calendarTable_inputBox .credit-amount-member a:hover,.credit-amount-member .total_all .btn_replay:hover,.total_all .credit-amount-member .btn_replay:hover,.credit-amount-member .btn_expand:hover,.credit-amount-member .add_member:hover,.btn-add:before,.icon-select_all,.icon-select_partial{
+.agent-sprite,.close_pop,.go-back img,.pop-close img,.bank,.betting_history,.p_l,.profile,.status,.total_all .btn_replay img,.add_member img,.status-active img,.status-suspend img,.status-lock img,.table01 .ico_account img,.table-s .ico_account img,.table_one .ico_account img,.table01 .status_all .icon_active img,.table-s .status_all .icon_active img,.table_one .status_all .icon_active img,.table01 .status_all .icon_locked img,.table-s .status_all .icon_locked img,.table_one .status_all .icon_locked img,.table01 .status_all .icon_suspend img,.table-s .status_all .icon_suspend img,.table_one .status_all .icon_suspend img,.table01 .action .bank:hover,.table-s .action .bank:hover,.table_one .action .bank:hover,.table01 .action .betting_history:hover,.table-s .action .betting_history:hover,.table_one .action .betting_history:hover,.table01 .action .p_l:hover,.table-s .action .p_l:hover,.table_one .action .p_l:hover,.table01 .action .profile:hover,.table-s .action .profile:hover,.table_one .action .profile:hover,.table01 .action .status:hover,.table-s .action .status:hover,.table_one .action .status:hover,.btn_open,.btn_close,.ico_dot1,.ico_dot2,.ico_dot3,.toggle_on,.toggle_off,.status_but .but_active img,.status_but .but_suspend img,.status_but .but_locked img,.status_but .but_active.open img,.status_but .open.but_suspend img,.status_but .open.but_locked img,.status_but .but_active.disable img,.status_but .disable.but_suspend img,.status_but .disable.but_locked img,.agent_path-L li,.agent_path-L img,.currency_tag_all li.currency_tag,.currency_tag_all li:first-child,.drop_down_li a,.col-center .acc-info .user,.tab-topplay li:before,.tab-topplay li:after,.tab-topplay .select:before,.tab-topplay .select:after,.sort-this:after,.open-odds:before,.close-odds:before,.icon-date,.agent-path li,.agent-path .point-agent-path,.credit-amount-member .btn,.credit-amount-member .btn-send,.credit-amount-member .pages a,.pages .credit-amount-member a,.credit-amount-member .calendarTable_inputBox input,.calendarTable_inputBox .credit-amount-member input,.credit-amount-member .calendarTable_inputBox textarea,.calendarTable_inputBox .credit-amount-member textarea,.credit-amount-member .calendarTable_inputBox .member_select a,.calendarTable_inputBox .member_select .credit-amount-member a,.credit-amount-member .member_select .calendarTable_inputBox a,.member_select .calendarTable_inputBox .credit-amount-member a,.credit-amount-member .total_all .btn_replay,.total_all .credit-amount-member .btn_replay,.credit-amount-member .btn_expand,.credit-amount-member .add_member,.credit-amount-member .btn:hover,.credit-amount-member .btn-send:hover,.credit-amount-member .pages a:hover,.pages .credit-amount-member a:hover,.credit-amount-member .calendarTable_inputBox input:hover,.calendarTable_inputBox .credit-amount-member input:hover,.credit-amount-member .calendarTable_inputBox textarea:hover,.calendarTable_inputBox .credit-amount-member textarea:hover,.credit-amount-member .calendarTable_inputBox .member_select a:hover,.calendarTable_inputBox .member_select .credit-amount-member a:hover,.credit-amount-member .member_select .calendarTable_inputBox a:hover,.member_select .calendarTable_inputBox .credit-amount-member a:hover,.credit-amount-member .total_all .btn_replay:hover,.total_all .credit-amount-member .btn_replay:hover,.credit-amount-member .btn_expand:hover,.credit-amount-member .add_member:hover,.btn-add:before,.icon-select_all,.icon-select_partial,.password{
     background-image:url("../images/sprite/agent-sf42eb279ae.png");
 }
 *{
@@ -174,7 +174,7 @@ p{
 }
 .main_wrap,.header,.footer-content{
     position:relative;
-    width:1399px;
+    width:1350px;
     margin:0 auto
 }
 .full-wrap{
@@ -362,11 +362,14 @@ padding: 8px 10px;
 }
 .table01 td,.table-s td,.table_one td{
     border-top:1px solid #eee;
-    padding:8px 10px;
+    padding:8px 5px;
     vertical-align:middle
 }
 .table01 a,.table-s a,.table_one a{
     text-decoration:underline
+}
+.margnsetbox a#getPL {
+    margin-top: 13.5%;
 }
 .table01 .btn,.table-s .btn,.table_one .btn,.table01 .btn-send,.table-s .btn-send,.table_one .btn-send,.table01 .pages a,.pages .table01 a,.table-s .pages a,.pages .table-s a,.table_one .pages a,.pages .table_one a,.table01 .calendarTable_inputBox input,.calendarTable_inputBox .table01 input,.table-s .calendarTable_inputBox input,.calendarTable_inputBox .table-s input,.table_one .calendarTable_inputBox input,.calendarTable_inputBox .table_one input,.table01 .calendarTable_inputBox textarea,.calendarTable_inputBox .table01 textarea,.table-s .calendarTable_inputBox textarea,.calendarTable_inputBox .table-s textarea,.table_one .calendarTable_inputBox textarea,.calendarTable_inputBox .table_one textarea,.table01 .calendarTable_inputBox .member_select a,.calendarTable_inputBox .member_select .table01 a,.table-s .calendarTable_inputBox .member_select a,.calendarTable_inputBox .member_select .table-s a,.table_one .calendarTable_inputBox .member_select a,.calendarTable_inputBox .member_select .table_one a,.table01 .member_select .calendarTable_inputBox a,.member_select .calendarTable_inputBox .table01 a,.table-s .member_select .calendarTable_inputBox a,.member_select .calendarTable_inputBox .table-s a,.table_one .member_select .calendarTable_inputBox a,.member_select .calendarTable_inputBox .table_one a,.table01 .total_all .btn_replay,.total_all .table01 .btn_replay,.table-s .total_all .btn_replay,.total_all .table-s .btn_replay,.table_one .total_all .btn_replay,.total_all .table_one .btn_replay,.table01 .btn_expand,.table-s .btn_expand,.table_one .btn_expand,.table01 .add_member,.table-s .add_member,.table_one .add_member{
     text-decoration:none
@@ -1583,7 +1586,7 @@ input:focus,textarea:focus,.member_select a:focus,.pt_allowed_box input:focus,.p
     margin-bottom:1px
 }
 .header{
-    height:67px;
+    height:74px;
     padding-top:10px
 }
 .header.full-wrap{
@@ -2075,13 +2078,14 @@ input:focus,textarea:focus,.member_select a:focus,.pt_allowed_box input:focus,.p
 .menu-wrap a.menu-drop:after,.menu-wrap a.menu-drop.select:after{
     width:0;
     height:0;
-    /* border-style:solid; */
+    border-style:solid;
     border-width:5px 3px 0 3px;
     border-color:#a5a5a5 transparent transparent transparent;
     margin-left:10px;
     vertical-align:middle;
     content:''
 }
+
 .menu-wrap a.one_click{
     padding:0 12px 0 7px
 }
@@ -2098,13 +2102,13 @@ input:focus,textarea:focus,.member_select a:focus,.pt_allowed_box input:focus,.p
 .menu li ul,.setting-wrap li ul{
     display:none;
     position:absolute;
-    background-color:#1E1E1E;
-    border-top:1px solid #383838;
+    background-color:#ffc31f;
+    border-top:1px solid #d39c01;
     z-index:99
 }
 .menu li li,.setting-wrap li li{
     float:none;
-    border-bottom:1px solid #383838
+    border-bottom:1px solid #cc9602;
 }
 .menu a,.setting-wrap a{
     position:relative
@@ -4108,7 +4112,7 @@ html,body{
     white-space:nowrap
 }
 .marquee-pop .input-list .btn-send,.marquee-pop .filter-list .btn-send{
-    width:115px;
+    width:95px;
     margin:0
 }
 .marquee-pop .announce-content{
@@ -4199,7 +4203,8 @@ html,body{
     width:100%;
     height:100%;
     background-color:rgba(0,0,0,0.7);
-    z-index:80
+    z-index:80;
+    overflow:auto !important;
 }
 .pop_bg:not(:target){
     display:none
@@ -4209,10 +4214,10 @@ html,body{
 }
 .pop_box,.pop_refer{
     position:fixed;
-    top:110px;
+    top:10%;
     left:50%;
     background-color:#eee;
-    width:400px;
+    width:430px;
     border-radius:5px;
     padding:15px;
     -webkit-transform:translate(-50%, 0);
@@ -4220,7 +4225,7 @@ html,body{
 }
 .pop_box h3,.pop_refer h3{
     font-size:16px;
-    color:#0665a7;
+    color:#3b5160;
     margin-bottom:18px
 }
 .pop_box .btn,.pop_refer .btn,.pop_box .btn-send,.pop_refer .btn-send,.pop_box .pages a,.pages .pop_box a,.pop_refer .pages a,.pages .pop_refer a,.pop_box .calendarTable_inputBox input,.calendarTable_inputBox .pop_box input,.pop_refer .calendarTable_inputBox input,.calendarTable_inputBox .pop_refer input,.pop_box .calendarTable_inputBox textarea,.calendarTable_inputBox .pop_box textarea,.pop_refer .calendarTable_inputBox textarea,.calendarTable_inputBox .pop_refer textarea,.pop_box .calendarTable_inputBox .member_select a,.calendarTable_inputBox .member_select .pop_box a,.pop_refer .calendarTable_inputBox .member_select a,.calendarTable_inputBox .member_select .pop_refer a,.pop_box .member_select .calendarTable_inputBox a,.member_select .calendarTable_inputBox .pop_box a,.pop_refer .member_select .calendarTable_inputBox a,.member_select .calendarTable_inputBox .pop_refer a,.pop_box .total_all .btn_replay,.total_all .pop_box .btn_replay,.pop_refer .total_all .btn_replay,.total_all .pop_refer .btn_replay,.pop_box .btn_expand,.pop_refer .btn_expand,.pop_box .add_member,.pop_refer .add_member{
@@ -4243,7 +4248,7 @@ html,body{
     width: 122px;
     margin-right: 13px;
     line-height: 32px;
-    color: rgb(131 144 151);
+    color: #000;
 }
 .form_list dd,.add_account_box dl dd,.pt_allowed dl dd{
     position:relative;
@@ -4296,10 +4301,13 @@ input.error,textarea.error,.member_select a.error{
     right:0;
     width:85px;
     height:100%;
-    line-height:38px;
+    line-height:30px;
     color:#fff;
     font-weight:normal;
     border-left:1px solid #5F6C74
+}
+.serchboxsetting.biab_body .biab_search-container .biab_seach-field-wrapper input.biab_search-input{
+    padding: 8px 30px;
 }
 .go-back img,.pop-close img{
     margin-right:5px;
@@ -4413,7 +4421,7 @@ input.error,textarea.error,.member_select a.error{
     font-weight:normal
 }
 .input-list .btn-send,.filter-list .btn-send{
-    width:115px;
+    width:95px;
     font-weight:bold
 }
 .filter-list .filter-head{
@@ -4966,8 +4974,8 @@ table .expand-close,table .expand-open{
 }
 .report-tab-wrap .report-tab{
     display:inline-block;
-    padding:5px 24px 9px;
-    margin-right:2px;
+    padding:5px 10px 9px;
+    margin-right:5px;
     background-color:#FFFFFF;
     border:1px solid #3B5160;
     border-radius:3px 3px 0 0;
@@ -5138,11 +5146,18 @@ table .expand-close,table .expand-open{
 .status{
     background-position:-32px -1566px
 }
+.password {
+    background-position: -30px -576px;
+    border: 2px solid #CCC;
+    border-radius: 5px;
+}
 .total_box{
-    background: rgb(239, 239, 239);
+    background: #FFF;
     width:100%;
     padding: 2px 0 2px;
-    /* margin-top:15px */
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
 }
 .total_box .total_dl{
     width:13.96815%;
@@ -5679,7 +5694,7 @@ table .expand-close,table .expand-open{
     padding:8px 0 0 0
 }
 .half_box{
-    margin-top:30px
+    margin-top:10px
 }
 .half_box li{
     width:50%
@@ -5705,7 +5720,7 @@ table .expand-close,table .expand-open{
     margin-bottom:15px
 }
 .add_account_box dl dd{
-    margin-bottom:6px
+    margin-bottom:0px
 }
 .add_account_box dl dd select{
     width:160px;
@@ -6026,7 +6041,7 @@ table .expand-close,table .expand-open{
 .agent_path ul li{
     position:relative;
     font-size:10px;
-    line-height:27px;
+    line-height:32px;
     font-weight:bold;
     list-style:none;
     height: 27px;
@@ -6072,7 +6087,7 @@ table .expand-close,table .expand-open{
 .biab_seach-field-wrapper img {
     position: absolute;
     left: 4px;
-    top: 5px;
+    top: 8px;
 }
 .drop_down_li a{
     background-position:100% -653px;
@@ -6141,7 +6156,7 @@ table .expand-close,table .expand-open{
 .col-left .class{
     color:#fff;
     padding:0 10px;
-    background:#2483C5;
+    background:#243a48;
     line-height:25px;
     padding:0 10px
 }
@@ -6287,9 +6302,9 @@ table .expand-close,table .expand-open{
     font-size:11px;
     padding:0 5px;
     border-radius:4px;
-    /* background-color:#; */
     margin-right:3px;
     font-weight: 700;
+    background: #000;
 }
 .account-wrap .loading-bar span{
     padding:0
@@ -7012,9 +7027,6 @@ body.matador{
     position:relative;
     width:100%;
     margin-bottom:16px
-}
-.form-group:first-of-type{
-    padding-top:20px
 }
 .btn-group{
     padding:16px 0
@@ -8378,8 +8390,9 @@ body.o_dafabet{
 .mysports247 .submit-wrap .btn-send span{
     background-color:#243A48
 } */
-body.betbuzz365{
-    background-color:#fff
+body.betbuzz365 .loginformmb{
+    background-image: linear-gradient(56deg, #ffcc2e 4%, #ffb80c 42%);
+    height: auto;
 }
 .betbuzz365 .btn.select,.betbuzz365 .select.btn-send,.betbuzz365 .pages a.select,.pages .betbuzz365 a.select,.betbuzz365 .calendarTable_inputBox input.select,.calendarTable_inputBox .betbuzz365 input.select,.betbuzz365 .calendarTable_inputBox textarea.select,.calendarTable_inputBox .betbuzz365 textarea.select,.betbuzz365 .calendarTable_inputBox .member_select a.select,.calendarTable_inputBox .member_select .betbuzz365 a.select,.betbuzz365 .member_select .calendarTable_inputBox a.select,.member_select .calendarTable_inputBox .betbuzz365 a.select,.betbuzz365 .total_all .select.btn_replay,.total_all .betbuzz365 .select.btn_replay,.betbuzz365 .select.btn_expand,.betbuzz365 .select.add_member{
     color:#F8D61C;
@@ -8390,15 +8403,15 @@ body.betbuzz365{
     background:#444 url(../images/betbuzz365/btn-select-skyEX.jpg) repeat-x
 }
 .betbuzz365 .btn-send{
-    background: #f8d61c;
-    background-color: #2483C5;
-    border-color: #2483C5;
-    color: #FFFFFF;
+    color: #ffb600 !important;
+    border-color: #222;
+    background-image: linear-gradient(180deg, #474747 0%, #070707 100%);
     font-size: 12px;
 }
 .betbuzz365 .btn-send:hover{
-    background-color: #7E7E7E;
-    color: #FFFFFF;
+    color: #ffb600 !important;
+    border-color: #222;
+    background-image: linear-gradient(357deg, #474747 0%, #070707 100%);
     font-size: 12px;
 }
 .betbuzz365 .btn-send.disable{
@@ -8420,8 +8433,12 @@ body.betbuzz365{
 .betbuzz365 .announce-header h1:before{
     background:#FFB80C
 }
-.betbuzz365 .top{
-   background-color: #404040;
+.betbuzz365 .top {
+    background: #000;
+    background-image: linear-gradient(180deg, #383838 0%, #010101 100%);
+}
+.account-wrap li strong {
+    color: #ffb600;
 }
 .betbuzz365 .header{
     color: #fff;
@@ -8494,29 +8511,29 @@ body.betbuzz365{
     color:#fff
 }
 .betbuzz365 .menu-wrap{
-    background-color: #5f5a5a;
+    background-image: linear-gradient(180deg, #ffcc2e 0%, #ffbd14 100%);
 }
 .betbuzz365 .menu-wrap a.menu-drop:after{
     border-top-color:#222
 }
 .betbuzz365 .menu li,.betbuzz365 .setting-wrap li{
-    border-right-color:rgba(69,32,7,0.2)
+    border-right-color:#d39c01;
 }
 .betbuzz365 .menu li ul a,.betbuzz365 .setting-wrap li ul a{
-    color:#ffffff;
+    color:#000;
 }
 .betbuzz365 .menu a,.betbuzz365 .setting-wrap a{
-    color:#ffffff
+    color:#000;
 }
 .betbuzz365 .menu a:hover,.betbuzz365 .setting-wrap a:hover{
-    background-color:transparent;
+    background-color:#ffc31fad;
     text-decoration:none
 }
 .betbuzz365 .menu .select,.betbuzz365 .setting-wrap .select{
     text-decoration: none;
-    background-color: #f0f5f8;
-    border-color: #404040;
-    color: #404040;
+    color: #000;
+    background: #ffdc7a;
+    box-shadow: inset 0 0px 5px 0 rgba(83,33,33,.5);
     font-size: 12px;
 }
 .betbuzz365 .menu .tag-new,.betbuzz365 .setting-wrap .tag-new{
@@ -8566,7 +8583,7 @@ body.betbuzz365{
     color:#F8D61C
 }
 .betbuzz365 .time_zone{
-    color:white
+    color:#000
 }
 .betbuzz365 .time_zone span{
     color:white
@@ -8581,8 +8598,8 @@ body.betbuzz365{
     background-color:#F2DCA7
 }
 .betbuzz365 .menu-list .select{
-    background-color:#F2DCA7;
-    color:#222
+    background-color: rgba(0,0,0,.6);
+    color: #FFF;
 }
 .betbuzz365 .menu-list .select:hover{
     background-color:#F2DCA7
@@ -8591,6 +8608,9 @@ body.betbuzz365{
     background-position:100% -1650px;
     height:25px;
     width:23px
+}
+.statuboxsetting {
+    float: left;
 }
 .betbuzz365 .menu-list .Go:hover,.betbuzz365 .menu-list .Go.Go-skyEX-hover{
     background-position:100% -1675px
@@ -19775,7 +19795,7 @@ color: #fff!important;
 
     } 
     .betbuzz365 .pages a.select{
-        color: black !important;
+        color: #ffc31f !important;
     }
   
     .odd{
@@ -19881,11 +19901,14 @@ px
         font-size: 12px !important;
         border: 1px solid #bbbebe !important;
         border-radius: 2px !important;
-        width: 174px !important;
+        width: 115px !important;
         height: 26px !important;
         line-height: 26px !important;
         padding: 0 5px !important;
         background-color: #fff !important;
+    }
+    .expand-full td {
+        background: #e2e8ed;
     }
     .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range{
         border-radius: 0.3rem      ;
@@ -20021,3 +20044,316 @@ px
                     width: 95%;
                     margin: auto;
                 }
+                .form-group {
+                    width: 100%;
+                    margin-bottom: 5px;
+                    display: inline-block;
+                    position: unset;
+                }
+                .login-panel input, .login-panel textarea {
+                    width: 100%;
+                    font-size: 14px;
+                    border: 1px solid #aaa;
+                    box-shadow: inset 0px 2px 0px 0px rgba(0,0,0,.1);
+                    margin: 0;
+                    padding: 2px 3px;
+                    height: 33px;
+                }
+                .betbuzz365 .login-panel {
+                    width: 41%;
+                }
+                .login-container .btn-send-login {
+                    color: #ffb600 !important;
+                    border-color: #222;
+                    background-image: linear-gradient(180deg, #474747 0%, #070707 100%);
+                    height: 36px;
+                    font-weight: 600;
+                    font-size: 15px;
+                }
+                .login-container .btn-send-login:hover {
+                    background-image: linear-gradient(180deg, #474747 100%, #070707 0%);
+                }
+                .moreinfo-wrap {
+                    position: absolute;
+                    top: calc(15% + 428px);
+                    left: 50%;
+                    width: 540px;
+                    margin-left: -270px;
+                    padding-bottom: 35px;
+                }
+                .support-wrap.extend-support {
+                    display: block;
+                    width: inherit;
+                    background-color: rgba(0,0,0,0);
+                    border-radius: 8px;
+                    margin: 0 auto 20px auto;
+                    padding: 5px 0px;
+                }
+                .extend-wrap {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .extend-btn {
+                    flex-basis: 49%;
+                    background-color: #fff;
+                    background-color: rgba(0,0,0,.5);
+                    padding: 8px 0;
+                    border-radius: 8px;
+                    border: 1px solid rgba(151,151,151,.5);
+                    font-size: 13px;
+                    justify-content: center;
+                    margin-bottom: 8px;
+                }
+                .extend-btn img {
+                    width: 26px;
+                    height: 26px;
+                    margin-right: 5px;
+                    vertical-align: middle;
+                }
+                .support-wrap.extend-support a {
+                    color: rgba(255,255,255,.8);
+                    line-height: 40px;
+                    text-align: center;
+                }
+                .support-social {
+                    flex-basis: 32%;
+                    background-color: #fff;
+                    background-color: rgba(0,0,0,.5);
+                    padding: 8px 0;
+                    border-radius: 8px;
+                    margin-bottom: 8px;
+                    border: 1px solid rgba(151,151,151,.5);
+                    font-size: 13px;
+                    justify-content: center;
+                    text-align: center;
+                }
+                .support-social img {
+                    width: 26px;
+                    height: 26px;
+                    margin-right: 5px;
+                    vertical-align: middle;
+                }
+                .browser-wrap {
+                    color: rgba(255,255,255,.6);
+                }
+                .login_blk {
+                    width: 100%;
+                    float: left;
+                    position: fixed;
+                    left: 0px;
+                    bottom: 0px;
+                    right: 0px;
+                    top: 0px;
+                    overflow: auto;
+                }
+                .support-customer img, img.support-customer {
+                    background-image: url('data:image/svg+xml,<svg width="159" height="159" xmlns="http://www.w3.org/2000/svg"><path d="M125.436 95.33c-.453 4.682-2.987 7.98-7.26 9.898-.83.372-1.207.754-1.295 1.729-.542 5.899-4.402 10.21-9.985 11.099-2.427.386-4.905.057-6.92.131-2.593 0-4.746.017-6.9-.01-.675-.008-1.012.24-1.248.888-1.268 3.486-3.987 5.356-7.713 5.361-2.928.006-5.855.011-8.782-.003-3.507-.017-6.301-1.867-7.428-4.89-1.2-3.216-.33-6.768 2.216-9.03 1.487-1.322 3.295-1.814 5.217-1.848a287 287 0 0 1 9.085-.007c3.334.044 6.2 2.077 7.333 5.224.277.77.65 1.032 1.45 1.024 3.904-.035 7.807.005 11.71-.023 4.399-.031 7.776-2.947 8.492-7.278.194-1.175.053-1.34-1.162-1.35-.673-.004-1.347 0-2.02 0-3.092-.006-4.605-1.5-4.606-4.566-.003-7.167-.001-14.334-.001-21.501 0-2.12-.013-4.24.004-6.36.02-2.525 1.276-4.055 3.782-4.244 3.402-.256 6.834-.295 9.92 1.514 4.001 2.346 6.15 5.912 6.243 10.526.093 4.57.31 9.157-.132 13.717M50.55 63.55c-.13.63-.317 1.05-1.07 1.061-2.795.044-5.566.365-8.318.833-.733.124-.94-.057-.873-.83.622-7.134 3.087-13.56 7.561-19.14 3.844-4.796 8.788-8.626 14.517-10.895 5.509-2.18 11.492-2.866 17.418-2.83 1.734.011 3.464.084 5.174.199 2.638.177 5.28.404 7.882.89 2.809.517 5.68 1.71 8.227 2.993a35.227 35.227 0 0 1 12.46 10.468c3.323 4.49 5.52 9.757 6.478 15.256.09.515.169 1.032.237 1.55.11.838.145 1.673.18 2.513.019.432-.152.558-.543.375-2.894-1.351-5.982-1.453-9.09-1.384-.745.016-1.047-.272-1.206-1.008-1.717-7.993-6.139-14.007-13.31-17.955a24.249 24.249 0 0 0-11.19-3.032 173.892 173.892 0 0 0-9.89-.002c-6.253.192-11.744 2.422-16.417 6.572-4.342 3.856-7.055 8.682-8.227 14.367m4.202 38.236c-.004 2.884-1.553 4.472-4.417 4.436-2.25-.029-4.51.22-6.747-.185-4.812-.87-8.388-4.805-8.648-9.688-.308-5.777-.321-11.563.016-17.34.273-4.676 4.606-8.957 9.263-9.363 1.983-.172 3.963-.172 5.946-.147 3.076.04 4.585 1.582 4.588 4.636.004 4.575.001 9.149 0 13.724 0 4.643.005 9.285-.001 13.927M79.52 0h-.04C35.646 0 0 35.656 0 79.5c0 17.39 5.605 33.509 15.135 46.597L5.227 155.63l30.558-9.769C48.355 154.19 63.351 159 79.52 159c43.834 0 79.48-35.666 79.48-79.5S123.354 0 79.52 0" fill="rgba(255,255,255,0.6)" fill-rule="nonzero"/></svg>');
+                }
+                .support-wrap.extend-support a {
+                    color: rgba(255,255,255,.8);
+                    line-height: 40px;
+                    text-align: center;
+                    text-decoration: none;
+                }
+                .extend-btn a:last-child {
+                    margin-right: 0;
+                }
+                .support-wrap.extend-support a.split-line {
+                    border-left: 1px solid rgba(255,255,255,.5);
+                    padding-left: 10px;
+                }
+                .extend-btn a {
+                    margin-right: 8px;
+                    text-decoration: none;
+                }
+                .support-whatsapp img, img.support-whatsapp {
+                    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M11.002 1h-.005C5.485 1 1 5.485 1 11c0 2.188.705 4.215 1.904 5.861l-1.246 3.715L5.5 19.347A9.913 9.913 0 0011.002 21C16.517 21 21 16.514 21 11S16.516 1 11.002 1zm5.82 14.121c-.242.681-1.2 1.246-1.963 1.412-.523.11-1.205.2-3.503-.753-2.938-1.218-4.831-4.204-4.978-4.398-.142-.193-1.188-1.58-1.188-3.016 0-1.435.729-2.134 1.022-2.434.242-.246.64-.358 1.023-.358.124 0 .235.006.335.011.294.012.441.03.635.494.241.581.829 2.016.899 2.163.071.148.142.348.042.542-.094.2-.176.288-.324.458-.147.17-.287.3-.434.483-.136.159-.288.329-.118.622.17.288.758 1.247 1.623 2.017 1.116.993 2.02 1.311 2.345 1.446.24.1.528.076.705-.111.223-.242.5-.642.78-1.035.2-.283.453-.318.718-.218.27.094 1.699.8 1.993.946.293.148.487.218.558.342.07.123.07.705-.17 1.387z" fill="rgba(255,255,255,0.6)" fill-rule="nonzero"/></svg>');
+                }
+                .support-telegram img, img.support-telegram {
+                    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M11 21c5.524 0 10-4.476 10-10S16.524 1 11 1 1 5.476 1 11s4.476 10 10 10zM5.576 10.783l9.642-3.717c.447-.162.838.109.693.786V7.85l-1.641 7.734c-.122.548-.447.682-.903.423l-2.5-1.842-1.206 1.162c-.133.133-.246.245-.504.245l.177-2.544 4.633-4.186c.202-.177-.045-.277-.31-.1L7.93 12.346l-2.468-.77c-.536-.17-.548-.535.113-.794z" fill="rgba(255,255,255,0.6)" fill-rule="nonzero"/></svg>');
+                }
+                .support-skype img, img.support-skype {
+                    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M20.425 13.123c.145-.652.22-1.327.22-2.02 0-5.193-4.27-9.404-9.539-9.404-.555 0-1.1.047-1.631.137A5.567 5.567 0 006.533 1C3.475 1 1 3.441 1 6.455c0 1.006.278 1.947.76 2.759a9.32 9.32 0 00-.194 1.89c0 5.195 4.272 9.406 9.539 9.406.598 0 1.181-.055 1.747-.158A5.58 5.58 0 0015.47 21C18.524 21 21 18.558 21 15.546c0-.871-.207-1.692-.575-2.423zm-4.426 2.476c-.442.616-1.093 1.104-1.939 1.448-.836.344-1.838.52-2.98.52-1.37 0-2.519-.238-3.416-.708a4.434 4.434 0 01-1.57-1.375c-.407-.575-.61-1.146-.61-1.699 0-.344.133-.643.397-.886.261-.244.596-.365.997-.365.327 0 .61.096.84.287.218.184.407.457.558.805.169.383.353.705.547.957.188.246.457.45.8.612.347.16.813.244 1.386.244.789 0 1.436-.166 1.921-.494.476-.319.706-.704.706-1.174 0-.37-.121-.662-.367-.891-.26-.24-.603-.426-1.018-.555a20.235 20.235 0 00-1.75-.427c-.991-.21-1.832-.457-2.5-.738-.683-.287-1.236-.685-1.638-1.183-.41-.506-.618-1.14-.618-1.885 0-.71.218-1.35.648-1.902.426-.549 1.048-.977 1.852-1.269.791-.288 1.733-.435 2.799-.435.851 0 1.6.098 2.226.29.629.193 1.159.453 1.575.774.42.325.733.669.928 1.029.197.362.298.724.298 1.072 0 .337-.131.643-.391.908a1.32 1.32 0 01-.98.404c-.352 0-.63-.087-.821-.253-.179-.156-.365-.4-.57-.747-.238-.445-.526-.797-.856-1.045-.322-.242-.857-.362-1.594-.362-.683 0-1.24.135-1.653.403-.397.256-.591.551-.591.901 0 .214.063.393.191.546.135.165.327.306.569.426.25.124.509.224.768.294.265.073.708.181 1.32.32.772.163 1.48.347 2.108.545a6.759 6.759 0 011.634.734c.456.294.818.669 1.075 1.119.258.454.388 1.01.388 1.657a3.54 3.54 0 01-.67 2.098z" fill="rgba(255,255,255,0.6)" fill-rule="nonzero"/></svg>');
+                }
+                .support-mail img, img.support-mail {
+                    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><g fill="rgba(255,255,255,0.6)" fill-rule="nonzero"><path d="M8.292 15.677v3.865a.626.626 0 001.128.37l2.26-3.077-3.388-1.158zM20.738 1.116a.625.625 0 00-.652-.045l-18.75 9.792a.627.627 0 00.087 1.145l5.212 1.782 11.1-9.492-8.59 10.35 8.737 2.985a.628.628 0 00.82-.5l2.291-15.416a.626.626 0 00-.255-.601z"/></g></svg>');
+                }
+                .support-ig img, img.support-ig {
+                    background-image: url('data:image/svg+xml,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M29.172 0C35.142 0 40 4.857 40 10.828v18.345C40 35.143 35.143 40 29.173 40H10.828C4.858 40 0 35.143 0 29.173V10.828C0 4.858 4.857 0 10.828 0zM20 9.063C13.97 9.063 9.063 13.969 9.063 20c0 6.03 4.906 10.937 10.937 10.937 6.03 0 10.937-4.906 10.937-10.937 0-6.03-4.906-10.937-10.937-10.937zm0 2.345c4.738 0 8.592 3.854 8.592 8.592S24.738 28.592 20 28.592 11.408 24.738 11.408 20s3.854-8.592 8.592-8.592zm11.199-6.23a3.235 3.235 0 00-3.232 3.232 3.235 3.235 0 003.232 3.232A3.235 3.235 0 0034.43 8.41a3.236 3.236 0 00-3.232-3.232zm0 2.345a.888.888 0 010 1.774.888.888 0 010-1.774z" fill="rgba(255,255,255,0.6)" fill-rule="nonzero"/></svg>');
+                }
+                .authenticateImage {
+                    position: absolute;
+                    width: 70px;
+                    height: 19px;
+                    right: 5%;
+                    font-size: 20px;
+                    font-weight: 600;
+                    margin-top: 9px;
+                }
+                .form-group.mb-5 {
+                    margin-bottom: 15px;
+                }
+                .boxsetting {
+                    margin: 0px;
+                    border: none !important;
+                    padding: 0px;
+                    background: none;
+                }
+                .redbox {
+                    font-size: 13px;
+                    color: #d0021b;
+                    padding-left: 10px;
+                }
+.login-head {
+    background-image: url('../images/KV-pic.png');
+}
+.login-head h1 {
+    top: 62%;
+    height: 21.3333333333vw;
+    background-image:url('../images/logo-skyfair.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 80%;
+    max-height: 40vw;
+    max-width: 80%;
+}
+.form-login {
+    width: 84vw;
+    margin: 0 auto;
+    color: #fff;
+}
+.form-login input {
+    width: 100%;
+    padding: 9.5px 7px;
+    font-size: 15px;
+    border: none;
+    box-shadow: none;
+}
+.pop_bg .log-wrap {
+    overflow: auto !important;
+}
+dd.valid-code {
+    margin-bottom: 8px;
+}
+.form-login .authenticateImage {
+    position: absolute;
+    width: 70px;
+    height: 19px;
+    right: 4%;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 13px;
+    color: #000;
+}
+.form-login img {
+    position: absolute;
+    background-color: #fff;
+    width: 18.6666666667vw;
+    height: 5.0666666667vw;
+    right: 1.8666666667vw;
+    top: 2.1333333333vw;
+    padding-top: 1.3333333333vw;
+    border-radius: 1.0666666667vw;
+}
+.form-login .btn-send-login {
+    color: #ffb200;
+    background-image: linear-gradient(180deg, #474747 0%, #070707 100%);
+    border: 0.2666666667vw solid #222;
+    border-radius: 1.6vw;
+    font-size: 4vw;
+    font-weight: bold;
+    line-height: 2.6;
+    padding: 0px;
+}
+.form-login .btn-send-login:hover {
+    color: #ffb200;
+    background-image: linear-gradient(180deg, #070707 0%, #474747 100%);
+}
+.loginformmb .extend-support {
+    grid-template-columns: 1fr;
+    grid-gap: 2.6666666667vw;
+    width: 84vw;
+    margin: 0 auto;
+}
+.loginformmb .support-wrap {
+    background-color: rgba(0,0,0,0);
+}
+.loginformmb .extend-btn {
+    width: 100%;
+    background-color: rgba(255,255,255,.6);
+    padding: 8px 0;
+    border-radius: 8px;
+    font-size: 3.4666666667vw;
+    text-align: left;
+}
+.loginformmb .extend-btn img {
+    width: 8vw;
+    height: 8vw;
+    margin-right: 1.0666666667vw;
+    vertical-align: middle;
+    margin-left: 12%;
+}
+.loginformmb .extend-btn a {
+    color: rgba(0,0,0,.7);
+    line-height: 6.6666666667vw;
+    padding-right: 1.6vw;
+    text-align: left;
+    background-image: none;
+}
+.loginformmb .extend-btn a.split-line {
+    border-left: 0.2666666667vw solid rgba(0,0,0,.7);
+    padding-left: 2.1333333333vw;
+}
+.loginformmb .support-social {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 8px;
+    width: 84vw;
+    margin: 0 auto;
+    margin-bottom: 5.3333333333vw;
+    background: none;
+    padding: 0px;
+}
+.loginformmb .social-btn {
+    width: 100%;
+    background-color: rgba(255,255,255,.6);
+    padding: 8px 0;
+    border-radius: 8px;
+    text-align: center;
+}
+.loginformmb .social-btn img {
+    width: 5.8666666667vw;
+    height: 5.8666666667vw;
+    margin-right: 0.5333333333vw;
+    vertical-align: middle;
+}
+.loginformmb .social-btn a {
+    color: rgba(0,0,0,.7);
+    line-height: 6.6666666667vw;
+    font-size: 2.9333333333vw;
+}
+.loginformmb .extend-support img.support-customer {
+    background-image: url('data:image/svg+xml,<svg width="159" height="159" xmlns="http://www.w3.org/2000/svg"><path d="M125.436 95.33c-.453 4.682-2.987 7.98-7.26 9.898-.83.372-1.207.754-1.295 1.729-.542 5.899-4.402 10.21-9.985 11.099-2.427.386-4.905.057-6.92.131-2.593 0-4.746.017-6.9-.01-.675-.008-1.012.24-1.248.888-1.268 3.486-3.987 5.356-7.713 5.361-2.928.006-5.855.011-8.782-.003-3.507-.017-6.301-1.867-7.428-4.89-1.2-3.216-.33-6.768 2.216-9.03 1.487-1.322 3.295-1.814 5.217-1.848a287 287 0 0 1 9.085-.007c3.334.044 6.2 2.077 7.333 5.224.277.77.65 1.032 1.45 1.024 3.904-.035 7.807.005 11.71-.023 4.399-.031 7.776-2.947 8.492-7.278.194-1.175.053-1.34-1.162-1.35-.673-.004-1.347 0-2.02 0-3.092-.006-4.605-1.5-4.606-4.566-.003-7.167-.001-14.334-.001-21.501 0-2.12-.013-4.24.004-6.36.02-2.525 1.276-4.055 3.782-4.244 3.402-.256 6.834-.295 9.92 1.514 4.001 2.346 6.15 5.912 6.243 10.526.093 4.57.31 9.157-.132 13.717M50.55 63.55c-.13.63-.317 1.05-1.07 1.061-2.795.044-5.566.365-8.318.833-.733.124-.94-.057-.873-.83.622-7.134 3.087-13.56 7.561-19.14 3.844-4.796 8.788-8.626 14.517-10.895 5.509-2.18 11.492-2.866 17.418-2.83 1.734.011 3.464.084 5.174.199 2.638.177 5.28.404 7.882.89 2.809.517 5.68 1.71 8.227 2.993a35.227 35.227 0 0 1 12.46 10.468c3.323 4.49 5.52 9.757 6.478 15.256.09.515.169 1.032.237 1.55.11.838.145 1.673.18 2.513.019.432-.152.558-.543.375-2.894-1.351-5.982-1.453-9.09-1.384-.745.016-1.047-.272-1.206-1.008-1.717-7.993-6.139-14.007-13.31-17.955a24.249 24.249 0 0 0-11.19-3.032 173.892 173.892 0 0 0-9.89-.002c-6.253.192-11.744 2.422-16.417 6.572-4.342 3.856-7.055 8.682-8.227 14.367m4.202 38.236c-.004 2.884-1.553 4.472-4.417 4.436-2.25-.029-4.51.22-6.747-.185-4.812-.87-8.388-4.805-8.648-9.688-.308-5.777-.321-11.563.016-17.34.273-4.676 4.606-8.957 9.263-9.363 1.983-.172 3.963-.172 5.946-.147 3.076.04 4.585 1.582 4.588 4.636.004 4.575.001 9.149 0 13.724 0 4.643.005 9.285-.001 13.927M79.52 0h-.04C35.646 0 0 35.656 0 79.5c0 17.39 5.605 33.509 15.135 46.597L5.227 155.63l30.558-9.769C48.355 154.19 63.351 159 79.52 159c43.834 0 79.48-35.666 79.48-79.5S123.354 0 79.52 0" fill="rgba(0,0,0,0.7)" fill-rule="nonzero"/></svg>');
+}
+.loginformmb img.support-whatsapp {
+    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M11.002 1h-.005C5.485 1 1 5.485 1 11c0 2.188.705 4.215 1.904 5.861l-1.246 3.715L5.5 19.347A9.913 9.913 0 0011.002 21C16.517 21 21 16.514 21 11S16.516 1 11.002 1zm5.82 14.121c-.242.681-1.2 1.246-1.963 1.412-.523.11-1.205.2-3.503-.753-2.938-1.218-4.831-4.204-4.978-4.398-.142-.193-1.188-1.58-1.188-3.016 0-1.435.729-2.134 1.022-2.434.242-.246.64-.358 1.023-.358.124 0 .235.006.335.011.294.012.441.03.635.494.241.581.829 2.016.899 2.163.071.148.142.348.042.542-.094.2-.176.288-.324.458-.147.17-.287.3-.434.483-.136.159-.288.329-.118.622.17.288.758 1.247 1.623 2.017 1.116.993 2.02 1.311 2.345 1.446.24.1.528.076.705-.111.223-.242.5-.642.78-1.035.2-.283.453-.318.718-.218.27.094 1.699.8 1.993.946.293.148.487.218.558.342.07.123.07.705-.17 1.387z" fill="rgba(0,0,0,0.7)" fill-rule="nonzero"/></svg>');
+}
+.loginformmb img.support-telegram {
+    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M11 21c5.524 0 10-4.476 10-10S16.524 1 11 1 1 5.476 1 11s4.476 10 10 10zM5.576 10.783l9.642-3.717c.447-.162.838.109.693.786V7.85l-1.641 7.734c-.122.548-.447.682-.903.423l-2.5-1.842-1.206 1.162c-.133.133-.246.245-.504.245l.177-2.544 4.633-4.186c.202-.177-.045-.277-.31-.1L7.93 12.346l-2.468-.77c-.536-.17-.548-.535.113-.794z" fill="rgba(0,0,0,0.7)" fill-rule="nonzero"/></svg>');
+}
+.loginformmb img.support-skype {
+    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M20.425 13.123c.145-.652.22-1.327.22-2.02 0-5.193-4.27-9.404-9.539-9.404-.555 0-1.1.047-1.631.137A5.567 5.567 0 006.533 1C3.475 1 1 3.441 1 6.455c0 1.006.278 1.947.76 2.759a9.32 9.32 0 00-.194 1.89c0 5.195 4.272 9.406 9.539 9.406.598 0 1.181-.055 1.747-.158A5.58 5.58 0 0015.47 21C18.524 21 21 18.558 21 15.546c0-.871-.207-1.692-.575-2.423zm-4.426 2.476c-.442.616-1.093 1.104-1.939 1.448-.836.344-1.838.52-2.98.52-1.37 0-2.519-.238-3.416-.708a4.434 4.434 0 01-1.57-1.375c-.407-.575-.61-1.146-.61-1.699 0-.344.133-.643.397-.886.261-.244.596-.365.997-.365.327 0 .61.096.84.287.218.184.407.457.558.805.169.383.353.705.547.957.188.246.457.45.8.612.347.16.813.244 1.386.244.789 0 1.436-.166 1.921-.494.476-.319.706-.704.706-1.174 0-.37-.121-.662-.367-.891-.26-.24-.603-.426-1.018-.555a20.235 20.235 0 00-1.75-.427c-.991-.21-1.832-.457-2.5-.738-.683-.287-1.236-.685-1.638-1.183-.41-.506-.618-1.14-.618-1.885 0-.71.218-1.35.648-1.902.426-.549 1.048-.977 1.852-1.269.791-.288 1.733-.435 2.799-.435.851 0 1.6.098 2.226.29.629.193 1.159.453 1.575.774.42.325.733.669.928 1.029.197.362.298.724.298 1.072 0 .337-.131.643-.391.908a1.32 1.32 0 01-.98.404c-.352 0-.63-.087-.821-.253-.179-.156-.365-.4-.57-.747-.238-.445-.526-.797-.856-1.045-.322-.242-.857-.362-1.594-.362-.683 0-1.24.135-1.653.403-.397.256-.591.551-.591.901 0 .214.063.393.191.546.135.165.327.306.569.426.25.124.509.224.768.294.265.073.708.181 1.32.32.772.163 1.48.347 2.108.545a6.759 6.759 0 011.634.734c.456.294.818.669 1.075 1.119.258.454.388 1.01.388 1.657a3.54 3.54 0 01-.67 2.098z" fill="rgba(0,0,0,0.7)" fill-rule="nonzero"/></svg>');
+}
+.loginformmb img.support-mail {
+    background-image: url('data:image/svg+xml,<svg width="22" height="22" xmlns="http://www.w3.org/2000/svg"><g fill="rgba(0,0,0,0.7)" fill-rule="nonzero"><path d="M8.292 15.677v3.865a.626.626 0 001.128.37l2.26-3.077-3.388-1.158zM20.738 1.116a.625.625 0 00-.652-.045l-18.75 9.792a.627.627 0 00.087 1.145l5.212 1.782 11.1-9.492-8.59 10.35 8.737 2.985a.628.628 0 00.82-.5l2.291-15.416a.626.626 0 00-.255-.601z"/></g></svg>');
+}
+.loginformmb img.support-ig {
+    background-image: url('data:image/svg+xml,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M29.172 0C35.142 0 40 4.857 40 10.828v18.345C40 35.143 35.143 40 29.173 40H10.828C4.858 40 0 35.143 0 29.173V10.828C0 4.858 4.857 0 10.828 0zM20 9.063C13.97 9.063 9.063 13.969 9.063 20c0 6.03 4.906 10.937 10.937 10.937 6.03 0 10.937-4.906 10.937-10.937 0-6.03-4.906-10.937-10.937-10.937zm0 2.345c4.738 0 8.592 3.854 8.592 8.592S24.738 28.592 20 28.592 11.408 24.738 11.408 20s3.854-8.592 8.592-8.592zm11.199-6.23a3.235 3.235 0 00-3.232 3.232 3.235 3.235 0 003.232 3.232A3.235 3.235 0 0034.43 8.41a3.236 3.236 0 00-3.232-3.232zm0 2.345a.888.888 0 010 1.774.888.888 0 010-1.774z" fill="rgba(0,0,0,0.7)" fill-rule="nonzero"/></svg>');
+}
+body.betbuzz365.mobileseting{
+    background-color: #eeeeee;
+    width: 100%;
+    background-image: none;
+    display: inline-table;
+}

@@ -18,7 +18,12 @@
     margin-bottom: 7px;
   }
   
-  #root{height: 100%}
+  #root {
+    height: 100%;
+    width: 100%;
+    display: inline-table;
+    overflow: hidden;
+}
   
   
   .tc-content h1 {
@@ -1918,7 +1923,7 @@
   .main_wrap,
   .header {
     position: relative;
-    width: 1399px;
+    width: 1350px;
     /* width: 1425px; */
     margin: 0 auto
   }
@@ -1998,8 +2003,8 @@
   }
   .report-tab-wrap .report-tab {
     display: inline-block;
-    padding: 5px 24px 9px;
-    margin-right: 2px;
+    padding: 5px 10px 9px;
+    margin-right: 5px;
     background-color: #FFFFFF;
     border: 1px solid #3B5160;
     border-radius: 3px 3px 0 0;
@@ -2008,7 +2013,11 @@
     font-weight: bold;
     cursor: pointer;
   }
-  
+  ul.input-list.bthistry {
+    margin: 0px;
+    background: transparent;
+    border-bottom: none;
+  }
   .report-tab-wrap .report-tab.select:before {
     content: '';
     display: block;
@@ -6512,7 +6521,7 @@
   
   .profile-wrap {
     background-color: #fff;
-    border-bottom: 1px solid #7E97A7;
+    /* border-bottom: 1px solid #7E97A7; */
     margin-bottom: 15px;
   }
   
@@ -7758,7 +7767,7 @@
   }
   
   .for-agent .fancy-head {
-    width: calc(100% - 5px);
+    width: calc(100% - 0px - 225px);
     padding-right: 5px
   }
   
@@ -7905,7 +7914,8 @@
   .bets-HS th p,
   .bets-GH th p {
     width: 292px;
-    margin-bottom: 0
+    margin-bottom: 0;
+    margin-top: 2px;
   }
   
   .bets th span,
@@ -20393,7 +20403,7 @@
   
   .profile-wrap {
     background-color: #fff;
-    border-bottom: 1px solid #7e97a7;
+    /* border-bottom: 1px solid #7e97a7; */
     margin-bottom: 15px
   }
   
@@ -20451,7 +20461,7 @@
   
   .pop_box {
     position: fixed;
-    top: 110px;
+    top: 10%;
     left: 50%;
     background-color: #fff;
     width: 400px;
@@ -20464,7 +20474,7 @@
     font-size: 18px;
     color: #0665a7;
     margin-bottom: 20px;
-    display: flex;
+    display: inline-block;
     justify-content: center;
   }
   
@@ -21031,6 +21041,9 @@
   .expand table td {
     border-width: 0;
     padding: 8px 10px
+  }
+  .risk_matchodd .expand table td {
+      padding: 0px 10px;
   }
   
   .expand table .even {
@@ -23403,7 +23416,7 @@
   }
   
   body.betbuzz365 {
-    background-color: #fff
+    background-color: #eee;
   }
   
   .betbuzz365 .btn.select,
@@ -23686,7 +23699,7 @@ background: white;
   }
   
   .betbuzz365 .menu-list a {
-    background: rgb(239, 239, 239);
+    /* background: rgb(239, 239, 239); */
     border: 1px #e1e1e1;
     color: #222;
   }
@@ -28702,15 +28715,15 @@ background: white;
 
                         .total_all .search-but {
                           position: absolute;
-                          top: 48%;
+                          top: 52%;
                           right: 3px;
                           width: 60px;
                           height: 25px;
                           border: 0;
                           border-radius: 2px;
                           transform: translateY(-50%);
-                          background-color: #2483C5;
-                          color: white;
+                          background-color: #444;
+                          color: #ffb600;
                           font-size: 13px;
                           font-weight: bold;
                           cursor: pointer;
@@ -28738,7 +28751,7 @@ background: white;
                   }
                 
                   .main_wrap:not(main_wrap) table tbody tr:hover td {
-                    background-color: #f5f5f5 !important;
+                    /* background-color: #f5f5f5 !important; */
                     cursor: pointer;
                 
                 }

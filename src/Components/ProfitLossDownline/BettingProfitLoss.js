@@ -125,9 +125,9 @@ const BettingProfitLoss = (props) => {
                 </li>
             </ul>
             <div className="function-wrap">
-      <ul className="input-list">
-      <li style={{ lineHeight: '48px' }}><label>Period</label></li>
-      <ul className="input-list" style={{ display: 'inline-flex', borderBottom: 'none', padding: '0px' }}>
+      <ul className="input-list boxsetting">
+      <li><label>Period</label></li>
+      <ul className="input-list boxsetting" style={{ display: 'inline-flex', borderBottom: 'none', padding: '0px' }}>
       <DatePicker
         selectsStart
         showYearDropdown
@@ -157,7 +157,7 @@ const BettingProfitLoss = (props) => {
       <input id="endTime" disabled="true" className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
       </ul>
       </ul>
-      <ul className="input-list ud-line">
+      <ul className="input-list ud-line boxsetting">
       <li><Link to="" id="today"  onClick = {()=>{getProfitLoss('today')}} className="btn">Just For Today</Link></li>
       <li><Link to="" id="yesterday" onClick = {()=>{getProfitLoss('yesterday')}} className="btn">From Yesterday</Link></li>
       <li><Link to="" id="getPL"  className="btn-send" onClick = {()=>{getProfitLoss('default')}}>Get P & L</Link></li>

@@ -76,7 +76,7 @@ const BettingHistory = (props) => {
     </li>
     </ul>
     <div className="function-wrap">
-                <ul className="input-list">
+                <ul className="input-list boxsetting">
                 <div id="statusCondition">
                 <li><label>Bet Status:</label></li>
                 <li>
@@ -90,7 +90,7 @@ const BettingHistory = (props) => {
                 </li>
                 </div> 
                 <li><label>Period</label></li>
-                <ul className="input-list" style={{ display: 'inline-flex', borderBottom: 'none', padding: '0px' }}>
+                <ul className="input-list boxsetting" style={{ display: 'inline-flex', borderBottom: 'none', padding: '0px' }}>
                     <DatePicker
                     selectsStart
                     showYearDropdown
@@ -122,7 +122,7 @@ const BettingHistory = (props) => {
                 <li style={{display:'none'}}>(TimeZone:IST)</li>
                 </ul>
 
-                <ul className="input-list">
+                <ul className="input-list boxsetting">
                 <li><Link to="" id="today"  onClick = {()=>{getBetHistory('today')}} className="btn">Just For Today</Link></li>
                 <li><Link to="" id="yesterday" onClick = {()=>{getBetHistory('yesterday')}} className="btn">From Yesterday</Link></li>
                 <li><Link to="" id="getPL"  className="btn-send" onClick = {()=>{getBetHistory('default')}}>Get History</Link></li>

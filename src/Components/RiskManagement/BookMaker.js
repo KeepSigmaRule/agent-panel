@@ -216,7 +216,7 @@ const BookMaker = (props) => {
                                     <td className="align-L border-l" rowSpan="1">{items[0]}</td>
                                     <td className="align-L border-l">
                                     {/* <Link to="" className="btn open-odds">Open</Link> */}
-                                    <Link to="">
+                                    <Link to="" class="riskboxtp">
                                         <strong id="eventName">{subItem.event_name}</strong>
                                         <img className="fromto" src="images/refresh2.png" />
                                         <span id="marketName">{subItem.market_name}</span>

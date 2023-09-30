@@ -1065,7 +1065,7 @@ body {
 }
 
 .biab_body {
-    min-height: 89%;
+    min-height: 0%;
     font-size: 12px;
     line-height: 14px;
     color: #273a47
@@ -14346,21 +14346,21 @@ only screen and (max-width: 999px) and (min-resolution: 192dpi) {
 }
 
 .biab_body .biab_search-container .biab_seach-field-wrapper {
-    position: relative
+    position: relative;
+    border: 1px solid #aaa;
+    border-top: 0px;
+    border-radius: 3px;
 }
 
 .biab_body .biab_search-container .biab_seach-field-wrapper input.biab_search-input {
     width: 100%;
-    border: solid 2px;
+    border: 1px solid #000;
     border-color: #eee;
-    line-height: 20px;
-    padding: 3px 25px;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    padding: 10px 30px;
     border-radius: 3px;
     color: #273A47;
     font-size: 12px;
-    background-color: #fff
+    background-color: #fff;
 }
 
 .biab_body .biab_search-container .biab_seach-field-wrapper i.fa-search {

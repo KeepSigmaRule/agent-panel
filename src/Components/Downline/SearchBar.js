@@ -72,19 +72,33 @@ const SearchBar = (props) => {
   return (
     <div className="total_all">
         <div className="biab_body biab_fluid" id="biab_body" style={{position:'absolute'}}>
-        <div className="js-search-region biab_search biab_hidden-xs" style={{width:'342px',position:'relative'}}>
+        <div className="js-search-region biab_search biab_hidden-xs" style={{width:'280px',position:'relative'}}>
         <div className="biab_search-container">
         <div className="biab_seach-field-wrapper">
         <input onChange={(e)=>setSearchValue(e.target.value)} className="biab_search-input" type="text" name="search" maxLength="127" placeholder="Enter your search" />
         <img src={SearchIconImage} />
         </div>
-        <button onClick={async()=>{searchWithValue()}} className="search-but" id="searchUserId" style={{height:'24px'}}>Search</button>
+        <button onClick={async()=>{searchWithValue()}} className="search-but" id="searchUserId" style={{height:'28px'}}>Search</button>
         <div className="js-scroll-start"></div>
         </div>
         </div>
         </div>
-
-        <div className="agent_path"  style={{position:'relative',left:'26%'}}>
+        <div className="agent_path"  style={{position:'relative',left:'21%'}}>
+        <div class="statuboxsetting">
+          <ul className="input-list boxsetting" id="accountStatusUl">
+            <li>
+              <strong>Status</strong>
+            </li>
+            <li>
+            <select name="accountStatus" id="accountStatus" onChange={handelSearch} style={{height:'34px'}}>
+              <option value="1">ACTIVE</option>
+              <option value="2">SUSPENDED</option>
+              <option value="3">LOCKED</option>
+              <option value="0">ALL</option>
+            </select>
+            </li>
+          </ul>
+        </div>
         <ul id="agentPath" className="agent_path-L">
         {
           agent_path.length > 1 && agent_path.map((user,index)=>{
@@ -105,21 +119,7 @@ const SearchBar = (props) => {
         </ul>
         </ul>
         </div>
-
         <div className="user_status" style={{display:'flex',float:'right'}}>
-        <ul className="input-list" id="accountStatusUl" style={{marginTop:'-9px', background:'transparent', borderBottom:'navajowhite'}}>
-        <li>
-        <strong>Status</strong>
-        </li>
-        <li>
-        <select name="accountStatus" id="accountStatus" onChange={handelSearch}>
-        <option value="1">ACTIVE</option>
-        <option value="2">SUSPENDED</option>
-        <option value="3">LOCKED</option>
-        <option value="0">ALL</option>
-        </select>
-        </li>
-        </ul>
         <NavLink to="" onClick={()=>{props.HandlePopup('agent_modal',true)}} className="add_member" style={{marginRight:'2px',padding:'0px 6px',marginBottom:'12px'}}>
           <img src={Transparent} />Add {user.agent_level_text}
         </NavLink>

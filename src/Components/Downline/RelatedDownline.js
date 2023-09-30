@@ -88,38 +88,38 @@ const RelatedDownline = (props) => {
         let Reference_PL = (parseFloat(item.Reference_PL).toFixed(2) >= 0)?parseFloat(item.Reference_PL).toFixed(2):`(${parseFloat(Math.abs(item.Reference_PL)).toFixed(2)})`;
         return (
             <tr id="14" key={index} main_userid="wb77" style={{display:'table-row'}}>
-            <td id="accountCol" className="align-L" style={{backgroundColor:'rgb(239, 239, 239)',pointerEvents:item.level<6?'':'none'}}>
+            <td id="accountCol" className="align-L" style={{pointerEvents:item.level<6?'':'none'}}>
                 <NavLink to="" onClick={()=>(item.level<6)?HandleAgentPath(agentBasicInfo):''} id="account14" className="ico_account" style={{textDecoration:'none'}}>
                 <span className={`lv_${(item.level<6)?item.level:0}`} style={{marginRight:'3px'}}>{agnetLevelInfo.level_text}</span>{item.clientid}</NavLink>
             </td>
-            <td id="creditRef14" className="credit-amount-member" style={{backgroundColor:'rgb(223, 223, 223)'}}>
+            <td id="creditRef14" className="credit-amount-member">
                 {user.level+1==item.level && <NavLink to="" onClick={()=>{props.HandlePopup('credit_ref_modal',true,item)}} id="creditRefBtn" className="favor-set">
                     {cfBalance}
                 </NavLink>}
                 {user.level+1<item.level && `${cfBalance}`}
             </td>
-            <td id="balance14" style={{backgroundColor:'rgb(239, 239, 239)'}}>
+            <td id="balance14">
                 {Balance}
             </td>
-            <td id="playerBalance14" className={`${(item.Exposure<0)?'red':''}`} style={{display:'table-cell',backgroundColor:'rgb(223, 223, 223)'}}>
+            <td id="playerBalance14" className={`${(item.Exposure<0)?'red':''}`} style={{display:'table-cell'}}>
                 {Exposure}
             </td>
-            <td id="refPL2" className="" style={{backgroundColor:'rgb(239, 239, 239)'}}>
+            <td id="refPL2" className="">
                 {AvlBalance}
             </td>
-            <td id="refPL14" className="" style={{backgroundColor:'rgb(223, 223, 223)'}}>
+            <td id="refPL14" className="">
                 {parseFloat(item.PlayerBalance).toFixed(2)}
             </td>
-            <td id="refPL14" className={`${(item.Reference_PL<0)?'red':''}`} style={{backgroundColor:'rgb(239, 239, 239)'}}>
+            <td id="refPL14" className={`${(item.Reference_PL<0)?'red':''}`}>
                 {Reference_PL}
             </td>
-            <td id="statusCol" style={{backgroundColor:'rgb(223, 223, 223)'}}>
+            <td id="statusCol">
                 <ul id="tipsPopup" className="status-popup" style={{display:'none'}}></ul>
                 {item.userBlocked == 0 && item.betBlocked == 0 && <span id="status14"  className="status-active"><img src={Transparent}/>Active</span>}
                 {item.userBlocked == 0 && item.betBlocked == 1 && <span id="status14"  className="status-suspend"><img src={Transparent}/>Suspended</span>}
                 {item.userBlocked == 1 && <span id="status14"  className="status-lock"><img src={Transparent}/>Locked</span>}
             </td>
-            <td id="actionCol" style={{backgroundColor:'rgb(239, 239, 239)'}}>
+            <td id="actionCol">
                 <ul className="action">
                 {[0,1].includes(user.level) && <li>
                         <NavLink to="" onClick={()=>{props.HandlePopup('display_password',true,item)}}  id="profile14" className="password">password</NavLink>

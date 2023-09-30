@@ -66,8 +66,8 @@ const SearchBar = (props) => {
 
   return (
     <div className="total_all">
-        <div className="biab_body biab_fluid" id="biab_body" style={{position:'absolute'}}>
-        <div className="js-search-region biab_search biab_hidden-xs" style={{width:'342px',position:'relative'}}>
+        <div className="biab_body biab_fluid serchboxsetting" id="biab_body" style={{position:'absolute'}}>
+        <div className="js-search-region biab_search biab_hidden-xs" style={{width:'280px',position:'relative'}}>
         <div className="biab_search-container">
         <div className="biab_seach-field-wrapper">
         <input onChange={(e)=>setSearchValue(e.target.value)} className="biab_search-input" type="text" name="search" maxLength="127" placeholder="Enter your search" />

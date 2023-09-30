@@ -244,7 +244,7 @@ const RowCricketMatchOdds = (props) => {
           <td className="align-L border-l" rowSpan="1">{eventDate}</td>
           <td className="align-L border-l">
           <Link to="" onClick={(e)=>{displayNextRow(e,subItem.event_id)}} className="btn open-odds" id="showOddsBtn">Open</Link>
-          <Link to="">
+          <Link to="" class="risktitlebox">
               <strong id="eventName">{subItem.event_name}</strong>
               <img className="fromto" src="images/refresh2.png" />
               <span id="marketName">{subItem.market_name}</span>

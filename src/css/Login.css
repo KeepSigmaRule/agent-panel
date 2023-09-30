@@ -647,7 +647,7 @@ body.baji365:before {
 .btn,
 .btn-send-front,
 .marquee-pop .pages a {
-	background: #eee url(../images/bg-btn.gif) repeat-x;
+	background: #eee url(../images/bg-login_wrap.png) repeat-x;
 	border: 1px solid #bbb;
 	border-radius: 4px;
 	color: #1E1E1E;
@@ -2076,7 +2076,7 @@ textarea:focus {
 }
 
 .betbuzz365 .kv {
-	background: #000 url(../images/betbuzz365/bg-login_wrap-skyEX.jpg) no-repeat
+	background: #000 url('../images/bg-login_wrap.png') no-repeat
 }
 
 .betbuzz365 .login-panel-front {
@@ -2149,4 +2149,24 @@ th {
 
 .table01 .border-t td {
 	border-top: 2px solid #7E97A7 \9
+}
+.login_to_go, .login-wrap, .maintain-wrap {
+    background-image: linear-gradient(180deg, #ffb600 1%, #ffb600 100%);
+}
+.login-wrap, .maintain-wrap {
+    position: absolute;
+    top: 15%;
+    left: calc(50% - 270px);
+    width: 540px;
+    height: 408px;
+    background-color: rgba(255,255,255,.8);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.5);
+}
+.kv {
+    position: relative;
+    width: 250px;
+    height: 100%;
+    background: #737373 url('../images/bg-login_wrap.png') no-repeat;
+    border-radius: 8px 0 0 8px;
 }

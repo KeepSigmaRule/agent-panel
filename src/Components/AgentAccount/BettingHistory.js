@@ -70,7 +70,7 @@ const BettingHistory = (props) => {
     return (
         <>
         <h2>Betting History</h2>
-        <div className="white-wrap">
+        <div>
             <ul className="report-tab-wrap" >
                 <li  onClick ={()=>{setselect(0)}} className={`report-tab ${(select=== 0 )? "select": "null"}`}  id="reportType_exchange" data-reporttabtype="0">
                     Exchange
@@ -86,7 +86,7 @@ const BettingHistory = (props) => {
                 </li>
             </ul>
             <div className="function-wrap">
-                <ul className="input-list">
+                <ul className="input-list bthistry">
                 <div id="statusCondition">
                 <li><label>Bet Status:</label></li>
                 <li>
@@ -100,7 +100,7 @@ const BettingHistory = (props) => {
                 </li>
                 </div> 
                 <li><label>Period</label></li>
-                <ul className="input-list" style={{ display: 'inline-flex', borderBottom: 'none', padding: '0px' }}>
+                <ul className="input-list bthistry" style={{ display: 'inline-flex', borderBottom: 'none', padding: '0px' }}>
                     <DatePicker
                     selectsStart
                     showYearDropdown
@@ -132,7 +132,7 @@ const BettingHistory = (props) => {
                 <li style={{display:'none'}}>(TimeZone:IST)</li>
                 </ul>
 
-                <ul className="input-list">
+                <ul className="input-list bthistry">
                 <li><Link to="" id="today"  onClick = {()=>{getBetHistory('today')}} className="btn">Just For Today</Link></li>
                 <li><Link to="" id="yesterday" onClick = {()=>{getBetHistory('yesterday')}} className="btn">From Yesterday</Link></li>
                 <li><Link to="" id="getPL"  className="btn-send" onClick = {()=>{getBetHistory('default')}}>Get History</Link></li>

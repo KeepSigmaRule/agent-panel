@@ -61,10 +61,10 @@ const BalanceOverview = (props) => {
     <h2>Balance Overview</h2> 
     <div className="white-wrap">
     <div className="function-wrap">
-      <ul className="input-list">
+      <ul className="input-list boxsetting">
       <li style={{ lineHeight: '48px' }}><label>Period</label></li>
       <li>
-      <ul className="input-list" style={{ display: 'inline-flex', borderBottom: 'none', padding: '0px' }}>
+      <ul className="input-list" style={{ display: 'inline-flex', borderBottom: 'none', padding: '0px', marginLeft:'0px'}}>
       <DatePicker
         selectsStart
         showYearDropdown
@@ -94,10 +94,11 @@ const BalanceOverview = (props) => {
       <input id="endTime" disabled="true" className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
       </ul>
       </li>
+      <li><Link to="" id="getPL"  className="btn-send margnsetbox" onClick = {()=>{getLedugerReport()}}>Get Data</Link></li>
       </ul>
-      <ul className="input-list ud-line">
-      <li><Link to="" id="getPL"  className="btn-send" onClick = {()=>{getLedugerReport()}}>Get Data</Link></li>
-      </ul>
+      {/* <ul className="input-list ud-line">
+      
+      </ul> */}
       </div>
       </div>
     <table id="table_log" class="table01">

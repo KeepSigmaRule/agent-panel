@@ -121,7 +121,7 @@ const ProfitLossDownline = (props) => {
     <div id="mainWrap" className="main_wrap">
         <h2>Profit/Loss Report by Downline</h2>
         <div className="function-wrap">
-        <ul className="input-list">
+        <ul className="input-list boxsetting">
         {user.level<2 && <li><label>Sports</label></li>}
         {user.level<2 && <li>
             <select id="func_sports"  onChange={(e)=>{setsportType(e.target.value)}}>
@@ -143,7 +143,7 @@ const ProfitLossDownline = (props) => {
         <li>
         <label>Period</label>
         </li>
-        <ul className="input-list" style={{ display: 'inline-flex',marginTop:'-10px'}}>
+        <ul className="input-list boxsetting" style={{ display: 'inline-flex',marginTop:'-10px'}}>
         <DatePicker
             selectsStart
             showYearDropdown
@@ -175,7 +175,7 @@ const ProfitLossDownline = (props) => {
         <input id="endTime" disabled="true" className="time-input disable" type="text" placeholder="08:59" maxLength="5" />
         </ul>
         </ul>
-        <ul className="input-list">
+        <ul className="input-list boxsetting">
         <li><Link to="" id="today"  onClick = {()=>{getReport('today')}}  className="btn">Just For Today</Link>
         </li>
         <li><Link to="" id="yesterday"  onClick = {()=>{getReport('yesterday')}} className="btn">From Yesterday</Link>
