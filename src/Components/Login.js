@@ -6,6 +6,7 @@ import background from '../images/bg-login.jpg';
 import bottombrowswe from '../images/icon-browser-W.png';
 import transprnt from '../images/transparent.gif';
 import { useNavigate } from 'react-router-dom';
+import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { login,getAccountDetail } from '../Redux/action/Auth';
 import { toast } from "react-toastify";
 export function detectMobile() {
@@ -20,11 +21,17 @@ const Login = (prop) => {
    const dispatch = useDispatch();
    const navigate = useNavigate();
    const submitLogin = async()=>{
-    await dispatch(login(loginParams)).then(async(response)=>{
-      
-    },(err)=>{
-      toast.error(err);
-    });
+    let user_captcha_value = document.getElementById('user_captcha_input').value;
+      if (validateCaptcha(user_captcha_value)==false) {
+        toast.error('Captcha Does Not Match');
+      }
+      else{
+        await dispatch(login(loginParams)).then(async(response)=>{
+    
+        },(err)=>{
+          toast.error(err);
+        });
+      }
    }
 
    useEffect(()=>{
@@ -34,14 +41,14 @@ const Login = (prop) => {
         dispatch({ type: "AGENT_PATH_PUSH", payload: response });
         dispatch({ type: "PL_AGENT_PATH_PUSH", payload: response });
       }
-      
-      toast.success("You have logged in successfully");
       navigate("/downline");
     },(err)=>{
       toast.error(err);
     });
   },[token]);
-
+  useEffect(()=>{
+    loadCaptchaEnginge(4);
+  }, []);
   return (
     <>
       {isMobile == false &&
@@ -56,8 +63,8 @@ const Login = (prop) => {
                   <div  className="form-group">
                     <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
                     <div  className="form-group mb-5">
-                      <input  formcontrolname="text" placeholder="Validation Code" maxlength="4" type="text"  className="ng-dirty ng-valid ng-touched" />
-                      <span className="authenticateImage">7854</span>
+                      <input  formcontrolname="text" placeholder="Validation Code" maxLength="4" id="user_captcha_input" type="text"  className="ng-dirty ng-valid ng-touched" />
+                      <span className="authenticateImage"><LoadCanvasTemplateNoReload /></span>
                     </div>
                   <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
               </div>
