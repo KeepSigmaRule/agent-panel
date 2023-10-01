@@ -121,10 +121,10 @@ const Login = (prop) => {
             <input  formcontrolname="email" onChange={(e) => { setloginParams({...loginParams, id:e.target.value}) }} value={loginParams.id} placeholder="Username" type="text" className="ng-dirty ng-valid ng-touched" /></div>
             <div  className="form-group">
               <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
-            {/* <dd className="valid-code">
-							<input id="validCode" type="text" placeholder="Validation Code" maxLength="4" />
-							<div id="popupcaptcha" style={{ position: 'absolute', right: '5px', width: '44px', top: '5px' }}></div>
-						</dd> */}
+            <dd className="valid-code">
+							<input type="text" placeholder="Validation Code" maxLength="4" id="user_captcha_input"/>
+							<div id="popupcaptcha" style={{ position: 'absolute', right: '5px', width: '44px', top: '5px' }}><LoadCanvasTemplateNoReload /></div>
+						</dd>
             <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
         </dl>
         <div className="support-wrap extend-support">
