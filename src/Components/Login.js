@@ -47,7 +47,7 @@ const Login = (prop) => {
     });
   },[token]);
   useEffect(()=>{
-    loadCaptchaEnginge(4);
+    loadCaptchaEnginge(4,"white","black","numbers");
   }, []);
   return (
     <>
