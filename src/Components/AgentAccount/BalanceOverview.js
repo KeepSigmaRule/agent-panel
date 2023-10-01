@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Pagination from '../Pagination';
 
 const BalanceOverview = (props) => {
+  require('moment-timezone');
   const dispatch = useDispatch();
     let [itemsBucket,setitemsBucket] = useState([]);
     let [items,setItems] = useState([]);
@@ -113,16 +114,16 @@ const BalanceOverview = (props) => {
             <tbody id="content">
                 {items.length===0 && 
                     <tr id="noDataTempTr">
-                    <td className="no-data" colspan="5">
+                    <td className="no-data" colSpan="5">
                         <p>No Data</p>
                     </td>
                     </tr>
                 }
-                {items.length>0 && items.map(function(item,index){
-                 let val = item.amount*(-1);   
+                {items.length>0 && items.map(function(item,index){ 
+                let dateIs = new moment.tz(item.TrDate, 'YYYY-MM-DD HH:mm:ss', 'Asia/Kolkata').local().format('YYYY-MM-DD HH:mm:ss');
                 return(
                     <tr id="tempTr" key = {index}>
-                    <td id="createDate" className="align-L">{item.id}</td>
+                    <td id="createDate" className="align-L">{dateIs}</td>
                     <td id="remark">{item.EventName}</td>
                     <td id="withdraw">
                     <span className="red">{item.Debit>0?'('+Math.abs(item.Debit).toFixed(2)+')':'-'}</span>

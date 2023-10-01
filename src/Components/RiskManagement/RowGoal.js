@@ -229,11 +229,11 @@ const RowGoal = (props) => {
   }
 }, [])
   
-  const displayNextRow = (e,event_id,market_name) => {
+  const displayNextRow = (e,event_id,market_id) => {
     e.preventDefault();
-   // $("#expand-showOddsBtn"+random).show();
-    $("#expand-showOddsBtn-soccer-"+event_id+""+market_name).toggle();
-    console.log("#xpand-showOddsBtn-soccer-"+event_id+""+market_name);
+    $(".iframe-table-design").slideUp();
+    $("#expand-showOddsBtn-"+event_id+"-"+market_id).toggle();
+    console.log("#expand-showOddsBtn-"+event_id+"-"+market_id);
   }
   let random = 1;
   return (
@@ -242,7 +242,7 @@ const RowGoal = (props) => {
           <td className="align-L" rowSpan="1"><Link to="">Soccer</Link></td>
           <td className="align-L border-l" rowSpan="1">{eventDate}</td>
           <td className="align-L border-l">
-          <Link to="" onClick={(e)=>{displayNextRow(e,subItem.event_id,subItem.market_name.replace(" ","_").replace(" ", "_"))}} className="btn open-odds" id="showOddsBtn">Open</Link>
+          <Link to="" onClick={(e)=>{displayNextRow(e,subItem.event_id,subItem.market_id.toString().split('.')[1])}} className="btn open-odds" id="showOddsBtn">Open</Link>
           <Link to="">
               <strong id="eventName">{subItem.event_name}</strong>
               <img className="fromto" src="images/refresh2.png" />
@@ -259,7 +259,7 @@ const RowGoal = (props) => {
               <Link to="" onClick={(e)=>{ e.preventDefault();setlogType('DownlineBetListing');setshowLogs(true);setselectedItem(subItem);}} className="btn">View </Link>
           </td>
       </tr>
-        <tr id={`expand-showOddsBtn-soccer-${subItem.event_id}${subItem.market_name.replace(" ","_").replace(" ", "_")}`}  className="expand iframe-table-design"  style={{display:'none'}}>
+        <tr id={`expand-showOddsBtn-${subItem.event_id}-${subItem.market_id.toString().split('.')[1]}`}  className="expand iframe-table-design"  style={{display:'none'}}>
         <td className="border-l align-L" colSpan={`${(draw_total)?'7':'6'}`}><img className="expand-arrow" src="images/transparent.gif" />
         <div className="for-agent">
         <div className="head-bets-agent">

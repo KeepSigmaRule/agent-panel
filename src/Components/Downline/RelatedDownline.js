@@ -15,11 +15,11 @@ const RelatedDownline = (props) => {
         "pbetBlocked": 0,
         "searchvalue": ""
     }
-    console.log("user",user);
+    
     let [items,setItems] = useState([]);
     let [totelCount,settotelCount] = useState(0);
     const [currentPage, setcurrentPage] = useState(1);
-    const [itemsPerPage] = useState(20);
+    const [itemsPerPage] = useState(5);
     const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
     
@@ -29,6 +29,7 @@ const RelatedDownline = (props) => {
         props.setLoading(true);
         dispatch(getAccountDownlines(downlineParam)).then((response)=>{
             props.setLoading(false);
+            setcurrentPage(1);
         },(err)=>{
             console.log("getAccountDownlines err",err);
             props.setLoading(false);
@@ -59,6 +60,10 @@ const RelatedDownline = (props) => {
         settotelCount(account_downlines.length);
         
     },[currentPage,account_downlines]);
+
+    useEffect(()=>{
+        setcurrentPage(1);
+    },[account_downlines]);
     
   return (
         <>

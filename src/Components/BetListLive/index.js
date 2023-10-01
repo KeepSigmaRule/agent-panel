@@ -17,7 +17,7 @@ const BetListLive = (props) => {
     let [sortType,setsortType] = useState('asc');
     let [eventType,seteventType] = useState('4');
     let [betStatus,setbetStatus] = useState('1');
-    let [refreshInterval,setrefreshInterval] = useState(15);
+    let [refreshInterval,setrefreshInterval] = useState(60);
     let [refreshStatus,setrefreshStatus] = useState(false);
 
     let [itemsBucket,setitemsBucket] = useState([]);
@@ -43,6 +43,7 @@ const BetListLive = (props) => {
             setLoading(false);
             setitemsBucket(response);
             settotelCount(response.length);
+            setcurrentPage(1);
         },(err)=>{
           setLoading(false);
           console.log("getAccountDownlines err",err);
@@ -51,10 +52,12 @@ const BetListLive = (props) => {
 
     useEffect(()=>{
         if(refreshStatus){
-            const interval = setInterval(() => {
-                refresh();
-              }, refreshInterval*1000);
-              return () => clearInterval(interval);
+            if(refreshInterval>0){
+                const interval = setInterval(() => {
+                    refresh();
+                }, refreshInterval*1000);
+                return () => clearInterval(interval);
+            }
         }
         else{
             refresh();
@@ -123,13 +126,10 @@ const BetListLive = (props) => {
                     </li>
                     <li>
                         <label>Auto Refresh (Seconds)</label>
-                        <select name="refreshTime" id="refreshTime" onChange={(e)=>{setrefreshInterval(e.target.value)}}>
-                            <option value={0} selected={refreshInterval === 0}>Stop</option>
-                            <option value={60} selected={refreshInterval === 60}>60</option>
-                            <option value={30} selected={refreshInterval === 30}>30</option>
-                            <option value={15} selected={refreshInterval === 15}>15</option>
-                            <option value={5} selected={refreshInterval === 5}>5</option>
-                            <option value={2} selected={refreshInterval === 2}>2</option>
+                        <select name="refreshTime" id="refreshTime" defaultValue={60} onChange={(e)=>{setrefreshInterval(e.target.value)}}>
+                            <option value={0}>Stop</option>
+                            <option value={60}>60</option>
+                            <option value={30}>30</option>
                         </select>
                 </li>
                 <li>

@@ -231,8 +231,8 @@ const RowCricketMatchOdds = (props) => {
   
   const displayNextRow = (e,random) => {
     e.preventDefault();
-   // $("#expand-showOddsBtn"+random).show();
-    $("#expand-showOddsBtn-"+random).toggle();;
+    $(".iframe-table-design").slideUp();
+    $("#expand-showOddsBtn-"+random).toggle();
     console.log("#expand-showOddsBtn-"+random);
   }
   let random = 1;
