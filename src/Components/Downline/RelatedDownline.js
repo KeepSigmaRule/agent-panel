@@ -19,7 +19,7 @@ const RelatedDownline = (props) => {
     let [items,setItems] = useState([]);
     let [totelCount,settotelCount] = useState(0);
     const [currentPage, setcurrentPage] = useState(1);
-    const [itemsPerPage] = useState(5);
+    const [itemsPerPage] = useState(20);
     const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
     
