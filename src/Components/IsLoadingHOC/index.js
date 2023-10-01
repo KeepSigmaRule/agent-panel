@@ -7,7 +7,7 @@ const Loading = props => {
   return (
     <div className= 'loaderHolder'>
       <div className="loaderMain">
-        <Loader type="Bars" color="#FFC300" height={80} width={80} />
+        <Loader type="Bars" color="#de352c" height={80} width={80} />
         <div style={{ textAlign: 'center', whiteSpace: 'pre' }}>
           {props.message}
         </div>

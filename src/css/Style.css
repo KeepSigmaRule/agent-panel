@@ -419,7 +419,7 @@ padding: 8px 10px;
     background:#fff url(../images/bg-btn_hover.gif) repeat-x
 }
 .btn.select,.select.btn-send,.pages a.select,.calendarTable_inputBox input.select,.calendarTable_inputBox textarea.select,.calendarTable_inputBox .member_select a.select,.member_select .calendarTable_inputBox a.select,.total_all .select.btn_replay,.select.btn_expand,.select.add_member{
-    background:#FFCC2E url(../images/bg-btn_select.gif) repeat-x;
+    background:#de352c url(../images/bg-btn_select.gif) repeat-x;
     border-color:#CB8009
 }
 .btn.disable,.disable.btn-send,.pages a.disable,.calendarTable_inputBox input.disable,.calendarTable_inputBox textarea.disable,.calendarTable_inputBox .member_select a.disable,.member_select .calendarTable_inputBox a.disable,.total_all .disable.btn_replay,.disable.btn_expand,.disable.add_member{
@@ -719,8 +719,6 @@ table .btn,table .btn-send,table .marquee-pop .pages a,.marquee-pop .pages table
     background:url(../images/alphaexchlive/logo-alphaexchlive.png) no-repeat
 } */
 .betbuzz365 .header h1 a{
-    width:158px;
-    height:53px;
     background:url(../images/508.fe3d6487.png) no-repeat;
     background-size: contain;
 }
@@ -2102,8 +2100,8 @@ input:focus,textarea:focus,.member_select a:focus,.pt_allowed_box input:focus,.p
 .menu li ul,.setting-wrap li ul{
     display:none;
     position:absolute;
-    background-color:#ffc31f;
-    border-top:1px solid #d39c01;
+    background-color:#de352c;
+    border-top:1px solid #d9837e;
     z-index:99
 }
 .menu li li,.setting-wrap li li{
@@ -2377,11 +2375,11 @@ input:focus,textarea:focus,.member_select a:focus,.pt_allowed_box input:focus,.p
     text-decoration:none
 }
 .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#1E1E1E
 }
 .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .menu-list .Go{
     padding:0 0 0 8px;
@@ -3489,7 +3487,7 @@ html,body{
     text-decoration:none
 }
 .live-list a.select{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .live-right{
     width:calc(100% - 210px);
@@ -3884,9 +3882,9 @@ html,body{
 .news-wrap .announce-header{
     height:60px;
     background-color:#FFB80C;
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#FFCC2E), color-stop(58%, #FFB80C));
-    background-image:-webkit-linear-gradient(top, #FFCC2E 0%, #FFB80C 58%);
-    background-image:linear-gradient(-180deg, #FFCC2E 0%, #FFB80C 58%);
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#de352c), color-stop(58%, #FFB80C));
+    background-image:-webkit-linear-gradient(top, #de352c 0%, #FFB80C 58%);
+    background-image:linear-gradient(-180deg, #de352c 0%, #FFB80C 58%);
     font-size:24px;
     font-weight:bold;
     line-height:60px;
@@ -7401,11 +7399,11 @@ body.o_12bet{
     color:#f60
 }
 .o_12bet .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#f60
 }
 .o_12bet .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .o_12bet .path{
     background-repeat:repeat-x;
@@ -7761,11 +7759,11 @@ body.o_dafabet{
     color:#f60
 }
 .o_dafabet .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#f60
 }
 .o_dafabet .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .o_dafabet .path{
     background-repeat:repeat-x;
@@ -8391,7 +8389,7 @@ body.o_dafabet{
     background-color:#243A48
 } */
 body.betbuzz365 .loginformmb{
-    background-image: linear-gradient(56deg, #ffcc2e 4%, #ffb80c 42%);
+    background-image: linear-gradient(56deg, #de352c 4%, #de352c 42%);
     height: auto;
 }
 .betbuzz365 .btn.select,.betbuzz365 .select.btn-send,.betbuzz365 .pages a.select,.pages .betbuzz365 a.select,.betbuzz365 .calendarTable_inputBox input.select,.calendarTable_inputBox .betbuzz365 input.select,.betbuzz365 .calendarTable_inputBox textarea.select,.calendarTable_inputBox .betbuzz365 textarea.select,.betbuzz365 .calendarTable_inputBox .member_select a.select,.calendarTable_inputBox .member_select .betbuzz365 a.select,.betbuzz365 .member_select .calendarTable_inputBox a.select,.member_select .calendarTable_inputBox .betbuzz365 a.select,.betbuzz365 .total_all .select.btn_replay,.total_all .betbuzz365 .select.btn_replay,.betbuzz365 .select.btn_expand,.betbuzz365 .select.add_member{
@@ -8403,13 +8401,13 @@ body.betbuzz365 .loginformmb{
     background:#444 url(../images/betbuzz365/btn-select-skyEX.jpg) repeat-x
 }
 .betbuzz365 .btn-send{
-    color: #ffb600 !important;
+    color: #de352c !important;
     border-color: #222;
     background-image: linear-gradient(180deg, #474747 0%, #070707 100%);
     font-size: 12px;
 }
 .betbuzz365 .btn-send:hover{
-    color: #ffb600 !important;
+    color: #de352c !important;
     border-color: #222;
     background-image: linear-gradient(357deg, #474747 0%, #070707 100%);
     font-size: 12px;
@@ -8419,9 +8417,7 @@ body.betbuzz365 .loginformmb{
     border-color:#aaa;
     color:#E6DFCD
 }
-.betbuzz365 .kv{
-    background: url('../images/bg.gif') no-repeat
-}
+
 .betbuzz365 .login-panel{
     color:#000
 }
@@ -8438,7 +8434,7 @@ body.betbuzz365 .loginformmb{
     background-image: linear-gradient(180deg, #383838 0%, #010101 100%);
 }
 .account-wrap li strong {
-    color: #ffb600;
+    color: #de352c;
 }
 .betbuzz365 .header{
     color: #fff;
@@ -8511,13 +8507,13 @@ body.betbuzz365 .loginformmb{
     color:#fff
 }
 .betbuzz365 .menu-wrap{
-    background-image: linear-gradient(180deg, #ffcc2e 0%, #ffbd14 100%);
+    background-image: linear-gradient(180deg, #de352c 0%, #de352c 100%);
 }
 .betbuzz365 .menu-wrap a.menu-drop:after{
     border-top-color:#222
 }
 .betbuzz365 .menu li,.betbuzz365 .setting-wrap li{
-    border-right-color:#d39c01;
+    border-right-color:#d9837e;
 }
 .betbuzz365 .menu li ul a,.betbuzz365 .setting-wrap li ul a{
     color:#000;
@@ -8526,13 +8522,13 @@ body.betbuzz365 .loginformmb{
     color:#000;
 }
 .betbuzz365 .menu a:hover,.betbuzz365 .setting-wrap a:hover{
-    background-color:#ffc31fad;
+    background-color:#d9837e;
     text-decoration:none
 }
 .betbuzz365 .menu .select,.betbuzz365 .setting-wrap .select{
     text-decoration: none;
     color: #000;
-    background: #ffdc7a;
+    background: #d9837e;
     box-shadow: inset 0 0px 5px 0 rgba(83,33,33,.5);
     font-size: 12px;
 }
@@ -8595,14 +8591,14 @@ body.betbuzz365 .loginformmb{
     color:#222
 }
 .betbuzz365 .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .betbuzz365 .menu-list .select{
     background-color: rgba(0,0,0,.6);
     color: #FFF;
 }
 .betbuzz365 .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .betbuzz365 .menu-list .Go{
     background-position:100% -1650px;
@@ -12292,9 +12288,9 @@ body.betbuzz365247{
 }
 .betbuzz365247 .menu .select,.betbuzz365247 .setting-wrap .select{
     box-shadow:inset 0 1px 3px 0 rgba(52,9,9,0.5);
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #FFDC7A));
-    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #FFDC7A 61%);
-    background-image:linear-gradient(180deg, #DBBC68 0%, #FFDC7A 61%);
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #d9837e));
+    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #d9837e 61%);
+    background-image:linear-gradient(180deg, #DBBC68 0%, #d9837e 61%);
     background-position:inherit
 }
 .betbuzz365247 .menu .tag-new,.betbuzz365247 .setting-wrap .tag-new{
@@ -12356,14 +12352,14 @@ body.betbuzz365247{
     color:#222
 }
 .betbuzz365247 .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .betbuzz365247 .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .betbuzz365247 .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .betbuzz365247 .menu-list .Go{
     background-position:100% -1650px;
@@ -15014,11 +15010,11 @@ body.betbarter{
     color:#f60
 }
 .betbarter .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#f60
 }
 .betbarter .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .betbarter .menu-wrap a.menu-drop:after{
     border-top-color:#FFF
@@ -15734,14 +15730,14 @@ body.probet247{
     color:#222
 }
 .goexchange .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .goexchange .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .goexchange .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .goexchange .menu-list .Go{
     background-position:100% -900px;
@@ -17065,9 +17061,9 @@ body.wickets247{
 }
 .wickets247 .menu .select,.wickets247 .setting-wrap .select{
     box-shadow:inset 0 1px 3px 0 rgba(52,9,9,0.5);
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #FFDC7A));
-    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #FFDC7A 61%);
-    background-image:linear-gradient(180deg, #DBBC68 0%, #FFDC7A 61%);
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #d9837e));
+    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #d9837e 61%);
+    background-image:linear-gradient(180deg, #DBBC68 0%, #d9837e 61%);
     background-position:inherit
 }
 .wickets247 .menu .tag-new,.wickets247 .setting-wrap .tag-new{
@@ -17129,14 +17125,14 @@ body.wickets247{
     color:#222
 }
 .wickets247 .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .wickets247 .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .wickets247 .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .wickets247 .menu-list .Go{
     background-position:100% -150px;
@@ -17701,14 +17697,14 @@ body.wickets247{
     color:#222
 }
 .iceEX .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .iceEX .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .iceEX .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .iceEX .menu-list .Go{
     background-position:100% -950px;
@@ -19464,9 +19460,9 @@ body.sportsexchlive{
 }
 .sportsexchlive .menu .select,.sportsexchlive .setting-wrap .select{
     box-shadow:inset 0 1px 3px 0 rgba(52,9,9,0.5);
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #FFDC7A));
-    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #FFDC7A 61%);
-    background-image:linear-gradient(180deg, #DBBC68 0%, #FFDC7A 61%);
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #d9837e));
+    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #d9837e 61%);
+    background-image:linear-gradient(180deg, #DBBC68 0%, #d9837e 61%);
     background-position:inherit
 }
 .sportsexchlive .menu .tag-new,.sportsexchlive .setting-wrap .tag-new{
@@ -19528,14 +19524,14 @@ body.sportsexchlive{
     color:#222
 }
 .sportsexchlive .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .sportsexchlive .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .sportsexchlive .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .sportsexchlive .menu-list .Go{
     background-position:100% -1750px;
@@ -19795,7 +19791,7 @@ color: #fff!important;
 
     } 
     .betbuzz365 .pages a.select{
-        color: #ffc31f !important;
+        color: #de352c !important;
     }
   
     .odd{
@@ -20063,7 +20059,7 @@ px
                     width: 41%;
                 }
                 .login-container .btn-send-login {
-                    color: #ffb600 !important;
+                    color: #de352c !important;
                     border-color: #222;
                     background-image: linear-gradient(180deg, #474747 0%, #070707 100%);
                     height: 36px;
@@ -20208,15 +20204,11 @@ px
     background-image: url('../images/KV-pic.png');
 }
 .login-head h1 {
-    top: 62%;
-    height: 21.3333333333vw;
+    top: 15%;
+    height: 60.3333333333vw;
     background-image:url('../images/logo-skyfair.png');
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: center;
-    width: 80%;
-    max-height: 40vw;
-    max-width: 80%;
 }
 .form-login {
     width: 84vw;
@@ -20257,7 +20249,7 @@ dd.valid-code {
     border-radius: 1.0666666667vw;
 }
 .form-login .btn-send-login {
-    color: #ffb200;
+    color: #d9837e;
     background-image: linear-gradient(180deg, #474747 0%, #070707 100%);
     border: 0.2666666667vw solid #222;
     border-radius: 1.6vw;
@@ -20267,7 +20259,7 @@ dd.valid-code {
     padding: 0px;
 }
 .form-login .btn-send-login:hover {
-    color: #ffb200;
+    color: #d9837e;
     background-image: linear-gradient(180deg, #070707 0%, #474747 100%);
 }
 .loginformmb .extend-support {

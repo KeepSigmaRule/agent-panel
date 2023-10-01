@@ -402,7 +402,7 @@ padding: 8px 10px;
     background:#fff url(../images/bg-btn_hover.gif) repeat-x
 }
 .btn.select,.select.btn-send,.pages a.select,.calendarTable_inputBox input.select,.calendarTable_inputBox textarea.select,.calendarTable_inputBox .member_select a.select,.member_select .calendarTable_inputBox a.select,.total_all .select.btn_replay,.select.btn_expand,.select.add_member{
-    background:#FFCC2E url(../images/bg-btn_select.gif) repeat-x;
+    background:#de352c url(../images/bg-btn_select.gif) repeat-x;
     border-color:#CB8009
 }
 .btn.disable,.disable.btn-send,.pages a.disable,.calendarTable_inputBox input.disable,.calendarTable_inputBox textarea.disable,.calendarTable_inputBox .member_select a.disable,.member_select .calendarTable_inputBox a.disable,.total_all .disable.btn_replay,.disable.btn_expand,.disable.add_member{
@@ -2359,11 +2359,11 @@ input:focus,textarea:focus,.member_select a:focus,.pt_allowed_box input:focus,.p
     text-decoration:none
 }
 .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#1E1E1E
 }
 .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .menu-list .Go{
     padding:0 0 0 8px;
@@ -3471,7 +3471,7 @@ html,body{
     text-decoration:none
 }
 .live-list a.select{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .live-right{
     width:calc(100% - 210px);
@@ -3866,9 +3866,9 @@ html,body{
 .news-wrap .announce-header{
     height:60px;
     background-color:#FFB80C;
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#FFCC2E), color-stop(58%, #FFB80C));
-    background-image:-webkit-linear-gradient(top, #FFCC2E 0%, #FFB80C 58%);
-    background-image:linear-gradient(-180deg, #FFCC2E 0%, #FFB80C 58%);
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#de352c), color-stop(58%, #FFB80C));
+    background-image:-webkit-linear-gradient(top, #de352c 0%, #FFB80C 58%);
+    background-image:linear-gradient(-180deg, #de352c 0%, #FFB80C 58%);
     font-size:24px;
     font-weight:bold;
     line-height:60px;
@@ -7375,11 +7375,11 @@ body.o_12bet{
     color:#f60
 }
 .o_12bet .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#f60
 }
 .o_12bet .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .o_12bet .path{
     background-repeat:repeat-x;
@@ -7735,11 +7735,11 @@ body.o_dafabet{
     color:#f60
 }
 .o_dafabet .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#f60
 }
 .o_dafabet .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .o_dafabet .path{
     background-repeat:repeat-x;
@@ -8595,14 +8595,14 @@ body.betbuzz365{
     color:#222
 }
 .betbuzz365 .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .betbuzz365 .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .betbuzz365 .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .betbuzz365 .menu-list .Go{
     background-position:100% -1650px;
@@ -12289,9 +12289,9 @@ body.betbuzz365247{
 }
 .betbuzz365247 .menu .select,.betbuzz365247 .setting-wrap .select{
     box-shadow:inset 0 1px 3px 0 rgba(52,9,9,0.5);
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #FFDC7A));
-    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #FFDC7A 61%);
-    background-image:linear-gradient(180deg, #DBBC68 0%, #FFDC7A 61%);
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #d9837e));
+    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #d9837e 61%);
+    background-image:linear-gradient(180deg, #DBBC68 0%, #d9837e 61%);
     background-position:inherit
 }
 .betbuzz365247 .menu .tag-new,.betbuzz365247 .setting-wrap .tag-new{
@@ -12353,14 +12353,14 @@ body.betbuzz365247{
     color:#222
 }
 .betbuzz365247 .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .betbuzz365247 .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .betbuzz365247 .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .betbuzz365247 .menu-list .Go{
     background-position:100% -1650px;
@@ -15011,11 +15011,11 @@ body.betbarter{
     color:#f60
 }
 .betbarter .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#f60
 }
 .betbarter .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .betbarter .menu-wrap a.menu-drop:after{
     border-top-color:#FFF
@@ -15731,14 +15731,14 @@ body.probet247{
     color:#222
 }
 .goexchange .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .goexchange .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .goexchange .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .goexchange .menu-list .Go{
     background-position:100% -900px;
@@ -17062,9 +17062,9 @@ body.wickets247{
 }
 .wickets247 .menu .select,.wickets247 .setting-wrap .select{
     box-shadow:inset 0 1px 3px 0 rgba(52,9,9,0.5);
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #FFDC7A));
-    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #FFDC7A 61%);
-    background-image:linear-gradient(180deg, #DBBC68 0%, #FFDC7A 61%);
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #d9837e));
+    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #d9837e 61%);
+    background-image:linear-gradient(180deg, #DBBC68 0%, #d9837e 61%);
     background-position:inherit
 }
 .wickets247 .menu .tag-new,.wickets247 .setting-wrap .tag-new{
@@ -17126,14 +17126,14 @@ body.wickets247{
     color:#222
 }
 .wickets247 .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .wickets247 .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .wickets247 .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .wickets247 .menu-list .Go{
     background-position:100% -150px;
@@ -17698,14 +17698,14 @@ body.wickets247{
     color:#222
 }
 .iceEX .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .iceEX .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .iceEX .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .iceEX .menu-list .Go{
     background-position:100% -950px;
@@ -19461,9 +19461,9 @@ body.sportsexchlive{
 }
 .sportsexchlive .menu .select,.sportsexchlive .setting-wrap .select{
     box-shadow:inset 0 1px 3px 0 rgba(52,9,9,0.5);
-    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #FFDC7A));
-    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #FFDC7A 61%);
-    background-image:linear-gradient(180deg, #DBBC68 0%, #FFDC7A 61%);
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#DBBC68), color-stop(61%, #d9837e));
+    background-image:-webkit-linear-gradient(top, #DBBC68 0%, #d9837e 61%);
+    background-image:linear-gradient(180deg, #DBBC68 0%, #d9837e 61%);
     background-position:inherit
 }
 .sportsexchlive .menu .tag-new,.sportsexchlive .setting-wrap .tag-new{
@@ -19525,14 +19525,14 @@ body.sportsexchlive{
     color:#222
 }
 .sportsexchlive .menu-list a:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .sportsexchlive .menu-list .select{
-    background-color:#F2DCA7;
+    background-color:#d9837e;
     color:#222
 }
 .sportsexchlive .menu-list .select:hover{
-    background-color:#F2DCA7
+    background-color:#d9837e
 }
 .sportsexchlive .menu-list .Go{
     background-position:100% -1750px;

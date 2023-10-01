@@ -667,7 +667,7 @@ body.baji365:before {
 .btn.select,
 .select.btn-send-front,
 .marquee-pop .pages a.select {
-	background: #FFCC2E url(../images/bg-btn_select.gif) repeat-x;
+	background: #de352c url(../images/bg-btn_select.gif) repeat-x;
 	border-color: #CB8009
 }
 
@@ -1231,12 +1231,6 @@ textarea:focus {
 	}
 }
 
-.kv {
-	width: 250px;
-	height: 100%;
-	background: #FFB80C url(../images/bg-login_wrap.png) no-repeat;
-	border-radius: 8px 0 0 8px
-}
 
 .login-panel-front .valid-code img {
 	position: absolute;
@@ -1791,7 +1785,7 @@ textarea:focus {
 .news-wrap .announce-header {
 	height: 60px;
 	background-color: #FFB80C;
-	background-image: linear-gradient(-180deg, #FFCC2E 0%, #FFB80C 58%);
+	background-image: linear-gradient(-180deg, #de352c 0%, #FFB80C 58%);
 	font-size: 24px;
 	font-weight: bold;
 	line-height: 60px;
@@ -2075,9 +2069,9 @@ textarea:focus {
 	color: #1E1E1E
 }
 
-.betbuzz365 .kv {
+/* .betbuzz365 .kv {
 	background: #000 url('../images/bg-login_wrap.png') no-repeat
-}
+} */
 
 .betbuzz365 .login-panel-front {
 	color: #000
@@ -2151,7 +2145,7 @@ th {
 	border-top: 2px solid #7E97A7 \9
 }
 .login_to_go, .login-wrap, .maintain-wrap {
-    background-image: linear-gradient(180deg, #ffb600 1%, #ffb600 100%);
+    background-image: linear-gradient(180deg, #de352c 1%, #de352c 100%);
 }
 .login-wrap, .maintain-wrap {
     position: absolute;

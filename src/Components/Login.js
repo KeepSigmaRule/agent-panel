@@ -68,19 +68,19 @@ const Login = (prop) => {
               <div className="extend-wrap">
                 <div className="extend-btn">
                   <img src={transprnt} title="customer" className="support-customer"/>
-                    <a href="https://wa.me/260767320392" target="_blank">Customer support1</a>
-                    <a href="https://wa.me/919833385310" target="_blank" className="split-line">support2</a>
+                    <a href="https://wa.me/+393509477575" target="_blank">Customer support1</a>
+                    <a href="https://wa.me/+393509477575" target="_blank" className="split-line">support2</a>
                 </div>
                 <div className="extend-btn">
                   <img src={transprnt} title="WhatsApp" className="support-whatsapp"/>
-                    <a href="https://wa.link/skyfair" target="_blank">WhatsApp 3</a>
-                    <a href="https://wa.link/skyfair" target="_blank" className="split-line">WhatsApp 4</a>
+                    <a href="https://wa.me/+393509477575" target="_blank">WhatsApp 3</a>
+                    <a href="https://wa.me/+393509477575" target="_blank" className="split-line">WhatsApp 4</a>
                 </div>
               </div>
               <div className="extend-btn">
                 <img src={transprnt} title="Telegram" className="support-telegram"/>
-                <a href="http://www.t.me/+917900007566" target="_blank">+917900007566</a>
-                <a href="http://www.t.me/+917900007644" target="_blank" className="split-line">+917900007644</a>
+                <a href="https://wa.me/+393509477575" target="_blank">+393509477575</a>
+                <a href="https://wa.me/+393509477575" target="_blank" className="split-line">+393509477575</a>
               </div>
               <div className="extend-wrap">
                 <div className="support-social">
@@ -114,27 +114,27 @@ const Login = (prop) => {
             <input  formcontrolname="email" onChange={(e) => { setloginParams({...loginParams, id:e.target.value}) }} value={loginParams.id} placeholder="Username" type="text" className="ng-dirty ng-valid ng-touched" /></div>
             <div  className="form-group">
               <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
-            <dd className="valid-code">
+            {/* <dd className="valid-code">
 							<input id="validCode" type="text" placeholder="Validation Code" maxLength="4" />
 							<div id="popupcaptcha" style={{ position: 'absolute', right: '5px', width: '44px', top: '5px' }}></div>
-						</dd>
+						</dd> */}
             <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
         </dl>
         <div className="support-wrap extend-support">
           <div className="extend-btn">
             <img src={transprnt} title="customer" className="support-customer"/>
-              <a href="https://wa.me/260767320392" target="_blank">Customer support1</a>
-              <a href="https://wa.me/919833385310" target="_blank" className="split-line">support2</a>
+              <a href="https://wa.me/+393509477575" target="_blank">Customer support1</a>
+              <a href="https://wa.me/+393509477575" target="_blank" className="split-line">support2</a>
           </div>
           <div className="extend-btn">
             <img src={transprnt} title="WhatsApp" className="support-whatsapp"/>
-              <a href="https://wa.link/skyfair" target="_blank">WhatsApp 3</a>
-              <a href="https://wa.link/skyfair" target="_blank" className="split-line">WhatsApp 4</a>
+              <a href="https://wa.me/+393509477575" target="_blank">WhatsApp 3</a>
+              <a href="https://wa.me/+393509477575" target="_blank" className="split-line">WhatsApp 4</a>
           </div>
           <div className="extend-btn">
             <img src={transprnt} title="Telegram" className="support-telegram"/>
-            <a href="http://www.t.me/+917900007566" target="_blank">+917900007566</a>
-            <a href="http://www.t.me/+917900007644" target="_blank" className="split-line">+917900007644</a>
+            <a href="https://wa.me/+393509477575" target="_blank">+393509477575</a>
+            <a href="https://wa.me/+393509477575" target="_blank" className="split-line">+393509477575</a>
           </div>
           <div className="support-social">
             <div className="social-btn">

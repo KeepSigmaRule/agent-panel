@@ -4978,12 +4978,12 @@
   }
   
   .menu-list .select {
-    background-color: #f2dca7;
+    background-color: #d9837e;
     color: #1e1e1e
   }
   
   .menu-list .select:hover {
-    background-color: #f2dca7
+    background-color: #d9837e
   }
   
   .menu-list .Go {
@@ -6377,7 +6377,7 @@
   }
   
   .live-list a.select {
-    background-color: #f2dca7
+    background-color: #d9837e
   }
   
   .live-right {
@@ -22205,12 +22205,12 @@
   }
   
   .o_12bet .menu-list .select {
-    background-color: #f2dca7;
+    background-color: #d9837e;
     color: #f60
   }
   
   .o_12bet .menu-list .select:hover {
-    background-color: #f2dca7
+    background-color: #d9837e
   }
   
   .o_12bet .path {
@@ -22618,12 +22618,12 @@
   }
   
   .o_dafabet .menu-list .select {
-    background-color: #f2dca7;
+    background-color: #d9837e;
     color: #f60
   }
   
   .o_dafabet .menu-list .select:hover {
-    background-color: #f2dca7
+    background-color: #d9837e
   }
   
   .o_dafabet .path {
@@ -25378,13 +25378,7 @@ background: white;
     /* background-image: url('../images/duo-logo.gif'); */
     margin-left: -23.73333vw;
   }
-  .betbuzz365 .login-head h1, .betbuzz365 .pass-head h1 {
-    top: 34.66667vw;
-    width: 65.86667vw;
-    height: 22.13333vw;
-    /* background-image: url('../images/duo-logo.gif'); */
-    margin-left: -33.06667vw;
-  }
+
   .pass-head h1 {
     top: 4vw;
     width: 59.2vw;
@@ -25408,7 +25402,7 @@ background: white;
   .pass-head {
     height: 21.33333vw;
     background-color: #FFB80C;
-    background-image: linear-gradient(-180deg, #FFCC2E 0%, #FFB80C 58%);
+    background-image: linear-gradient(-180deg, #de352c 0%, #FFB80C 58%);
   }
   .login-head, .pass-head {
     position: relative;
@@ -28723,7 +28717,7 @@ background: white;
                           border-radius: 2px;
                           transform: translateY(-50%);
                           background-color: #444;
-                          color: #ffb600;
+                          color: #de352c;
                           font-size: 13px;
                           font-weight: bold;
                           cursor: pointer;
