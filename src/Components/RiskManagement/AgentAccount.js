@@ -31,7 +31,7 @@ const AgentAccount = (props) => {
                 </tr>
             </tbody>
             </table>
-        <div className="over-wrap" style={{height: "513px",padding:"10px"}}>
+        <div className="over-wrap" style={{height: "107%",padding:"10px"}}>
           <div className="pop-content"> 
             <AgentPath agentList={agentList}/>
             <ul className="tab col2">

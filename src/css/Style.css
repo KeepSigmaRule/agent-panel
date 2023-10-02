@@ -30,14 +30,14 @@
     background-image:url("../images/expand-close.png");
     background-position-y: 0px!important;
     background-size: 10px;
-    background-position-x: 175px!important;
+    
     background-repeat: no-repeat;
 }
 .expand-open{
     background-image:url("../images/expand-open.png");
     background-position-y: 0px!important;
     background-size: 10px;
-    background-position-x: 175px!important;
+    /* background-position-x: 175px!important; */
     background-repeat: no-repeat;
 }
 .bg-sprite,.top_player-wrap h3,.racing-wrap h3,.game-wrap h3,.game-highlight-wrap h3,.favor-wrap h3,.sub_path h3,.pop-title h3,.one_click,.one_click.select,.path,.upcome-head,.tab-highlight,.live-head h3,.live-channel,.change-channel,.tab-topplay a,.tab-topplay .select a,.o_12bet .path,.o_12bet .slip-wrap h3,.o_12bet .matched-wrap h3,.o_12bet .slider-bar span,.o_12bet .upcome-head,.o_12bet .tab-highlight,.o_12bet .one_click-setting,.o_dafabet .path,.o_dafabet .slip-wrap h3,.o_dafabet .matched-wrap h3,.o_dafabet .slider-bar span,.o_dafabet .upcome-head,.o_dafabet .tab-highlight,.o_dafabet .one_click-setting,.mazaplay .tab-highlight,.mazaplay .one_click-setting,.mysports247 .path,.mysports247 .tab-highlight,.mysports247 .one_click-setting,.betbuzz365 .one_click-setting,.o_spondemo .path,.o_spondemo .slip-wrap h3,.o_spondemo .matched-wrap h3,.o_spondemo .slider-bar span,.o_spondemo .upcome-head,.o_spondemo .one_click-setting,.skyinplay .path,.skyinplay .tab-highlight,.skyinplay .one_click-setting,.bigexch .path,.bigexch .tab-highlight,.bigexch .one_click-setting,.masterexchange .path,.masterexchange .tab-highlight,.masterexchange .one_click-setting,.matador .tab-highlight,.matador .one_click-setting,.fairenter .path,.fairenter .tab-highlight,.fairenter .one_click-setting,.lucky7 .path,.lucky7 .tab-highlight,.lucky7 .one_click-setting,.qexch .path,.qexch .tab-highlight,.qexch .one_click-setting,.betmygame .path,.betmygame .tab-highlight,.betmygame .one_click-setting,.fancyfair .one_click,.fancyfair .one_click.select,.fancyfair .path,.fancyfair .tab-highlight,.fancyfair .one_click-setting,.maruti .tab-highlight,.maruti .one_click-setting,.marutibook .one_click,.marutibook .one_click.select,.marutibook .tab-highlight,.marutibook .one_click-setting,.betbuzz365247 .one_click-setting,.oceanexch1 .path,.oceanexch1 .tab-highlight,.oceanbook1 .path,.oceanbook1 .tab-highlight,.probetx .path,.probetx .tab-highlight,.probetx .one_click-setting,.alphaexch .tab-highlight,.alphaexch .one_click-setting,.alphaexchlive .tab-highlight,.alphaexchlive .one_click-setting,.maxexch9 .path,.maxexch9 .tab-highlight,.maxexch9 .one_click-setting,.cftbet365 .one_click,.cftbet365 .one_click.select,.cftbet365 .tab-highlight,.cftbet365 .one_click-setting,.crickzoom .path,.crickzoom .tab-highlight,.crickzoom .one_click-setting,.crickzoomlive .path,.crickzoomlive .tab-highlight,.crickzoomlive .one_click-setting,.maxinplay .path,.maxinplay .tab-highlight,.maxinplay .one_click-setting,.betbarter .path,.betbarter .slip-wrap h3,.betbarter .matched-wrap h3,.betbarter .slider-bar span,.betbarter .upcome-head,.betbarter .tab-highlight,.betbarter .one_click-setting,.probet247 .path,.probet247 .tab-highlight,.probet247 .one_click-setting,.goexchange .one_click,.kingfair24 .tab-highlight,.kingfair24 .one_click-setting,.sgexch247 .path,.sgexch247 .tab-highlight,.sgexch247 .one_click-setting,.sixball .path,.sixball .tab-highlight,.sixball .one_click-setting,.sixballio .path,.sixballio .tab-highlight,.sixballio .one_click-setting,.wickets247 .one_click-setting,.crickex .tab-highlight,.crickex .one_click,.crickex .one_click.select,.crickex .one_click-setting,.iceEX .one_click,.iceinplay .path,.iceinplay .tab-highlight,.iceinplay .one_click-setting,.baji .one_click-setting,.baji365 .one_click-setting,.sportsexchlive .one_click-setting{
@@ -20180,11 +20180,11 @@ px
                 .authenticateImage {
                     position: absolute;
                     width: 70px;
-                    height: 19px;
-                    right: 5%;
-                    font-size: 20px;
-                    font-weight: 600;
-                    margin-top: 9px;
+                    /* height: 19px; */
+                    right: 14%;
+                    /* font-size: 20px;
+                    font-weight: 600; */
+                    margin-top: 2px;
                 }
                 .form-group.mb-5 {
                     margin-bottom: 15px;
@@ -20348,4 +20348,8 @@ body.betbuzz365.mobileseting{
     width: 100%;
     background-image: none;
     display: inline-table;
+}
+
+.rightcontbtndelt {
+    float: right;
 }

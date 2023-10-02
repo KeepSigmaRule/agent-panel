@@ -102,7 +102,7 @@ const BetListLive = (props) => {
                         </label>
                     </li>
                 </ul>
-                <ul className="input-list boxsetting">
+                <ul className="input-list boxsetting"  style={{float:'left'}}>
                     <li>
                         <label>Order of display:</label>
                         <select name="sortCondition" id="sortCondition" onChange={(e)=>{setsortValue(e.target.value)}}>
@@ -141,6 +141,9 @@ const BetListLive = (props) => {
                 </li>
                 <li><Link to="#" onClick={()=>{refresh()}} style={{width:'60px'}} className="btn-send" id="betListLiveRefresh">Refresh</Link></li>
                 </ul>
+                <div class="rightcontbtndelt">
+                    <Link to="#" style={{width:'60px'}} className="btn-send" id="betListLiveRefresh">Delete</Link>
+                </div>
             </div>
             {/* <table id="unMatchTable" className="table-s" style={{ display: 'table' }}><caption id="unMatchedTitle">UnMatched</caption><p className="no-data">You have no bets in this time period.</p></table>
             <table id="pendingTable" className="table-s" style={{ display: 'table' }}><caption id="pendingTitle">Pending</caption><p className="no-data">You have no bets in this time period.</p></table> */}
@@ -148,6 +151,7 @@ const BetListLive = (props) => {
                 <table id="matchTable" className="table-s" style={{display:'table'}}>
                     <tbody>
                         <tr>
+                            <th width="2%" className="align-L"><input type="checkbox" id="betlivevalcheck" /></th>
                             {[1].includes(user.level) && <th width="8%" className="align-L">SA ID</th>}
                             {[1,2].includes(user.level) && <th width="8%" className="align-L">SS ID</th>}
                             {[1,2,3].includes(user.level) && <th width="8%" className="align-L">SUP ID</th>}
@@ -174,6 +178,7 @@ const BetListLive = (props) => {
                             let itemInfo = getRunnerOddsLiability(item);
                             return (
                                 <tr key={index} id="matchRow0" style={{display: 'table-row'}}>
+                                <th width="2%" className="align-L" ><input type="checkbox" id="betlivevalcheck" /></th>
                                 {[1].includes(user.level) && <td id="agentUserId1" className="align-L" >{item.agentList.agentList.level2}</td>}   
                                 {[1,2].includes(user.level)  && <td id="agentUserId2" className="align-L" >{item.agentList.agentList.level3}</td>}
                                 {[1,2,3].includes(user.level) && <td id="agentUserId3" className="align-L" >{item.agentList.agentList.level4}</td>}
