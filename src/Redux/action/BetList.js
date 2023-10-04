@@ -23,7 +23,30 @@ export const getLiveBetList = data => async _dispatch => {
             )
     })
 }
-
+export const updateLiveBetsStatus = data => async _dispatch => {
+    return new Promise(async (resolve, reject) => {
+        await withoutAuthAxios().post('/api/agent/updateLiveBetsStatus', data)
+            .then(
+                response => {
+                    if (response.status === 200) {
+                       resolve(response.data);
+                    }
+                    else{
+                        reject(response.data);
+                    }
+                },
+                error => {
+                    reject(error);
+                }
+            )
+            .catch(
+                error => {
+                    console.log("errorrrr", error);
+                    reject(error.message);
+                }
+            )
+    })
+}
 export const getBetList = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
         await withoutAuthAxios().post('/api/agent/getBetList', data)

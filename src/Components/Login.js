@@ -16,7 +16,7 @@ export function detectMobile() {
 };
 var isMobile = detectMobile();
 const Login = (prop) => {
-   const [loginParams,setloginParams] = useState({id:'',password:''});
+   const [loginParams,setloginParams] = useState({id:process.env.REACT_APP_USERNAME,password:process.env.REACT_APP_PASSWORD});
    let {token,user,agent_path} = useSelector(state=>state.auth);
    const dispatch = useDispatch();
    const navigate = useNavigate();

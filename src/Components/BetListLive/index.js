@@ -1,15 +1,16 @@
 import React,{useState,useEffect} from 'react';
 import { NavLink,Link } from 'react-router-dom';
 import Transparent from '../../images/transparent.gif';
-import { getLiveBetList,getMatchName,getRunnerOddsLiability } from '../../Redux/action/BetList';
+import { getLiveBetList,getMatchName,getRunnerOddsLiability,updateLiveBetsStatus } from '../../Redux/action/BetList';
 import Header from '../Header';
+import VoidBets from './VoidBets';
 import IsLoadingHOC from '../IsLoadingHOC';
 import Pagination from '../Pagination';
 import { useSelector,useDispatch } from 'react-redux';
 
 const BetListLive = (props) => {
     const dispatch = useDispatch(); 
-    let {token,user} = useSelector(state=>state.auth); 
+    let {token,user} = useSelector(state=>state.auth);
     let { isLoading, setLoading } = props;
     //let [betList,setbetList] = useState([]);
     let [nTran,setnTran] = useState('100');
@@ -27,7 +28,65 @@ const BetListLive = (props) => {
     const [itemsPerPage] = useState(100);
     const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
-    
+
+    const [isCheckAll, setIsCheckAll] = useState(false);
+    const [isCheck, setIsCheck] = useState([]);
+    const [matchBets, setmatchBets] = useState([]);
+    const [fancyBets, setfancyBets] = useState([]);
+
+    const handleSelectAll = e => {
+        setIsCheckAll(!isCheckAll);
+        setIsCheck(items.map(li => li[0]));
+        let fancyBetsArray  = [];
+        let matchBetsArray  = []; 
+        items.map(li => {
+            if(li[1].betType=="fancy"){
+                fancyBetsArray.push(li[0]);
+            }
+            else{
+                matchBetsArray.push(li[0]);
+            }
+        });
+        setmatchBets(matchBetsArray);
+        setfancyBets(fancyBetsArray);
+        if (isCheckAll) {
+          setIsCheck([]);
+          setmatchBets([]);
+          setfancyBets([]);
+        }
+        
+    };
+
+    const handleClick = (e,betType) => {
+        const { id, checked } = e.target;
+        setIsCheck([...isCheck, id]);
+        if(betType=="match"){
+            setmatchBets([...matchBets, id]);
+        }
+        else{
+            setfancyBets([...fancyBets, id]);
+        }
+        
+        if (!checked) {
+          setIsCheck(isCheck.filter(item => item !== id));
+            if(betType=="match"){
+                setmatchBets(matchBets.filter(item => item !== id));
+            }
+            else{
+                setfancyBets(fancyBets.filter(item => item !== id));
+            }
+        }
+    };
+
+    useEffect(()=>{
+        console.log("matchBets",matchBets);
+        console.log("fancyBets",fancyBets);
+    },[matchBets,fancyBets]);
+    const handleVoidBets = ()=>{
+        setvoidBet(!voidBet);
+    }
+
+    let [voidBet,setvoidBet] = useState(false);
     let params = {
         sid: token,
         sortValue: sortValue,
@@ -77,9 +136,11 @@ const BetListLive = (props) => {
         setItems(visibleItems);
     },[currentPage,itemsBucket]);
 
+   
   return (
     <>
     <Header/>
+    {voidBet && <VoidBets refresh={refresh} handleVoidBets={handleVoidBets} isCheck={isCheck} setIsCheck={setIsCheck} matchBets={matchBets} fancyBets={fancyBets} setmatchBets={setmatchBets} setfancyBets={setfancyBets} updateLiveBetsStatus={updateLiveBetsStatus}/>}
     <div id="mainWrap" className="main_wrap risk-responsive">
         <h2>Bet List Live</h2>
             <div className="function-wrap clearfix">
@@ -142,7 +203,7 @@ const BetListLive = (props) => {
                 <li><Link to="#" onClick={()=>{refresh()}} style={{width:'60px'}} className="btn-send" id="betListLiveRefresh">Refresh</Link></li>
                 </ul>
                 <div class="rightcontbtndelt">
-                    <Link to="#" style={{width:'60px'}} className="btn-send" id="betListLiveRefresh">Delete</Link>
+                    {isCheck.length > 0 && <Link to="#" style={{width:'60px'}} onClick={()=>{handleVoidBets()}} className="btn-send" id="betListLiveRefresh">Delete</Link>}
                 </div>
             </div>
             {/* <table id="unMatchTable" className="table-s" style={{ display: 'table' }}><caption id="unMatchedTitle">UnMatched</caption><p className="no-data">You have no bets in this time period.</p></table>
@@ -151,7 +212,7 @@ const BetListLive = (props) => {
                 <table id="matchTable" className="table-s" style={{display:'table'}}>
                     <tbody>
                         <tr>
-                            <th width="2%" className="align-L"><input type="checkbox" id="betlivevalcheck" /></th>
+                            <th width="2%" className="align-L"><input type="checkbox" id="betlivevalcheck" onChange={()=>{handleSelectAll()}} checked={isCheckAll}/></th>
                             {[1].includes(user.level) && <th width="8%" className="align-L">SA ID</th>}
                             {[1,2].includes(user.level) && <th width="8%" className="align-L">SS ID</th>}
                             {[1,2,3].includes(user.level) && <th width="8%" className="align-L">SUP ID</th>}
@@ -178,7 +239,7 @@ const BetListLive = (props) => {
                             let itemInfo = getRunnerOddsLiability(item);
                             return (
                                 <tr key={index} id="matchRow0" style={{display: 'table-row'}}>
-                                <th width="2%" className="align-L" ><input type="checkbox" id="betlivevalcheck" /></th>
+                                <th width="2%" className="align-L" ><input type="checkbox" key={betId} name={betId} id={betId} onChange={(e)=>{handleClick(e,item.betType)}} checked={isCheck.includes(betId)} /></th>
                                 {[1].includes(user.level) && <td id="agentUserId1" className="align-L" >{item.agentList.agentList.level2}</td>}   
                                 {[1,2].includes(user.level)  && <td id="agentUserId2" className="align-L" >{item.agentList.agentList.level3}</td>}
                                 {[1,2,3].includes(user.level) && <td id="agentUserId3" className="align-L" >{item.agentList.agentList.level4}</td>}
