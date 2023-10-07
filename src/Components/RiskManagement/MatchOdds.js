@@ -34,7 +34,7 @@ const MatchOdds = (props) => {
             }
         },(err)=>{
             setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
 
         setLoading(true);
@@ -52,7 +52,7 @@ const MatchOdds = (props) => {
             }
         },(err)=>{
             setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
 
         setLoading(true);
@@ -69,7 +69,7 @@ const MatchOdds = (props) => {
             }
         },(err)=>{
             setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
 
         setLoading(true);
@@ -86,7 +86,7 @@ const MatchOdds = (props) => {
             }
         },(err)=>{
             setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
     }
 

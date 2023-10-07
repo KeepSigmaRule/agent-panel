@@ -47,7 +47,7 @@ const DownlineBetListing = (props) => {
         }
       },(err)=>{
         setLoading(false);
-        toast.danger(err);
+        toast.error(err);
       });
       
     },[]);
@@ -89,7 +89,7 @@ const DownlineBetListing = (props) => {
         }
       },(err)=>{
         setLoading(false);
-        toast.danger(err);
+        toast.error(err);
       });
       }
   }

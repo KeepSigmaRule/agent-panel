@@ -65,7 +65,7 @@ const BettingHistory = (props) => {
             setLoading(false);
         },(err)=>{
             setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         }); 
     }
 

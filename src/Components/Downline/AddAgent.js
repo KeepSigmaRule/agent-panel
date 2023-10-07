@@ -11,14 +11,14 @@ const AddAgent = (props) => {
   let downlineParam = {"id": user.id,"puserBlocked": puserBlocked,"pbetBlocked": pbetBlocked,"searchvalue": ""}
   const handelSubmit = async()=>{
     await dispatch(addNewAgent(agentParams)).then(async(response)=>{
-        toast.success("Agent Created Successfully!");
+        toast.success("Updated Successfully!");
         setAgentParams({...agentParams,username:'',agentpass:'',confirmpass:'',firstname:'',lastname:''});
         props.HandlePopup('agent_modal',false);
         props.setLoading(true);
         dispatch(getAccountDownlines(downlineParam)).then((response)=>{
           props.setLoading(false);
           },(err)=>{
-            console.log("getAccountDownlines err",err);
+            toast.error(err);
           });
       },(err)=>{
         props.setLoading(false);

@@ -29,7 +29,7 @@ const Goal = (props) => {
             }
         },(err)=>{
             setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
 
         setLoading(true);
@@ -46,7 +46,7 @@ const Goal = (props) => {
             }
         },(err)=>{
             setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
 
         setLoading(true);
@@ -63,7 +63,7 @@ const Goal = (props) => {
             }
         },(err)=>{
             setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
     }
 

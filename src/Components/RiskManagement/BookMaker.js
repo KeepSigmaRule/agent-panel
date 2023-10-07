@@ -32,7 +32,7 @@ const BookMaker = (props) => {
             }
         },(err)=>{
             //setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
         dispatch(getRiskEventList({sid:token,sportId:4,marketName:'Bookmaker',is_runnerId3_exist:1})).then((response)=>{
             if(response.items.length>0){
@@ -48,7 +48,7 @@ const BookMaker = (props) => {
             }
         },(err)=>{
             //setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
 
         dispatch(getRiskEventList({sid:token,sportId:2,marketName:'Bookmaker',is_runnerId3_exist:0})).then((response)=>{
@@ -64,7 +64,7 @@ const BookMaker = (props) => {
             }
         },(err)=>{
             //setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
         
         dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Bookmaker',is_runnerId3_exist:1})).then((response)=>{
@@ -80,7 +80,7 @@ const BookMaker = (props) => {
             }
         },(err)=>{
             setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
     }
 

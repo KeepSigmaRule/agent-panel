@@ -72,7 +72,7 @@ const BettingProfitLoss = (props) => {
                 setLoading(false);
               },(err)=>{
                  setLoading(false);
-                  toast.danger(err);
+                  toast.error(err);
               });
           } break;
           case 1:{
@@ -85,7 +85,7 @@ const BettingProfitLoss = (props) => {
                 setLoading(false);
             },(err)=>{
                 setLoading(false);
-                toast.danger(err);
+                toast.error(err);
             });
           } break;
         }
@@ -108,7 +108,7 @@ useEffect(() => {
         console.log("neweventProfitLossClient: ", response);
       }
     },(err)=>{
-        toast.danger(err);
+        toast.error(err);
     });
   }
   },[eventIds]);  

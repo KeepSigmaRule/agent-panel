@@ -36,7 +36,7 @@ const RiskManagement = (props) => {
         }
       },(err)=>{
           setLoading(false);
-          toast.danger(err);
+          toast.error(err);
       });
       
       dispatch(getTopTenExposure({sid:token})).then((response)=>{
@@ -46,7 +46,7 @@ const RiskManagement = (props) => {
         }
       },(err)=>{
           setLoading(false);
-          toast.danger(err);
+          toast.error(err);
       });
     }
 

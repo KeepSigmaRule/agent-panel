@@ -22,7 +22,7 @@ const FancyBooking = (props) => {
                 console.log(item);
             }
         },(err)=>{
-            toast.danger(err);
+            toast.error(err);
         });
      },[]);
 

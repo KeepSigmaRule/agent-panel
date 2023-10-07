@@ -63,18 +63,19 @@ const Banking = (props) => {
                 requestPayload['amount'] = item.amount;
                 requestPayload['myPass']  = agentPassword;
                 requestPayload['agentLevel']  = user.level;
-                console.log("requestPayload",requestPayload);
+                //console.log("requestPayload",requestPayload);
                 dispatch(makeBankingPayment(requestPayload)).then((response)=>{
                     if(bankingRequestPayload.length===(index+1)){
+                        toast.success("Updated successfully.");
                         setrefreshDownline(!refreshDownline);
                         dispatch(getAccountDetail({sid:token})).then((response)=>{
-                            console.log("getAccountDetail",response);
+                            //console.log("getAccountDetail",response);
                           },(err)=>{
                             toast.error(err);
                           });
                     }
                 },(err)=>{
-                  console.log("getAccountDownlines err",err);
+                    toast.error(err);
                 });
             })
         }

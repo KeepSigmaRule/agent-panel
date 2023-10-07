@@ -29,7 +29,7 @@ const FancyBet = (props) => {
             }
         },(err)=>{
             //setLoading(false);
-            toast.danger(err);
+            toast.error(err);
         });
      }
 
