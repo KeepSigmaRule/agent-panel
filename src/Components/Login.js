@@ -63,7 +63,7 @@ const Login = (prop) => {
                   <div  className="form-group">
                     <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
                     <div  className="form-group mb-5">
-                      <input  formcontrolname="text" placeholder="Validation Code" maxLength="4" id="user_captcha_input" type="text"  className="ng-dirty ng-valid ng-touched" />
+                      <input  formcontrolname="text" placeholder="Validation Code" inputmode="numeric" maxLength="4" id="user_captcha_input" type="text"  className="ng-dirty ng-valid ng-touched" />
                       <span className="authenticateImage"><LoadCanvasTemplateNoReload /></span>
                     </div>
                   <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
