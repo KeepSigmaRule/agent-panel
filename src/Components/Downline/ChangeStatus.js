@@ -11,7 +11,7 @@ const ChangeStatus = (props) => {
   let {puserBlocked,pbetBlocked} = useSelector(state=>state.downline);
   let currentStatus = getAgentStatusInfo(props.selectedRow);
   let agnetLevelInfo = getAgentLevelInfo(props.selectedRow.level);
-  let [params,setParams] = useState({sid:token,agentId:props.selectedRow.clientid,status:0,password:''});
+  let [params,setParams] = useState({sid:token,agentId:props.selectedRow.clientid,level:props.selectedRow.level,status:0,password:''});
   let downlineParam = {"id": user.id,"puserBlocked": puserBlocked,"pbetBlocked": pbetBlocked,"searchvalue": ""};
   console.log("downlineParam",downlineParam);
   const handelSubmit = async()=>{
