@@ -13,7 +13,7 @@ const BetListLive = (props) => {
     let {token,user} = useSelector(state=>state.auth);
     let { isLoading, setLoading } = props;
     //let [betList,setbetList] = useState([]);
-    let [nTran,setnTran] = useState(500);
+    let [nTran,setnTran] = useState(100);
     let [sortValue,setsortValue] = useState('betTime');
     let [sortType,setsortType] = useState('desc');
     let [eventType,seteventType] = useState('4');
@@ -179,9 +179,11 @@ const BetListLive = (props) => {
                     <li>
                         <label>Last:</label>
                         <select  name="limit" id="limit" onChange={(e)=>{setnTran(e.target.value)}} defaultValue={nTran}>
-                            <option value={500}>500 Txn</option>
-                            <option value={250}>250 Txn</option>
                             <option value={100}>100 Txn</option>
+                            <option value={250}>250 Txn</option>
+                            <option value={500}>500 Txn</option>
+                            <option value={750}>750 Txn</option>
+                            <option value={1000}>1000 Txn</option>
                         </select>
                     </li>
                     <li>
