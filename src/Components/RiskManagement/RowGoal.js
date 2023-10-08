@@ -83,7 +83,7 @@ const RowGoal = (props) => {
   useEffect(() => {
     socket.on(eventid, (val) => {
       var value = JSON.parse(val);
-      if(value.messageType === 'betfair_match_rate'){
+      if(value.messageType === 'betfair_match_rate05'){
         let timestamp = decrypteData(value.TimeST);
         if(moment(timestamp.messageST).format('YYYYMMDDHms') > moment().subtract(5, 'seconds').format("YYYYMMDDHms")){
           if(s1 !== value.runner1BackRate1  ){

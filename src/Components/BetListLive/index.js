@@ -167,9 +167,8 @@ const BetListLive = (props) => {
                     <li>
                         <label>Order of display:</label>
                         <select name="sortCondition" id="sortCondition" onChange={(e)=>{setsortValue(e.target.value)}}>
-                            <option value="stake" selected={sortValue === 'stake'}>Stake</option>
-                            <option value="userid" selected={sortValue === 'userid'}>Player ID</option>
-                            <option value="createdate" selected={sortValue === 'createdate'}>Time</option>
+                            <option value="amount" selected={sortValue === 'amount'}>Stake</option>
+                            <option value="betTime" selected={sortValue === 'betTime'}>Time</option>
                         </select>
                         <label> of </label>
                         <select name="orderByClause" id="orderByClause" onChange={(e)=>{setsortType(e.target.value)}}>
