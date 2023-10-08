@@ -1,7 +1,7 @@
 import { withoutAuthAxios } from "../../Config/axios"
 export const makeBankingPayment = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
-        let url = (data.agentLevel<6)?'/api/agent/NewagentBanking':'/api/agent/newplayerBanking';
+        let url = (data.agentLevel<5)?'/api/agent/NewagentBanking':'/api/agent/newplayerBanking';
         await withoutAuthAxios().post(url, data)
             .then(
                 response => {
