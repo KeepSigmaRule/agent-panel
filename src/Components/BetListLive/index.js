@@ -18,6 +18,7 @@ const BetListLive = (props) => {
     let [sortType,setsortType] = useState('desc');
     let [eventType,seteventType] = useState('4');
     let [betStatus,setbetStatus] = useState('1');
+    let [searchUserId,setsearchUserId] = useState('');
     let [refreshInterval,setrefreshInterval] = useState(60);
     let [refreshStatus,setrefreshStatus] = useState(false);
 
@@ -93,7 +94,8 @@ const BetListLive = (props) => {
         sortType: sortType,
         nTran: nTran,
         eventType: eventType,
-        betStatus: betStatus
+        betStatus: betStatus,
+        searchUserId: searchUserId.trim()
     }
 
     const  refresh = ()=>{
@@ -164,6 +166,10 @@ const BetListLive = (props) => {
                     </li>
                 </ul>
                 <ul className="input-list boxsetting"  style={{float:'left'}}>
+                    <li>
+                        <label>UserId:</label>
+                        <input type="text" value={searchUserId} onChange={(e)=>{setsearchUserId(e.target.value)}} />
+                    </li>
                     <li>
                         <label>Order of display:</label>
                         <select name="sortCondition" id="sortCondition" onChange={(e)=>{setsortValue(e.target.value)}} defaultValue={sortValue}>
