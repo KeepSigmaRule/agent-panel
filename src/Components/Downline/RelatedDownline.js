@@ -129,9 +129,9 @@ const RelatedDownline = (props) => {
                 {[0,1].includes(user.level) && <li>
                         <NavLink to="" onClick={()=>{props.HandlePopup('display_password',true,item)}}  id="profile14" className="password">password</NavLink>
                     </li>}
-                    {item.level<6 && <li>
+                    <li>
                         <NavLink to="" onClick={()=>{props.HandlePopup('change_status_modal',true,item)}}  id="change14" className="status">Change Status</NavLink>
-                    </li>}
+                    </li>
                     {item.level===6 && <li>
                         <NavLink to="/agent-account" state={{ selectedMenu: 5}} onClick={()=>{dispatch({ type: "AGENT_PATH_PUSH", payload: agentBasicInfo });}} id="p_l0" className="p_l">Betting Profit & Loss</NavLink>
                     </li>}
