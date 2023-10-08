@@ -13,9 +13,9 @@ const BetListLive = (props) => {
     let {token,user} = useSelector(state=>state.auth);
     let { isLoading, setLoading } = props;
     //let [betList,setbetList] = useState([]);
-    let [nTran,setnTran] = useState('100');
-    let [sortValue,setsortValue] = useState('stake');
-    let [sortType,setsortType] = useState('asc');
+    let [nTran,setnTran] = useState(500);
+    let [sortValue,setsortValue] = useState('betTime');
+    let [sortType,setsortType] = useState('desc');
     let [eventType,seteventType] = useState('4');
     let [betStatus,setbetStatus] = useState('1');
     let [refreshInterval,setrefreshInterval] = useState(60);
@@ -166,27 +166,27 @@ const BetListLive = (props) => {
                 <ul className="input-list boxsetting"  style={{float:'left'}}>
                     <li>
                         <label>Order of display:</label>
-                        <select name="sortCondition" id="sortCondition" onChange={(e)=>{setsortValue(e.target.value)}}>
-                            <option value="amount" selected={sortValue === 'amount'}>Stake</option>
-                            <option value="betTime" selected={sortValue === 'betTime'}>Time</option>
+                        <select name="sortCondition" id="sortCondition" onChange={(e)=>{setsortValue(e.target.value)}} defaultValue={sortValue}>
+                            <option value="amount">Stake</option>
+                            <option value="betTime">Time</option>
                         </select>
                         <label> of </label>
-                        <select name="orderByClause" id="orderByClause" onChange={(e)=>{setsortType(e.target.value)}}>
-                            <option value="asc" selected={sortType === 'asc'}>Ascending</option>
-                            <option value="desc" selected={sortType === 'desc'}>Descending</option>
+                        <select name="orderByClause" id="orderByClause" onChange={(e)=>{setsortType(e.target.value)}} defaultValue={sortType}>
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
                         </select>
                     </li>
                     <li>
                         <label>Last:</label>
-                        <select  name="limit" id="limit" onChange={(e)=>{setnTran(e.target.value)}}>
-                            <option value="100" selected={nTran === '100'}>100 Txn</option>
-                            <option value="50" selected={nTran === '50'}>50 Txn</option>
-                            <option value="25" selected={nTran === '25'}>25 Txn</option>
+                        <select  name="limit" id="limit" onChange={(e)=>{setnTran(e.target.value)}} defaultValue={nTran}>
+                            <option value={500}>500 Txn</option>
+                            <option value={250}>250 Txn</option>
+                            <option value={100}>100 Txn</option>
                         </select>
                     </li>
                     <li>
                         <label>Auto Refresh (Seconds)</label>
-                        <select name="refreshTime" id="refreshTime" defaultValue={60} onChange={(e)=>{setrefreshInterval(e.target.value)}}>
+                        <select name="refreshTime" id="refreshTime" defaultValue={refreshInterval} onChange={(e)=>{setrefreshInterval(e.target.value)}}>
                             <option value={0}>Stop</option>
                             <option value={60}>60</option>
                             <option value={30}>30</option>
