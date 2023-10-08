@@ -153,7 +153,7 @@ export const updateCreditAgent = data => async _dispatch => {
 }
 
 export const updateAgentStatus = data => async _dispatch => {
-    return new Promise(async (resolve, reject) => {level
+    return new Promise(async (resolve, reject) => {
         let url = (data.level>5)?'/api/agent/NewupdateStatusClient':'/api/agent/NewupdateStatusAgent';
         await withoutAuthAxios().post(url, data)
             .then(async (response) => {
