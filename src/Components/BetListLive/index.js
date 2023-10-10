@@ -16,7 +16,7 @@ const BetListLive = (props) => {
     let [nTran,setnTran] = useState(100);
     let [sortValue,setsortValue] = useState('betTime');
     let [sortType,setsortType] = useState('desc');
-    let [eventType,seteventType] = useState('4');
+    let [eventType,seteventType] = useState('Cricket');
     let [betStatus,setbetStatus] = useState('1');
     let [searchUserId,setsearchUserId] = useState('');
     let [refreshInterval,setrefreshInterval] = useState(60);
@@ -148,26 +148,27 @@ const BetListLive = (props) => {
             <div className="function-wrap clearfix">
                 <ul className="input-list boxsetting">
                     <li id="eventRadioBtnList">
-                        <label for="events_0" onClick={(e)=>{seteventType(e.target.value)}}>
-                        <input  type="checkbox" name="events" id="events_0"  checked={eventType === '100'} value="100"/>All
-                        </label>
                         <label for="events_4" onClick={(e)=>{seteventType(e.target.value)}}>
-                        <input  type="checkbox" name="events" id="events_4" checked={eventType === '4'} value="4"/>
+                        <input  type="checkbox" name="events" id="events_4" checked={eventType === 'Cricket'} value="Cricket"/>
                             Cricket
                         </label>
                         <label for="events_1" onClick={(e)=>{seteventType(e.target.value)}}>
-                        <input  type="checkbox" name="events" id="events_1" checked={eventType === '1'} value="1"/>
+                        <input  type="checkbox" name="events" id="events_1" checked={eventType === 'Soccer'} value="Soccer"/>
                             Soccer
                         </label>
                         <label for="events_2" onClick={(e)=>{seteventType(e.target.value)}}>
-                        <input  type="checkbox" name="events" id="events_2" checked={eventType === '2'} value="2"/>
+                        <input  type="checkbox" name="events" id="events_2" checked={eventType === 'Tennis'} value="Tennis"/>
                             Tennis
+                        </label>
+                        <label for="events_2" onClick={(e)=>{seteventType(e.target.value)}}>
+                        <input  type="checkbox" name="events" id="events_2" checked={eventType === 'Fancy'} value="Fancy"/>
+                            Fancy
                         </label>
                     </li>
                 </ul>
                 <ul className="input-list boxsetting"  style={{float:'left'}}>
                     <li>
-                        <label>UserId:</label>
+                        <label>PL Id:</label>
                         <input type="text" value={searchUserId} onChange={(e)=>{setsearchUserId(e.target.value)}} />
                     </li>
                     <li>

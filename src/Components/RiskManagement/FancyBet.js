@@ -16,7 +16,6 @@ const FancyBet = (props) => {
         setLoading(true);
         dispatch(getRiskFancyEventList({sid:token})).then((response)=>{
             if(response.items.length>0){
-                setLoading(false);
                 let cricketData = response.items.reduce(function (r, item) {
                     r[item.market_start_time] = r[item.market_start_time] || [];
                     r[item.market_start_time].push(item);
@@ -25,8 +24,8 @@ const FancyBet = (props) => {
                 cricketData = Object.entries(cricketData);
                 console.log("getRiskFancyEventList",cricketData);
                 setcricketData(cricketData);
-                setLoading(false);
             }
+            setLoading(false);
         },(err)=>{
             //setLoading(false);
             toast.error(err);

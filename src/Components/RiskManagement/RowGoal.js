@@ -21,8 +21,8 @@ const RowGoal = (props) => {
   //   ENDPOINT = "https://betplace247.com:2096";
   // }
   let {eventDate,subItem,teamA_total,teamB_total,draw_total,setshowLogs,setlogType,setselectedItem} = props;
-  
   let eventid = subItem.event_id;
+  let marketid = subItem.market_id;
   let runners = subItem.event_name.split(' v ');
   let socket;
   let c1 = 0,c2 =0,c3 = 0, c4 = 0, c5 = 0, c6 = 0,c7 = 0, c8 = 0, c9 = 0, c10 = 0, c11 = 0, c12 = 0,c13 = 0,c14 = 0,c15 = 0,c16 = 0,c17 = 0,c18 = 0;
@@ -83,8 +83,10 @@ const RowGoal = (props) => {
   useEffect(() => {
     socket.on(eventid, (val) => {
       var value = JSON.parse(val);
-      if(value.messageType === 'betfair_match_rate05'){
+        if(['betfair_match_rate05','betfair_match_rate15','betfair_match_rate25'].includes(value.messageType) && value.marketId==marketid){
+        // if(value.messageType=='betfair_match_rate05'){
         let timestamp = decrypteData(value.TimeST);
+        console.log(value.messageType,value);
         if(moment(timestamp.messageST).format('YYYYMMDDHms') > moment().subtract(5, 'seconds').format("YYYYMMDDHms")){
           if(s1 !== value.runner1BackRate1  ){
             setrunner1BackRate1(value.runner1BackRate1);
@@ -286,7 +288,7 @@ const RowGoal = (props) => {
         <td className="refer-book" colSpan="2">99.8%</td>
         </tr>
         <tr>
-        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>{runners[0]}</p>
+        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>{`Under`}<span className={`rowBooks ${(parseFloat(subItem.teamA_total).toFixed(2) < 0)?'red':''}`}>{teamA_total}</span></p>
         </th>
         <td className="back-3"><a>{runner1BackRate3}<span>{runner1BackSize3}</span></a></td>
         <td className="back-2"><a>{runner1BackRate2}<span>{runner1BackSize2}</span></a></td>
@@ -296,7 +298,7 @@ const RowGoal = (props) => {
         <td className="lay-3"><a>{runner1LayRate3}<span>{runner1LaySize3}</span></a></td>
         </tr>
         <tr>
-        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>{runners[1]}</p>
+        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>{`Over`}<span className={`rowBooks ${(parseFloat(subItem.teamB_total).toFixed(2) < 0)?'red':''}`}>{teamB_total}</span></p>
         </th>
         <td className="back-3"><a>{runner2BackRate3}<span>{runner2BackSize3}</span></a></td>
         <td className="back-2"><a>{runner2BackRate2}<span>{runner2BackSize2}</span></a></td>
@@ -307,7 +309,7 @@ const RowGoal = (props) => {
         </tr>
         {subItem.runnerId3 !== " " && 
         <tr>
-        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>The Draw</p>
+        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>The Draw<span className={`rowBooks ${(parseFloat(subItem.draw_total).toFixed(2) < 0)?'red':''}`}>{draw_total}</span></p>
         </th>
         <td className="back-3"><a>{tieBackRate3}<span>{tieBackSize3}</span></a></td>
         <td className="back-2"><a>{tieBackRate2}<span>{tieBackSize2}</span></a></td>

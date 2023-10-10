@@ -287,7 +287,7 @@ const RowCricketMatchOdds = (props) => {
         <td className="refer-book" colSpan="2">99.8%</td>
         </tr>
         <tr>
-        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>{runners[0]}</p>
+        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>{runners[0]}<span className={`rowBooks ${(parseFloat(subItem.teamA_total).toFixed(2) < 0)?'red':''}`}>{teamA_total}</span></p>
         </th>
         <td className="back-3"><a>{runner1BackRate3}<span>{runner1BackSize3}</span></a></td>
         <td className="back-2"><a>{runner1BackRate2}<span>{runner1BackSize2}</span></a></td>
@@ -297,7 +297,7 @@ const RowCricketMatchOdds = (props) => {
         <td className="lay-3"><a>{runner1LayRate3}<span>{runner1LaySize3}</span></a></td>
         </tr>
         <tr>
-        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>{runners[1]}</p>
+        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>{runners[1]}<span className={`rowBooks ${(parseFloat(subItem.teamB_total).toFixed(2) < 0)?'red':''}`}>{teamB_total}</span></p>
         </th>
         <td className="back-3"><a>{runner2BackRate3}<span>{runner2BackSize3}</span></a></td>
         <td className="back-2"><a>{runner2BackRate2}<span>{runner2BackSize2}</span></a></td>
@@ -308,7 +308,7 @@ const RowCricketMatchOdds = (props) => {
         </tr>
         {subItem.runnerId3 !==" " && 
         <tr>
-        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>The Draw</p>
+        <th> <p><a><img className="icon-predict" src="images/transparent.gif" /></a>The Draw<span className={`rowBooks ${(parseFloat(subItem.draw_total).toFixed(2) < 0)?'red':''}`}>{draw_total}</span></p>
         </th>
         <td className="back-3"><a>{tieBackRate3}<span>{tieBackSize3}</span></a></td>
         <td className="back-2"><a>{tieBackRate2}<span>{tieBackSize2}</span></a></td>

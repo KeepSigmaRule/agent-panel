@@ -18,7 +18,6 @@ const Goal = (props) => {
         setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Over/Under 0.5 Goals',is_runnerId3_exist:0})).then((response)=>{
             if(response.items.length>0){
-                setLoading(false);
                 let under05Data = response.items.reduce(function (r, item) {
                     r[item.market_start_time] = r[item.market_start_time] || [];
                     r[item.market_start_time].push(item);
@@ -27,6 +26,7 @@ const Goal = (props) => {
                 under05Data = Object.entries(under05Data);
                 setunder05(under05Data);
             }
+            setLoading(false);
         },(err)=>{
             setLoading(false);
             toast.error(err);
@@ -35,7 +35,6 @@ const Goal = (props) => {
         setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Over/Under 1.5 Goals',is_runnerId3_exist:0})).then((response)=>{
             if(response.items.length>0){
-                setLoading(false);
                 let under15Data = response.items.reduce(function (r, item) {
                     r[item.market_start_time] = r[item.market_start_time] || [];
                     r[item.market_start_time].push(item);
@@ -44,6 +43,7 @@ const Goal = (props) => {
                 under15Data = Object.entries(under15Data);
                 setunder15(under15Data);
             }
+            setLoading(false);
         },(err)=>{
             setLoading(false);
             toast.error(err);
@@ -52,7 +52,6 @@ const Goal = (props) => {
         setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Over/Under 2.5 Goals',is_runnerId3_exist:0})).then((response)=>{
             if(response.items.length>0){
-                setLoading(false);
                 let under25Data = response.items.reduce(function (r, item) {
                     r[item.market_start_time] = r[item.market_start_time] || [];
                     r[item.market_start_time].push(item);
@@ -61,6 +60,7 @@ const Goal = (props) => {
                 under25Data = Object.entries(under25Data);
                 setunder25(under25Data);
             }
+            setLoading(false);
         },(err)=>{
             setLoading(false);
             toast.error(err);

@@ -12,11 +12,8 @@ const SearchBar = (props) => {
     let [selectedStatus,setSelectedStatus] = useState({puserBlocked:0,pbetBlocked:0});
     let [searchValue,setSearchValue] = useState("");
     const {
-      agentPath,
-      setagentPath,
-      itemsBucket,
-      setitemsBucket,
-      agents
+      items,
+      setItems,
     } = props;
     const handelSearch = async(e)=>{
         let searchParams = {};
@@ -34,34 +31,23 @@ const SearchBar = (props) => {
     const searchWithValue =async()=>{
       props.setLoading(true);
       let downlines = [];
-      if(searchValue!=""){
-        downlines = itemsBucket.filter((item)=>item.clientid.includes(searchValue.toUpperCase()));
-      }
-      else{
-        downlines = agents;
-      }
-      setitemsBucket(downlines);
-      props.setLoading(false);
-    }
-    const getAgentDownlineById = async(user)=>{
-      let downlineParam = {
-        "id": user.id,
-        "puserBlocked": puserBlocked,
-        "pbetBlocked": pbetBlocked,
-        "searchvalue": ""
-      }
-      let update_agent_path = agent_path.filter((item,index)=>{
-        if(item.level<=user.level){
+      //if(searchValue!=""){
+        //downlines = agents.filter((item)=>item.clientid.includes(searchValue.toUpperCase()));
+        downlines = items.map((item,index)=>{
+          if(item.clientid.includes(searchValue.toUpperCase())){
+            item.hide = false;
+          }
+          else{
+            item.hide = true;
+          }
           return item;
-        }
-      });
-      
-      dispatch(getAccountDownlines(downlineParam)).then((response)=>{
-       //setagentPath(update_agent_path);
-       dispatch({ type: "AGENT_PATH_POP", payload: update_agent_path });
-      },(err)=>{
-        console.log("getAccountDownlines err",err);
-      });
+        });
+      // }
+      // else{
+      //   downlines = agents;
+      // }
+      setItems(downlines);
+      props.setLoading(false);
     }
 
   return (
@@ -70,7 +56,7 @@ const SearchBar = (props) => {
         <div className="js-search-region biab_search biab_hidden-xs" style={{width:'280px',position:'relative'}}>
         <div className="biab_search-container">
         <div className="biab_seach-field-wrapper">
-        <input onChange={(e)=>setSearchValue(e.target.value)} className="biab_search-input" type="text" name="search" maxLength="127" placeholder="Enter your search" />
+        <input  onChange={(e)=>setSearchValue(e.target.value)} className="biab_search-input" type="text" name="search" maxLength="127" placeholder="Enter your search" />
         <img src={SearchIconImage} />
         </div>
         <button onClick={async()=>{searchWithValue()}} className="search-but" id="searchUserId" style={{height:'24px'}}>Search</button>

@@ -202,7 +202,7 @@ const RiskManagement = (props) => {
 				</div>
 			</div>
   <MatchOdds token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
-  {/* <Goal token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/> */}
+  <Goal token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
   <BookMaker token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
   <FancyBet token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
 </div>
