@@ -95,6 +95,7 @@ const RelatedDownline = (props) => {
             <tr id="14" key={index} main_userid="wb77" style={{display:'table-row'}}>
             <td id="accountCol" className="align-L" style={{pointerEvents:item.level<6?'':'none'}}>
                 <NavLink to="" onClick={()=>(item.level<6)?HandleAgentPath(agentBasicInfo):''} id="account14" className="ico_account" style={{textDecoration:'none'}}>
+                <span className="order">{(currentPage-1)*itemsPerPage+index+1}.</span>
                 <span className={`lv_${(item.level<6)?item.level:0}`} style={{marginRight:'3px'}}>{agnetLevelInfo.level_text}</span>{item.clientid}</NavLink>
             </td>
             <td id="creditRef14" className="credit-amount-member">
