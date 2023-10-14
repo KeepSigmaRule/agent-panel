@@ -230,8 +230,8 @@ const BetList = (props) => {
                                 <td id="playerId" className="align-L">{item.clientId}</td>
                                 <td className="align-L"><Link to="" id="betID" href="javascript: void(0);">{item.id}</Link></td>
                                 <td className="align-L"><span id="betPlaced" className="small-date">{item.betTime}</span></td>
-                                <td id="agentUserId1" className="align-L" >==</td> 
-                                <td id="agentUserId1" className="align-L" >==</td> 
+                                <td id="agentUserId1" className="align-L" >{(item.IPAddress)?item.IPAddress:'NA'}</td> 
+                                <td id="agentUserId1" className="align-L" >{(item.ISP)?item.ISP:'NA'}</td>  
                                 <td id="matchTitle" className="align-L">{matchName}<img className="fromto" src={Transparent}/><strong>{item.eventName}</strong><img className="fromto" src={Transparent}/>{item.betType == 'match' ? item.marketName : 'FANCY_BET'}</td>
                                 <td id="matchSelection" className="align-L"><Link to="">{itemInfo.runner}</Link></td>
                                 <td className="align-C"><span id="matchType" className={`${item.type === 'LAGAI' || item.type === 'YES'? "back":"lay"}`}>{itemInfo.matchtype}</span></td>

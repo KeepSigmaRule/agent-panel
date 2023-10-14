@@ -12,7 +12,6 @@ const BetListLive = (props) => {
     const dispatch = useDispatch(); 
     let {token,user} = useSelector(state=>state.auth);
     let { isLoading, setLoading } = props;
-    //let [betList,setbetList] = useState([]);
     let [nTran,setnTran] = useState(100);
     let [sortValue,setsortValue] = useState('betTime');
     let [sortType,setsortType] = useState('desc');
@@ -26,63 +25,60 @@ const BetListLive = (props) => {
     let [items,setItems] = useState([]);
     let [totelCount,settotelCount] = useState(0);
     const [currentPage, setcurrentPage] = useState(1);
-    const [itemsPerPage] = useState(100);
+    const [itemsPerPage,setitemsPerPage] = useState(nTran);
     const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
     const [isCheckAll, setIsCheckAll] = useState(false);
-    const [isCheck, setIsCheck] = useState([]);
+    const [selectedItem, setSelectedItem] = useState([]);
     const [matchBets, setmatchBets] = useState([]);
     const [fancyBets, setfancyBets] = useState([]);
 
     const handleSelectAll = e => {
         setIsCheckAll(!isCheckAll);
-        setIsCheck(items.map(li => li[0]));
+        setSelectedItem(items.map(li => li.id));
         let fancyBetsArray  = [];
         let matchBetsArray  = []; 
         items.map(li => {
-            if(li[1].betType=="fancy"){
-                fancyBetsArray.push(li[0]);
+            if(li.betType=="match"){
+                matchBetsArray.push(li.id);
             }
             else{
-                matchBetsArray.push(li[0]);
+                fancyBetsArray.push(li.id);
             }
         });
         setmatchBets(matchBetsArray);
         setfancyBets(fancyBetsArray);
         if (isCheckAll) {
-          setIsCheck([]);
-          setmatchBets([]);
-          setfancyBets([]);
+            setSelectedItem([]);
+            setmatchBets([]);
+            setfancyBets([]);
         }
         
     };
 
-    const handleClick = (e,betType) => {
-        const { id, checked } = e.target;
-        setIsCheck([...isCheck, id]);
-        if(betType=="match"){
-            setmatchBets([...matchBets, id]);
-        }
-        else{
-            setfancyBets([...fancyBets, id]);
-        }
-        
-        if (!checked) {
-          setIsCheck(isCheck.filter(item => item !== id));
-            if(betType=="match"){
-                setmatchBets(matchBets.filter(item => item !== id));
+    const handleSelectItem = (e,item) => {
+        let checked = e.target.checked;
+        if(checked){
+            setSelectedItem([...selectedItem, item.id]);
+            if(item.betType=="match"){
+                setmatchBets([...matchBets, item.id]);
             }
             else{
-                setfancyBets(fancyBets.filter(item => item !== id));
+                setfancyBets([...fancyBets, item.id]);
+            }
+        }
+        else {
+            setSelectedItem(selectedItem.filter(id => id !== item.id));
+            if(item.betType=="match"){
+                setmatchBets(matchBets.filter(id => id !== item.id));
+            }
+            else{
+                setfancyBets(fancyBets.filter(id => id !== item.id));
             }
         }
     };
 
-    useEffect(()=>{
-        console.log("matchBets",matchBets);
-        console.log("fancyBets",fancyBets);
-    },[matchBets,fancyBets]);
     const handleVoidBets = ()=>{
         setvoidBet(!voidBet);
     }
@@ -101,9 +97,13 @@ const BetListLive = (props) => {
     const  refresh = ()=>{
         setLoading(true);
         dispatch(getLiveBetList(params)).then((response)=>{
+            console.log(response);
             setLoading(false);
             setitemsBucket(response);
             settotelCount(response.length);
+            setSelectedItem([]);
+            setmatchBets([]);
+            setfancyBets([]);
             setcurrentPage(1);
         },(err)=>{
           setLoading(false);
@@ -142,7 +142,7 @@ const BetListLive = (props) => {
   return (
     <>
     <Header/>
-    {voidBet && <VoidBets refresh={refresh} handleVoidBets={handleVoidBets} isCheck={isCheck} setIsCheck={setIsCheck} matchBets={matchBets} fancyBets={fancyBets} setmatchBets={setmatchBets} setfancyBets={setfancyBets} updateLiveBetsStatus={updateLiveBetsStatus}/>}
+    {voidBet && <VoidBets refresh={refresh} handleVoidBets={handleVoidBets} isCheck={selectedItem} setIsCheck={setSelectedItem} matchBets={matchBets} fancyBets={fancyBets} setmatchBets={setmatchBets} setfancyBets={setfancyBets} updateLiveBetsStatus={updateLiveBetsStatus}/>}
     <div id="mainWrap" className="main_wrap risk-responsive">
         <h2>Bet List Live</h2>
             <div className="function-wrap clearfix">
@@ -211,7 +211,7 @@ const BetListLive = (props) => {
                 <li><Link to="#" onClick={()=>{refresh()}} style={{width:'60px'}} className="btn-send" id="betListLiveRefresh">Refresh</Link></li>
                 </ul>
                 <div class="rightcontbtndelt">
-                    {isCheck.length > 0 && <Link to="#" style={{width:'60px'}} onClick={()=>{handleVoidBets()}} className="btn-send" id="betListLiveRefresh">Delete</Link>}
+                    {selectedItem.length > 0 && <Link to="#" style={{width:'60px'}} onClick={()=>{handleVoidBets()}} className="btn-send" id="betListLiveRefresh">Delete</Link>}
                 </div>
             </div>
             {/* <table id="unMatchTable" className="table-s" style={{ display: 'table' }}><caption id="unMatchedTitle">UnMatched</caption><p className="no-data">You have no bets in this time period.</p></table>
@@ -221,10 +221,10 @@ const BetListLive = (props) => {
                     <tbody>
                         <tr>
                             <th width="2%" className="align-L"><input type="checkbox" id="betlivevalcheck" onChange={()=>{handleSelectAll()}} checked={isCheckAll}/></th>
-                            {[1].includes(user.level) && <th width="8%" className="align-L">SA ID</th>}
-                            {[1,2].includes(user.level) && <th width="8%" className="align-L">SS ID</th>}
-                            {[1,2,3].includes(user.level) && <th width="8%" className="align-L">SUP ID</th>}
-                            {[1,2,3,4].includes(user.level) && <th width="8%" className="align-L">MA ID</th>}
+                            {[0,1].includes(user.level) && <th width="8%" className="align-L">SA ID</th>}
+                            {[0,1,2].includes(user.level) && <th width="8%" className="align-L">SS ID</th>}
+                            {[0,1,2,3].includes(user.level) && <th width="8%" className="align-L">SUP ID</th>}
+                            {[0,1,2,3,4].includes(user.level) && <th width="8%" className="align-L">MA ID</th>}
                             <th width="8%" className="align-L">PL ID</th>
                             <th width="5%" className="align-L">Bet ID</th>
                             <th id="betTime" width="6%" className="align-L">Bet taken</th>
@@ -240,20 +240,20 @@ const BetListLive = (props) => {
                             <th width="5%" id="matchedLastPrice_title" className="text-right">MatchedLastPrice</th>
                             <th width="5%" id="oddsDifferential_title" className="text-right">OddsDifferential</th> */}
                         </tr>
-                        {items.length > 0 && items.map((itemIs,index)=>{
-                            let betId = itemIs[0];
-                            let item = itemIs[1];
+                        {items.length > 0 && items.map((item,index)=>{
+                            
                             let matchName = getMatchName(item.eventType);
                             let itemInfo = getRunnerOddsLiability(item);
                             return (
                                 <tr key={index} id="matchRow0" style={{display: 'table-row'}}>
-                                <th width="2%" className="align-L" ><input type="checkbox" key={betId} name={betId} id={betId} onChange={(e)=>{handleClick(e,item.betType)}} checked={isCheck.includes(betId)} /></th>
-                                {[1].includes(user.level) && <td id="agentUserId1" className="align-L" >{item.agentList.agentList.level2}</td>}   
-                                {[1,2].includes(user.level)  && <td id="agentUserId2" className="align-L" >{item.agentList.agentList.level3}</td>}
-                                {[1,2,3].includes(user.level) && <td id="agentUserId3" className="align-L" >{item.agentList.agentList.level4}</td>}
-                                {[1,2,3,4].includes(user.level) && <td id="agentUserId3" className="align-L" >{item.agentList.agentList.level5}</td>}
+                                <th width="2%" className="align-L" >
+                                <input type="checkbox" onChange={(event)=>{handleSelectItem(event,item)}} checked={selectedItem.includes(item.id)} /></th>
+                                {[0,1].includes(user.level) && <td id="agentUserId1" className="align-L" >{item.agentList.agentList.level2}</td>}   
+                                {[0,1,2].includes(user.level)  && <td id="agentUserId2" className="align-L" >{item.agentList.agentList.level3}</td>}
+                                {[0,1,2,3].includes(user.level) && <td id="agentUserId3" className="align-L" >{item.agentList.agentList.level4}</td>}
+                                {[0,1,2,3,4].includes(user.level) && <td id="agentUserId3" className="align-L" >{item.agentList.agentList.level5}</td>}
                                 <td id="playerId" className="align-L">{item.clientId}</td>
-                                <td className="align-L"><Link to="" id="betID" href="javascript: void(0);">{betId}</Link></td>
+                                <td className="align-L"><Link to="" id="betID" href="javascript: void(0);">{item.id}</Link></td>
                                 <td className="align-L"><span id="betPlaced" className="small-date">{item.betTime}</span></td>
                                 <td id="agentUserId1" className="align-L" >{(item.IPAddress)?item.IPAddress:'NA'}</td> 
                                 <td id="agentUserId1" className="align-L" >{(item.ISP)?item.ISP:'NA'}</td> 

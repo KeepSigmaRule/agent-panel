@@ -1,11 +1,11 @@
 import { withoutAuthAxios } from "../../Config/axios"
 export const getLiveBetList = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
-        await withoutAuthAxios().post('/api/agent/agentLiveBetList', data)
+        await withoutAuthAxios().post('/api/agent/agentLiveBetListV2', data)
             .then(
                 response => {
                     if (response.status === 200) {
-                       resolve(Object.entries(response.data));
+                       resolve(response.data);
                     }
                     else{
                         reject(response.data);
@@ -96,6 +96,16 @@ export const getRunnerOddsLiability = item => {
     let result = {};
     switch(item.betType){
         case 'fancy':{
+            result['runner'] = item.runnerName;
+            result['odds'] = item.rate+'/'+ parseFloat(item.teamName*100).toFixed(0);
+            result['liability'] = (item.type === 'NO')?parseFloat(parseFloat(item.teamName)*parseFloat(item.amount)).toFixed(2):'-';
+        } break;
+        case 'NO':{
+            result['runner'] = item.runnerName;
+            result['odds'] = item.rate+'/'+ parseFloat(item.teamName*100).toFixed(0);
+            result['liability'] = (item.type === 'NO')?parseFloat(parseFloat(item.teamName)*parseFloat(item.amount)).toFixed(2):'-';
+        } break;
+        case 'YES':{
             result['runner'] = item.runnerName;
             result['odds'] = item.rate+'/'+ parseFloat(item.teamName*100).toFixed(0);
             result['liability'] = (item.type === 'NO')?parseFloat(parseFloat(item.teamName)*parseFloat(item.amount)).toFixed(2):'-';
