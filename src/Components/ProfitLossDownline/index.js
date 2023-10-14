@@ -249,7 +249,7 @@ const ProfitLossDownline = (props) => {
                     )
                 })}
                 {agentList.length > 0 && <tr id="tempTotalTr" className="total">
-                    <td className="align-L">Total</td>
+                    <td className="align-L padingright">Total</td>
                     <td id="_totalStake"> 0.00</td>
                     <td id="_totalProfitLoss" style={{ backgroundColor: "rgb(223, 223, 223)" }}><span style={(sum1 >= 0) ? { color: 'green' } : { color: 'red' }}>{sum1 >= 0 ? parseFloat(Math.abs(sum1)).toFixed(2) : '(' + parseFloat(Math.abs(sum1)).toFixed(2) + ')'}</span></td>
                     <td id="_totalProfitLossDownLine"><span style={(sum1 >= 0) ? { color: 'green' } : { color: 'red' }}>{sum1 >= 0 ? parseFloat(Math.abs(sum1)).toFixed(2) : '(' + parseFloat(Math.abs(sum1)).toFixed(2) + ')'}</span></td>

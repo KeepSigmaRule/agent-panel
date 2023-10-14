@@ -119,7 +119,7 @@ const ProfitLossMarket = (props) => {
   return (
     <>
     <Header/>
-    <div id="mainWrap" className="main_wrap">
+    <div id="mainWrap" className="main_wrap  lossrpofitdtl">
         <h2>Profit/Loss Report by Market</h2>
         <div className="function-wrap">
         <ul className="input-list boxsetting">

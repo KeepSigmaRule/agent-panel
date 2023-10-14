@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fb5c9e72.css",
+    "main.js": "/static/js/main.f57ef625.js",
+    "static/media/login-bg.jpeg": "/static/media/login-bg.9747a7ac12d4b8381558.jpeg",
+    "static/media/bg-login_wrap.png": "/static/media/bg-login_wrap.5dbc0902b2859bf35b21.png",
+    "static/media/508.fe3d6487.png": "/static/media/508.fe3d6487.3794db8fb4c50120f578.png",
+    "static/media/logo-skyfair.png": "/static/media/logo-skyfair.3794db8fb4c50120f578.png",
+    "static/media/KV-pic.png": "/static/media/KV-pic.0c4cdac5aed5e2e4a699.png",
+    "static/media/main-s1aea395e8c.png": "/static/media/main-s1aea395e8c.1d6e4c875677482f6562.png",
+    "static/media/top-s5f29df32a5.png": "/static/media/top-s5f29df32a5.ddc6c0ff2b3fb330e964.png",
+    "static/media/main-se21de741bc.png": "/static/media/main-se21de741bc.c7693182661fc3f15d00.png",
+    "static/media/left-s87016b32f7.png": "/static/media/left-s87016b32f7.8088419f01aca99d67a0.png",
+    "static/media/bg-login.jpg": "/static/media/bg-login.11125f7738f803cd41ab.jpg",
+    "static/media/agent-sf42eb279ae.png": "/static/media/agent-sf42eb279ae.1b7f59561d954e93ce49.png",
+    "static/media/login-s28112929a1.png": "/static/media/login-s28112929a1.1aaf688715cfb8464c26.png",
+    "static/media/popup-header-mysports247.png": "/static/media/popup-header-mysports247.cb53cade08f9d9c86b86.png",
+    "static/media/popup-header-mazaplay.png": "/static/media/popup-header-mazaplay.b6e2b950ff66083de663.png",
+    "static/media/popup-header-betbuzz365.png": "/static/media/popup-header-betbuzz365.6ae3dc5dd7e72d888b23.png",
+    "static/media/bg-s2ccfda7730.png": "/static/media/bg-s2ccfda7730.c0cbf308c41de63a6c54.png",
+    "static/media/bg-sdfd3971a83.png": "/static/media/bg-sdfd3971a83.e67c0cb287b251c7250e.png",
+    "static/media/powered_by_betfair_light.svg": "/static/media/powered_by_betfair_light.8d3b76c2e53a14b8153dcc423ce35ff5.svg",
+    "static/media/ic-search.svg": "/static/media/ic-search.da2cd6fb0dc0d46b5581.svg",
+    "static/media/loading.svg": "/static/media/loading.39668d667ee33e8dadbd.svg",
+    "index.html": "/index.html",
+    "static/media/search-icon.svg": "/static/media/search-icon.ed4514a3e50494ef961263f7ab29eee8.svg",
+    "main.fb5c9e72.css.map": "/static/css/main.fb5c9e72.css.map",
+    "main.f57ef625.js.map": "/static/js/main.f57ef625.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fb5c9e72.css",
+    "static/js/main.f57ef625.js"
+  ]
+}

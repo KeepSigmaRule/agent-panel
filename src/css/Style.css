@@ -188,6 +188,12 @@ p{
     overflow:hidden;
     overflow-y:scroll
 }
+
+.lossrpofitdtl #reportDiv table {
+    display: inline-table;
+    position: relative;
+}
+
 .pop-warp,.log-wrap,.streaming-pop{
     width:920px;
     height:600px;
@@ -366,13 +372,19 @@ padding: 8px 10px;
     vertical-align:middle
 }
 .table01 a,.table-s a,.table_one a{
-    text-decoration:underline
+    text-decoration:none;
 }
 .margnsetbox a#getPL {
     margin-top: 13.5%;
 }
 .table01 .btn,.table-s .btn,.table_one .btn,.table01 .btn-send,.table-s .btn-send,.table_one .btn-send,.table01 .pages a,.pages .table01 a,.table-s .pages a,.pages .table-s a,.table_one .pages a,.pages .table_one a,.table01 .calendarTable_inputBox input,.calendarTable_inputBox .table01 input,.table-s .calendarTable_inputBox input,.calendarTable_inputBox .table-s input,.table_one .calendarTable_inputBox input,.calendarTable_inputBox .table_one input,.table01 .calendarTable_inputBox textarea,.calendarTable_inputBox .table01 textarea,.table-s .calendarTable_inputBox textarea,.calendarTable_inputBox .table-s textarea,.table_one .calendarTable_inputBox textarea,.calendarTable_inputBox .table_one textarea,.table01 .calendarTable_inputBox .member_select a,.calendarTable_inputBox .member_select .table01 a,.table-s .calendarTable_inputBox .member_select a,.calendarTable_inputBox .member_select .table-s a,.table_one .calendarTable_inputBox .member_select a,.calendarTable_inputBox .member_select .table_one a,.table01 .member_select .calendarTable_inputBox a,.member_select .calendarTable_inputBox .table01 a,.table-s .member_select .calendarTable_inputBox a,.member_select .calendarTable_inputBox .table-s a,.table_one .member_select .calendarTable_inputBox a,.member_select .calendarTable_inputBox .table_one a,.table01 .total_all .btn_replay,.total_all .table01 .btn_replay,.table-s .total_all .btn_replay,.total_all .table-s .btn_replay,.table_one .total_all .btn_replay,.total_all .table_one .btn_replay,.table01 .btn_expand,.table-s .btn_expand,.table_one .btn_expand,.table01 .add_member,.table-s .add_member,.table_one .add_member{
     text-decoration:none
+}
+.setnumcout{
+    font-weight: 600;
+    line-height: 27px;
+    float: right;
+    padding-right: 90px;
 }
 .over-wrap .table01:last-of-type,.over-wrap .table-s:last-of-type,.over-wrap .table_one:last-of-type{
     margin-bottom:0
@@ -20215,18 +20227,34 @@ px
     margin: 0 auto;
     color: #fff;
 }
+.form-login dd {
+    position: relative;
+    margin-bottom: 3.2vw;
+}
 .form-login input {
+    border-width: 0;
     width: 100%;
-    padding: 9.5px 7px;
-    font-size: 15px;
-    border: none;
-    box-shadow: none;
+    margin-bottom: 0 !important;
+}
+.form-login input {
+    position: relative;
+    background: #fff;
+    box-shadow: inset 0 0.5333333333vw 0 0 rgba(0,0,0,.1);
+    border-radius: 1.6vw;
+    color: #1e1e1e;
+    font-size: 4vw;
+    font-family: Helvetica,Tahoma,sans-serif;
+    padding: 2.6666666667vw 1.8666666667vw;
+    margin-bottom: 1.8666666667vw;
+    -webkit-appearance: none;
+}
+.btnboxseting {
+    position: relative;
+    top: -29px;
+    z-index: 999999;
 }
 .pop_bg .log-wrap {
     overflow: auto !important;
-}
-dd.valid-code {
-    margin-bottom: 8px;
 }
 .form-login .authenticateImage {
     position: absolute;
@@ -20282,9 +20310,12 @@ dd.valid-code {
 .loginformmb .extend-btn img {
     width: 8vw;
     height: 8vw;
-    margin-right: 1.0666666667vw;
+    margin-right: 2.0666666667vw;
     vertical-align: middle;
     margin-left: 12%;
+}
+.table-pt td.padingright {
+    padding-left: 7px;
 }
 .loginformmb .extend-btn a {
     color: rgba(0,0,0,.7);
@@ -20352,4 +20383,16 @@ body.betbuzz365.mobileseting{
 
 .rightcontbtndelt {
     float: right;
+}
+strong#eventName {
+    font-size: 12px !important;
+}
+#reportDiv table {
+    display: inline-table;
+    position: absolute;
+}
+body.betbuzz365 {
+    background-color: #eee;
+    width: 100%;
+    display: table;
 }
