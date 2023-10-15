@@ -6,9 +6,9 @@ import background from '../images/bg-login.jpg';
 import bottombrowswe from '../images/icon-browser-W.png';
 import transprnt from '../images/transparent.gif';
 import { useNavigate } from 'react-router-dom';
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { login,getAccountDetail } from '../Redux/action/Auth';
 import { toast } from "react-toastify";
+
 export function detectMobile() {
   var check = false;
   (function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
@@ -16,16 +16,53 @@ export function detectMobile() {
 };
 var isMobile = detectMobile();
 const Login = (prop) => {
+  const [captchaSuccess, setCaptcha] = useState(false);
+  var cc;
+  function createCaptcha() {
+    if (document.getElementById('captch')) {
+      document.getElementById("captch").remove();
+    }
+
+    var captcha = [];
+    while (captcha.length < 4) {
+      //below code will not allow Repetition of Characters
+      var index = Math.floor(Math.random() * 10); //get the next character from the array
+
+      captcha.push(index);
+
+    }
+    var canv = document.createElement("canvas");
+    canv.style.width = 'inherit';
+    canv.id = "captch";
+    canv.width = 90;
+    canv.height = 50;
+
+    var ctx = canv.getContext("2d");
+    ctx.font = "600 35px bold Helvetica,Tahoma,sans-serif";
+    ctx.fillText(captcha.join(""), 0, 30);
+    //storing captcha so that can validate you can save it somewhere else according to your specific requirements
+    cc = captcha.join("");
+
+    if (document.getElementById("popupcaptcha")) {
+      document.getElementById("popupcaptcha").appendChild(canv);
+    }
+  }
+  function validateCaptcha(event){
+    if (event.target.value === cc) {
+      setCaptcha(true);
+    } else {
+      setCaptcha(false);
+    }
+  }
    const [loginParams,setloginParams] = useState({id:process.env.REACT_APP_USERNAME,password:process.env.REACT_APP_PASSWORD});
    let {token,user,agent_path} = useSelector(state=>state.auth);
    const dispatch = useDispatch();
    const navigate = useNavigate();
    const submitLogin = async()=>{
     let user_captcha_value = document.getElementById('user_captcha_input').value;
-      if (validateCaptcha(user_captcha_value)==false) {
-        toast.error('Captcha Does Not Match');
-      }
-      else{
+    if(user_captcha_value == cc){
+      toast.error('Captcha Does Not Match');
+    }else{
         await dispatch(login(loginParams)).then(async(response)=>{
     
         },(err)=>{
@@ -33,7 +70,6 @@ const Login = (prop) => {
         });
       }
    }
-
    useEffect(()=>{
     console.log("loginParams",loginParams);
     dispatch(getAccountDetail({sid:token})).then((response)=>{
@@ -47,7 +83,7 @@ const Login = (prop) => {
     });
   },[token]);
   useEffect(()=>{
-    loadCaptchaEnginge(4,"white","black","numbers");
+    createCaptcha();
   }, []);
   return (
     <>
@@ -64,7 +100,7 @@ const Login = (prop) => {
                     <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
                     <div  className="form-group mb-5">
                       <input  formcontrolname="text" placeholder="Validation Code" inputmode="numeric" maxLength="4" id="user_captcha_input" type="text"  className="ng-dirty ng-valid ng-touched" />
-                      <span className="authenticateImage"><LoadCanvasTemplateNoReload /></span>
+                      <span className="authenticateImage" id="popupcaptcha"></span>
                     </div>
                   <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
               </div>
@@ -117,13 +153,15 @@ const Login = (prop) => {
           <h1>SKYFAIR</h1>
         </header>
         <dl className='form-login'>
-            <div  className="form-group">
-            <input  formcontrolname="email" onChange={(e) => { setloginParams({...loginParams, id:e.target.value}) }} value={loginParams.id} placeholder="Username" type="text" className="ng-dirty ng-valid ng-touched" /></div>
-            <div  className="form-group">
-              <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
-            <dd className="valid-code">
-							<input type="tel" placeholder="Validation Code" maxLength="4" id="user_captcha_input"/>
-							<div id="popupcaptcha" style={{ position: 'relative', right: '-57.13333vw', width: '16.6666vw', top: '-9.31vw' }}><LoadCanvasTemplateNoReload /></div>
+            <dd  id="loginNameErrorClass">
+            <input  formcontrolname="email" onChange={(e) => { setloginParams({...loginParams, id:e.target.value}) }} value={loginParams.id} placeholder="Username" type="text" className="ng-dirty ng-valid ng-touched" />
+            </dd>
+            <dd  className="passwordErrorClass">
+              <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" />
+            </dd>
+            <dd className="valid-code" id="validCodeErrorClass">
+							<input type="tel" placeholder="Validation Code" maxLength="4" id="user_captcha_input" onChange={(e) => { validateCaptcha(e) }}/>
+							<div id="popupcaptcha" style={{ position: 'absolute', right: '5px', width: '55px', top: '11px' }}></div>
 						</dd>
             <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
         </dl>

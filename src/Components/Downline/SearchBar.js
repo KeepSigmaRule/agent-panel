@@ -1,9 +1,9 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 import Transparent from '../../images/transparent.gif';
 import SearchIconImage from '../../images/search-icon.svg';
-import {getAccountDownlines,getStatusSearchParams,searchDowlineByStatus,searchDowlineByStatusV2,searchDowlineByValue}  from '../../Redux/action/Downline';
+import {getAgentLevelInfo,getAccountDownlines,getStatusSearchParams,searchUpline,searchDowlineByStatusV2,searchDowlineByValue}  from '../../Redux/action/Downline';
 import { toast } from "react-toastify";
 const SearchBar = (props) => {
     let dispatch = useDispatch();
@@ -11,10 +11,9 @@ const SearchBar = (props) => {
     let {puserBlocked,pbetBlocked,account_downlines} = useSelector(state=>state.downline);
     let [selectedStatus,setSelectedStatus] = useState({puserBlocked:0,pbetBlocked:0});
     let [searchValue,setSearchValue] = useState("");
-    const {
-      agentPath,
-      setagentPath
-    } = props;
+    let [agentPath,setAgentPath] = useState([]);
+    
+    
     const handelSearch = async(e)=>{
         let searchParams = {};
         searchParams = getStatusSearchParams(e.target.value);
@@ -31,8 +30,6 @@ const SearchBar = (props) => {
     
     const searchWithValue =async()=>{
       await dispatch(searchDowlineByValue({puserBlocked:selectedStatus.puserBlocked,pbetBlocked:selectedStatus.pbetBlocked,searchvalue:searchValue,id:user.id})).then(async(response)=>{
-          console.log("searchDowlineByValue",response);
-          //props.updateAccountDownlines(response);
           let downlines = [];
           downlines = account_downlines.filter((downline)=>downline.clientid==searchValue);
           if(downlines.length > 0){
@@ -47,6 +44,35 @@ const SearchBar = (props) => {
           toast.error(err);
         }
       );
+
+      dispatch(searchUpline({sid:token,searchId:searchValue})).then((response)=>{
+        console.log("searchUpline",response.data);
+        if(response.data!==null){
+          let new_agent_path = [];
+          let data = response.data;
+          let keys = Object.keys(data);
+          let values = Object.values(data);
+          keys.map((key,index)=>{
+            if(key.includes('level')){
+              let first = {};
+              let second = {};
+              if(values[index]){
+                first['id'] = values[index];
+                first['level'] = parseInt(key.split('level')[1]);
+                if(first['level']>=data.startLevel){
+                  console.log(first['level']);
+                  second = getAgentLevelInfo(first['level']);
+                  let row = {...first,...second};
+                  new_agent_path.push(row);
+                }
+              }
+            }
+          });
+          setAgentPath(new_agent_path);
+        }
+       },(err)=>{
+         console.log("searchUpline err",err);
+       });
     }
     const getAgentDownlineById = async(user)=>{
       let downlineParam = {
@@ -68,7 +94,9 @@ const SearchBar = (props) => {
         console.log("getAccountDownlines err",err);
       });
     }
-
+    useEffect(()=>{
+      setAgentPath(agent_path);
+    },[agent_path]);
   return (
     <div className="total_all">
         <div className="biab_body biab_fluid" id="biab_body" style={{position:'absolute'}}>
@@ -101,9 +129,9 @@ const SearchBar = (props) => {
         </div>
         <ul id="agentPath" className="agent_path-L">
         {
-          agent_path.length > 1 && agent_path.map((user,index)=>{
+          agentPath.length > 1 && agentPath.map((user,index)=>{
             return (
-              <li key={index} id="path5" className={index===(agent_path.length-1)?'last_li':''}>
+              <li key={index} id="path5" className={index===(agentPath.length-1)?'last_li':''}>
                   <NavLink to="" onClick={()=>getAgentDownlineById(user)}>
                       <span className={`lv_${user.level}`}>
                           {user.level_text}
