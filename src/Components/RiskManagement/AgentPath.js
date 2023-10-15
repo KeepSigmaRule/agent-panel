@@ -9,6 +9,7 @@ const AgentPath = (props) => {
     let agentArray = [];
     if(agentList){
         agentArray = getFilterAgentList(agentList);
+        agentArray = agentArray.filter((agent)=>agent.level>=user.level);
     }
     else{
         agentArray = pl_agent_path;
