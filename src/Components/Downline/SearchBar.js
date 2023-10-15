@@ -81,7 +81,7 @@ const SearchBar = (props) => {
         "pbetBlocked": pbetBlocked,
         "searchvalue": ""
       }
-      let update_agent_path = agent_path.filter((item,index)=>{
+      let update_agent_path = agentPath.filter((item,index)=>{
         if(item.level<=user.level){
           return item;
         }
