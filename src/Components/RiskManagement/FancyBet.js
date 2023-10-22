@@ -8,11 +8,13 @@ const FancyBet = (props) => {
     const dispatch = useDispatch();
     let {token,user,setshowLogs,setlogType,setselectedItem,setLoading}  = props;
     let [cricketData,setcricketData] = useState([]);
+    let [refreshBtn,setrefreshBtn] = useState(true);
     useEffect(() => {
         getFancyBet();
      },[]);
 
      const getFancyBet = () => {
+        setrefreshBtn(false);
         setLoading(true);
         dispatch(getRiskFancyEventList({sid:token})).then((response)=>{
             if(response.items.length>0){
@@ -25,9 +27,11 @@ const FancyBet = (props) => {
                 console.log("getRiskFancyEventList",cricketData);
                 setcricketData(cricketData);
             }
+            setrefreshBtn(true);
             setLoading(false);
         },(err)=>{
-            //setLoading(false);
+            setrefreshBtn(true);
+            setLoading(false);
             toast.error(err);
         });
      }
@@ -37,7 +41,7 @@ const FancyBet = (props) => {
         <div className="match-wrap">
             <div className="total_all">
             <h2>Fancy Bet</h2>
-            <Link to="" onClick={(e)=>{getFancyBet()}}  className="btn_replay" ><img src="images/refresh2.png"/></Link></div>
+            {refreshBtn && <Link to="" onClick={(e)=>{getFancyBet()}}  className="btn_replay" ><img src="images/refresh2.png"/></Link>}</div>
             <table className="table01 risk_matchodd">
                 <tbody>
                     <tr>

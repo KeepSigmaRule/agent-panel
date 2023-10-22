@@ -30,7 +30,7 @@ function App() {
         <Route path='/risk-management' element={<RiskManagement/>}></Route>
         <Route path='/socket' element={<Socket/>}></Route>
       </Routes>
-      <ToastContainer autoClose={5000} position="top-right"/>
+      <ToastContainer autoClose={5000} position="top-center"/>
     </>
   );
 }
