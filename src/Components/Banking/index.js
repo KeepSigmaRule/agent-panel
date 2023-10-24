@@ -24,6 +24,7 @@ const Banking = (props) => {
     let [agentPassword, setagentPassword] = useState();
     let [refreshDownline, setrefreshDownline] = useState(false);
     let [items,setItems] = useState([]);
+    let [bankingResponse,setbankingResponse] = useState([]);
     const [agents,setAgents] = useState([]);
 
     const clearAllRows = ()=>{
@@ -53,31 +54,25 @@ const Banking = (props) => {
         });
 
         if(activeRows > 0 && bankingRequestPayload.length > 0){
+            let requestPayload = {};
+            requestPayload['sid'] = token;
+            requestPayload['myPass']  = agentPassword;
+            requestPayload['players']  = bankingRequestPayload;
+            requestPayload['agentLevel']  = user.level;
             clearAllRows();
             setLoading(true);
-            bankingRequestPayload.map((item,index)=>{
-                let requestPayload = {};
-                requestPayload['sid'] = token;
-                requestPayload['agentId'] = item.agentId;
-                requestPayload['bankingType'] = item.bankingType;
-                requestPayload['amount'] = item.amount;
-                requestPayload['myPass']  = agentPassword;
-                requestPayload['agentLevel']  = user.level;
-                //console.log("requestPayload",requestPayload);
-                dispatch(makeBankingPayment(requestPayload)).then((response)=>{
-                    if(bankingRequestPayload.length===(index+1)){
-                        toast.success("Updated successfully.");
-                        setrefreshDownline(!refreshDownline);
-                        dispatch(getAccountDetail({sid:token})).then((response)=>{
-                            //console.log("getAccountDetail",response);
-                          },(err)=>{
-                            toast.error(err);
-                          });
-                    }
-                },(err)=>{
+            dispatch(makeBankingPayment(requestPayload)).then((response)=>{
+                toast.success("Updated successfully.");
+                setbankingResponse(response.data);
+                setrefreshDownline(!refreshDownline);
+                dispatch(getAccountDetail({sid:token})).then((response)=>{},(err)=>{
                     toast.error(err);
                 });
-            })
+                setLoading(false);
+            },(err)=>{
+                setLoading(false);
+                toast.error(err.message);
+            });
         }
     }
 
@@ -96,7 +91,7 @@ const Banking = (props) => {
                 <dd id="yourBalance"><span>PTH</span>{parseFloat(user.balance).toFixed(2)}</dd>
             </dl>
         </div>
-        <RelatedDownline agents={agents} setAgents={setAgents} items={items} setItems={setItems} refreshDownline={refreshDownline} setLoading={setLoading} setshowLogs={setshowLogs} setshowDownlineLogs={setshowDownlineLogs}  setselectedAgentId={setselectedAgentId} setselectedAgentLevel={setselectedAgentLevel} setactiveRows={setactiveRows}/>
+        <RelatedDownline agents={agents} setAgents={setAgents} bankingResponse={bankingResponse} items={items} setItems={setItems} refreshDownline={refreshDownline} setLoading={setLoading} setshowLogs={setshowLogs} setshowDownlineLogs={setshowDownlineLogs}  setselectedAgentId={setselectedAgentId} setselectedAgentLevel={setselectedAgentLevel} setactiveRows={setactiveRows}/>
         </div>
         <div className="submit-wrap" id="settlementBar">
         <ul>
