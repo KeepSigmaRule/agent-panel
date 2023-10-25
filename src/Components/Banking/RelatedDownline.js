@@ -8,7 +8,7 @@ const RelatedDownline = (props) => {
     let {user} = useSelector(state=>state.auth);
     let {puserBlocked,pbetBlocked,account_downlines} = useSelector(state=>state.downline);
     
-    const {setactiveRows,refreshDownline,items,setItems,agents,setAgents} = props;
+    const {bankingResponse,setactiveRows,refreshDownline,items,setItems,agents,setAgents} = props;
 
     
     
@@ -86,7 +86,17 @@ const RelatedDownline = (props) => {
         props.setLoading(true);
         dispatch(getAccountDownlines(downlineParam)).then((response)=>{
             props.setLoading(false);
-            setItems(response);
+            let output = response.map((item,index)=>{
+                // item.clientid
+                bankingResponse.map((res,index)=>{
+                 if(item.clientid==res.agentId){
+                     item.statusClass = (res.status==1)?'fa-check-circle':'fa-times-circle'; 
+                     item.statusDescription = res.message;
+                 }
+                });
+                return item;
+             });
+            setItems(output);
             setAgents(response);
         },(err)=>{
           props.setLoading(false);
@@ -129,7 +139,7 @@ const RelatedDownline = (props) => {
         
         return (
             <tr key={index} id="akshayddl" main_userid="akshayddl" style={{ display: `${(item.hide)?'none':''}` }}>
-                <td className="td-uid" style={{ backgroundColor: "rgb(239, 239, 239)" }} id="userId"><span className="order">{index + 1}.</span><span style={{ marginTop: '4px' }} className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.clientid}</td>
+                <td className="td-uid" style={{ backgroundColor: "rgb(239, 239, 239)" }} id="userId"><i title={item.statusDescription} className={`fa ${item.statusClass}`} aria-hidden="true"></i><span className="order">{index + 1}.</span><span style={{ marginTop: '4px' }} className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.clientid}</td>
                 <td id="balance" style={{ backgroundColor: "rgb(223, 223, 223)" }}>{AvlBalance}</td>
                 <td id="availableBalance" style={{ backgroundColor: "rgb(239, 239, 239)" }}>{parseFloat(item.Balance).toFixed(2)}</td>
                 <td id="userExposure" className="red" style={{ backgroundColor: "rgb(223, 223, 223)" }} >{Exposure}</td>

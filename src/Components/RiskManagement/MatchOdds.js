@@ -12,14 +12,14 @@ const MatchOdds = (props) => {
     let [cricketData,setcricketData] = useState([]);
     let [cricketDataRunner3,setcricketDataRunner3] = useState([]);
     let [tennisData,settennisData] = useState([]);
-    let [tennisDataRunner3,settennisDataRunner3] = useState([]);
-    let [soccerData,setsoccerData] = useState([]);
     let [soccerDataRunner3,setsoccerDataRunner3] = useState([]);
+    let [refreshBtn,setrefreshBtn] = useState(true);
     useEffect(() => {
         getMatchOdds();
     },[]);
 
     const getMatchOdds = () => {
+        setrefreshBtn(false);
         setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:4,marketName:'Match Odds',is_runnerId3_exist:0})).then((response)=>{
             if(response.items.length>0){
@@ -32,11 +32,13 @@ const MatchOdds = (props) => {
                 setcricketData(cricketData);
             }
             setLoading(false);
+            setrefreshBtn(true);
         },(err)=>{
             setLoading(false);
+            setrefreshBtn(true);
             toast.error(err);
         });
-
+        setrefreshBtn(false);
         setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:4,marketName:'Match Odds',is_runnerId3_exist:1})).then((response)=>{
             if(response.items.length>0){
@@ -50,11 +52,13 @@ const MatchOdds = (props) => {
                 console.log("setcricketDataRunner3",cricketData);
             }
             setLoading(false);
+            setrefreshBtn(true);
         },(err)=>{
             setLoading(false);
+            setrefreshBtn(true);
             toast.error(err);
         });
-
+        setrefreshBtn(false);
         setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:2,marketName:'Match Odds',is_runnerId3_exist:0})).then((response)=>{
             if(response.items.length>0){
@@ -67,11 +71,13 @@ const MatchOdds = (props) => {
                 settennisData(tennisData);
             }
             setLoading(false);
+            setrefreshBtn(true);
         },(err)=>{
             setLoading(false);
+            setrefreshBtn(true);
             toast.error(err);
         });
-
+        setrefreshBtn(false);
         setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Match Odds',is_runnerId3_exist:1})).then((response)=>{
             if(response.items.length>0){
@@ -84,8 +90,10 @@ const MatchOdds = (props) => {
                 setsoccerDataRunner3(tennisData);
             }
             setLoading(false);
+            setrefreshBtn(true);
         },(err)=>{
             setLoading(false);
+            setrefreshBtn(true);
             toast.error(err);
         });
     }
@@ -95,7 +103,7 @@ const MatchOdds = (props) => {
         <div className="match-wrap">
         <div className="total_all">
             <h2>Match Odds </h2>
-            <Link to="" onClick={(e)=>{getMatchOdds()}}  className="btn_replay"><img src="images/refresh2.png" /></Link></div>
+            {refreshBtn && <Link to="" onClick={(e)=>{getMatchOdds()}}  className="btn_replay"><img src="images/refresh2.png" /></Link>}</div>
             <table className="table01 withRunnerID3 risk_matchodd">
                 <tbody>
                 <tr>

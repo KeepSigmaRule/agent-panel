@@ -35,16 +35,17 @@ const Login = (prop) => {
    }
 
    useEffect(()=>{
-    console.log("loginParams",loginParams);
-    dispatch(getAccountDetail({sid:token})).then((response)=>{
-      if(agent_path.length==0){
-        dispatch({ type: "AGENT_PATH_PUSH", payload: response });
-        dispatch({ type: "PL_AGENT_PATH_PUSH", payload: response });
-      }
-      navigate("/downline");
-    },(err)=>{
-      toast.error(err);
-    });
+    if(token){
+      dispatch(getAccountDetail({sid:token})).then((response)=>{
+        if(agent_path.length==0){
+          dispatch({ type: "AGENT_PATH_PUSH", payload: response });
+          dispatch({ type: "PL_AGENT_PATH_PUSH", payload: response });
+        }
+        navigate("/downline");
+      },(err)=>{
+        toast.error(err);
+      });
+    }
   },[token]);
   useEffect(()=>{
     loadCaptchaEnginge(4,"white","black","numbers");

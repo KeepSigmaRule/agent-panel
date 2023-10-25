@@ -32,14 +32,19 @@ const SearchBar = (props) => {
       await dispatch(searchDowlineByValue({puserBlocked:selectedStatus.puserBlocked,pbetBlocked:selectedStatus.pbetBlocked,searchvalue:searchValue,id:user.id})).then(async(response)=>{
           let downlines = [];
           downlines = account_downlines.filter((downline)=>downline.clientid==searchValue);
-          if(downlines.length > 0){
+          if(downlines.length > 0 && response.length>0 && downlines[0].clientid!=response[0].clientid){
             downlines  = downlines.concat(response);
           }
           else{
             downlines = response;
           }
-          dispatch({ type: "ACCOUNT_DOWNLINE_UPDATE", payload: response ? Object.values(downlines) : [] });
-          toast.success("Search result found!");
+          if(response.length>0){
+            dispatch({ type: "ACCOUNT_DOWNLINE_UPDATE", payload: response ? Object.values(downlines) : [] });
+            toast.success("Search result found!"); 
+          }
+          else{ 
+            toast.error("No results are available.");
+          }
         },(err)=>{
           toast.error(err);
         }

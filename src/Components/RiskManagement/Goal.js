@@ -10,11 +10,13 @@ const Goal = (props) => {
     let [under05,setunder05] = useState([]);
     let [under15,setunder15] = useState([]);
     let [under25,setunder25] = useState([]);
+    let [refreshBtn,setrefreshBtn] = useState(true);
     useEffect(() => {
         getGoals();
     },[]);
 
     const getGoals = () => {
+        setrefreshBtn(false);
         setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Over/Under 0.5 Goals',is_runnerId3_exist:0})).then((response)=>{
             if(response.items.length>0){
@@ -26,12 +28,14 @@ const Goal = (props) => {
                 under05Data = Object.entries(under05Data);
                 setunder05(under05Data);
             }
+            setrefreshBtn(true);
             setLoading(false);
         },(err)=>{
+            setrefreshBtn(true);
             setLoading(false);
             toast.error(err);
         });
-
+        setrefreshBtn(false);
         setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Over/Under 1.5 Goals',is_runnerId3_exist:0})).then((response)=>{
             if(response.items.length>0){
@@ -43,12 +47,14 @@ const Goal = (props) => {
                 under15Data = Object.entries(under15Data);
                 setunder15(under15Data);
             }
+            setrefreshBtn(true);
             setLoading(false);
         },(err)=>{
+            setrefreshBtn(true);
             setLoading(false);
             toast.error(err);
         });
-
+        setrefreshBtn(false);
         setLoading(true);
         dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Over/Under 2.5 Goals',is_runnerId3_exist:0})).then((response)=>{
             if(response.items.length>0){
@@ -60,8 +66,10 @@ const Goal = (props) => {
                 under25Data = Object.entries(under25Data);
                 setunder25(under25Data);
             }
+            setrefreshBtn(true);
             setLoading(false);
         },(err)=>{
+            setrefreshBtn(true);
             setLoading(false);
             toast.error(err);
         });
@@ -72,7 +80,7 @@ const Goal = (props) => {
         <div className="match-wrap">
         <div className="total_all">
             <h2>Goals </h2>
-            <Link to="" onClick={(e)=>{getGoals()}}  className="btn_replay"><img src="images/refresh2.png" /></Link></div>
+            {refreshBtn && <Link to="" onClick={(e)=>{getGoals()}}  className="btn_replay"><img src="images/refresh2.png" /></Link>}</div>
             <table className="table01 withOutRunnerID3 risk_matchodd">
                 <tbody>
                 <tr>

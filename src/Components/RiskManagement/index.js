@@ -26,25 +26,33 @@ const RiskManagement = (props) => {
     let [logType, setlogType] = useState('');
     let [selectedItem, setselectedItem] = useState({});
     let [riskAgentPath,setRiskAgentPath] = useState([]);
+    let [refreshBtn,setrefreshBtn] = useState(true);
+    let [displaySports,setdisplaySports] = useState(false);
  
     const getTop10Listings = () => {
+      setrefreshBtn(false);
       setLoading(true);
       dispatch(getTopTenMatchAmount({sid:token})).then((response)=>{
         if(response.items.length>0){
+          setrefreshBtn(true);
           setLoading(false);
           setmatchAmountData(response.items);
         }
       },(err)=>{
+          setrefreshBtn(true);
           setLoading(false);
           toast.error(err);
       });
-      
+      setrefreshBtn(false);
+      setLoading(true);
       dispatch(getTopTenExposure({sid:token})).then((response)=>{
         if(response.items.length>0){
+          setrefreshBtn(true);
           setLoading(false);
           setexposureData(response.items);
         }
       },(err)=>{
+          setrefreshBtn(true);
           setLoading(false);
           toast.error(err);
       });
@@ -53,6 +61,12 @@ const RiskManagement = (props) => {
     useEffect(() => {
      getTop10Listings();
    },[]);
+
+   useEffect(() => {
+    if(matchAmountData.length>0 && exposureData.length>0){
+      setdisplaySports(true);
+    }
+  },[matchAmountData,exposureData]);
    
     return (
       <>
@@ -60,7 +74,7 @@ const RiskManagement = (props) => {
       <div className="main_wrap"> 
       <div className="total_all">
         <h2>Risk Management Summary </h2>
-        <Link to="" onClick={(e)=>{getTop10Listings()}} className="btn_replay"><img src="images/refresh2.png" /></Link>
+        {refreshBtn && <Link to="" onClick={(e)=>{getTop10Listings()}} className="btn_replay"><img src="images/refresh2.png" /></Link>}
       </div>
 			<div className="play_race-wrap">
 				<div className="top_player-wrap">
@@ -201,10 +215,10 @@ const RiskManagement = (props) => {
 				</div>
 				</div>
 			</div>
-  <MatchOdds token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
-  <Goal token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
-  <BookMaker token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
-  <FancyBet token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>
+  {displaySports && <MatchOdds token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
+  {displaySports && <Goal token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
+  {displaySports && <BookMaker token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
+  {displaySports && <FancyBet token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
 </div>
 {(logType==='AgentAccount' && showLogs)  && <AgentAccount setLoading={setLoading} selectedItem={selectedItem} setshowLogs={setshowLogs}/>}
 {(logType==='DownlineBetListing' && showLogs) && <DownlineBetListing  setLoading={setLoading} selectedItem={selectedItem} setshowLogs={setshowLogs} setRiskAgentPath={setRiskAgentPath}/>}
