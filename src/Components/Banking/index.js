@@ -42,17 +42,17 @@ const Banking = (props) => {
 
     const submitBankingPayment = ()=>{
         let bankingRequestPayload = [];
-        account_downlines.map((item)=>{
+        account_downlines.map((item,index)=>{
             if(item.banking_amount>0 && item.banking_type!=''){
                 let payload = {};
                 payload['agentId'] = item.clientid;
+                payload['sort'] = index;
                 payload['bankingType'] = item.banking_type;
                 payload['amount'] = item.banking_amount;
                 payload['remark'] = (item.banking_remark)?item.banking_remark:'';
                 bankingRequestPayload.push(payload);
             }
         });
-
         if(activeRows > 0 && bankingRequestPayload.length > 0){
             let requestPayload = {};
             requestPayload['sid'] = token;
