@@ -62,6 +62,7 @@ const RiskManagement = (props) => {
 
     useEffect(() => {
      getTop10Listings();
+     getEventResponse();
    },[]);
    const getEventResponse = () => {
     setrefreshEventBtn(false);
@@ -77,12 +78,6 @@ const RiskManagement = (props) => {
       toast.error(err);
     });
    }
-
-   useEffect(() => {
-    if(matchAmountData.length>0 && exposureData.length>0){
-      getEventResponse();
-    }
-  },[matchAmountData,exposureData]);
    
     return (
       <>
