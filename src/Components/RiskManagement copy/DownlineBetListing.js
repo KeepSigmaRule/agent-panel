@@ -22,7 +22,6 @@ const DownlineBetListing = (props) => {
     let [event,setevent] = useState(selectedItem.event_id);
     let [sportId,setsportId] = useState(selectedItem.sport_id);
     let [marketName,setmarketName] = useState(selectedItem.market_name);
-    let [marketId,setmarketId] = useState(selectedItem.market_id);
     let [select,setselect] = useState(1);
     let [section,setsection] = useState(0);
     let [selectedPlayer,setselectedPlayer] = useState('');
@@ -31,12 +30,10 @@ const DownlineBetListing = (props) => {
       let requestPayload = {};
       requestPayload['sid'] = token;
       requestPayload['sportId'] = sportId;
-      requestPayload['eventId'] = event;
-      requestPayload['marketId'] = marketId;
+      requestPayload['marketName'] = marketName;
+      requestPayload['is_runnerId3_exist'] = (selectedItem.runnerId3.trim()!=="")?1:0;
       requestPayload['userId'] = user.id;
-      requestPayload['runnerId3'] = selectedItem.runnerId3.trim();
-      
-      
+      requestPayload['eventId'] = event;
       console.log("requestPayload", requestPayload);
       setLoading(true);
       dispatch(getRiskEventListDownline(requestPayload)).then((response)=>{
@@ -128,7 +125,7 @@ const DownlineBetListing = (props) => {
                   </tr>
                   <tr>
                     <th className="border-l bgcolor-sub" width="7%">1</th>
-                    <th className="border-l bgcolor-sub" width="7%" >X</th>
+                    {selectedItem.runnerId3!=="" && <th className="border-l bgcolor-sub" width="7%" >X</th>}
                     <th className="border-l bgcolor-sub" width="7%">2</th>
                   </tr>
                 </tbody>
@@ -149,7 +146,7 @@ const DownlineBetListing = (props) => {
                               <Link to="" onClick={()=>{HandleAgentPath(agentBasicInfo)}} ><strong>{agent.clientId}</strong> </Link>
                             </td>
                           <td><span className={`${(parseFloat(agent.teamA_total).toFixed(2) < 0)?'red':''}`}>{teamA_total}</span></td>
-                          <td ><span className={`${(parseFloat(agent.draw_total).toFixed(2) < 0)?'red':''}`}>{draw_total}</span></td>
+                          {selectedItem.runnerId3!=="" && <td ><span className={`${(parseFloat(agent.draw_total).toFixed(2) < 0)?'red':''}`}>{draw_total}</span></td>}
                           <td><span className={`${(parseFloat(agent.teamB_total).toFixed(2) < 0)?'red':''}`}>{teamB_total}</span></td>
                         </tr>
                       );

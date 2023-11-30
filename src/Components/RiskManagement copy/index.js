@@ -12,7 +12,7 @@ import BookMaker from './BookMaker';
 import FancyBet from './FancyBet';
 import DownlineBetListing from './DownlineBetListing';
 import FancyBooking from './FancyBooking';
-import { getRiskEventListV2 } from '../../Redux/action/Risk';
+import { getRiskEventListDownline } from '../../Redux/action/Risk';
 import { toast } from "react-toastify";
 import './RiskManagement.css';
 const RiskManagement = (props) => {
@@ -27,10 +27,8 @@ const RiskManagement = (props) => {
     let [selectedItem, setselectedItem] = useState({});
     let [riskAgentPath,setRiskAgentPath] = useState([]);
     let [refreshBtn,setrefreshBtn] = useState(true);
-    let [refreshEventBtn,setrefreshEventBtn] = useState(true);
     let [displaySports,setdisplaySports] = useState(false);
-    let [eventResponse,setEventResponse] = useState([]);
-  
+ 
     const getTop10Listings = () => {
       setrefreshBtn(false);
       setLoading(true);
@@ -63,24 +61,10 @@ const RiskManagement = (props) => {
     useEffect(() => {
      getTop10Listings();
    },[]);
-   const getEventResponse = () => {
-    setrefreshEventBtn(false);
-    setLoading(true);
-    dispatch(getRiskEventListV2({sid:token})).then((response)=>{
-      setdisplaySports(true);
-      setEventResponse(response.result);
-      setrefreshEventBtn(true);
-      setLoading(false);
-    },(err)=>{
-      setrefreshEventBtn(true);
-      setLoading(false);
-      toast.error(err);
-    });
-   }
 
    useEffect(() => {
     if(matchAmountData.length>0 && exposureData.length>0){
-      getEventResponse();
+      setdisplaySports(true);
     }
   },[matchAmountData,exposureData]);
    
@@ -231,9 +215,9 @@ const RiskManagement = (props) => {
 				</div>
 				</div>
 			</div>
-  {displaySports && <MatchOdds refreshEventBtn={refreshEventBtn} getEventResponse = {getEventResponse} eventResponse = {eventResponse}  setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
-  {displaySports && <Goal  refreshEventBtn={refreshEventBtn} getEventResponse = {getEventResponse} eventResponse = {eventResponse}  setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
-  {displaySports && <BookMaker  refreshEventBtn={refreshEventBtn} getEventResponse = {getEventResponse} eventResponse = {eventResponse}  setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
+  {displaySports && <MatchOdds token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
+  {displaySports && <Goal token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
+  {displaySports && <BookMaker token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
   {displaySports && <FancyBet token={token} user={user} setshowLogs={setshowLogs} setselectedItem={setselectedItem} setlogType={setlogType} setLoading={setLoading}/>}
 </div>
 {(logType==='AgentAccount' && showLogs)  && <AgentAccount setLoading={setLoading} selectedItem={selectedItem} setshowLogs={setshowLogs}/>}

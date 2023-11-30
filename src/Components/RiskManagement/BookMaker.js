@@ -5,103 +5,36 @@ import { getRiskEventList } from '../../Redux/action/Risk';
 import { toast } from "react-toastify";
 const BookMaker = (props) => {
     const dispatch = useDispatch();
-    let {token,user,setshowLogs,setlogType,setselectedItem,setLoading}  = props;
-    let [cricketData,setcricketData] = useState([]);
-    let [cricketDataRunner3,setcricketDataRunner3] = useState([]);
-    let [tennisData,settennisData] = useState([]);
-    let [soccerDataRunner3,setsoccerDataRunner3] = useState([]);
-    let [refreshBtn,setrefreshBtn] = useState(true);
+    let {setshowLogs,setlogType,setselectedItem,eventResponse,getEventResponse,refreshEventBtn}  = props;
+    let [BookMaker,setBookMaker] = useState([]);
+    let [BookMakerR3,setBookMakerR3] = useState([]);
     useEffect(() => {
-        getBookMaker();
+        if(eventResponse.BookMakerR3.length > 0){
+            let cricketData = eventResponse.BookMakerR3.reduce(function (r, item) {
+                r[item.market_start_time] = r[item.market_start_time] || [];
+                r[item.market_start_time].push(item);
+                return r;
+                }, Object.create(null));
+                cricketData = Object.entries(cricketData);
+                setBookMakerR3(cricketData);
+        }
+        if(eventResponse.BookMaker.length > 0){
+            let cricketData = eventResponse.BookMaker.reduce(function (r, item) {
+                r[item.market_start_time] = r[item.market_start_time] || [];
+                r[item.market_start_time].push(item);
+                return r;
+                }, Object.create(null));
+                cricketData = Object.entries(cricketData);
+                setBookMaker(cricketData);
+        }
     },[]);
-
-    const getBookMaker = () =>{
-        setrefreshBtn(false);
-        setLoading(true);
-        dispatch(getRiskEventList({sid:token,sportId:4,marketName:'Bookmaker',is_runnerId3_exist:0})).then((response)=>{
-            if(response.items.length>0){
-                let cricketData = response.items.reduce(function (r, item) {
-                    r[item.market_start_time] = r[item.market_start_time] || [];
-                    r[item.market_start_time].push(item);
-                    return r;
-                }, Object.create(null));
-                cricketData = Object.entries(cricketData);
-                setcricketData(cricketData);
-            }
-            setrefreshBtn(true);
-            setLoading(false);
-        },(err)=>{
-            setrefreshBtn(true);
-            setLoading(false);
-            toast.error(err);
-        });
-        setrefreshBtn(false);
-        setLoading(true);
-        dispatch(getRiskEventList({sid:token,sportId:4,marketName:'Bookmaker',is_runnerId3_exist:1})).then((response)=>{
-            if(response.items.length>0){
-                let cricketData = response.items.reduce(function (r, item) {
-                    r[item.market_start_time] = r[item.market_start_time] || [];
-                    r[item.market_start_time].push(item);
-                    return r;
-                }, Object.create(null));
-                cricketData = Object.entries(cricketData);
-                setcricketDataRunner3(cricketData);
-                console.log("setcricketDataRunner3",cricketData);
-            }
-            setrefreshBtn(true);
-            setLoading(false);
-        },(err)=>{
-            setrefreshBtn(true);
-            setLoading(false);
-            toast.error(err);
-        });
-        setrefreshBtn(false);
-        setLoading(true);
-        dispatch(getRiskEventList({sid:token,sportId:2,marketName:'Bookmaker',is_runnerId3_exist:0})).then((response)=>{
-            if(response.items.length>0){
-                let tennisData = response.items.reduce(function (r, item) {
-                    r[item.market_start_time] = r[item.market_start_time] || [];
-                    r[item.market_start_time].push(item);
-                    return r;
-                }, Object.create(null));
-                tennisData = Object.entries(tennisData);
-                settennisData(tennisData);
-            }
-            setrefreshBtn(true);
-            setLoading(false);
-        },(err)=>{
-            setrefreshBtn(true);
-            setLoading(false);
-            toast.error(err);
-        });
-        setrefreshBtn(false);
-        setLoading(true);
-        dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Bookmaker',is_runnerId3_exist:1})).then((response)=>{
-            if(response.items.length>0){
-                setLoading(false);
-                let tennisData = response.items.reduce(function (r, item) {
-                    r[item.market_start_time] = r[item.market_start_time] || [];
-                    r[item.market_start_time].push(item);
-                    return r;
-                }, Object.create(null));
-                tennisData = Object.entries(tennisData);
-                setsoccerDataRunner3(tennisData);
-            }
-            setrefreshBtn(true);
-            setLoading(false);
-        },(err)=>{
-            setrefreshBtn(true);
-            setLoading(false);
-            toast.error(err);
-        });
-    }
 
   return (
     <>
         <div className="match-wrap">
         <div className="total_all">
             <h2>Book Maker </h2>
-            {refreshBtn && <Link to="" onClick={(e)=>{getBookMaker()}} className="btn_replay"><img src="images/refresh2.png" /></Link>}</div>
+            {refreshEventBtn && <Link to="" onClick={(e)=>{getEventResponse()}} className="btn_replay"><img src="images/refresh2.png" /></Link>}</div>
             <table className="table01 withRunnerID3 risk_matchodd">
                 <tbody>
                 <tr>
@@ -117,7 +50,7 @@ const BookMaker = (props) => {
                     <th width="7%" className="bg-yellow">2</th>
                 </tr>
                 </tbody>
-                {cricketDataRunner3.length > 0 && cricketDataRunner3.map((items,index)=>{
+                {BookMakerR3.length > 0 && BookMakerR3.map((items,index)=>{
                     return(
                         <tbody key={index}>
                             {items[1].map((subItem,subIndex)=>{
@@ -126,7 +59,9 @@ const BookMaker = (props) => {
                                 let draw_total= (parseFloat(subItem.draw_total).toFixed(2) >= 0)?parseFloat(subItem.draw_total).toFixed(2):`(${parseFloat(Math.abs(subItem.draw_total)).toFixed(2)})`;
                                 return(
                                     <tr  key={subIndex} className="border-t">
-                                    <td className="align-L" rowSpan="3" ><Link to="">Cricket</Link></td>
+                                    {subItem.sport_id==1 && <td className="align-L" rowSpan="3" ><Link to="">Soccer</Link></td>}
+                                    {subItem.sport_id==2 && <td className="align-L" rowSpan="3" ><Link to="">Tennis</Link></td>}
+                                    {subItem.sport_id==4 && <td className="align-L" rowSpan="3" ><Link to="">Cricket</Link></td>}
                                     <td className="align-L border-l" rowSpan="2">{items[0]}</td>
                                     <td className="align-L border-l">
                                         {/* <Link to=""  className="btn open-odds" id="showOddsBtn">Open</Link> */}
@@ -158,48 +93,7 @@ const BookMaker = (props) => {
                         </tbody>
                     );
                 })}
-                {soccerDataRunner3.length > 0 && soccerDataRunner3.map((items,index)=>{
-                    return(
-                        <tbody key={index}>
-                            {items[1].map((subItem,subIndex)=>{
-                                let teamA_total = (parseFloat(subItem.teamA_total).toFixed(2) >= 0)?parseFloat(subItem.teamA_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamA_total)).toFixed(2)})`;
-                                let teamB_total = (parseFloat(subItem.teamB_total).toFixed(2) >= 0)?parseFloat(subItem.teamB_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamB_total)).toFixed(2)})`;
-                                let draw_total= (parseFloat(subItem.draw_total).toFixed(2) >= 0)?parseFloat(subItem.draw_total).toFixed(2):`(${parseFloat(Math.abs(subItem.draw_total)).toFixed(2)})`;
-                                return(
-                                    <tr  key={subIndex} className="border-t">
-                                    <td className="align-L" rowSpan="3" ><Link to="">Soccer</Link></td>
-                                    <td className="align-L border-l" rowSpan="2">{items[0]}</td>
-                                    <td className="align-L border-l">
-                                        {/* <Link to=""  className="btn open-odds" id="showOddsBtn">Open</Link> */}
-                                        <span data-bs-toggle="modal" data-bs-target="#exampleModal4" style={{outline:'none'}}>
-                                        <Link to="">
-                                            <strong >{subItem.event_name}</strong>
-                                            <img className="fromto" src="images/refresh2.png" />
-                                            <span id="marketName">{subItem.market_name}</span> 
-                                        </Link>
-                                        </span>
-                                    </td>
-                                    <td className="border-l">
-                                        <Link to=""  className="" ><span className={`${(parseFloat(subItem.teamA_total).toFixed(2) < 0)?'red':''}`}>{teamA_total}</span></Link>
-                                    </td>
-                                    <td>
-                                        <Link to=""  className="" ><span className={`${(parseFloat(subItem.draw_total).toFixed(2) < 0)?'red':''}`}>{draw_total}</span></Link>
-                                    </td>
-                                    <td>
-                                        <Link to=""  className="" ><span className={`${(parseFloat(subItem.teamB_total).toFixed(2) < 0)?'red':''}`}>{teamB_total}</span></Link>
-                                    </td>
-                                    <td className="border-l">
-                                        <div data-bs-toggle="modal" data-bs-target="#exampleModal1" style={{outline:'none'}}>
-                                            <Link to="" onClick={(e)=>{e.preventDefault(); setlogType('DownlineBetListing');setshowLogs(true);setselectedItem(subItem);}}  className="btn" >View_3 </Link>
-                                        </div>
-                                    </td>
-                                </tr>
-                                );
-                            })}
-                        </tbody>
-                    );
-                })}
-                {cricketDataRunner3.length===0 && <tbody><tr><td className="no-data" colSpan={7}>Sorry, there is no data to display</td></tr></tbody>}
+                {BookMakerR3.length===0 && <tbody><tr><td className="no-data" colSpan={7}>Sorry, there is no data to display</td></tr></tbody>}
             </table>
             <table className="table01 withOutRunnerID3 risk_matchodd">
                 <tbody>
@@ -216,7 +110,7 @@ const BookMaker = (props) => {
                 </tr>
                 </tbody>
                 
-                 {cricketData.length > 0 && cricketData.map((items,index)=>{
+                 {BookMaker.length > 0 && BookMaker.map((items,index)=>{
                     return (
                         <tbody key={index}>
                         {items[1].map((subItem,subIndex)=>{
@@ -224,7 +118,9 @@ const BookMaker = (props) => {
                             let teamB_total = (parseFloat(subItem.teamB_total).toFixed(2) >= 0)?parseFloat(subItem.teamB_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamB_total)).toFixed(2)})`;
                             return(
                                 <tr key={subIndex} className="border-t">
-                                    <td className="align-L" rowSpan="1"><Link to="">Cricket</Link></td>
+                                    {subItem.sport_id==1 && <td className="align-L" rowSpan="1" ><Link to="">Soccer</Link></td>}
+                                    {subItem.sport_id==2 && <td className="align-L" rowSpan="1" ><Link to="">Tennis</Link></td>}
+                                    {subItem.sport_id==4 && <td className="align-L" rowSpan="1" ><Link to="">Cricket</Link></td>}
                                     <td className="align-L border-l" rowSpan="1">{items[0]}</td>
                                     <td className="align-L border-l">
                                     {/* <Link to="" className="btn open-odds">Open</Link> */}
@@ -245,36 +141,7 @@ const BookMaker = (props) => {
                         </tbody>
                     );
                  })}
-                 {tennisData.length > 0 && tennisData.map((items,index)=>{
-                    return (
-                        <tbody key={index}>
-                        {items[1].map((subItem,subIndex)=>{
-                            let teamA_total = (parseFloat(subItem.teamA_total).toFixed(2) >= 0)?parseFloat(subItem.teamA_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamA_total)).toFixed(2)})`;
-                            let teamB_total = (parseFloat(subItem.teamB_total).toFixed(2) >= 0)?parseFloat(subItem.teamB_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamB_total)).toFixed(2)})`;
-                            return(
-                                <tr key={subIndex} className="border-t">
-                                    <td className="align-L" rowSpan="1"><Link to="">Tennis</Link></td>
-                                    <td className="align-L border-l" rowSpan="1">{items[0]}</td>
-                                    <td className="align-L border-l">
-                                    {/* <Link to="" className="btn open-odds">Open</Link> */}
-                                    <Link to="">
-                                        <strong id="eventName">{subItem.event_name}</strong>
-                                        <img className="fromto" src="images/refresh2.png" />
-                                        <span id="marketName">{subItem.market_name}</span>
-                                    </Link>
-                                    </td>
-                                    <td className="border-l"><Link to="" className={`${(parseFloat(subItem.teamA_total).toFixed(2) < 0)?'red':''}`}><span className="">{teamA_total}</span></Link></td>
-                                    <td><Link to=""  className={`${(parseFloat(subItem.teamB_total).toFixed(2) < 0)?'red':''}`}>{teamB_total}</Link></td>
-                                    <td className="border-l">
-                                        <Link to="" onClick={(e)=>{e.preventDefault(); setlogType('DownlineBetListing');setshowLogs(true);setselectedItem(subItem);}} className="btn">View_5 </Link>
-                                    </td>
-                                </tr>
-                            );
-                        })}
-                        </tbody>
-                    );
-                 })}
-                 {cricketData.length===0 && <tbody><tr><td className="no-data" colSpan={6}>Sorry, there is no data to display</td></tr></tbody>}
+                 {BookMaker.length===0 && <tbody><tr><td className="no-data" colSpan={6}>Sorry, there is no data to display</td></tr></tbody>}
             </table>
         </div>
     </>

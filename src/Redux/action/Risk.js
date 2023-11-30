@@ -1,5 +1,30 @@
 import { withoutAuthAxios } from "../../Config/axios";
 
+export const getRiskEventListV2 = data => async _dispatch => {
+    return new Promise(async (resolve, reject) => {
+        await withoutAuthAxios().post("/api/agent/getRiskEventListV2", data)
+            .then(
+                response => {
+                    if (response.status === 200) {
+                       resolve(response.data);
+                    }
+                    else{
+                        reject(response.data);
+                    }
+                },
+                error => {
+                    reject(error);
+                }
+            )
+            .catch(
+                error => {
+                    console.log("errorrrr", error);
+                    reject(error.message);
+                }
+            )
+    })
+}
+
 export const getRiskEventList = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
         await withoutAuthAxios().post("/api/agent/getRiskEventList", data)

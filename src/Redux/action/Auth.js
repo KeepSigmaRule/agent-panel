@@ -10,11 +10,12 @@ export const login = data => async _dispatch => {
                        resolve(response.data);
                     }
                     else{
+                        console.log(response.data);
                         reject(response.data);
                     }
                 },
                 error => {
-                    reject(error);
+                    reject(error.message);
                 }
             )
             .catch(

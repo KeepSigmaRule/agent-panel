@@ -1,109 +1,39 @@
 import React,{useState,useEffect} from 'react';
-import { useSelector,useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getRiskEventList } from '../../Redux/action/Risk';
-import { toast } from "react-toastify";
 import RowCricketMatchOdds from './RowCricketMatchOdds';
 import RowSoccerMatchOdds from './RowSoccerMatchOdds';
 import RowTennisMatchOdds from './RowTennisMatchOdds';
 const MatchOdds = (props) => {
-    const dispatch = useDispatch();
-    let {token,user,setshowLogs,setlogType,setselectedItem,setLoading}  = props;
-    let [cricketData,setcricketData] = useState([]);
-    let [cricketDataRunner3,setcricketDataRunner3] = useState([]);
-    let [tennisData,settennisData] = useState([]);
-    let [soccerDataRunner3,setsoccerDataRunner3] = useState([]);
-    let [refreshBtn,setrefreshBtn] = useState(true);
+    let {setshowLogs,setlogType,setselectedItem,eventResponse,getEventResponse,refreshEventBtn}  = props;
+    let [MatchOdd,setMatchOdd] = useState([]);
+    let [MatchOddR3,setMatchOddR3] = useState([]);
     useEffect(() => {
-        getMatchOdds();
+        if(eventResponse.MatchOddR3.length > 0){
+            let cricketData = eventResponse.MatchOddR3.reduce(function (r, item) {
+                r[item.market_start_time] = r[item.market_start_time] || [];
+                r[item.market_start_time].push(item);
+                return r;
+                }, Object.create(null));
+                cricketData = Object.entries(cricketData);
+                setMatchOddR3(cricketData);
+        }
+        if(eventResponse.MatchOdd.length > 0){
+            let cricketData = eventResponse.MatchOdd.reduce(function (r, item) {
+                r[item.market_start_time] = r[item.market_start_time] || [];
+                r[item.market_start_time].push(item);
+                return r;
+                }, Object.create(null));
+                cricketData = Object.entries(cricketData);
+                setMatchOdd(cricketData);
+        }
     },[]);
-
-    const getMatchOdds = () => {
-        setrefreshBtn(false);
-        setLoading(true);
-        dispatch(getRiskEventList({sid:token,sportId:4,marketName:'Match Odds',is_runnerId3_exist:0})).then((response)=>{
-            if(response.items.length>0){
-                let cricketData = response.items.reduce(function (r, item) {
-                    r[item.market_start_time] = r[item.market_start_time] || [];
-                    r[item.market_start_time].push(item);
-                    return r;
-                }, Object.create(null));
-                cricketData = Object.entries(cricketData);
-                setcricketData(cricketData);
-            }
-            setLoading(false);
-            setrefreshBtn(true);
-        },(err)=>{
-            setLoading(false);
-            setrefreshBtn(true);
-            toast.error(err);
-        });
-        setrefreshBtn(false);
-        setLoading(true);
-        dispatch(getRiskEventList({sid:token,sportId:4,marketName:'Match Odds',is_runnerId3_exist:1})).then((response)=>{
-            if(response.items.length>0){
-                let cricketData = response.items.reduce(function (r, item) {
-                    r[item.market_start_time] = r[item.market_start_time] || [];
-                    r[item.market_start_time].push(item);
-                    return r;
-                }, Object.create(null));
-                cricketData = Object.entries(cricketData);
-                setcricketDataRunner3(cricketData);
-                console.log("setcricketDataRunner3",cricketData);
-            }
-            setLoading(false);
-            setrefreshBtn(true);
-        },(err)=>{
-            setLoading(false);
-            setrefreshBtn(true);
-            toast.error(err);
-        });
-        setrefreshBtn(false);
-        setLoading(true);
-        dispatch(getRiskEventList({sid:token,sportId:2,marketName:'Match Odds',is_runnerId3_exist:0})).then((response)=>{
-            if(response.items.length>0){
-                let tennisData = response.items.reduce(function (r, item) {
-                    r[item.market_start_time] = r[item.market_start_time] || [];
-                    r[item.market_start_time].push(item);
-                    return r;
-                }, Object.create(null));
-                tennisData = Object.entries(tennisData);
-                settennisData(tennisData);
-            }
-            setLoading(false);
-            setrefreshBtn(true);
-        },(err)=>{
-            setLoading(false);
-            setrefreshBtn(true);
-            toast.error(err);
-        });
-        setrefreshBtn(false);
-        setLoading(true);
-        dispatch(getRiskEventList({sid:token,sportId:1,marketName:'Match Odds',is_runnerId3_exist:1})).then((response)=>{
-            if(response.items.length>0){
-                let tennisData = response.items.reduce(function (r, item) {
-                    r[item.market_start_time] = r[item.market_start_time] || [];
-                    r[item.market_start_time].push(item);
-                    return r;
-                }, Object.create(null));
-                tennisData = Object.entries(tennisData);
-                setsoccerDataRunner3(tennisData);
-            }
-            setLoading(false);
-            setrefreshBtn(true);
-        },(err)=>{
-            setLoading(false);
-            setrefreshBtn(true);
-            toast.error(err);
-        });
-    }
 
   return (
     <>
         <div className="match-wrap">
         <div className="total_all">
             <h2>Match Odds </h2>
-            {refreshBtn && <Link to="" onClick={(e)=>{getMatchOdds()}}  className="btn_replay"><img src="images/refresh2.png" /></Link>}</div>
+            {refreshEventBtn && <Link to="" onClick={(e)=>{getEventResponse()}}   className="btn_replay"><img src="images/refresh2.png" /></Link>}</div>
             <table className="table01 withRunnerID3 risk_matchodd">
                 <tbody>
                 <tr>
@@ -119,7 +49,7 @@ const MatchOdds = (props) => {
                     <th width="7%" className="bg-yellow">2</th>
                 </tr>
                 </tbody>
-                {cricketDataRunner3.length > 0 && cricketDataRunner3.map((items,index)=>{
+                {MatchOddR3.length > 0 && MatchOddR3.map((items,index)=>{
                     return(
                         <tbody key={index}>
                             {items[1].map((subItem,subIndex)=>{
@@ -127,28 +57,17 @@ const MatchOdds = (props) => {
                                 let teamB_total = (parseFloat(subItem.teamB_total).toFixed(2) >= 0)?parseFloat(subItem.teamB_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamB_total)).toFixed(2)})`;
                                 let draw_total= (parseFloat(subItem.draw_total).toFixed(2) >= 0)?parseFloat(subItem.draw_total).toFixed(2):`(${parseFloat(Math.abs(subItem.draw_total)).toFixed(2)})`;
                                 return(
-                                    <RowCricketMatchOdds  key={subIndex} eventDate={items[0]} teamA_total={teamA_total} draw_total={draw_total} teamB_total={teamB_total} subItem={subItem} setshowLogs={setshowLogs} setlogType={setlogType} setselectedItem={setselectedItem}/>
+                                    <>
+                                        {subItem.sport_id==1 && <RowSoccerMatchOdds  key={subIndex} eventDate={items[0]} teamA_total={teamA_total} draw_total={draw_total} teamB_total={teamB_total} subItem={subItem} setshowLogs={setshowLogs} setlogType={setlogType} setselectedItem={setselectedItem}/>}
+                                        {subItem.sport_id==2 && <RowTennisMatchOdds  key={subIndex} eventDate={items[0]} teamA_total={teamA_total} draw_total={draw_total} teamB_total={teamB_total} subItem={subItem} setshowLogs={setshowLogs} setlogType={setlogType} setselectedItem={setselectedItem}/>}
+                                        {subItem.sport_id==4 && <RowCricketMatchOdds  key={subIndex} eventDate={items[0]} teamA_total={teamA_total} draw_total={draw_total} teamB_total={teamB_total} subItem={subItem} setshowLogs={setshowLogs} setlogType={setlogType} setselectedItem={setselectedItem}/>}  
+                                    </>
                                 );
                             })}
                         </tbody>
                     );
                 })}
-                
-                {soccerDataRunner3.length > 0 && soccerDataRunner3.map((items,index)=>{
-                    return(
-                        <tbody key={index}>
-                            {items[1].map((subItem,subIndex)=>{
-                                let teamA_total = (parseFloat(subItem.teamA_total).toFixed(2) >= 0)?parseFloat(subItem.teamA_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamA_total)).toFixed(2)})`;
-                                let teamB_total = (parseFloat(subItem.teamB_total).toFixed(2) >= 0)?parseFloat(subItem.teamB_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamB_total)).toFixed(2)})`;
-                                let draw_total= (parseFloat(subItem.draw_total).toFixed(2) >= 0)?parseFloat(subItem.draw_total).toFixed(2):`(${parseFloat(Math.abs(subItem.draw_total)).toFixed(2)})`;
-                                return(
-                                    <RowSoccerMatchOdds  key={subIndex} eventDate={items[0]} teamA_total={teamA_total} draw_total={draw_total} teamB_total={teamB_total} subItem={subItem} setshowLogs={setshowLogs} setlogType={setlogType} setselectedItem={setselectedItem}/>
-                                );
-                            })}
-                        </tbody>
-                    );
-                })}
-                {cricketDataRunner3.length===0 && <tbody><tr><td className="no-data" colSpan={7}>Sorry, there is no data to display</td></tr></tbody>}
+                {MatchOddR3.length===0 && <tbody><tr><td className="no-data" colSpan={7}>Sorry, there is no data to display</td></tr></tbody>}
             </table>
             <table className="table01 withOutRunnerID3 risk_matchodd">
                 <tbody>
@@ -165,33 +84,24 @@ const MatchOdds = (props) => {
                 </tr>
                 </tbody>
                 
-                 {cricketData.length > 0 && cricketData.map((items,index)=>{
+                 {MatchOdd.length > 0 && MatchOdd.map((items,index)=>{
                     return (
                         <tbody key={index}>
                         {items[1].map((subItem,subIndex)=>{
                             let teamA_total = (parseFloat(subItem.teamA_total).toFixed(2) >= 0)?parseFloat(subItem.teamA_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamA_total)).toFixed(2)})`;
                             let teamB_total = (parseFloat(subItem.teamB_total).toFixed(2) >= 0)?parseFloat(subItem.teamB_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamB_total)).toFixed(2)})`;
                             return(
-                                <RowCricketMatchOdds  key={subIndex} eventDate={items[0]} teamA_total={teamA_total} teamB_total={teamB_total} subItem={subItem} setshowLogs={setshowLogs} setlogType={setlogType} setselectedItem={setselectedItem}/>
+                                <>
+                                    {subItem.sport_id==1 && <RowSoccerMatchOdds  key={subIndex} eventDate={items[0]} teamA_total={teamA_total} teamB_total={teamB_total} subItem={subItem} setshowLogs={setshowLogs} setlogType={setlogType} setselectedItem={setselectedItem}/>}
+                                    {subItem.sport_id==2 && <RowTennisMatchOdds  key={subIndex} eventDate={items[0]} teamA_total={teamA_total} teamB_total={teamB_total} subItem={subItem} setshowLogs={setshowLogs} setlogType={setlogType} setselectedItem={setselectedItem}/>}
+                                    {subItem.sport_id==4 && <RowCricketMatchOdds  key={subIndex} eventDate={items[0]} teamA_total={teamA_total} teamB_total={teamB_total} subItem={subItem} setshowLogs={setshowLogs} setlogType={setlogType} setselectedItem={setselectedItem}/>}
+                                </>
                             );
                         })}
                         </tbody>
                     );
                  })}
-                 {tennisData.length > 0 && tennisData.map((items,index)=>{
-                    return (
-                        <tbody key={index}>
-                        {items[1].map((subItem,subIndex)=>{
-                            let teamA_total = (parseFloat(subItem.teamA_total).toFixed(2) >= 0)?parseFloat(subItem.teamA_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamA_total)).toFixed(2)})`;
-                            let teamB_total = (parseFloat(subItem.teamB_total).toFixed(2) >= 0)?parseFloat(subItem.teamB_total).toFixed(2):`(${parseFloat(Math.abs(subItem.teamB_total)).toFixed(2)})`;
-                            return(
-                                <RowTennisMatchOdds  key={subIndex} eventDate={items[0]} teamA_total={teamA_total} teamB_total={teamB_total} subItem={subItem} setshowLogs={setshowLogs} setlogType={setlogType} setselectedItem={setselectedItem}/>
-                            );
-                        })}
-                        </tbody>
-                    );
-                 })}
-                 {cricketData.length===0 && <tbody><tr><td className="no-data" colSpan={6}>Sorry, there is no data to display</td></tr></tbody>}
+                 {MatchOdd.length===0 && <tbody><tr><td className="no-data" colSpan={6}>Sorry, there is no data to display</td></tr></tbody>}
             </table>
         </div>
     </>
