@@ -24,7 +24,7 @@ export default function auth(state = initialState, action) {
         case "USER_DATA_UPDATE":
             return { ...state, user: action.payload }
         case "SAVE_TOKEN":
-            return { ...state, token: action.payload }
+            return { ...state, token: action.payload }  
         case "LOGOUT":
             return { ...state, user: "", token: "" }
         default:

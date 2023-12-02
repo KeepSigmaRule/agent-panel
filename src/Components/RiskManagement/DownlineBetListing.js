@@ -59,10 +59,11 @@ const DownlineBetListing = (props) => {
       let requestPayload = {};
       requestPayload['sid'] = token;
       requestPayload['sportId'] = sportId;
-      requestPayload['marketName'] = marketName;
-      requestPayload['is_runnerId3_exist'] = (selectedItem.runnerId3.trim()!=="")?1:0;
-      requestPayload['userId'] = agentBasicInfo.id;
       requestPayload['eventId'] = event;
+      requestPayload['marketId'] = marketId;
+      requestPayload['userId'] = agentBasicInfo.id;
+      requestPayload['runnerId3'] = selectedItem.runnerId3.trim();
+      
       if(agentBasicInfo.level>5){
         setsection(1);
         setselectedPlayer(agentBasicInfo);

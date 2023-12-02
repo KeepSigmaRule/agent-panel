@@ -1,9 +1,9 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { useSelector,useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import { logOut } from '../Redux/action/Auth';
 import Transparent from '../images/transparent.gif';
-import { getAccountDetail } from '../Redux/action/Auth';
+import { getAccountDetail,checkToken } from '../Redux/action/Auth';
 import { toast } from "react-toastify";
 import '../css/Indibet.css';
 import '../css/Fullmarket.css';
@@ -11,6 +11,7 @@ import '../css/Login.css';
 import '../css/Style.css';
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   let {user,token} = useSelector(state=>state.auth);
   const refreshAccountDetail = ()=>{
     dispatch(getAccountDetail({sid:token})).then((response)=>{
@@ -19,6 +20,21 @@ const Header = () => {
         toast.error(err);
       });
   }
+
+    useEffect(() => {
+    const interval = setInterval(() => {
+        dispatch(checkToken({id:user.id,token:user.token})).then((response)=>{
+            if(response==="invalid"){
+                
+            }
+          },(err)=>{
+            toast.error(err);
+            let logoutObj = document.getElementById('logout');
+            logoutObj.click();
+          });
+    }, 5000);
+    return () => clearInterval(interval);
+    }, []);
   
   return (
     <>

@@ -1,5 +1,6 @@
 import { withoutAuthAxios } from "../../Config/axios"
 import CryptoJS from 'crypto-js';
+import { useNavigate } from 'react-router-dom';
 
 export const login = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
@@ -27,9 +28,33 @@ export const login = data => async _dispatch => {
     })
 }
 
+export const checkToken = data => async _dispatch => {
+    return new Promise(async (resolve, reject) => {
+        await withoutAuthAxios().post("/api/agent/CheckToken", data)
+            .then(async (response) => {
+                    if (response.status === 200) {
+                       resolve(response.data);
+                    }
+                    else{
+                        console.log(response.data);
+                        reject(response.data);
+                    }
+                },
+                error => {
+                    reject(error.message);
+                }
+            )
+            .catch(
+                error => {
+                    console.log("errorrrr", error);
+                    reject(error.message);
+                }
+            )
+    })
+}
+
 export const getAccountDetail = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
-        console.log(data);
         await withoutAuthAxios().post("/api/agent/NewagentInfo", data)
             .then(
                 response => {
