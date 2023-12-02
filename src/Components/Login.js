@@ -65,7 +65,7 @@ const Login = (prop) => {
                     <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
                     <div  className="form-group mb-5">
                       <input  formcontrolname="text" placeholder="Validation Code" inputmode="numeric" maxLength="4" id="user_captcha_input" type="text"  className="ng-dirty ng-valid ng-touched" />
-                      <span className="authenticateImage"><LoadCanvasTemplateNoReload /></span>
+                      <span className="authenticateImage"><LoadCanvasTemplate /></span>
                     </div>
                   <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
               </div>
@@ -124,7 +124,7 @@ const Login = (prop) => {
               <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
             <dd className="valid-code">
 							<input type="tel" placeholder="Validation Code" maxLength="4" id="user_captcha_input"/>
-							<div id="popupcaptcha" style={{ position: 'relative', right: '-57.13333vw', width: '16.6666vw', top: '-9.31vw' }}><LoadCanvasTemplateNoReload /></div>
+							<div id="popupcaptcha" style={{ position: 'relative', right: '-57.13333vw', width: '16.6666vw', top: '-9.31vw' }}><LoadCanvasTemplate /></div>
 						</dd>
             <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
         </dl>

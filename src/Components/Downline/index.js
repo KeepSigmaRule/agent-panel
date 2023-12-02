@@ -58,10 +58,10 @@ const Downline = (props) => {
         {changeStatus && <ChangeStatus  setLoading={setLoading} HandlePopup={HandlePopup} selectedRow={selectedRow}/>}
         {displayPassword && <DisplayPassword HandlePopup={HandlePopup} selectedRow={selectedRow}/>}
         <div id="mainWrap" className="main_wrap risk-responsive">
-        <SearchBar setLoading={setLoading} HandlePopup={HandlePopup} agentPath={agentPath} setagentPath={setagentPath}/>
-        <SelfDownline />
+        {token && <SearchBar setLoading={setLoading} HandlePopup={HandlePopup} agentPath={agentPath} setagentPath={setagentPath}/>}
+        {token && <SelfDownline />}
         <div className="biab_body biab_fluid biab_account-page" id="biab_body">
-        <RelatedDownline setLoading={setLoading} HandlePopup={HandlePopup} agentPath={agentPath} setagentPath={setagentPath}/>
+        {token && <RelatedDownline setLoading={setLoading} HandlePopup={HandlePopup} agentPath={agentPath} setagentPath={setagentPath}/>}
         <div style={{marginTop:'15px',color:'transparent'}}>.</div>
         </div>
         </div>

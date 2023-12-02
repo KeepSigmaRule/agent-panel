@@ -22,6 +22,9 @@ const Header = () => {
   }
 
     useEffect(() => {
+    if(token==""){
+        navigate('/');
+    }    
     const interval = setInterval(() => {
         dispatch(checkToken({id:user.id,token:user.token})).then((response)=>{
             if(response==="invalid"){
