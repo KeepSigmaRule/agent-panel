@@ -1006,10 +1006,12 @@ table .marquee-pop .pages a,
 		background-color: #72BBEF;
 		color: #1E1E1E
 	}
+
 	50% {
 		background-color: #F8E71C;
 		color: #fff
 	}
+
 	100% {
 		background-color: #72BBEF;
 		color: #1E1E1E
@@ -1021,10 +1023,12 @@ table .marquee-pop .pages a,
 		background-color: #B7D5EB;
 		color: #1E1E1E
 	}
+
 	50% {
 		background-color: #F8E71C;
 		color: #fff
 	}
+
 	100% {
 		background-color: #B7D5EB;
 		color: #1E1E1E
@@ -1036,10 +1040,12 @@ table .marquee-pop .pages a,
 		background-color: #D7E8F4;
 		color: #1E1E1E
 	}
+
 	50% {
 		background-color: #F8E71C;
 		color: #fff
 	}
+
 	100% {
 		background-color: #D7E8F4;
 		color: #1E1E1E
@@ -1055,10 +1061,12 @@ table .marquee-pop .pages a,
 		background-color: #FAA9BA;
 		color: #1E1E1E
 	}
+
 	50% {
 		background-color: #26F1F8;
 		color: #fff
 	}
+
 	100% {
 		background-color: #FAA9BA;
 		color: #1E1E1E
@@ -1070,10 +1078,12 @@ table .marquee-pop .pages a,
 		background-color: #EFD3D9;
 		color: #1E1E1E
 	}
+
 	50% {
 		background-color: #26F1F8;
 		color: #fff
 	}
+
 	100% {
 		background-color: #EFD3D9;
 		color: #1E1E1E
@@ -1085,10 +1095,12 @@ table .marquee-pop .pages a,
 		background-color: #F6E6EA;
 		color: #1E1E1E
 	}
+
 	50% {
 		background-color: #26F1F8;
 		color: #fff
 	}
+
 	100% {
 		background-color: #F6E6EA;
 		color: #1E1E1E
@@ -1198,14 +1210,17 @@ textarea:focus {
 		width: 100%;
 		opacity: 0
 	}
+
 	5% {
 		width: 95%;
 		opacity: 1
 	}
+
 	95% {
 		width: 5%;
 		opacity: 1
 	}
+
 	100% {
 		width: 0;
 		opacity: 0
@@ -1213,10 +1228,12 @@ textarea:focus {
 }
 
 @keyframes twinkling {
+
 	0%,
 	100% {
 		opacity: 1
 	}
+
 	50% {
 		opacity: 0.3
 	}
@@ -1226,6 +1243,7 @@ textarea:focus {
 	0% {
 		background-position: -468px 0
 	}
+
 	100% {
 		background-position: 468px 0
 	}
@@ -1641,6 +1659,7 @@ textarea:focus {
 		top: -2%;
 		opacity: 0
 	}
+
 	100% {
 		top: 12%;
 		opacity: 1
@@ -1848,30 +1867,37 @@ textarea:focus {
 		height: calc(100% - 24px - 24px);
 		min-height: 298px
 	}
+
 	.tc-content,
 	.news-wrap .announce-content {
 		height: calc(100% - 24px - 24px - 56px - 73px);
 		min-height: 200px
 	}
+
 	.announce-content {
 		height: calc(100% - 24px - 24px - 56px - 42px);
 		min-height: 200px
 	}
+
 	.news-wrap {
 		min-height: 333px
 	}
+
 	.news-wrap .announce-content {
 		height: calc(100% - 24px - 24px - 60px - 73px - 24px);
 		min-height: 200px
 	}
+
 	.login-policy {
 		top: 0;
 		height: 100%
 	}
+
 	.login-policy .tc-content {
 		max-height: inherit;
 		height: calc(100% - 56px - 24px - 8px)
 	}
+
 	.urgent-notice {
 		height: auto
 	}
@@ -2144,23 +2170,59 @@ th {
 .table01 .border-t td {
 	border-top: 2px solid #7E97A7 \9
 }
-.login_to_go, .login-wrap, .maintain-wrap {
-    background-image: linear-gradient(180deg, #de352c 1%, #de352c 100%);
+
+.login_to_go,
+.login-wrap,
+.maintain-wrap {
+	background-image: linear-gradient(180deg, #de352c 1%, #de352c 100%);
 }
-.login-wrap, .maintain-wrap {
-    position: absolute;
-    top: 15%;
-    left: calc(50% - 270px);
-    width: 540px;
-    height: 408px;
-    background-color: rgba(255,255,255,.8);
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.5);
+
+.login-wrap,
+.maintain-wrap {
+	position: absolute;
+	top: 15%;
+	left: calc(50% - 270px);
+	width: 540px;
+	height: 408px;
+	background-color: rgba(255, 255, 255, .8);
+	border-radius: 8px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, .5);
 }
+
 .kv {
-    position: relative;
-    width: 250px;
-    height: 100%;
-    background: #737373 url('../images/bg-login_wrap.png') no-repeat;
-    border-radius: 8px 0 0 8px;
+	position: relative;
+	width: 250px;
+	height: 100%;
+	background: #737373 url('../images/bg-login_wrap.png') no-repeat;
+	border-radius: 8px 0 0 8px;
+}
+
+.validation-code-mobile {
+	color: #000;
+	position: absolute;
+	top: 10px;
+	right: 8px;
+	width: 55px;
+	height: 15px;
+	font-size: 22px;
+	font-weight: bolder;
+}
+
+
+.validation-code {
+	color: #000;
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	width: 55px;
+	height: 15px;
+	font-size: 22px;
+	font-weight: bolder;
+}
+
+.validation-ctn {
+	position: relative !important;
+}
+.mt-5{
+	margin-top: 5px;
 }

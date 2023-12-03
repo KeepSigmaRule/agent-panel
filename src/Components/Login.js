@@ -1,5 +1,5 @@
-import React,{ useState, useEffect } from 'react';
-import { useSelector,useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Logo from '../images/508.fe3d6487.png';
 import betfair from '../images/powered_by_betfair_light.svg';
 import background from '../images/bg-login.jpg';
@@ -7,7 +7,7 @@ import bottombrowswe from '../images/icon-browser-W.png';
 import transprnt from '../images/transparent.gif';
 import { useNavigate } from 'react-router-dom';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
-import { login,getAccountDetail } from '../Redux/action/Auth';
+import { login, getAccountDetail } from '../Redux/action/Auth';
 import { toast } from "react-toastify";
 export function detectMobile() {
   var check = false;
@@ -16,58 +16,74 @@ export function detectMobile() {
 };
 var isMobile = detectMobile();
 const Login = (prop) => {
-   const [loginParams,setloginParams] = useState({id:process.env.REACT_APP_USERNAME,password:process.env.REACT_APP_PASSWORD});
-   let {token,user,agent_path} = useSelector(state=>state.auth);
-   const dispatch = useDispatch();
-   const navigate = useNavigate();
-   const submitLogin = async()=>{
+  const [loginParams, setloginParams] = useState({ id: process.env.REACT_APP_USERNAME, password: process.env.REACT_APP_PASSWORD });
+  const [validationCode,setValidationCode] = useState(generateRandomCode());
+  let { token, user, agent_path } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const submitLogin = async () => {
     let user_captcha_value = document.getElementById('user_captcha_input').value;
-      if (validateCaptcha(user_captcha_value)==false) {
-        toast.error('Captcha Does Not Match');
-      }
-      else{
-        await dispatch(login(loginParams)).then(async(response)=>{
-    
-        },(err)=>{
-          toast.error(err);
-        });
-      }
-   }
+    // if (validateCaptcha(user_captcha_value) == false) {
+    //   toast.error('Captcha Does Not Match');
+    // }
+    // captcha validation condition 
+    // else {
+      await dispatch(login(loginParams)).then(async (response) => {
 
-   useEffect(()=>{
-    if(token){
-      dispatch(getAccountDetail({sid:token})).then((response)=>{
-        if(agent_path.length==0){
+      }, (err) => {
+        toast.error(err);
+      });
+    
+  }
+
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setValidationCode(generateRandomCode());
+    }, 15000);
+
+    return () => clearInterval(interval);
+  }, []);
+  useEffect(() => {
+    if (token) {
+      dispatch(getAccountDetail({ sid: token })).then((response) => {
+        if (agent_path.length == 0) {
           dispatch({ type: "AGENT_PATH_PUSH", payload: response });
           dispatch({ type: "PL_AGENT_PATH_PUSH", payload: response });
         }
         navigate("/downline");
-      },(err)=>{
+      }, (err) => {
         toast.error(err);
       });
     }
-  },[token]);
-  useEffect(()=>{
-    loadCaptchaEnginge(4,"white","black","numbers");
+  }, [token]);
+  useEffect(() => {
+    loadCaptchaEnginge(4, "white", "black", "numbers");
   }, []);
+  function generateRandomCode() {
+    // Generate a random 4-digit code
+    return Math.floor(1000 + Math.random() * 9000).toString();
+  }
+
   return (
     <>
       {isMobile == false &&
-        <div  className="login_blk" style={{ background: `url(${background})`, backgroundSize: 'cover' }}>
+        <div className="login_blk" style={{ background: `url(${background})`, backgroundSize: 'cover' }}>
           <div className="login-wrap">
             <div className="kv"></div>
             <dl className='login-panel'>
               <dt>Agent login</dt>
-              <div  className="login-container ng-dirty ng-touched ng-valid" noValidate>
-                <div  className="form-group">
-                  <input  formcontrolname="email" onChange={(e) => { setloginParams({...loginParams, id:e.target.value}) }} value={loginParams.id} placeholder="User ID" type="text" className="ng-dirty ng-valid ng-touched" /></div>
-                  <div  className="form-group">
-                    <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
-                    <div  className="form-group mb-5">
-                      <input  formcontrolname="text" placeholder="Validation Code" inputmode="numeric" maxLength="4" id="user_captcha_input" type="text"  className="ng-dirty ng-valid ng-touched" />
-                      <span className="authenticateImage"><LoadCanvasTemplate /></span>
-                    </div>
-                  <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
+              <div className="login-container ng-dirty ng-touched ng-valid" noValidate>
+                <div className="form-group">
+                  <input formcontrolname="email" onChange={(e) => { setloginParams({ ...loginParams, id: e.target.value }) }} value={loginParams.id} placeholder="User ID" type="text" className="ng-dirty ng-valid ng-touched" /></div>
+                <div className="form-group">
+                  <input formcontrolname="password" onChange={(e) => { setloginParams({ ...loginParams, password: e.target.value }) }} value={loginParams.password} placeholder="Password" type="password" className="ng-dirty ng-valid ng-touched" /></div>
+                <div className="form-group mb-5 validation-ctn">
+                  <input formcontrolname="text" placeholder="Validation Code" inputmode="numeric" maxLength="4" id="user_captcha_input" type="text" className="ng-dirty ng-valid ng-touched" />
+                  <div class="validation-code">{validationCode}</div>
+                  <span style ={{display:"none"}}><LoadCanvasTemplate /></span>
+                </div>
+                <div className="form-group mgn_b20"><input type="submit" onClick={async () => { submitLogin() }} defaultValue="Login" value="Login" className="btn-send-login" /></div>
               </div>
             </dl>
           </div>
@@ -75,91 +91,92 @@ const Login = (prop) => {
             <div className="support-wrap extend-support">
               <div className="extend-wrap">
                 <div className="extend-btn">
-                  <img src={transprnt} title="customer" className="support-customer"/>
-                    <a href="https://wa.me/+393509477575" target="_blank">Customer support1</a>
-                    <a href="https://wa.me/+393509477575" target="_blank" className="split-line">support2</a>
+                  <img src={transprnt} title="customer" className="support-customer" />
+                  <a href="https://wa.me/+393509477575" target="_blank">Customer support1</a>
+                  <a href="https://wa.me/+393509477575" target="_blank" className="split-line">support2</a>
                 </div>
                 <div className="extend-btn">
-                  <img src={transprnt} title="WhatsApp" className="support-whatsapp"/>
-                    <a href="https://wa.me/+393509477575" target="_blank">WhatsApp 3</a>
-                    <a href="https://wa.me/+393509477575" target="_blank" className="split-line">WhatsApp 4</a>
+                  <img src={transprnt} title="WhatsApp" className="support-whatsapp" />
+                  <a href="https://wa.me/+393509477575" target="_blank">WhatsApp 3</a>
+                  <a href="https://wa.me/+393509477575" target="_blank" className="split-line">WhatsApp 4</a>
                 </div>
               </div>
               <div className="extend-btn">
-                <img src={transprnt} title="Telegram" className="support-telegram"/>
+                <img src={transprnt} title="Telegram" className="support-telegram" />
                 <a href="https://wa.me/+393509477575" target="_blank">+393509477575</a>
                 <a href="https://wa.me/+393509477575" target="_blank" className="split-line">+393509477575</a>
               </div>
               <div className="extend-wrap">
                 <div className="support-social">
-                  <img src={transprnt} title="Skype" className="support-skype"/>
+                  <img src={transprnt} title="Skype" className="support-skype" />
                   <a href="skype:skyexchangeofficial?chat" target="_blank">skyexchangeofficial</a>
                 </div>
                 <div className="support-social">
-                  <img src={transprnt} title="Email" className="support-mail"/>
+                  <img src={transprnt} title="Email" className="support-mail" />
                   <a href="mailto:info@skyexchange.com" target="_blank">info@skyexchange.com</a>
                 </div>
                 <div className="support-social">
-                  <img src={transprnt} title="Instagram" className="support-ig"/>
-                    <a href="https://www.instagram.com/officialskyfair/" target="_blank">officialskyexchange</a>
+                  <img src={transprnt} title="Instagram" className="support-ig" />
+                  <a href="https://www.instagram.com/officialskyfair/" target="_blank">officialskyexchange</a>
                 </div>
               </div>
             </div>
             <div className="browser-wrap">
-              <img src={bottombrowswe}/><br/>
-              Our website works best in the newest and last prior version of these browsers: <br/>Google Chrome. Firefox
+              <img src={bottombrowswe} /><br />
+              Our website works best in the newest and last prior version of these browsers: <br />Google Chrome. Firefox
             </div>
           </div>
         </div>
       }
       {isMobile == true &&
-      <div className="loginformmb">
-        <header className="login-head">
-          <h1>SKYFAIR</h1>
-        </header>
-        <dl className='form-login'>
-            <div  className="form-group">
-            <input  formcontrolname="email" onChange={(e) => { setloginParams({...loginParams, id:e.target.value}) }} value={loginParams.id} placeholder="Username" type="text" className="ng-dirty ng-valid ng-touched" /></div>
-            <div  className="form-group">
-              <input  formcontrolname="password" onChange={(e) => { setloginParams({...loginParams, password:e.target.value}) }} value={loginParams.password} placeholder="Password" type="password"  className="ng-dirty ng-valid ng-touched" /></div>
-            <dd className="valid-code">
-							<input type="tel" placeholder="Validation Code" maxLength="4" id="user_captcha_input"/>
-							<div id="popupcaptcha" style={{ position: 'relative', right: '-57.13333vw', width: '16.6666vw', top: '-9.31vw' }}><LoadCanvasTemplate /></div>
-						</dd>
-            <div  className="form-group mgn_b20"><input  type="submit" onClick={async()=>{submitLogin()}} defaultValue="Login" value="Login" className="btn-send-login"/></div>
-        </dl>
-        <div className="support-wrap extend-support">
-          <div className="extend-btn">
-            <img src={transprnt} title="customer" className="support-customer"/>
+        <div className="loginformmb">
+          <header className="login-head">
+            <h1>SKYFAIR</h1>
+          </header>
+          <dl className='form-login'>
+            <div className="form-group mt-5">
+              <input formcontrolname="email" onChange={(e) => { setloginParams({ ...loginParams, id: e.target.value }) }} value={loginParams.id} placeholder="Username" type="text" className="ng-dirty ng-valid ng-touched" /></div>
+            <div className="form-group mt-5">
+              <input formcontrolname="password" onChange={(e) => { setloginParams({ ...loginParams, password: e.target.value }) }} value={loginParams.password} placeholder="Password" type="password" className="ng-dirty ng-valid ng-touched" /></div>
+            <dd className="valid-code validation-ctn mt-5">
+              <input type="tel" placeholder="Validation Code" maxLength="4" id="user_captcha_input" />
+              <div class="validation-code-mobile">{validationCode}</div>
+              <div id="popupcaptcha" style={{ position: 'relative', right: '-57.13333vw', width: '16.6666vw', top: '-9.31vw',display:"none" }}><LoadCanvasTemplate /></div>
+            </dd>
+            <div className="form-group mgn_b20"><input type="submit" onClick={async () => { submitLogin() }} defaultValue="Login" value="Login" className="btn-send-login" /></div>
+          </dl>
+          <div className="support-wrap extend-support">
+            <div className="extend-btn">
+              <img src={transprnt} title="customer" className="support-customer" />
               <a href="https://wa.me/+393509477575" target="_blank">Customer support1</a>
               <a href="https://wa.me/+393509477575" target="_blank" className="split-line">support2</a>
-          </div>
-          <div className="extend-btn">
-            <img src={transprnt} title="WhatsApp" className="support-whatsapp"/>
+            </div>
+            <div className="extend-btn">
+              <img src={transprnt} title="WhatsApp" className="support-whatsapp" />
               <a href="https://wa.me/+393509477575" target="_blank">WhatsApp 3</a>
               <a href="https://wa.me/+393509477575" target="_blank" className="split-line">WhatsApp 4</a>
-          </div>
-          <div className="extend-btn">
-            <img src={transprnt} title="Telegram" className="support-telegram"/>
-            <a href="https://wa.me/+393509477575" target="_blank">+393509477575</a>
-            <a href="https://wa.me/+393509477575" target="_blank" className="split-line">+393509477575</a>
-          </div>
-          <div className="support-social">
-            <div className="social-btn">
-              <img src={transprnt} title="Skype" className="support-skype"/>
-              <a href="skype:skyexchangeofficial?chat" target="_blank">Skype</a>
             </div>
-            <div className="social-btn">
-              <img src={transprnt} title="Email" className="support-mail"/>
-              <a href="mailto:info@skyexchange.com" target="_blank">Email</a>
+            <div className="extend-btn">
+              <img src={transprnt} title="Telegram" className="support-telegram" />
+              <a href="https://wa.me/+393509477575" target="_blank">+393509477575</a>
+              <a href="https://wa.me/+393509477575" target="_blank" className="split-line">+393509477575</a>
             </div>
-            <div className="social-btn">
-              <img src={transprnt} title="Instagram" className="support-ig"/>
+            <div className="support-social">
+              <div className="social-btn">
+                <img src={transprnt} title="Skype" className="support-skype" />
+                <a href="skype:skyexchangeofficial?chat" target="_blank">Skype</a>
+              </div>
+              <div className="social-btn">
+                <img src={transprnt} title="Email" className="support-mail" />
+                <a href="mailto:info@skyexchange.com" target="_blank">Email</a>
+              </div>
+              <div className="social-btn">
+                <img src={transprnt} title="Instagram" className="support-ig" />
                 <a href="https://www.instagram.com/officialskyfair/" target="_blank">Instagram</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       }
     </>
   )
