@@ -6,7 +6,6 @@ import background from '../images/bg-login.jpg';
 import bottombrowswe from '../images/icon-browser-W.png';
 import transprnt from '../images/transparent.gif';
 import { useNavigate } from 'react-router-dom';
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { login, getAccountDetail } from '../Redux/action/Auth';
 import { toast } from "react-toastify";
 export function detectMobile() {
@@ -23,17 +22,16 @@ const Login = (prop) => {
   const navigate = useNavigate();
   const submitLogin = async () => {
     let user_captcha_value = document.getElementById('user_captcha_input').value;
-    // if (validateCaptcha(user_captcha_value) == false) {
-    //   toast.error('Captcha Does Not Match');
-    // }
-    // captcha validation condition 
-    // else {
+    if (user_captcha_value != validationCode) {
+      toast.error('Captcha Does Not Match');
+    }
+    else {
       await dispatch(login(loginParams)).then(async (response) => {
 
       }, (err) => {
         toast.error(err);
       });
-    
+    }
   }
 
   
@@ -57,9 +55,7 @@ const Login = (prop) => {
       });
     }
   }, [token]);
-  useEffect(() => {
-    loadCaptchaEnginge(4, "white", "black", "numbers");
-  }, []);
+  
   function generateRandomCode() {
     // Generate a random 4-digit code
     return Math.floor(1000 + Math.random() * 9000).toString();
@@ -81,7 +77,6 @@ const Login = (prop) => {
                 <div className="form-group mb-5 validation-ctn">
                   <input formcontrolname="text" placeholder="Validation Code" inputmode="numeric" maxLength="4" id="user_captcha_input" type="text" className="ng-dirty ng-valid ng-touched" />
                   <div class="validation-code">{validationCode}</div>
-                  <span style ={{display:"none"}}><LoadCanvasTemplate /></span>
                 </div>
                 <div className="form-group mgn_b20"><input type="submit" onClick={async () => { submitLogin() }} defaultValue="Login" value="Login" className="btn-send-login" /></div>
               </div>
@@ -141,7 +136,7 @@ const Login = (prop) => {
             <dd className="valid-code validation-ctn mt-5">
               <input type="tel" placeholder="Validation Code" maxLength="4" id="user_captcha_input" />
               <div class="validation-code-mobile">{validationCode}</div>
-              <div id="popupcaptcha" style={{ position: 'relative', right: '-57.13333vw', width: '16.6666vw', top: '-9.31vw',display:"none" }}><LoadCanvasTemplate /></div>
+              
             </dd>
             <div className="form-group mgn_b20"><input type="submit" onClick={async () => { submitLogin() }} defaultValue="Login" value="Login" className="btn-send-login" /></div>
           </dl>

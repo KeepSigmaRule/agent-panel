@@ -86,16 +86,24 @@ const RelatedDownline = (props) => {
         props.setLoading(true);
         dispatch(getAccountDownlines(downlineParam)).then((response)=>{
             props.setLoading(false);
-            let output = response.map((item,index)=>{
-                // item.clientid
-                bankingResponse.map((res,index)=>{
-                 if(item.clientid==res.agentId){
-                     item.statusClass = (res.status==1)?'fa-check-circle':'fa-times-circle'; 
-                     item.statusDescription = res.message;
-                 }
-                });
-                return item;
-             });
+            // let output = response.map((item,index)=>{
+            //     // item.clientid
+            //     bankingResponse.map((res,index)=>{
+            //      if(item.clientid==res.agentId){
+            //          item.statusClass = (res.status==1)?'fa-check-circle':'fa-times-circle';
+            //          item.statusDescription = res.message;
+            //      }
+            //     });
+            //     return item;
+            //  });
+            let output = [];
+            if(bankingResponse.length > 0){
+                output = response.filter(({ clientid: id1 }) => bankingResponse.some(({ agentId: id2 }) => id2 === id1));
+            }
+            else{
+                output = response;
+            }
+             console.log("output",output);
             setItems(output);
             setAgents(response);
         },(err)=>{
