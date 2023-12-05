@@ -153,7 +153,8 @@ export const getAgentAccountSummary = data => async _dispatch => {
 
 export const changeAgentPassword = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
-        await withoutAuthAxios().post("/api/agent/newchangeAgentPassword", data)
+        let url = (data.agentLevel<6)?'/api/agent/newchangeAgentPassword':'/api/agent/newchangeClientPassword';
+        await withoutAuthAxios().post(url, data)
             .then(
                 response => {
                     if (response.status === 200) {

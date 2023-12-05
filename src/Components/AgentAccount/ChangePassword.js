@@ -10,7 +10,7 @@ const ChangePassword = (props) => {
     const [passwordError, setPasswordErr] = useState("");
     const [confirmPasswordError, setConfirmPasswordError] = useState("");
     let agent = props.agent;
-    let [params,setParams] = useState({sid:token,agentId:agent.id,myPass:'',agentPass:'',confirmPass:''});
+    let [params,setParams] = useState({sid:token,agentId:agent.id,agentLevel:agent.level,myPass:'',agentPass:'',confirmPass:''});
 
     const handlePasswordValidation = (evnt) =>{
       let passwordInputValue = evnt.target.value.trim();
