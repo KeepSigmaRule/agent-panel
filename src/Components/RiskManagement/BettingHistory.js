@@ -17,6 +17,7 @@ const BettingHistory = (props) => {
     let [betStatus,setbetStatus] = useState("1");
     let [bethistory, setbethistory] = useState([]);
     let [option, setOption] = useState('default');
+    let [selectedBetStatus, setselectedBetStatus] = useState(betStatus);
     let [sDate, setsDate] = useState(moment().subtract(7, 'days').format("YYYY-MM-DD"));
     let [eDate, seteDate] = useState(moment().add(1, 'days').format("YYYY-MM-DD"));
     let [startDate, setStartDate] = useState(moment().subtract(7, 'days').toDate());
@@ -56,6 +57,7 @@ const BettingHistory = (props) => {
         setLoading(true);
         dispatch(getClientBetHistory({sid:token,clientId:selectedItem.clientId,betStatus:betStatus,startDate:start,endDate:end,view:1})).then((response)=>{
             setbethistory(response);
+            setselectedBetStatus(betStatus);
             if(response.length==0){
                 toast.info("Sorry, there is no data to display.");
             }
@@ -248,11 +250,11 @@ const BettingHistory = (props) => {
 
                 <td id="matchStake">{item.amount}</td>
                 <td id="matchAvgOdds">{odds}</td>
-                {betStatus=='0' && <td><span id="pol" className="small-date"><span>Un Matched</span></span></td>}
-                {betStatus=='1' && <td><span id="pol" className="small-date"><span>Pending</span></span></td>}
-                {betStatus=='2' && <td><span id="pol" className="small-date"><span className={`${profit >= 0 ? "green":"red"}`}>{profit >= 0 ? profit : '('+ Math.abs(profit) +')'}</span></span></td>}
-                {betStatus=='3' && <td><span id="pol" className="small-date"><span>Cancel</span></span></td>}
-                {betStatus=='4' && <td><span id="pol" className="small-date"><span>Void</span></span></td>}
+                {selectedBetStatus=='0' && <td><span id="pol" className="small-date"><span>Un Matched</span></span></td>}
+                {selectedBetStatus=='1' && <td><span id="pol" className="small-date"><span>Pending</span></span></td>}
+                {selectedBetStatus=='2' && <td><span id="pol" className="small-date"><span className={`${profit >= 0 ? "green":"red"}`}>{profit >= 0 ? profit : '('+ Math.abs(profit) +')'}</span></span></td>}
+                {selectedBetStatus=='3' && <td><span id="pol" className="small-date"><span>Cancel</span></span></td>}
+                {selectedBetStatus=='4' && <td><span id="pol" className="small-date"><span>Void</span></span></td>}
                 <td id="userCancel" style={{display:'none'}}></td>
                 </tr>
                 )})}
