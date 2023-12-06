@@ -195,8 +195,8 @@ const ProfitLossMarket = (props) => {
                     <th id="header_userName" width="" className="align-L">UID</th>
                     <th width="10%" className="">Match P/L</th>
                     <th width="10%" className="">Fancy P/L</th>
-                    <th id="header_payout_agent_1" width="10%" className="">SS PT</th>
-                    <th id="header_profitLoss_downLine" width="10%" className="">Downline P/L</th>
+                    <th id="header_payout_agent_1" width="10%" className="">Downline PT</th>
+                    <th id="header_profitLoss_downLine" width="10%" className="">Player P/L</th>
                     <th id="header_tax_agent_1" width="10%" className="">SS Comm.</th>
                     <th id="header_rebate_agent_1" width="10%" className="">SS Rebate</th>
                     <th id="header_profitLoss_agent_1" width="10%" className="">SS Total</th>
@@ -224,7 +224,7 @@ const ProfitLossMarket = (props) => {
                         <strong id="_eventName">{item.eventName}</strong>
                         </Link>
                     </td>
-                    <td id="_stake" className={`${(match_pl>0)?'':'red'}`}>{(match_pl>0)?`(${parseFloat(Math.abs(match_pl)).toFixed(2)})`:parseFloat(match_pl).toFixed(2)}</td>
+                    <td id="_stake" className={`${(match_pl>0)?'red':''}`}>{(match_pl>0)?`(${parseFloat(Math.abs(match_pl)).toFixed(2)})`:parseFloat(Math.abs(match_pl)).toFixed(2)}</td>
                     <td id="_sessionPL" className={`${(ss_pl>=0)?'':'red'}`}>{(ss_pl>=0)?parseFloat(ss_pl).toFixed(2):`(${parseFloat(Math.abs(ss_pl)).toFixed(2)})`}</td>
                     <td id="_downline_pl" className={`${(downline_pl>=0)?'':'red'}`}><span>{(downline_pl>=0)?parseFloat(downline_pl).toFixed(2):`(${parseFloat(Math.abs(downline_pl)).toFixed(2)})`}</span></td>
                     <td id="_player_pl" className={`${(player_pl>=0)?'':'red'}`}><span>{(player_pl>=0)?parseFloat(player_pl).toFixed(2):`(${parseFloat(Math.abs(player_pl)).toFixed(2)})`}</span></td>
