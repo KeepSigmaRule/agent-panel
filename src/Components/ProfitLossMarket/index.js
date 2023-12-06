@@ -212,8 +212,8 @@ const ProfitLossMarket = (props) => {
                     let match_pl = item.matchPL;
                     let ss_pl = item.sessionPL;
                     let ss_comm = item.comm;
-                    let ss_rebate = item.comm;
-                    let ss_total = item.comm;
+                    let ss_rebate = 0;
+                    let ss_total = 0;
                     let upline_pl = (item.netPL*-1);
                     return (
                     <tr key={index} id="main_ptt2020_1">
