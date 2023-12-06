@@ -225,7 +225,7 @@ const ProfitLossMarket = (props) => {
                         </Link>
                     </td>
                     <td id="_stake" className={`${(match_pl>0)?'red':''}`}>{(match_pl>0)?`(${parseFloat(Math.abs(match_pl)).toFixed(2)})`:parseFloat(Math.abs(match_pl)).toFixed(2)}</td>
-                    <td id="_sessionPL" className={`${(ss_pl>=0)?'':'red'}`}>{(ss_pl>=0)?parseFloat(ss_pl).toFixed(2):`(${parseFloat(Math.abs(ss_pl)).toFixed(2)})`}</td>
+                    <td id="_sessionPL" className={`${(ss_pl>=0)?'red':''}`}>{(ss_pl>=0)?`(${parseFloat(Math.abs(ss_pl)).toFixed(2)})`:parseFloat(Math.abs(ss_pl)).toFixed(2)}</td>
                     <td id="_downline_pl" className={`${(downline_pl>=0)?'':'red'}`}><span>{(downline_pl>=0)?parseFloat(downline_pl).toFixed(2):`(${parseFloat(Math.abs(downline_pl)).toFixed(2)})`}</span></td>
                     <td id="_player_pl" className={`${(player_pl>=0)?'':'red'}`}><span>{(player_pl>=0)?parseFloat(player_pl).toFixed(2):`(${parseFloat(Math.abs(player_pl)).toFixed(2)})`}</span></td>
                     <td id="_ss_comm" className={`${(ss_comm>=0)?'':'red'}`}>{(ss_comm>=0)?parseFloat(ss_comm).toFixed(2):`(${parseFloat(Math.abs(ss_comm)).toFixed(2)})`}</td>
