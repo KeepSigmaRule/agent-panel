@@ -193,10 +193,10 @@ const ProfitLossMarket = (props) => {
                 <tbody>
                     <tr id="head">
                     <th id="header_userName" width="" className="align-L">UID</th>
-                    <th width="10%" className="">Stake</th>
-                    <th width="10%" className="">Player P/L</th>
-                    <th id="header_profitLoss_downLine" width="10%" className="">Downline P/L</th>
+                    <th width="10%" className="">Match P/L</th>
+                    <th width="10%" className="">Fancy P/L</th>
                     <th id="header_payout_agent_1" width="10%" className="">SS PT</th>
+                    <th id="header_profitLoss_downLine" width="10%" className="">Downline P/L</th>
                     <th id="header_tax_agent_1" width="10%" className="">SS Comm.</th>
                     <th id="header_rebate_agent_1" width="10%" className="">SS Rebate</th>
                     <th id="header_profitLoss_agent_1" width="10%" className="">SS Total</th>
@@ -209,6 +209,7 @@ const ProfitLossMarket = (props) => {
                     let stake = item.comm;
                     let player_pl = item.netPL;
                     let downline_pl = item.netPL;
+                    let match_pl = item.matchPL;
                     let ss_pl = item.sessionPL;
                     let ss_comm = item.comm;
                     let ss_rebate = item.comm;
@@ -223,10 +224,10 @@ const ProfitLossMarket = (props) => {
                         <strong id="_eventName">{item.eventName}</strong>
                         </Link>
                     </td>
-                    <td id="_stake" className={`${(stake>=0)?'':'red'}`}>{(stake>=0)?parseFloat(stake).toFixed(2):`(${parseFloat(Math.abs(stake)).toFixed(2)})`}</td>
-                    <td id="_player_pl" className={`${(player_pl>=0)?'':'red'}`}><span>{(player_pl>=0)?parseFloat(player_pl).toFixed(2):`(${parseFloat(Math.abs(player_pl)).toFixed(2)})`}</span></td>
-                    <td id="_downline_pl" className={`${(downline_pl>=0)?'':'red'}`}><span>{(downline_pl>=0)?parseFloat(downline_pl).toFixed(2):`(${parseFloat(Math.abs(downline_pl)).toFixed(2)})`}</span></td>
+                    <td id="_stake" className={`${(match_pl>0)?'':'red'}`}>{(match_pl>0)?`(${parseFloat(Math.abs(match_pl)).toFixed(2)})`:parseFloat(match_pl).toFixed(2)}</td>
                     <td id="_sessionPL" className={`${(ss_pl>=0)?'':'red'}`}>{(ss_pl>=0)?parseFloat(ss_pl).toFixed(2):`(${parseFloat(Math.abs(ss_pl)).toFixed(2)})`}</td>
+                    <td id="_downline_pl" className={`${(downline_pl>=0)?'':'red'}`}><span>{(downline_pl>=0)?parseFloat(downline_pl).toFixed(2):`(${parseFloat(Math.abs(downline_pl)).toFixed(2)})`}</span></td>
+                    <td id="_player_pl" className={`${(player_pl>=0)?'':'red'}`}><span>{(player_pl>=0)?parseFloat(player_pl).toFixed(2):`(${parseFloat(Math.abs(player_pl)).toFixed(2)})`}</span></td>
                     <td id="_ss_comm" className={`${(ss_comm>=0)?'':'red'}`}>{(ss_comm>=0)?parseFloat(ss_comm).toFixed(2):`(${parseFloat(Math.abs(ss_comm)).toFixed(2)})`}</td>
                     <td id="_ss_rebate" className={`${(ss_rebate>=0)?'':'red'}`}>{(ss_rebate>=0)?parseFloat(ss_rebate).toFixed(2):`(${parseFloat(Math.abs(ss_rebate)).toFixed(2)})`}</td>
                     <td id="_ss_total"className={`${(ss_total>=0)?'':'red'}`}>{(ss_total>=0)?parseFloat(ss_total).toFixed(2):`(${parseFloat(Math.abs(ss_total)).toFixed(2)})`}</td>
