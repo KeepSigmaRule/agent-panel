@@ -2196,33 +2196,3 @@ th {
 	background: #737373 url('../images/bg-login_wrap.png') no-repeat;
 	border-radius: 8px 0 0 8px;
 }
-
-.validation-code-mobile {
-	color: #000;
-	position: absolute;
-	top: 10px;
-	right: 8px;
-	width: 55px;
-	height: 15px;
-	font-size: 22px;
-	font-weight: bolder;
-}
-
-
-.validation-code {
-	color: #000;
-	position: absolute;
-	top: 8px;
-	right: 8px;
-	width: 55px;
-	height: 15px;
-	font-size: 22px;
-	font-weight: bolder;
-}
-
-.validation-ctn {
-	position: relative !important;
-}
-.mt-5{
-	margin-top: 5px;
-}

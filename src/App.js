@@ -14,6 +14,10 @@ import Socket from './Components/Socket';
 import BetListLive from './Components/BetListLive';
 import RiskManagement from './Components/RiskManagement';
 import Login from './Components/Login';
+// import './css/Indibet.css';
+// import './css/Fullmarket.css';
+// import './css/Login.css';
+// import './css/Style.css';
 function App() {
   return (
     <>
