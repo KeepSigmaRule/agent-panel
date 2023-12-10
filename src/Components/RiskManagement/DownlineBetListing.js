@@ -32,10 +32,7 @@ const DownlineBetListing = (props) => {
       return check;
     };
     useEffect(() => {
-      
       var isMobile = detectMobile();
-      
-      
       dispatch({ type: "PL_AGENT_PATH_POP", payload:[user]});
       let requestPayload = {};
       requestPayload['sid'] = token;

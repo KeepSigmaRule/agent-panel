@@ -205,7 +205,7 @@ const BetListLive = (props) => {
                 <label>Bet Status:</label>
                 <select name="betStatus" id="betStatus" onChange={(e)=>{setbetStatus(e.target.value)}}>
                     <option value="1" selected={betStatus === '1'}>Matched</option>
-                    <option value="2" selected={betStatus === '2'}>Declared</option>
+                    <option value="3" selected={betStatus === '3'}>Void</option>
                 </select>
                 </li>
                 <li><Link to="#" onClick={()=>{refresh()}} style={{width:'60px'}} className="btn-send" id="betListLiveRefresh">Refresh</Link></li>
