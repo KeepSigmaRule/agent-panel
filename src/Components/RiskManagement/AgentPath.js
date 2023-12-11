@@ -29,7 +29,7 @@ const AgentPath = (props) => {
                     agentArray.length > 0 && agentArray.map((item,index)=>{
                         return (
                             <li id="path5" key={index} className={index===(agentArray.length-1)?'last_li':''}>
-                            <NavLink to="#" onClick={(e)=>handleClick(item)}>
+                            <NavLink to="#" onClick={(e)=>{e.preventDefault(); handleClick(item)}}>
                             <span className={`lv_${(item.level<6)?item.level:0}`}>
                             {item.level_text}
                             </span>
