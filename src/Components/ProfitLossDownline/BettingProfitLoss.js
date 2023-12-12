@@ -158,9 +158,9 @@ const BettingProfitLoss = (props) => {
       </ul>
       </ul>
       <ul className="input-list ud-line boxsetting">
-      <li><Link to="" id="today"  onClick = {()=>{getProfitLoss('today')}} className="btn">Just For Today</Link></li>
-      <li><Link to="" id="yesterday" onClick = {()=>{getProfitLoss('yesterday')}} className="btn">From Yesterday</Link></li>
-      <li><Link to="" id="getPL"  className="btn-send" onClick = {()=>{getProfitLoss('default')}}>Get P & L</Link></li>
+      <li><Link to="" id="today"  onClick = {(e)=>{e.preventDefault(); getProfitLoss('today')}} className="btn">Just For Today</Link></li>
+      <li><Link to="" id="yesterday" onClick = {(e)=>{e.preventDefault(); getProfitLoss('yesterday')}} className="btn">From Yesterday</Link></li>
+      <li><Link to="" id="getPL"  className="btn-send" onClick = {(e)=>{e.preventDefault(); getProfitLoss('default')}}>Get P & L</Link></li>
       </ul>
       </div>
       {!dataExist && <div id="noReportMessage"><p>Betting Profit & Loss enables you to review the bets you have placed. <br />

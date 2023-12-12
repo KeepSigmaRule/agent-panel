@@ -184,7 +184,7 @@ const ProfitLossDownline = (props) => {
         </li>
         </ul>
         </div>
-        {agentList.length>0 && <AgentPath setLoading={setLoading} sportType={sportType} sDate={sDate} eDate={eDate} option={option} setagentList={setagentList}/>}
+        {agentList.length>0 && <AgentPath enable={true} setLoading={setLoading} sportType={sportType} sDate={sDate} eDate={eDate} option={option} setagentList={setagentList}/>}
         <div id="reportDiv" className="over-wrap" style={{ maxHeight: 'calc(100% - 32px - 93px - 55px)' }}>
             <table id="table_DL" className="table01 table-pt">
                 <tbody>
@@ -216,7 +216,8 @@ const ProfitLossDownline = (props) => {
                     <td className="align-L" >
                         {item.sports && <Link to="" onClick={()=>{ShowRow(index)}} id="_bySport" className="expand-close">{item.show?'-':'+'}</Link>}
                         {item.level<6 && <Link to="" onClick={()=>(item.level<6)?HandleAgentPath(agentBasicInfo):''} id="_userName" className="ico_account"><span className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.agentId}</Link>}
-                        {item.level==6 && <Link to="" onClick={()=>{setlogType('AgentAccount');setshowLogs(true);setselectedItem(item);dispatch({ type: "PL_AGENT_PATH_PUSH", payload: agentBasicInfo });}} id="_userName" className="ico_account"><span className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.agentId}</Link>}
+                        {/* {item.level==6 && <Link to="" onClick={()=>{setlogType('AgentAccount');setshowLogs(true);setselectedItem(item);dispatch({ type: "PL_AGENT_PATH_PUSH", payload: agentBasicInfo });}} id="_userName" className="ico_account"><span className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.agentId}</Link>} */}
+                        {item.level==6 && <Link to="" onClick={(e)=>{e.preventDefault(); setlogType('AgentAccount');setshowLogs(true);setselectedItem(item);}} id="_userName" className="ico_account"><span className={`lv_${(item.level<6)?item.level:0}`}>{agnetLevelInfo.level_text}</span>{item.agentId}</Link>}
                     </td>
                     <td id="_stake">0.00</td>
                     <td id="_profitLoss" ><span style={(netPnl >= 0) ? { color: 'green' } : { color: 'red' }}>{(netPnl >= 0) ? parseFloat(Math.abs(netPnl)).toFixed(2) : '(' + parseFloat(Math.abs(netPnl)).toFixed(2) + ')'}</span></td>

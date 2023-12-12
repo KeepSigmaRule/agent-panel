@@ -5,13 +5,24 @@ import moment from 'moment';
 import { getAgentLevelInfo,getDownlineProfitLoss } from '../../Redux/action/Downline';
 
 const AgentPath = (props) => {
+  let {enable,selectedItem} = props;
   let dispatch = useDispatch();
   let navigate = useNavigate();
   let {token,user,pl_agent_path,agent_path} = useSelector(state=>state.auth);
-  let {account_downlines} = useSelector(state=>state.downline);
   let [showListing,setshowListing] = useState(false);
-  let agentBreadcrumbs = props.agentBreadcrumbs;
+  let [agents,setagents] = useState(pl_agent_path);
+  useEffect(()=>{
+    if(selectedItem){
+    let agnetLevelInfo = getAgentLevelInfo(selectedItem.level);
+    let agentBasicInfo ={id:selectedItem.agentId,level:agnetLevelInfo.level_no,balance:selectedItem.Balance,level_text:agnetLevelInfo.level_text,agent_level:agnetLevelInfo.agent_level};
+    setagents([...agents,agentBasicInfo]);
+   }
+  },[]);
+
   const handleClick = async(user)=>{
+    if(enable===false){
+        return false;
+    }
     let start='';
         let end='';
         switch(props.option){
@@ -44,26 +55,25 @@ const AgentPath = (props) => {
             console.log("getAccountDownlines err",err);
         });
   }
-  
-  
-  const handleSelectAgent = (agentBasicInfo)=>{
-    props.setAgent(agentBasicInfo);
-    setshowListing(!showListing);
-    let update_agent_breadcrums = pl_agent_path.filter((item,index)=>{
-        if(index<pl_agent_path.length-1){
-            return item;
-        }
-    })
-    update_agent_breadcrums.push(agentBasicInfo);
-    dispatch({ type: "PL_AGENT_PATH_POP", payload: update_agent_breadcrums });
-  }
 
   return (
     <>
         <div className="agent_path">
             <ul id="agentPath" className="agent_path-L">
-                {
-                    pl_agent_path.map((item,index)=>{
+                {enable===false && agents.map((item,index)=>{
+                        return (
+                                <li key={index} id="path5" className={index===(agents.length-1)?'last_li':''}>
+                                    <NavLink to="/my-report/profit-loss-downline" onClick={(e)=>handleClick(item)}>
+                                        <span className={`lv_${(item.level<6)?item.level:0}`}>
+                                            {item.level_text}
+                                        </span>
+                                    <strong>{item.id}</strong>
+                                    </NavLink>
+                                </li>
+                        )
+                    })
+                }
+                {enable===true && pl_agent_path.map((item,index)=>{
                         return (
                                 <li key={index} id="path5" className={index===(pl_agent_path.length-1)?'last_li':''}>
                                     <NavLink to="/my-report/profit-loss-downline" onClick={(e)=>handleClick(item)}>

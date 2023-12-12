@@ -123,9 +123,9 @@ const BettingHistory = (props) => {
                 </ul>
 
                 <ul className="input-list boxsetting">
-                <li><Link to="" id="today"  onClick = {()=>{getBetHistory('today')}} className="btn">Just For Today</Link></li>
-                <li><Link to="" id="yesterday" onClick = {()=>{getBetHistory('yesterday')}} className="btn">From Yesterday</Link></li>
-                <li><Link to="" id="getPL"  className="btn-send" onClick = {()=>{getBetHistory('default')}}>Get History</Link></li>
+                <li><Link to="" id="today"  onClick = {(e)=>{e.preventDefault(); getBetHistory('today')}} className="btn">Just For Today</Link></li>
+                <li><Link to="" id="yesterday" onClick = {(e)=>{e.preventDefault(); getBetHistory('yesterday')}} className="btn">From Yesterday</Link></li>
+                <li><Link to="" id="getPL"  className="btn-send" onClick = {(e)=>{e.preventDefault(); getBetHistory('default')}}>Get History</Link></li>
                 </ul>
             </div>
             {!dataExist && <div id="noReportMessage">
