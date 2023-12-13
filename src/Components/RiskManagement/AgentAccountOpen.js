@@ -21,6 +21,7 @@ const AgentAccountOpen = (props) => {
         <div id="mainWrap" className="main_wrap risk-responsive">
             <table id="matchTable" className="table-s" style={{display:'table'}}>
             <AgentPath agentList={agentList}/>
+            <div className='nextTabOpen'>
             <>
               <ul className="tab col2">
               <li className="bet-histo"><a onClick={() => { setselect(1) }} className={`${(select === 1) ? "select" : ""}`}>Bets History </a> </li>
@@ -29,6 +30,7 @@ const AgentAccountOpen = (props) => {
               {select === 1 && <BettingHistory setLoading={setLoading} selectedItem={selectedItem}/>}
               {select === 2 && <BettingProfitLoss setLoading={setLoading} selectedItem={selectedItem}/>}
             </>
+            </div>
             </table>
     </div>
         </>

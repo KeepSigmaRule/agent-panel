@@ -144,14 +144,14 @@ const BettingListOpen = (props) => {
               </table>
               </div>
             }
-            {section===1 && <>
+            {section===1 && <div className='nextTabOpen'><>
               <ul className="tab col2">
               <li className="bet-histo"><a onClick={() => { setselect(1) }} className={`${(select === 1) ? "select" : ""}`}>Bets History </a> </li>
               <li className="bet-histo"><a onClick={() => { setselect(2) }} className={`${(select === 2) ? "select" : ""}`}>Profit & Loss </a></li>
               </ul>
               {select === 1 && <BettingHistory  setLoading={setLoading} selectedItem={selectedPlayer}/>}
               {select === 2 && <BettingProfitLoss  setLoading={setLoading} selectedItem={selectedPlayer}/>}
-            </>}
+            </></div>}
             </table>
     </div>
         </>

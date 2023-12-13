@@ -12,6 +12,7 @@ import ProfitLossMarket from './Components/ProfitLossMarket';
 import BetList from './Components/BetList';
 import BettingListOpen from './Components/RiskManagement/BettingListOpen';
 import AgentAccountOpen from './Components/RiskManagement/AgentAccountOpen';
+import FancyBookingOpen from './Components/RiskManagement/FancyBookingOpen';
 import AgentAccountOpenPl from './Components/ProfitLossDownline/AgentAccountOpenPl';
 import BetListLive from './Components/BetListLive';
 import RiskManagement from './Components/RiskManagement';
@@ -36,6 +37,7 @@ function App() {
         <Route path='/risk-management' element={<RiskManagement/>}></Route>
         <Route path='/BettingListOpen' element={<BettingListOpen/>}></Route>
         <Route path='/AgentAccountOpen' element={<AgentAccountOpen/>}></Route>
+        <Route path='/FancyBookingOpen' element={<FancyBookingOpen/>}></Route>
         <Route path='/AgentAccountOpenPl' element={<AgentAccountOpenPl/>}></Route>
       </Routes>
       <ToastContainer autoClose={5000} position="top-center"/>
