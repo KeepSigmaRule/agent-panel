@@ -58,12 +58,12 @@ const AccountStatement = (props) => {
                     <td id="createDate" className="align-L">{item.time}</td>
                     {user.level<5 && <>
                       <td id="deposit">
-                      <span className="green">{val>=0?Math.abs(val).toFixed(2):'-'}</span></td>
+                      <span className="green">{val<0?'('+Math.abs(val).toFixed(2)+')':'-'}</span></td>
                       <td id="withdraw">
-                      <span className="red">{val<0?'('+Math.abs(val).toFixed(2)+')':'-'}</span>
+                      <span className="red"> {val>=0 ?'('+Math.abs(val).toFixed(2)+')':'-'}</span>
                       </td>
                     </>}
-                    {user.level==5 && <>
+                    {user.level===5 && <>
                       <td id="withdraw">
                       <span className="red">{val<0?'('+Math.abs(val).toFixed(2)+')':'-'}</span>
                       </td>

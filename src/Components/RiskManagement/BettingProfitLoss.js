@@ -134,7 +134,7 @@ useEffect(() => {
                     Binary
                 </li>
             </ul>
-            <div className="function-wrap">
+            <div className="function-wrap clearfix">
       <ul className="input-list boxsetting">
       <li style={{ lineHeight: '48px' }}><label>Period</label></li>
       <ul className="input-list" style={{ display: 'inline-flex', borderBottom: 'none', padding: '0px' }}>
