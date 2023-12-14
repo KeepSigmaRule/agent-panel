@@ -8,7 +8,6 @@ import BettingProfitLoss from "../RiskManagement/BettingProfitLoss";
 import BettingHistory from "../RiskManagement/BettingHistory";
 import IsLoadingHOC from '../IsLoadingHOC';
 import Header from '../Header';
-import "react-datepicker/dist/react-datepicker.css";
 import { toast } from "react-toastify";
 const BettingListOpen = (props) => {
     let { isLoading, setLoading } = props;

@@ -6,7 +6,6 @@ import BettingProfitLoss from "../ProfitLossDownline/BettingProfitLoss";
 import BettingHistory from "../ProfitLossDownline/BettingHistory";
 import IsLoadingHOC from '../IsLoadingHOC';
 import Header from '../Header';
-import "react-datepicker/dist/react-datepicker.css";
 const AgentAccountOpenPl = (props) => {
     const dispatch = useDispatch();
     let { isLoading, setLoading } = props;

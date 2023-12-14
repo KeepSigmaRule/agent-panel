@@ -5,7 +5,6 @@ import BettingProfitLoss from "../RiskManagement/BettingProfitLoss";
 import BettingHistory from "../RiskManagement/BettingHistory";
 import IsLoadingHOC from '../IsLoadingHOC';
 import Header from '../Header';
-import "react-datepicker/dist/react-datepicker.css";
 const AgentAccountOpen = (props) => {
     let [searchParams, setSearchParams] = useSearchParams()
     let selectedItem = searchParams.get('event');
