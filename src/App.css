@@ -72,8 +72,20 @@ body.betbuzz365 .loginformmb{
   height: auto;
   min-height: 100vh !important;
 }
+.input-list, 
 .no-record,
 .report-tab-wrap{
   display: flex;
   justify-content: flex-start !important;
+}
+.boxsetting{
+  display: flex !important;
+}
+.position-left{
+  position:absolute;
+  right: 55%;
+}
+.time-input {
+	text-align: center !important;
+	height: 27px !important;
 }

@@ -140,9 +140,9 @@ const BettingHistory = (props) => {
                     <li><Link to="" id="getPL" className="btn-send" onClick={(e) => { e.preventDefault(); getBetHistory('default') }}>Get History</Link></li>
                 </ul>
             </div>
-            {!dataExist && <div id="noReportMessage">
-                <p>Betting History enables you to review the bets you have placed. <br />Specify the time period during which your bets were placed, the type of markets on which the bets were placed, and the sport.</p>
-                <p>Betting History is available online for the past 30 days.</p>
+            {!dataExist && <div id="noReportMessage" style={{ display: 'flex', textAlign: 'left' }}>
+                <p>Betting History enables you to review the bets you have placed. <br />Specify the time period during which your bets were placed, the type of markets on which the bets were placed, and the sport.
+                    <br /> Betting History is available online for the past 30 days.</p>
             </div>}
             <div id="report">
                 {dataExist && <table id="matchTable" className="table-s" style={{ display: 'table' }}>

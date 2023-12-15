@@ -4263,7 +4263,9 @@ input.error, .member_select a.error, textarea.error {
 	vertical-align:middle;
 }
 .input-list .time-input, .filter-list .time-input {
-	margin-left: -3px
+	margin-left: -3px;
+	text-align: center !important;
+	height: 27px !important;
 }
 .input-list .btn, .input-list .filter_setting, .input-list .add_member, .input-list .btn_expand, .input-list .total_all .btn_replay, .total_all .input-list .btn_replay, .input-list .calendarTable_inputBox input, .input-list .calendarTable_inputBox .member_select a, .member_select .input-list .calendarTable_inputBox a, .calendarTable_inputBox .input-list input, .calendarTable_inputBox .input-list .member_select a, .member_select .calendarTable_inputBox .input-list a, .input-list .calendarTable_inputBox textarea, .calendarTable_inputBox .input-list textarea, .input-list .pages a, .pages .input-list a, .filter-list .btn, .filter-list .filter_setting, .filter-list .add_member, .filter-list .btn_expand, .filter-list .total_all .btn_replay, .total_all .filter-list .btn_replay, .filter-list .calendarTable_inputBox input, .filter-list .calendarTable_inputBox .member_select a, .member_select .filter-list .calendarTable_inputBox a, .calendarTable_inputBox .filter-list input, .calendarTable_inputBox .filter-list .member_select a, .member_select .calendarTable_inputBox .filter-list a, .filter-list .calendarTable_inputBox textarea, .calendarTable_inputBox .filter-list textarea, .filter-list .pages a, .pages .filter-list a, .input-list .btn-send, .filter-list .btn-send {
 	width: 95px;

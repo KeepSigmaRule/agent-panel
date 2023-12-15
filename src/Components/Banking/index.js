@@ -65,13 +65,14 @@ const Banking = (props) => {
                 toast.success("Updated successfully.");
                 setbankingResponse(response.data);
                 setrefreshDownline(!refreshDownline);
-                dispatch(getAccountDetail({sid:token})).then((response)=>{},(err)=>{
+                dispatch(getAccountDetail({sid:token})).then((response)=>{
+                },(err)=>{
                     toast.error(err);
                 });
                 setLoading(false);
             },(err)=>{
                 setLoading(false);
-                toast.error(err.message);
+                toast.error(err.message?err.message:err);
             });
         }
     }
