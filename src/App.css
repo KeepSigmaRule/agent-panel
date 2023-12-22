@@ -45,7 +45,7 @@
 	right: 8px;
 	width: 55px;
 	height: 15px;
-	font-size: 22px;
+	font-size: 22px !important;
 	font-weight: bolder;
 }
 
@@ -71,6 +71,14 @@ body.betbuzz365 .loginformmb{
   background-image: linear-gradient(56deg, #de352c 4%, #de352c 42%);
   height: auto;
   min-height: 100vh !important;
+}
+.refresh-but{
+  background-image: linear-gradient(56deg, #de352c 4%, #de352c 42%);
+  margin-top: 3px;
+  border-radius:  2px;
+  color :#fff;
+  width: 70px;
+  border: 0px !important;
 }
 .input-list, 
 .no-record,

@@ -56,21 +56,12 @@ const AccountStatement = (props) => {
                 return(
                     <tr id="tempTr" key = {index}>
                     <td id="createDate" className="align-L">{item.time}</td>
-                    {user.level<5 && <>
                       <td id="deposit">
-                      <span className="green">{val<0?'('+Math.abs(val).toFixed(2)+')':'-'}</span></td>
+                      <span className="green"> {val>=0 ? Math.abs(val).toFixed(2):'-'}</span>
+                      </td>
                       <td id="withdraw">
-                      <span className="red"> {val>=0 ?'('+Math.abs(val).toFixed(2)+')':'-'}</span>
-                      </td>
-                    </>}
-                    {user.level===5 && <>
-                      <td id="withdraw">
-                      <span className="red">{val<0?'('+Math.abs(val).toFixed(2)+')':'-'}</span>
-                      </td>
-                      <td id="deposit">
-                      <span className="green">{val>=0?Math.abs(val).toFixed(2):'-'}</span>
-                      </td>
-                    </>}
+                      <span className="red">{val<0?'('+Math.abs(val).toFixed(2)+')':'-'}</span></td>
+
                     
                     <td id="balance"> {parseFloat(item.balance).toFixed(2) }</td>
                     <td id="remark">{item.remark}</td>

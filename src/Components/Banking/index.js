@@ -84,7 +84,7 @@ const Banking = (props) => {
     {showDownlineLogs && <DownlineLogs setLoading={setLoading} setshowDownlineLogs={setshowDownlineLogs} selectedAgentId={selectedAgentId} selectedAgentLevel={selectedAgentLevel}/>}
     <div id="mainWrap" className="main_wrap risk-responsive">
         <h2>Banking</h2>
-        <SearchBar items={items} setItems={setItems} setLoading={setLoading}/>
+        <SearchBar items={items} setItems={setItems} setLoading={setLoading}bankingResponse={bankingResponse}setAgents={setAgents}/>
         <div className="over-wrap white-wrap" style={{ maxHeight:'460px',overflow:'auto'}}>
         <div className="function-wrap clearfix">
             <dl className="banking-head float-L">
