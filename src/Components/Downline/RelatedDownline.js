@@ -81,7 +81,7 @@ const RelatedDownline = (props) => {
         <th id="actionTh" width="8.9%">Action</th>
         </tr>
         {
-        items.map((item, index)=>{
+        items?.filter(itm=>!itm.hide).map((item, index)=>{
         let agnetLevelInfo = {};
         agnetLevelInfo = getAgentLevelInfo(item.level);
         let agentBasicInfo ={id:item.clientid,level:agnetLevelInfo.level_no,balance:item.Balance,level_text:agnetLevelInfo.level_text,agent_level:agnetLevelInfo.agent_level};
