@@ -30,7 +30,15 @@ const SearchBar = (props) => {
 
 
   function searchData(searchValue, array) {
-    let data = array?.filter(item => item.clientid.toLowerCase().includes(searchValue.toLowerCase()));
+    let data = array?.map((item) => {
+      if (item.clientid.toLowerCase().includes(searchValue.toLowerCase())) {
+        item.hide = false;
+      } else {
+        item.hide = true;
+
+      }
+      return {...item}
+    });
     dispatch({ type: "ACCOUNT_DOWNLINE_UPDATE", payload: data ?? [] });
   }
 
@@ -110,7 +118,7 @@ const SearchBar = (props) => {
     setAgentPath(agent_path);
   }, [agent_path]);
 
- const handleHardRefresh = () => {
+  const handleHardRefresh = () => {
     window.location.reload(true);
   };
 
@@ -128,8 +136,8 @@ const SearchBar = (props) => {
             <div className="js-scroll-start"></div>
           </div>
         </div>
-        
-        <div style={{ position: 'absolute', left:290,top:4 }}>
+
+        <div style={{ position: 'absolute', left: 290, top: 4 }}>
 
           <button onClick={async () => { handleHardRefresh() }} className="refresh-but" style={{ height: '28px' }}>Refresh</button>
         </div>
