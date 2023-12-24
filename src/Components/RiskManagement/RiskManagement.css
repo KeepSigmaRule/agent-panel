@@ -51,7 +51,7 @@
 .table01 .title_td-BB td, .table_one .title_td-BB td, .table-s .title_td-BB td {
 	font-weight: bold;
 	color: #243a48;
-	border-bottom: 1px solid #7e97a7
+	border-bottom: 1px solid #7e97a7 !important;
 }
 .table01 .bg_y, .table_one .bg_y, .table-s .bg_y {
 	background-color: #beddf4

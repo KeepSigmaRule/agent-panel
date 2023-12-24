@@ -92,7 +92,7 @@ const RelatedDownline = (props) => {
         let Exposure = (parseFloat(item.Exposure).toFixed(2) >= 0)?parseFloat(item.Exposure).toFixed(2):`(${parseFloat(Math.abs(item.Exposure)).toFixed(2)})`;
         let Reference_PL = (parseFloat(item.Reference_PL).toFixed(2) >= 0)?parseFloat(item.Reference_PL).toFixed(2):`(${parseFloat(Math.abs(item.Reference_PL)).toFixed(2)})`;
         return (
-            <tr id="14" key={index} main_userid="wb77" style={{display:'table-row'}}>
+            <tr id="14" key={index} main_userid="wb77" style={{display:'table-row',borderBottom:"1px solid #7E97A7"}}>
             <td id="accountCol" className="align-L" style={{pointerEvents:item.level<6?'':'none'}}>
                 <NavLink to="" onClick={()=>(item.level<6)?HandleAgentPath(agentBasicInfo):''} id="account14" className="ico_account" style={{textDecoration:'none'}}>
                 <span className="order">{(currentPage-1)*itemsPerPage+index+1}.</span>

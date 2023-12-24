@@ -151,6 +151,9 @@ export const forgotPassword = data => async _dispatch => {
 }
 
 export const logOut = () => _dispatch => {
+    
+    
+      
     return (
         _dispatch({ type: "LOGOUT" })
     )

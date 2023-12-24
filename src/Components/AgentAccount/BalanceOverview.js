@@ -126,7 +126,7 @@ const BalanceOverview = (props) => {
                     <td id="createDate" className="align-L">{dateIs}</td>
                     <td id="remark">{item.EventName}</td>
                     <td id="withdraw">
-                    <span className="red">{item.Debit>0?'('+Math.abs(item.Debit).toFixed(2)+')':'-'}</span>
+                    <span className="red">{item.Debit!==null && item.Debit!=0 ?'('+Math.abs(item.Debit).toFixed(2)+')':'-'}</span>
                     </td>
                     <td id="deposit">
                     <span className="green">{item.Credit>0?Math.abs(item.Credit).toFixed(2):'-'}</span></td>
