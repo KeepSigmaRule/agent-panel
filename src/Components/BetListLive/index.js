@@ -17,6 +17,7 @@ const BetListLive = (props) => {
     let [sortType,setsortType] = useState('desc');
     let [eventType,seteventType] = useState('Cricket');
     let [betStatus,setbetStatus] = useState('1');
+    let [betStatusResult,setbetStatusResult] = useState('1');
     let [searchUserId,setsearchUserId] = useState('');
     let [refreshInterval,setrefreshInterval] = useState(60);
     let [refreshStatus,setrefreshStatus] = useState(false);
@@ -99,6 +100,7 @@ const BetListLive = (props) => {
         dispatch(getLiveBetList(params)).then((response)=>{
             console.log(response);
             setLoading(false);
+            setbetStatusResult(betStatus);
             setitemsBucket(response);
             settotelCount(response.length);
             setSelectedItem([]);
@@ -220,7 +222,7 @@ const BetListLive = (props) => {
                 <table id="matchTable" className="table-s" style={{display:'table'}}>
                     <tbody>
                         <tr>
-                            <th width="2%" className="align-L"><input type="checkbox" id="betlivevalcheck" onChange={()=>{handleSelectAll()}} checked={isCheckAll}/></th>
+                            {betStatusResult!=3 && <th width="2%" className="align-L"><input type="checkbox" id="betlivevalcheck" onChange={()=>{handleSelectAll()}} checked={isCheckAll}/></th>}
                             {[0,1].includes(user.level) && <th width="8%" className="align-L">SA ID</th>}
                             {[0,1,2].includes(user.level) && <th width="8%" className="align-L">SS ID</th>}
                             {[0,1,2,3].includes(user.level) && <th width="8%" className="align-L">SUP ID</th>}
@@ -246,8 +248,7 @@ const BetListLive = (props) => {
                             let itemInfo = getRunnerOddsLiability(item);
                             return (
                                 <tr key={index} id="matchRow0" style={{display: 'table-row'}}>
-                                <th width="2%" className="align-L" >
-                                <input type="checkbox" onChange={(event)=>{handleSelectItem(event,item)}} checked={selectedItem.includes(item.id)} /></th>
+                                {betStatusResult!=3 && <th width="2%" className="align-L" ><input type="checkbox" onChange={(event)=>{handleSelectItem(event,item)}} checked={selectedItem.includes(item.id)} /></th>}
                                 {[0,1].includes(user.level) && <td id="agentUserId1" className="align-L" >{item.agentList.agentList.level2}</td>}   
                                 {[0,1,2].includes(user.level)  && <td id="agentUserId2" className="align-L" >{item.agentList.agentList.level3}</td>}
                                 {[0,1,2,3].includes(user.level) && <td id="agentUserId3" className="align-L" >{item.agentList.agentList.level4}</td>}
@@ -262,7 +263,9 @@ const BetListLive = (props) => {
                                 <td className="align-C"><span id="matchType" className={`${item.type === 'LAGAI' || item.type === 'YES'? "back":"lay"}`}>{itemInfo.matchtype}</span></td>
                                 <td id="matchOddsReq">{itemInfo.odds}</td>
                                 <td id="matchStake">{parseFloat(item.amount).toFixed(2)}</td>
-                                <td id="liability"><span className="red">{itemInfo.liability === '-' ? itemInfo.liability : `(${itemInfo.liability})`}</span></td> 
+                                <td id="liability">
+                                    {betStatusResult!=3?<span className="red">{itemInfo.liability === '-' ? itemInfo.liability : `(${itemInfo.liability})`}</span>:'Void'}
+                                </td> 
                                 {/* <td id="agentUserId1" className="align-L" >UnMatchedLastPrice</td> 
                                 <td id="agentUserId1" className="align-L" >MatchedLastPrice</td> 
                                 <td id="agentUserId1" className="align-L" >OddsDifferential</td>  */}
