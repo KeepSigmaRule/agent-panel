@@ -144,9 +144,9 @@ const RelatedDownline = (props) => {
                             return (
                                 <tr key={index} id="akshayddl" main_userid="akshayddl" style={{ display: `${(item.hide) ? 'none' : ''}` }}>
                                     <td className="td-uid" style={{ backgroundColor: "rgb(239, 239, 239)" }} id="userId"><i title={item.statusDescription} className={`fa ${item.statusClass}`} aria-hidden="true"></i><span className="order">{index + 1}.</span><span style={{ marginTop: '4px' }} className={`lv_${(item.level < 6) ? item.level : 0}`}>{agnetLevelInfo.level_text}</span>{item.clientid}</td>
-                                    <td id="availableBalance" style={{ backgroundColor: "rgb(239, 239, 239)" }}>{parseFloat(item.Balance).toFixed(2)}</td>
+                                    <td id="availableBalance" style={{ backgroundColor: "rgb(239, 239, 239)" }}>{user.level=="5"? parseFloat(item.Balance).toFixed(2):AvlBalance}</td>
 
-                                    <td id="balance" style={{ backgroundColor: "rgb(223, 223, 223)" }}>{AvlBalance}</td>
+                                    <td id="balance" style={{ backgroundColor: "rgb(223, 223, 223)" }}>{user.level=="5"? parseFloat(AvlBalance).toFixed(2):parseFloat(item.Balance).toFixed(2)}</td>
 
                                     <td id="userExposure" className="red" style={{ backgroundColor: "rgb(223, 223, 223)" }} >{Exposure}</td>
                                     <td className="DW-amount" style={{ backgroundColor: "rgb(239, 239, 239)" }}>
