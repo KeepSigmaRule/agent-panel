@@ -100,7 +100,7 @@ const Header = () => {
                                 <NavLink id="menu_banking" className={({ isActive }) => (isActive ? 'select' : 'null')} to="/banking">Banking</NavLink>
                             </li>
                             <li className="logout">
-                                <NavLink id="logout" to="/" onClick={() => {
+                                <NavLink id="logout" to="/" reloadDocument onClick={() => {
                                       document.body.style.transform = "scale(1)";
                                       dispatch(logOut())
                                 }}>Logout <img src={Transparent} /></NavLink>
