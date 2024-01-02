@@ -97,3 +97,7 @@ body.betbuzz365 .loginformmb{
 	text-align: center !important;
 	height: 27px !important;
 }
+.page-scroll{
+  overflow-y: auto;
+  min-height: 98vh;
+}

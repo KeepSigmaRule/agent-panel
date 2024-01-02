@@ -116,7 +116,7 @@ const ProfitLossDownline = (props) => {
     }
     var futureDate = new Date();
   return (
-    <>
+    < div className='page-scroll'>
     <Header/>
     <div id="mainWrap" className="main_wrap">
         <h2>Profit/Loss Report by Downline</h2>
@@ -266,7 +266,7 @@ const ProfitLossDownline = (props) => {
         </div>
     </div>
     {(logType==='AgentAccount' && showLogs)  && <AgentAccount setLoading={setLoading} selectedItem={selectedItem} setshowLogs={setshowLogs}/>}
-    </>
+    </div>
   )
 }
 

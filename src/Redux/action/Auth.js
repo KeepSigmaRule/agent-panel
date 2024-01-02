@@ -8,10 +8,11 @@ export const login = data => async _dispatch => {
             .then(async (response) => {
                     if (response.status === 200) {
                        _dispatch({ type: "SAVE_TOKEN", payload: response.data ? response.data : null });
+                       localStorage.setItem("jwt_token", response.data);
                        resolve(response.data);
                     }
                     else{
-                        console.log(response.data);
+                        localStorage.clear();
                         reject(response.data);
                     }
                 },
