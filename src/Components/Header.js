@@ -15,36 +15,30 @@ const Header = () => {
     let { user, token } = useSelector(state => state.auth);
     const refreshAccountDetail = () => {
         dispatch(getAccountDetail({ sid: token })).then((response) => {
-            console.log("getAccountDetail", response);
         }, (err) => {
             toast.error(err);
         });
     }
 
-    useEffect(() => {
-        if (token == "") {
-            navigate('/');
-        }
-        const interval = setInterval(() => {
-            dispatch(checkToken({ id: user.id, token: user.token })).then((response) => {
-                if (response === "invalid") {
 
-                }
-            }, (err) => {
-                toast.error(err);
-                let logoutObj = document.getElementById('logout');
-                logoutObj.click();
-            });
-        }, 5000);
+    useEffect(() => {
+        if (token === "") {
+          navigate("/");
+        }
+    
+        const interval = setInterval(async () => {
+          dispatch(checkToken({ id: user.id, token: user.token }));
+        }, 7000);
+    
         return () => clearInterval(interval);
-    }, []);
+      }, [token, user, dispatch, navigate, toast]);
 
     return (
         <>
             <div className='top'>
                 <div className="header">
                     <h1>
-                        <NavLink to="/" style={{ width: '180px', marginTop: '-15px', backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }}>BETBUZZ365</NavLink>
+                        <NavLink to="/" style={{ width: '180px', marginTop: '-15px', backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }}>GAMEX</NavLink>
                     </h1>
                     <ul className="account-wrap" style={{ marginTop: '12px' }}>
                         <li>

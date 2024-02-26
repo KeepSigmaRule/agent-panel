@@ -126,7 +126,7 @@ const Login = (prop) => {
       {isMobile == true &&
         <div className="loginformmb">
           <header className="login-head">
-            <h1>SKYFAIR</h1>
+            <h1>GAMEX</h1>
           </header>
           <dl className='form-login'>
             <div className="form-group mt-5">
@@ -159,15 +159,15 @@ const Login = (prop) => {
             <div className="support-social">
               <div className="social-btn">
                 <img src={transprnt} title="Skype" className="support-skype" />
-                <a href="skype:skyexchangeofficial?chat" target="_blank">Skype</a>
+                <a href="#" target="_blank">Skype</a>
               </div>
               <div className="social-btn">
                 <img src={transprnt} title="Email" className="support-mail" />
-                <a href="mailto:info@skyexchange.com" target="_blank">Email</a>
+                <a href="#" target="_blank">Email</a>
               </div>
               <div className="social-btn">
                 <img src={transprnt} title="Instagram" className="support-ig" />
-                <a href="https://www.instagram.com/officialskyfair/" target="_blank">Instagram</a>
+                <a href="#" target="_blank">Instagram</a>
               </div>
             </div>
           </div>

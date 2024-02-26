@@ -80,8 +80,8 @@ const RelatedDownline = (props) => {
     const getAccountDownlineList = () => {
         let downlineParam = {
             "id": user.id,
-            "puserBlocked": puserBlocked,
-            "pbetBlocked": pbetBlocked,
+            "puserBlocked": 0,
+            "pbetBlocked": 0,
             "searchvalue": "",
         };
         props.setLoading(true);

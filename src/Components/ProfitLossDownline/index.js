@@ -129,6 +129,7 @@ const ProfitLossDownline = (props) => {
                 <option value="sport">sports</option>
                 <option value="casino">Casino</option>
                 <option value="premium">Premium</option>
+                <option value="sportbook">Sportbook</option>
             </select>
         </li>}
         <li>

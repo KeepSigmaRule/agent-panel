@@ -115,6 +115,12 @@ export const getRunnerOddsLiability = item => {
             result['odds'] = parseFloat(parseFloat(item.rate) + 1).toFixed(2);
             result['liability'] = (item.type === 'KHAI')?parseFloat(parseFloat(item.rate)*parseFloat(item.amount)).toFixed(2):'-';
         } break;
+        
+        case 'sportbook':{
+            result['runner'] = (item.teamName == 'A')?item.runnerName1:(item.teamName == 'B')?item.runnerName2:'-';
+            result['odds'] = parseFloat(item.rate).toFixed(2);
+            result['liability'] = (item.type === 'KHAI')?parseFloat(parseFloat(item.rate)*parseFloat(item.amount)).toFixed(2):'-';
+        } break;
     }
     result['matchtype'] = (item.type === 'LAGAI')?'BACK':(item.type === 'KHAI')?'LAY':item.type;
     /**

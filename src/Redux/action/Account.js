@@ -278,6 +278,30 @@ export const getClientCasinoProfitLoss = data => async _dispatch => {
     })
 }
 
+export const getClientSportbookBetHistory = data => async _dispatch => {
+    return new Promise(async (resolve, reject) => {
+        await withoutAuthAxios().post("/api/agent/sportbookbetHistoryClient", data)
+            .then(
+                response => {
+                    if (response.status === 200) {
+                       resolve(response.data);
+                    }
+                    else{
+                        reject(response.data);
+                    }
+                },
+                error => {
+                    reject(error);
+                }
+            )
+            .catch(
+                error => {
+                    console.log("errorrrr", error);
+                    reject(error.message);
+                }
+            )
+    })
+}
 export const getClientBetHistory = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
         await withoutAuthAxios().post("/api/agent/betHistoryClient", data)

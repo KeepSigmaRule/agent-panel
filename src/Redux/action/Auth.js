@@ -28,31 +28,20 @@ export const login = data => async _dispatch => {
             )
     })
 }
-
-export const checkToken = data => async _dispatch => {
-    return new Promise(async (resolve, reject) => {
-        await withoutAuthAxios().post("/api/agent/CheckToken", data)
-            .then(async (response) => {
-                    if (response.status === 200) {
-                       resolve(response.data);
-                    }
-                    else{
-                        console.log(response.data);
-                        reject(response.data);
-                    }
-                },
-                error => {
-                    reject(error.message);
-                }
-            )
-            .catch(
-                error => {
-                    console.log("errorrrr", error);
-                    reject(error.message);
-                }
-            )
-    })
-}
+export const checkToken = (data) => async (_dispatch) => {
+    try {
+      const response = await withoutAuthAxios().post(
+        "/api/agent/CheckToken",
+        data
+      );
+      if (response.data === "invalid") {
+        return _dispatch({ type: "LOGOUT" });
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
+  };
 
 export const getAccountDetail = data => async _dispatch => {
     return new Promise(async (resolve, reject) => {
