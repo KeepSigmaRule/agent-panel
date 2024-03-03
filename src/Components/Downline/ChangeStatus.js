@@ -13,7 +13,6 @@ const ChangeStatus = (props) => {
   let agnetLevelInfo = getAgentLevelInfo(props.selectedRow.level);
   let [params,setParams] = useState({sid:token,agentId:props.selectedRow.clientid,level:props.selectedRow.level,status:0,password:''});
   let downlineParam = {"id": user.id,"puserBlocked": puserBlocked,"pbetBlocked": pbetBlocked,"searchvalue": ""};
-  console.log("downlineParam",downlineParam);
   const handelSubmit = async()=>{
     props.setLoading(true);
     await dispatch(updateAgentStatus(params)).then(async(response)=>{
@@ -23,7 +22,7 @@ const ChangeStatus = (props) => {
       dispatch(getAccountDownlines(downlineParam)).then((response)=>{
         props.setLoading(false);
         },(err)=>{
-          console.log("getAccountDownlines err",err);
+          toast.error(err)
         });
     },(err)=>{
       props.setLoading(false);

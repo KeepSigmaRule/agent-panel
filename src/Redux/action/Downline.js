@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { withoutAuthAxios } from "../../Config/axios";
 
 export const getAgentLevelInfo = (account_level) => {
@@ -145,7 +146,6 @@ export const updateCreditAgent = data => async _dispatch => {
             )
             .catch(
                 error => {
-                    console.log("errorrrr", error);
                     reject(error.message);
                 }
             )
@@ -165,6 +165,8 @@ export const updateAgentStatus = data => async _dispatch => {
                     }
                 },
                 error => {
+                    console.log("errorrrr!!!", error.response.data.message);
+                    toast.error(error.response.data.message);
                     reject(error);
                 }
             )

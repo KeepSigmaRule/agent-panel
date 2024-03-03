@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.status1-bg{
+  width: 26px;
+  height: 26px;
+  margin-left: 3px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-position: -30px -576px;
+  border: 2px solid #CCC;
+  border-radius: 5px;
+}
+.status1 {
+  height: 17px;
+  width: 17px;
+  background-image: url("../src/images/1.png");
+  background-size: cover; /* You can use other values like contain, auto, etc. */
+  background-position: center; /* You can adjust this as needed */
+  background-repeat: no-repeat; /* You can use repeat-x, repeat-y, repeat, or initial */
+
+}
